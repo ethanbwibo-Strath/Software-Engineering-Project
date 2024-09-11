@@ -1,0 +1,79 @@
+/* Universal styling */
+*
+{
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+/* Page styling */
+body
+{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+/* Navigation container */
+.nav
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    box-shadow: 0px 0px 10px #000;
+}
+/* Logo in Nav */
+.nav .logo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Links in nav */
+.nav .links ul
+{
+    display: flex;
+    list-style: none;
+}
+
+.nav .links ul a
+{
+    margin-right: 20px;
+    text-decoration: none;
+    padding: 5px;
+    font-weight: bold;
+    color: #000;
+}
+
+.nav .links ul a:hover
+{
+    color: #ffb6b6;
+    transition: .2s ease-in;
+}
+/* Search bar in nav */
+.nav .search
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .search input
+{
+    border-radius: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+/* Account section in nav */
+.nav .account
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .account p
+{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
