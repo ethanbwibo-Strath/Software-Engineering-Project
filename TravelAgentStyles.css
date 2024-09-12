@@ -12,6 +12,7 @@ body
     height: 100vh;
     background-color: rgba(178, 255, 255, 0.6);
 }
+
 /* Navigation container */
 .nav
 {
@@ -30,6 +31,7 @@ body
     justify-content: center;
     align-items: center;
 }
+
 /* Links in nav */
 .nav .links ul
 {
@@ -39,7 +41,7 @@ body
 
 .nav .links ul a
 {
-    margin-right: 20px;
+    margin-right: 3vh;
     text-decoration: none;
     padding: 5px;
     font-weight: bold;
@@ -57,6 +59,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5vw;
 }
 
 .nav .search input
@@ -64,8 +67,8 @@ body
     border-radius: 5px;
     margin-left: 5px;
     text-align: center;
-    width: 400px;
-    height: 30px;
+    width: 30vh;
+    height: 5vh;
 }
 
 /* Account section in nav */
@@ -74,13 +77,14 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5vw;
 }
 
 .nav .account p
 {
     font-size: 20px;
     font-weight: bold;
-    margin-left: 10px;
+    margin-left: 3vh;
 }
 
 /* Main Section */
@@ -88,60 +92,80 @@ body
 {
     height: 80vh;
     display: flex;
-    justify-content: space-between;
-
 }
 
 /* Sidebar section */
-.main .sidebar
+.sidebar
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    width: 20%;
-    height: 70%;
+    width: 20vw;
+    height: 60vh;
     box-shadow: 0px 0px 10px #000;
     padding: 10px;
-    margin: auto 30px auto -10px;
-    float: left;
+    margin: auto 2vw auto -3vw;
     background-color: #fff;
 }
 
-.main .sidebar ul
-{
+
+.sidebar ul{
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: left;
+    height: 65%;
+    width: 80%;
+    padding: auto auto auto -30px;
+    margin: auto;
+    align-items: center;
+    /* border: 2px solid red; */
+
+    
 }
 
-.main .sidebar ul a
+.sidebar ul a
 {
     text-decoration: none;
+    font-weight: bold;
     color: #000;
-    margin-right: 10px;
+    
 }
 
-.main .sidebar ul li
+.sidebar ul a:hover
 {
-    margin: 20px 0;
+    color: aqua;
+    transition: .2s ease-in;
 }
 
-.main .sidebar ul img
-{
-    float: right;
+.sidebar-link{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    gap: 0.5vw;
+    width: 100%;
+    height: 20%;
+    margin: 2vh 0 0 -1vw;
+    /* border: 2px solid purple; */
 }
+
+.sidebar-link img
+{
+    width: 4vh;
+    height: 4vh;
+    justify-content: center;
+}
+
 /* Content section */
 .content
 {
     width: 80%;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    margin: auto;
+    padding: 2vh;
+    /* border: 2px solid red; */
 }
 /* Stats section */
 .stats
@@ -149,50 +173,77 @@ body
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 10vh;
+    height: 40%;
+    width: 90%;
+    margin: auto;
+    /* border: 2px solid gold; */
 }
 
 .statCard
 {
     display: flex;
     justify-content: space-around;
-    width: 400px;
+    width: 50%;
+    height: 80%;
     box-shadow: 0px 0px 10px #000;
     margin: 0 10px;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 3vh 1vw;
+    border-radius: 0.5cm;
     text-align: center;
     background-color: #fff;
 }
-
+.statCard h2{
+    margin-bottom: auto;
+}
 .statCard img
 {
-    height: 100px;
-    width: 100px;
+    height: 90%;
+    width: 30%;
+    align-content: center;
 }
 
 .statCard p
 {
+    font-size: larger;
     font-weight: bold;
-    font-size: 20px;
+    
 }
 
 /* Content Bottom Section */
 .bottom
 {
-    width: 100%;
-    margin-top: -300px;
+    width: 90%;
+    height: 70%;
+    margin: auto;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    gap: 2vw;
+    /* border: 2px solid green; */
 }
 
 .recentActivity
 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 45%;
+    margin: auto;
+    width: 50%;
+    height: 90%;
+    /* border: 2px solid pink; */
+}
+
+.recentActivityHeader{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    float: left;
+    height: 5vh;
+    margin: auto 0;
+    padding: 10px 15px;
+    /* border: 2px solid blueviolet; */
+}
+
+.recentActivityHeader h2{
+    font-size: xx-large;
 }
 
 .activityCard
@@ -201,8 +252,9 @@ body
     justify-content: space-around;
     align-items: center;
     box-shadow: 0px 0px 10px #000;
-    margin: 10px;
+    margin: 1vh;
     border-radius: 10px;
+    height: 20%;
     background-color: #fff;
 }
 
@@ -215,15 +267,31 @@ body
 
 .calendar
 {
-    width: 45%;
+    width: 50%;
+    padding: auto 3vw;
+    /* border: 2px solid red;  */
+    
+}
+.calendarHeader{
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+    float: left;
+    height: 5vh;
+    width: 100%;
+    margin: auto 0;
+    padding: 10px 15px;
+    /* border: 2px solid blueviolet;  */
 }
 
+.calendarHeader h2{
+    font-size: xx-large;
+}
 /* Footer section */
 
 .footer
 {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     height: 10vh;
     box-shadow: 0px 0px 10px #000;
@@ -232,10 +300,16 @@ body
 
 .footer .socials img
 {
-    margin-right: 10px;
+    margin:0 1vw 0 1vw;
 }
 
+.footer .copyright
+{
+    margin-left: 30vw;
+}
 .footer .copyright span
 {
-    color: aqua;
+    color: rgba(0, 255, 255, 0.671);
+    text-decoration: underline;
+    font-weight: bold;
 }
