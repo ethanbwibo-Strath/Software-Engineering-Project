@@ -10,6 +10,7 @@ body
     margin: 0;
     padding: 0;
     height: 100vh;
+    background-color: rgba(178, 255, 255, 0.6);
 }
 /* Navigation container */
 .nav
@@ -17,8 +18,10 @@ body
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 10vh;
     padding: 10px 15px;
     box-shadow: 0px 0px 10px #000;
+    background-color: #fff;
 }
 /* Logo in Nav */
 .nav .logo
@@ -45,7 +48,7 @@ body
 
 .nav .links ul a:hover
 {
-    color: #ffb6b6;
+    color: aqua;
     transition: .2s ease-in;
 }
 /* Search bar in nav */
@@ -61,6 +64,8 @@ body
     border-radius: 5px;
     margin-left: 5px;
     text-align: center;
+    width: 400px;
+    height: 30px;
 }
 
 /* Account section in nav */
@@ -76,4 +81,161 @@ body
     font-size: 20px;
     font-weight: bold;
     margin-left: 10px;
+}
+
+/* Main Section */
+.main
+{
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* Sidebar section */
+.main .sidebar
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 20%;
+    height: 70%;
+    box-shadow: 0px 0px 10px #000;
+    padding: 10px;
+    margin: auto 30px auto -10px;
+    float: left;
+    background-color: #fff;
+}
+
+.main .sidebar ul
+{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.main .sidebar ul a
+{
+    text-decoration: none;
+    color: #000;
+    margin-right: 10px;
+}
+
+.main .sidebar ul li
+{
+    margin: 20px 0;
+}
+
+.main .sidebar ul img
+{
+    float: right;
+}
+/* Content section */
+.content
+{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+/* Stats section */
+.stats
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+}
+
+.statCard
+{
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    box-shadow: 0px 0px 10px #000;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.statCard img
+{
+    height: 100px;
+    width: 100px;
+}
+
+.statCard p
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Content Bottom Section */
+.bottom
+{
+    width: 100%;
+    margin-top: -300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.recentActivity
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45%;
+}
+
+.activityCard
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 10px #000;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.activityInfo
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.calendar
+{
+    width: 45%;
+}
+
+/* Footer section */
+
+.footer
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    box-shadow: 0px 0px 10px #000;
+    background-color: #fff;
+}
+
+.footer .socials img
+{
+    margin-right: 10px;
+}
+
+.footer .copyright span
+{
+    color: aqua;
 }
