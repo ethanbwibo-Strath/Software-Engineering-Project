@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="adminStyle.css">
+    <link rel="icon" href="img/logo.png">
 </head>
 <body>
     <div class="nav">
@@ -37,11 +38,25 @@
         <div class="sidebar">
             <h2>DASHBOARD</h2>
             <ul>
-                <li><a href="">User Management</a><img src="img/user.png" alt="User Icon"></li>
-                <li><a href="">Travel Packages</a><img src="img/travelpackage.png" alt="Package Icon"></li>
-                <li><a href="">Booking Management</a><img src="img/book.png" alt="Book Icon"></li>
-                <li><a href="">Reports & Analytics</a><img src="img/report.png" alt="Report Icon"></li>
-                
+                <div class="sidebar-link">
+                    <li><a href="">User Management </a></li>
+                    <img src="img/user.png" alt="User Icon">
+                </div>
+
+                <div class="sidebar-link">
+                    <li><a href="">Travel Packages </a></li>
+                    <img src="img/travelpackage.png" alt="Package Icon">
+                </div>
+                    
+                <div class="sidebar-link">
+                    <li><a href="">Booking Management </a></li>   
+                    <img src="img/book.png" alt="Book Icon">
+                </div>
+
+                <div class="sidebar-link">
+                    <li><a href="">Reports & Analytics </a></li>
+                    <img src="img/report.png" alt="Report Icon">
+                </div>   
             </ul>
         </div>
         <div class="content">
@@ -70,7 +85,12 @@
             </div>
             <div class="bottom">
                 <div class="recentActivity">
-                    <h2><img src="img/clock.png" alt="">   Recent Activity</h2>
+                    <div class="recentActivityHeader">
+                        <img src="img/clock.png" alt="">
+                        <h2>Recent Activity</h2>
+                    </div>
+                    
+
                     <div class="activityCard">
                         <img src="img/user.png" alt="">
                         <h3>John Doe</h3>
@@ -93,9 +113,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="calendar">
-                    <h2><img src="img/calendar.png" alt="">   Event Calendar</h2>
 
+                <div class="calendar">
+                    <div class="calendarHeader">
+                        <img src="img/calendar.png" alt="">
+                        <h2>Event Calendar</h2>
+                    </div>
+                    <p>Calendar to be placed HERE!!<br> Together with more content...</p>
                 </div>
             </div>
         </div>
