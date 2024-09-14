@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title><?php echo $pagetitle ?></title>
     <link rel="stylesheet" href="adminStyle.css">
     <link rel="icon" href="img/logo.png">
 </head>

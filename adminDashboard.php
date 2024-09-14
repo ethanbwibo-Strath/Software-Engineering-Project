@@ -1,5 +1,6 @@
 <?php
 // Include the header
+$pagetitle = "Admin Dashboard";
 include "layouts/header.php";
 ?>
 
