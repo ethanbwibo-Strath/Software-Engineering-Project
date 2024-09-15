@@ -15,9 +15,10 @@ include "layouts/header.php";
 
     <form action="">
         <div class="input-container">
-            <label for="gmail">Gmail :</label>
+            <label for="email">Email :</label>
             <br>
-            <input type="text" id="gmail" name="gmail" required>
+            <input type="text" id="email" name="email" required>
+            
 
             <div class="input-container">
                 <label for="fname">First Name :</label>
