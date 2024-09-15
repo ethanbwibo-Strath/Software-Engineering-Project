@@ -4,8 +4,9 @@ include('layouts/header.php');
 ?>
 
     <div class="home">
+        <div class="top">
             <h1>Discover the World's Hidden Gems.</h1>
-            
+        </div>
             <div class="btns">
                 <div class="book-btn">
                     <button type ="button">Book Now</button>
@@ -15,7 +16,7 @@ include('layouts/header.php');
                     <button type ="button">Explore</button>
                 </div>
             </div>
-        </div>
+        
 
         <div class="below-the-fold">
             <div class="packages">
