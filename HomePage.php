@@ -1,4 +1,5 @@
 <?php
+$pagetitle = "Home Page";
 // Include the header
 include('layouts/header.php');
 ?>

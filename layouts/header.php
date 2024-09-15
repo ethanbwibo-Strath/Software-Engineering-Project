@@ -6,7 +6,7 @@
     <title><?php echo $pagetitle ?></title>
     <link rel="stylesheet" href="adminStyle.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/logo.png">
+    <link rel = "icon" href="img/logo2.png" type = "image/png">
 </head>
 <body>
     <div class="nav">
