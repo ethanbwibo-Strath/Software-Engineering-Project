@@ -39,6 +39,9 @@
     background-color: #f5f5f5;
 }
 
+
+
+
 /* dropdowm */
 .input-container select {
     width: 100%;
@@ -50,11 +53,15 @@
     background-color: #f5f5f5;
 }
 
+
+
+
 .preferences {
     display: flex;
     justify-content: space-between;
     margin: 10px auto;
 }
+
 
 .login-container a {
     color: #000;
