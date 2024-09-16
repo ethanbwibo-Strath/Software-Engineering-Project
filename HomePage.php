@@ -4,8 +4,8 @@ $pagetitle = "Home Page";
 include('layouts/header.php');
 ?>
 <head>
-    <link rel="stylesheet" href="HomePage.css">
     <link rel="stylesheet" href="adminStyle.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
     <div class="home" >
