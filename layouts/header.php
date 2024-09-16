@@ -29,6 +29,6 @@
 
         <div class="account">
             <img src="img/user.png" alt="user">
-            <p>Admin</p>
+            <p>Account</p>
         </div>
     </div>
