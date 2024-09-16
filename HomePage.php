@@ -3,11 +3,14 @@ $pagetitle = "Home Page";
 // Include the header
 include('layouts/header.php');
 ?>
+<head>
+    <link rel="stylesheet" href="HomePage.css">
+    <link rel="stylesheet" href="adminStyle.css">
+</head>
 
-    <div class="home">
+    <div class="home" >
         <div class="top">
-            <h1>Discover the World's Hidden Gems.</h1>
-        </div>
+            <h1>Discover the World's Hidden <br> Gems.</h1>
             <div class="btns">
                 <div class="book-btn">
                     <button type ="button">Book Now</button>
@@ -17,19 +20,19 @@ include('layouts/header.php');
                     <button type ="button">Explore</button>
                 </div>
             </div>
-        
+        </div>
 
         <div class="below-the-fold">
             <div class="packages">
-            <h3>Travel Packages</h3>
+                <h3>Travel Packages</h3>
 
-            <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
+                <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
 
-            <p>Explore the globe's captivating destinations with our cerated travel packages.</p>
+                <p>Explore the globe's captivating destinations with our cerated travel packages.</p>
 
-            <div class="carousel">
-                <!-- elements for the carousel -->
-            </div>
+                <div class="carousel">
+                    <!-- elements for the carousel -->
+                </div>
 
             </div>
 

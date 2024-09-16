@@ -3,6 +3,10 @@
 $pagetitle = "Admin Dashboard";
 include "layouts/header.php";
 ?>
+<head>
+<link rel="stylesheet" href="adminStyle.css">
+</head>
+
 
     <div class="main">
         <div class="sidebar">
