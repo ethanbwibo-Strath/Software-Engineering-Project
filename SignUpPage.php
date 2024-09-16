@@ -6,7 +6,7 @@ include "layouts/header.php";
 
 <head>
     <link rel="stylesheet" href="LoginPage.css">
-    <!-- <link rel="stylesheet" href="SignUpPage.css"> -->
+    <link rel="stylesheet" href="adminStyle.css">
 </head>
 <div class="login-container">
 
