@@ -166,6 +166,7 @@ button:hover {
 }
 .carousel-img{
     display: flex;
+    gap: 20px;
 }
 .carousel img{
     width: 300px;
@@ -212,14 +213,15 @@ button:hover {
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
     transition: transform 0.3s ease-in-out;
     max-width:300px;
     text-align:center;
 }
 .holiday-card img{
-    width: 100%;
+    width: 130px;
     height: 200px;
+    padding: 5px 2px 0 2px;
     object-fit: cover;
     border-bottom: 5px solid goldenrod;
     border-radius: 50px 50px 50px 50px;
@@ -233,7 +235,7 @@ button:hover {
 
 .holiday-card:hover{
     transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .why-us{
