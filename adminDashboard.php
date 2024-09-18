@@ -1,12 +1,9 @@
 <?php
 // Include the header
 $pagetitle = "Admin Dashboard";
+$stylesheet = "adminStyle.css";
 include "layouts/header.php";
 ?>
-<head>
-<link rel="stylesheet" href="adminStyle.css">
-</head>
-
 
     <div class="main">
         <div class="sidebar">

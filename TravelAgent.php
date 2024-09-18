@@ -1,38 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Agent Dashboard</title>
-    <link rel="stylesheet" href="TravelAgentStyles.css">
-    <link rel = "icon" href="img/logo2.png" type = "image/png">
-</head>
-<body>
-    <div class="nav">
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo">
-            <h1>CheapThrills</h1>
-        </div>
-
-        <div class="links">
-            <ul>
-                <a href=""><li>Home</li></a>
-                <a href=""><li>Book</li></a>
-                <a href=""><li>About Us</li></a>
-                <a href=""><li>Contact</li></a>
-            </ul>
-        </div>
-
-        <div class="search">
-            <img src="img/search.png" alt="Search">
-            <input type="search" name="search" id="navSearch" placeholder="Search...">
-        </div>
-
-        <div class="account">
-            <img src="img/user.png" alt="user">
-            <p>Agent 007</p>
-        </div>
-    </div>
+<?php
+// Include the header
+$pagetitle = "Travel Agent Dashboard";
+$stylesheet = "TravelAgentStyles.css";
+include "layouts/header.php";
+?>
 
     <div class="main">
         <div class="sidebar">
@@ -103,6 +74,7 @@
                             <p>Booked for 5 days</p>
                         </div>
                     </div>
+
                     <div class="activityCard">
                         <img src="img/user.png" alt="">
                         <h3>John Doe</h3>
@@ -110,6 +82,7 @@
                             <p>Booked for 5 days</p>
                         </div>
                     </div>
+                    
                     <div class="activityCard">
                         <img src="img/user.png" alt="">
                         <h3>John Doe</h3>
@@ -132,16 +105,8 @@
         </div>
     </div>
 
-    <div class="footer">
-        <div class="socials">
-            <img src="img/twitter.png" alt="Twitter">
-            <img src="img/instagram.png" alt="Instagram">
-            <img src="img/linkedin.png" alt="linkedin">
-        </div>
 
-        <div class="copyright">
-            <p>Copyright &copy; 2024 <span> CheapThrills</span>  All rights reserved.</p>
-        </div>
-    </div>
-</body>
-</html>
+<?php
+// Include the footer
+include "layouts/footer.php";
+?>

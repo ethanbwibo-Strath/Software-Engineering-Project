@@ -36,7 +36,7 @@ include "layouts/header.php";
 
         <button type="submit">Login</button>
 
-        <p>Don't have an account? <a href="SignupPage.php">Signup</a></p>
+        <p>Don't have an account? <a href="SignupPage.php">Sign Up</a></p>
     </form>
 </div>
 

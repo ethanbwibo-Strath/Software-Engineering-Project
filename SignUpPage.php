@@ -8,73 +8,73 @@ include "layouts/header.php";
     <link rel="stylesheet" href="LoginPage.css">
     <link rel="stylesheet" href="adminStyle.css">
 </head>
-<div class="login-container">
 
-    <h1>Sign Up</h1>
-    <p>Kindly fill in the following details</p>
 
-    <form action="">
-        <div class="input-container">
-            <label for="email">Email :</label>
-            <br>
-            <input type="text" id="email" name="email" required>
-            
+        <div class="login-container">
 
-            <div class="input-container">
-                <label for="fname">First Name :</label>
-                <br>
-                <input type="text" id="fname" name="fname" required>
-            </div>
+            <h1>Sign Up</h1>
+            <p>Kindly fill in the following details</p>
 
-            <div class="input-container">
-                <label for="lname">Last Name :</label>
-                <br>
-                <input type="text" id="lname" name="lname" required>
-            </div>
+            <form action="">
+                <div class="input-container">
+                    <label for="email">Email :</label>
+                    <br>
+                    <input type="text" id="email" name="email" required>
+                </div>
 
-            <div class="input-container">
-                <label for="dob">Date of birth :</label>
-                <br>
-                <input type="date" id="dob" name="dob" required>
-            </div>
+                    <div class="input-container">
+                        <label for="fname">First Name :</label>
+                        <br>
+                        <input type="text" id="fname" name="fname" required>
+                    </div>
 
-            <div class="input-container">
-                <label for="username">Username :</label>
-                <br>
-                <input type="text" id="username" name="username" required>
-            </div>
+                    <div class="input-container">
+                        <label for="lname">Last Name :</label>
+                        <br>
+                        <input type="text" id="lname" name="lname" required>
+                    </div>
 
-            <div class="input-container">
-                <label for="password">Password :</label>
-                <br>
-                <input type="password" id="password" name="password" required>
-            </div>
+                    <div class="input-container">
+                        <label for="dob">Date of birth :</label>
+                        <br>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
 
-            <div class="input-container">
-                <label for="confirm-password">Confirm Password :</label>
-                <br>
-                <input type="password" id="confirm-password" name="confirm-password" required>
-            </div>
+                    <div class="input-container">
+                        <label for="username">Username :</label>
+                        <br>
+                        <input type="text" id="username" name="username" required>
+                    </div>
 
-            <div class="input-container">
-                <label for="account">Account Type :</label>
-                <br>
-                <select name="account" id="account">
-                    <option value="admin">Admin</option>
-                    <option value="agent">Agent</option>
-                    <option value="traveler">Traveler</option>
-                </select>
-            </div>
+                    <div class="input-container">
+                        <label for="password">Password :</label>
+                        <br>
+                        <input type="password" id="password" name="password" required>
+                    </div>
 
-            <p>By clicking Sign Up, you agree to our <a href="">Terms of service</a> and <a href="">Data Policy</a>.</p>
+                    <div class="input-container">
+                        <label for="confirm-password">Confirm Password :</label>
+                        <br>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
 
-            <button type="submit">Sign Up</button>
+                    <div class="input-container">
+                        <label for="account">Account Type :</label>
+                        <br>
+                        <select name="account" id="account">
+                            <option value="admin">Admin</option>
+                            <option value="agent">Agent</option>
+                            <option value="traveler">Traveler</option>
+                        </select>
+                    </div>
 
-            <p>Already have an account? <a href="LoginPage.php">Login</a></p>
+                    <p>By clicking Sign Up, you agree to our <a href="">Terms of service</a> and <a href="">Data Policy</a>.</p>
 
+                    <button type="submit">Sign Up</button>
+
+                    <p>Already have an account? <a href="LoginPage.php">Login</a></p>
+            </form>
         </div>
-    </form>
-</div>
 
 <?php
 include "layouts/footer.php";

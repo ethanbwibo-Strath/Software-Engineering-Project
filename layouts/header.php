@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $pagetitle ?></title>
     <link rel = "icon" href="img/logo2.png" type = "image/png">
-    <link rel= "stylesheet" href = "style.css">
+   <!-- Dynamically load the correct stylesheet -->
+   <?php if (isset($stylesheet)): ?>
+        <link rel="stylesheet" href="<?php echo $stylesheet; ?>">
+    <?php else: ?>
+        <link rel="stylesheet" href="style.css"> <!-- Default stylesheet if none is provided -->
+    <?php endif; ?>
     
 </head>
 <body>
