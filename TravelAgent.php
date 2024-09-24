@@ -82,7 +82,7 @@ include "layouts/header.php";
                             <p>Booked for 5 days</p>
                         </div>
                     </div>
-                    
+
                     <div class="activityCard">
                         <img src="img/user.png" alt="">
                         <h3>John Doe</h3>
@@ -98,7 +98,7 @@ include "layouts/header.php";
                         <h2>Event Calendar</h2>
                     </div>
 
-                    <p>Calendar to be placed HERE!!<br> Together with more content...</p>
+                    <br><p>Calendar to be placed HERE!!<br> Together with more content...</p>
                 </div>
 
             </div>
