@@ -6,8 +6,90 @@ include('layouts/header.php');
 <head>
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="stylesheet" href="adminStyle.css"> -->
-</head>
+     <style>
+        /* *********Styles za kueka video************************ */
+#background-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    /* Make the video cover the entire container */
+}
 
+.video-container {
+    position: absolute;
+    /* Add absolute positioning to the video container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    /* Set z-index to -1 to put it behind the content */
+}
+
+/* Carousel Styles */
+/* .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 33.33%;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.carousel-item img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carousel-item p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+} */
+
+/* Carousel navigation */
+/* .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+} */
+     </style>
+</head>
+<!-- ********************************************************** -->
+ <!-- Added a video as the above the fold's background  -->
+<div class="video-container">
+        <video autoplay muted loop id="background-video">
+    <source src="img\Rediscover The Magic.mp4" type="video/mp4">
+</video>
+</div>
+<!-- ****************************************** -->
     <div class="home" >
         <div class="top">
             <h1>Discover the World's Hidden <br> Gems.</h1>
@@ -21,7 +103,6 @@ include('layouts/header.php');
                 </div>
             </div>
         </div>
-
         <div class="below-the-fold">
             <div class="packages">
                 <h3>Travel Packages</h3>
@@ -45,7 +126,30 @@ include('layouts/header.php');
                     </div>
                    
 
-                </div>
+                </div> 
+                <!-- ***********************Tried implementing a Carousel Feature*************************************** -->
+<!-- 
+                
+    <section class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-item" onclick="window.location.href='movie-details.html'">
+                <img src="img/carousel1.jpeg" alt="Loki">
+                <p>Loki</p>
+            </div>
+            <div class="carousel-item" onclick="window.location.href='movie-details.html'">
+                <img src="img/carousel2.jpeg" alt="Stranger Things">
+                <p>Stranger Things</p>
+            </div>
+            <div class="carousel-item" onclick="window.location.href='movie-details.html'">
+                <img src="img/carousel3.jpeg" alt="The Mandalorian">
+                <p>The Mandalorian</p>
+            </div>
+        </div>
+        <button class="prev" onclick="moveCarousel(-1)">❮</button>
+        <button class="next" onclick="moveCarousel(1)">❯</button>
+    </section>
+
+    <script src="app.js"></script> -->
 
             </div>
 
