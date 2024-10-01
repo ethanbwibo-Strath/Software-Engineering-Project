@@ -26,22 +26,28 @@ include('layouts/header.php');
     /* Set z-index to -1 to put it behind the content */
 }
 
+
+.travel_packages_carousel{
+    display:flex;
+    align-items: center;
+    width: 90vw;
+    border: 2px solid yellow;
+    gap: 10px;
+    padding: 10px;
+}
+
 /* Carousel Styles */
   .carousel {
-    position: relative;
-    width: 100%;
-    margin: 40px auto;
+    width: 80%;
     overflow: hidden;
 }
 
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    border: solid 2px black;
     margin: 20px;
     padding: 20px;
-    width:450vw;
-    height: 50vh;
+    width:90%;
 }
 
 .carousel-item {
@@ -78,13 +84,13 @@ include('layouts/header.php');
     z-index: 1;
 }
 
-.prev {
+/* .prev {
     left: 500px;
 }
 
 .next {
     right: 10px;
-}  
+}   */
      </style>
 </head>
 <!-- ********************************************************** -->
@@ -135,34 +141,41 @@ include('layouts/header.php');
                 <!-- ***********************Tried implementing a Carousel Feature*************************************** -->
  
                 
-
-
-    <section class="carousel" style="border:1px solid red;">
-    <button class="prev" onclick="moveCarousel(-1)">❮</button>
-        <div class="carousel-container">
-            <div class="carousel-item" onclick="window.location.href=''">
-                <img src="img/carousel1.jpeg" alt="Loki">
-            </div>
-            
-            <div class="carousel-item" onclick="window.location.href=''">
-                <img src="img/carousel2.jpeg" alt="Stranger Things">
-            </div>
-          
-            <div class="carousel-item" onclick="window.location.href=''">
-                <img src="img/carousel3.jpeg" alt="The Mandalorian">
-            </div>
-
-            <div class="carousel-item" onclick="window.location.href=''">
-                <img src="img/Img2.jpg" alt="Stranger Things">
-            </div>
-          
-            <div class="carousel-item" onclick="window.location.href=''">
-                <img src="img/Img1.jpg" alt="The Mandalorian">
-            </div>
-        </div>
+   <div class = "travel_packages_carousel">
         
-        <button class="next" onclick="moveCarousel(1)">❯</button>
-    </section>
+
+        <div><button class="prev" onclick="moveCarousel(-1)">❮</button></div>
+
+        <div>
+        <section class="carousel" style="border:1px solid red;">
+            <div class="carousel-container">
+                <div class="carousel-item" onclick="window.location.href=''">
+                    <img src="img/carousel1.jpeg" alt="Loki">
+                </div>
+                
+                <div class="carousel-item" onclick="window.location.href=''">
+                    <img src="img/carousel2.jpeg" alt="Stranger Things">
+                </div>
+            
+                <div class="carousel-item" onclick="window.location.href=''">
+                    <img src="img/carousel3.jpeg" alt="The Mandalorian">
+                </div>
+
+                <div class="carousel-item" onclick="window.location.href=''">
+                    <img src="img/Img2.jpg" alt="Stranger Things">
+                </div>
+            
+                <div class="carousel-item" onclick="window.location.href=''">
+                    <img src="img/Img1.jpg" alt="The Mandalorian">
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <div><button class="next" onclick="moveCarousel(1)">❯</button></div>        
+   </div>
+
+    
 
     <script src="app.js"></script>  
 
