@@ -171,6 +171,7 @@ body
 .stats
 {
     display: flex;
+    gap: 6vw;
     justify-content: space-around;
     align-items: center;
     height: 40%;
@@ -206,6 +207,7 @@ body
 {
     font-size: larger;
     font-weight: bold;
+    margin-top: -2px;
     
 }
 

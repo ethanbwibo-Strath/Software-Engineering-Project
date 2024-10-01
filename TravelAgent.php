@@ -43,22 +43,15 @@ include "layouts/header.php";
                 <div class="statCard">
                     <img src="img/people2.png" alt="">
                     <div class="cardInfo">
-                        <h2>Total Users</h2>
-                        <p>100</p>
+                        <h2>4.2</h2>
+                        <p>Rating</p>
                     </div>
                 </div>
                 <div class="statCard">
                     <img src="img/money.png" alt="">
                     <div class="cardInfo">
-                        <h2>Revenue</h2>
-                        <p>12,890</p>
-                    </div>
-                </div>
-                <div class="statCard">
-                    <img src="img/bag.png" alt="">
-                    <div class="cardInfo">
-                        <h2>Total Bookings</h2>
-                        <p>61</p>
+                        <h2>67</h2>
+                        <p>Total Bookings</p>
                     </div>
                 </div>
             </div>
