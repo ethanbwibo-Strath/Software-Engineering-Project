@@ -27,10 +27,9 @@ include('layouts/header.php');
 }
 
 /* Carousel Styles */
-/* .carousel {
+  .carousel {
     position: relative;
     width: 100%;
-    max-width: 1200px;
     margin: 40px auto;
     overflow: hidden;
 }
@@ -38,34 +37,40 @@ include('layouts/header.php');
 .carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    border: solid 2px black;
+    margin: 20px;
+    padding: 20px;
+    width:450vw;
+    height: 50vh;
 }
 
 .carousel-item {
     flex: 0 0 33.33%;
-    padding: 20px;
     cursor: pointer;
     text-align: center;
+    padding: 5px;
 }
 
 .carousel-item img {
-    width: 150px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     border-radius: 8px;
+    gap: 20px;
 }
 
 .carousel-item p {
     margin-top: 10px;
     font-size: 1.2rem;
-} */
+} 
 
 /* Carousel navigation */
-/* .prev, .next {
-    position: absolute;
+ .prev, .next {
+    
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0,0,0,0.5);
-    color: white;
+    color: black;
     font-size: 2rem;
     border: none;
     cursor: pointer;
@@ -74,12 +79,12 @@ include('layouts/header.php');
 }
 
 .prev {
-    left: 10px;
+    left: 500px;
 }
 
 .next {
     right: 10px;
-} */
+}  
      </style>
 </head>
 <!-- ********************************************************** -->
@@ -110,7 +115,7 @@ include('layouts/header.php');
                 <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
 
                 <p>Explore the globe's captivating destinations with our cerated travel packages.</p>
-
+<!-- 
                 <div class="carousel">
                    
                     <div class="carousel-img">
@@ -126,30 +131,40 @@ include('layouts/header.php');
                     </div>
                    
 
-                </div> 
+                </div>  -->
                 <!-- ***********************Tried implementing a Carousel Feature*************************************** -->
-<!-- 
+ 
                 
-    <section class="carousel">
+
+
+    <section class="carousel" style="border:1px solid red;">
+    <button class="prev" onclick="moveCarousel(-1)">❮</button>
         <div class="carousel-container">
-            <div class="carousel-item" onclick="window.location.href='movie-details.html'">
+            <div class="carousel-item" onclick="window.location.href=''">
                 <img src="img/carousel1.jpeg" alt="Loki">
-                <p>Loki</p>
             </div>
-            <div class="carousel-item" onclick="window.location.href='movie-details.html'">
+            
+            <div class="carousel-item" onclick="window.location.href=''">
                 <img src="img/carousel2.jpeg" alt="Stranger Things">
-                <p>Stranger Things</p>
             </div>
-            <div class="carousel-item" onclick="window.location.href='movie-details.html'">
+          
+            <div class="carousel-item" onclick="window.location.href=''">
                 <img src="img/carousel3.jpeg" alt="The Mandalorian">
-                <p>The Mandalorian</p>
+            </div>
+
+            <div class="carousel-item" onclick="window.location.href=''">
+                <img src="img/Img2.jpg" alt="Stranger Things">
+            </div>
+          
+            <div class="carousel-item" onclick="window.location.href=''">
+                <img src="img/Img1.jpg" alt="The Mandalorian">
             </div>
         </div>
-        <button class="prev" onclick="moveCarousel(-1)">❮</button>
+        
         <button class="next" onclick="moveCarousel(1)">❯</button>
     </section>
 
-    <script src="app.js"></script> -->
+    <script src="app.js"></script>  
 
             </div>
 
