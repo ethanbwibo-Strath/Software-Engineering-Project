@@ -5,10 +5,8 @@ include 'layouts/header.php';
 
 <link rel="stylesheet" href="sidebar.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<link rel="json" href="sidebar.js">
 
-
-<div id="userDashboardContent">
+<div class="container">
     <div class="sidebar">
         <header>Dashboard</header>
         <ul>
@@ -20,4 +18,9 @@ include 'layouts/header.php';
             <li><a href="#" class="nav-item"><i class='bx bx-log-out'></i>Logout</a></li>
         </ul> 
     </div>
-</div>
+
+
+    <script src="sidebar.js"></script>
+
+
+

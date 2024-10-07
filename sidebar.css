@@ -47,10 +47,11 @@ ul li:hover a {
 
 /* Add active class for selected item */
 .sidebar ul a.active {
-    background-color: #007bff; /* Change this to any color you like */
+    background-color: #868e97; /* Change this to any color you like */
     color: white;
 }
 
 .sidebar ul a.active i {
     color: white;
 }
+
