@@ -17,6 +17,7 @@ include 'layouts/header.php';
             <li><a href="#" class="nav-item"><i class='bx bx-help-circle'></i>Help</a></li>
             <li><a href="#" class="nav-item"><i class='bx bx-calendar-check'></i>Bookings</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-user-x'></i>Delete Account</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bx-log-out'></i>Logout</a></li>
         </ul> 
     </div>
 </div>
