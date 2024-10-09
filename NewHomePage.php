@@ -151,6 +151,56 @@ include 'layouts/header.php';
     .carousel-control:hover {
         background-color: goldenrod;
     }
+
+    .why-us-section, .contact-us-section {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ddd; /* Light border around sections */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+}
+
+h2 {
+    color: #333; /* Dark text for headings */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555; /* Slightly lighter text for paragraphs */
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+ul li {
+    margin-bottom: 10px; /* Space between items */
+    font-size: 16px;
+}
+
+strong {
+    color: #333; /* Highlight strong text */
+}
+
+.social-media {
+    display: flex; /* Use flexbox for social media links */
+    gap: 15px; /* Space between links */
+}
+
+.social-media a {
+    color: #007BFF; /* Bootstrap primary color */
+    text-decoration: none; /* Remove underline */
+}
+
+.social-media a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+    
 </style>
 
 
@@ -248,6 +298,32 @@ include 'layouts/header.php';
         </div>
     </div>
 
+<div class="why-us-section">
+    <h2>Why Choose Us?</h2>
+    <p>We offer unparalleled travel experiences tailored to your needs. Here are a few reasons to choose us:</p>
+    <ul>
+        <li><strong>Expert Guidance:</strong> Our travel agents are experienced and knowledgeable.</li>
+        <li><strong>Custom Packages:</strong> Tailor-made travel packages to suit your preferences.</li>
+        <li><strong>24/7 Support:</strong> We're always here for you, anytime you need assistance.</li>
+        <li><strong>Competitive Pricing:</strong> Great value for your money with no hidden costs.</li>
+    </ul>
+</div>
+
+<div class="contact-us-section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or would like to book a package, reach out to us:</p>
+    <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@yourtravelagency.com">info@yourtravelagency.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+1234567890">+1 234 567 890</a></li>
+        <li><strong>Address:</strong> 123 Travel Lane, Adventure City, ST 12345</li>
+    </ul>
+    <p>Follow us on social media:</p>
+    <ul class="social-media">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+    </ul>
+</div>
 
 
 <?php
