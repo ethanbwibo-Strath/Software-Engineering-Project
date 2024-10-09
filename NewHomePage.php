@@ -333,16 +333,11 @@ include 'layouts/header.php';
     <h3>Contact Us</h3>
     <p>If you have any questions or would like to book a package, reach out to us:</p>
     <ul>
-        <li><strong>Email:</strong> <a href="mailto:info@yourtravelagency.com">info@yourtravelagency.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:+1234567890">+1 234 567 890</a></li>
-        <li><strong>Address:</strong> 123 Travel Lane, Adventure City, ST 12345</li>
+        <li><strong>Email:</strong> <a href="mailto:info@cheapthrills.com">info@cheapthrills.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+254 (7)14 516 129">+254 (7)14 516 129</a></li>
+        <li><strong>Address:</strong> First Floor opposite Afya Corner,Student Center(STC), Stathmore University, Karen Ole Sangale Rd, off Langata Road, in Madaraka Estate, Nairobi</li>
     </ul>
-    <p>Follow us on social media:</p>
-    <ul class="social-media">
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
-    </ul>
+    
 </div>
 
 
