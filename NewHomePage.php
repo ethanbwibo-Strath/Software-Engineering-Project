@@ -151,81 +151,76 @@ include 'layouts/header.php';
     .carousel-control:hover {
         background-color: goldenrod;
     }
-body {
-    font-family: 'Arial', sans-serif; /* Change the font to a clean, modern look */
-    line-height: 1.6; /* Improve readability with better line spacing */
-}
-
-.why-us-section, .contact-us-section {
-    padding: 30px;
-    margin: 20px 0;
-    border-radius: 12px; /* More rounded corners for a softer look */
-    background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff); /* Light gradient background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    transition: transform 0.3s; /* Smooth transition for hover effect */
-}
-
-.why-us-section:hover, .contact-us-section:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-}
-
-h2 {
-    color: #007BFF; /* Change heading color for a fresh look */
-    font-size: 28px; /* Larger heading size */
-    margin-bottom: 15px;
-}
-
-p {
-    color: #555; /* Darker text for improved readability */
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-ul {
-    list-style-type: none; /* Remove bullet points */
-    padding-left: 0; /* Remove default padding */
-}
-
-ul li {
-    margin-bottom: 12px; /* Space between items */
-    font-size: 16px;
-}
-
-strong {
-    color: #333; /* Highlight strong text */
-}
-
-.social-media {
-    display: flex; /* Use flexbox for social media links */
-    gap: 15px; /* Space between links */
-}
-
-.social-media a {
-    color: #007BFF; /* Use primary color for links */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Make social media links bold */
-}
-
-.social-media a:hover {
-    text-decoration: underline; /* Underline on hover */
-    color: #0056b3; /* Darker color on hover */
-}
-
-/* Responsive design adjustments */
-@media (max-width: 768px) {
-    .why-us-section, .contact-us-section {
-        padding: 20px;
-        margin: 15px 0;
+    
+    .why-us {
+        padding: 40px 20px;
+        text-align: center;
+        background-color: #fff; /* White background for contrast */
     }
     
-    h2 {
-        font-size: 24px; /* Smaller heading size on mobile */
+    .why-us h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        font-weight: bold; /* Make the heading bold */
+        color: #333; /* Dark color for the heading */
     }
     
-    p, ul li {
-        font-size: 14px; /* Smaller text size on mobile */
+    .whyUs-box {
+        display: flex;
+        justify-content: space-around; /* Distribute items evenly */
+        align-items: center;
+        gap: 10px; /* Space between boxes */
     }
-}
+    
+    .whyUs-box p {
+        background-color: #fff; /* White background for each box */
+        border: 1px solid #ddd; /* Light gray border */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        padding: 20px; /* Inner padding for text */
+        border-radius: 10px; /* Rounded corners */
+        width: 250px; /* Fixed width for uniformity */
+        height: 150px; /* Fixed height for uniformity */
+        font-weight: bold; /* Make text bold */
+        transition: transform 0.2s; /* Transition for hover effect */
+    }
+    
+    .whyUs-box p:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+    }
+    
+    .contact-us {
+        padding: 40px 20px; /* Add padding for the contact section */
+        text-align: center; /* Center the text */
+        background-color: #f9f9f9; /* Light background for contact section */
+        margin-top: 20px; /* Space above the contact section */
+        border-radius: 10px; /* Rounded corners */
+    }
+    
+    .contact-us h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #333; /* Dark color for heading */
+    }
+    
+    .contact-us ul {
+        list-style-type: none; /* Remove bullet points */
+        padding-left: 0; /* Remove default padding */
+        margin-bottom: 20px; /* Space below the list */
+    }
+    
+    .contact-us ul li {
+        margin-bottom: 10px; /* Space between items */
+    }
+    
+    .contact-us a {
+        color: #007BFF; /* Primary color for links */
+        text-decoration: none; /* Remove underline */
+    }
+    
+    .contact-us a:hover {
+        text-decoration: underline; /* Underline on hover */
+    }
 
     
 </style>
@@ -325,19 +320,17 @@ strong {
         </div>
     </div>
 
-<div class="why-us-section">
-    <h2>Why Choose Us?</h2>
-    <p>We offer unparalleled travel experiences tailored to your needs. Here are a few reasons to choose us:</p>
-    <ul>
-        <li><strong>Expert Guidance:</strong> Our travel agents are experienced and knowledgeable.</li>
-        <li><strong>Custom Packages:</strong> Tailor-made travel packages to suit your preferences.</li>
-        <li><strong>24/7 Support:</strong> We're always here for you, anytime you need assistance.</li>
-        <li><strong>Competitive Pricing:</strong> Great value for your money with no hidden costs.</li>
-    </ul>
+<div class="why-us">
+    <h3>Why Choose Us?</h3>
+    <div class="whyUs-box">
+        <p><strong>Expert Guidance:</strong> Our travel agents are experienced and knowledgeable.</p>
+        <p><strong>Custom Packages:</strong> Tailor-made travel packages to suit your preferences.</p>
+        <p><strong>24/7 Support:</strong> We're always here for you, anytime you need assistance.</p>
+    </div>
 </div>
 
-<div class="contact-us-section">
-    <h2>Contact Us</h2>
+<div class="contact-us">
+    <h3>Contact Us</h3>
     <p>If you have any questions or would like to book a package, reach out to us:</p>
     <ul>
         <li><strong>Email:</strong> <a href="mailto:info@yourtravelagency.com">info@yourtravelagency.com</a></li>
