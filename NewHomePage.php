@@ -62,163 +62,84 @@ include 'layouts/header.php';
         justify-content: space-around;
         padding: 10px;
     }
-/* 
-
-    .TravelPackagesContainer{
-        display:flex;
-        align-items: center;
-        width: 100%;
-        border: 3px solid yellow;
-        gap: 10px;
-    }
-
-    .button2{
-        width: 100%;
-        padding: 20px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        font-size: 15px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .button2:hover {
-        background-color: goldenrod;
-    }
-
-    .carousel{
-        border: 2px solid green;
-        width: 90%;
-        overflow: hidden;
-
-    }
-
-    .carousel-container{
-        display: flex;
-        border: 2px solid red;
-        width: 80%;
-    } 
-
-    .carousel {
-        width: 68%;
-        overflow: hidden;
-        border:1px solid red;
-    }
-        
-    .carousel-container {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        margin: 20px;
-        padding: 20px;
-        width:90%;
-    }
-
-    .carousel-item {
-        flex: 0 0 33.33%;
-        cursor: pointer;
+    
+        /* Travel Packages Section */
+    .travel-packages-section {
         text-align: center;
-        padding: 5px;
-    }
-
-    .carousel-item img {
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 8px;
-        gap: 20px;
-    }
-
-    .carousel-item p {
-        margin-top: 10px;
-        font-size: 1.2rem;
-    }   */
-
-
-
-        /* Style for the entire carousel section */
-    .TravelPackagesContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* Keep buttons aligned left and right */
-        width: 100%;
-        border: 3px solid yellow;
-        gap: 10px;
-    }
-
-    .button2 {
-        padding: 10px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        font-size: 25px; /* Increased for arrow size */
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .button2:hover {
-        background-color: goldenrod;
-    }
-
-    /* Carousel setup */
-    .carousel {
-        width: 75%; /* Adjust carousel width to suit your layout */
-        overflow: hidden; /* Ensures images don't overflow */
-        border: 2px solid red;
-        position: relative; /* For the buttons to stay in place */
         padding: 20px;
+        background-color: #f4f4f4;
     }
-
-    /* Carousel container for sliding images */
-    .carousel-container {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        width: 100%; /* Adjust to fit the carousel's width */
-        padding: 0 10px; /* Adds some padding for better spacing */
-        border: 2px solid green;
-    }
-
-    /* Each individual carousel item */
-    .carousel-item {
-        flex: 0 0 33.33%; /* Show 3 items at once (1/3 each) */
-        cursor: pointer;
-        text-align: center;
-        padding: 5px;
-    }
-
-    .carousel-item img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-
-    /* Adjust previous and next buttons */
-    #prev, #next {
-        position: absolute;
-        top: 50%; /* Center vertically */
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-        color: white;
+    
+    .travel-packages-section h3 {
         font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .travel-packages-section p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    /* Carousel Wrapper */
+    .carousel-wrapper {
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Carousel Container */
+    .carousel-container {
+        display: flex;
+        overflow: hidden;
+    }
+    
+    /* Carousel Track - for the sliding effect */
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    /* Individual Carousel Item */
+    .carousel-item {
+        min-width: 100%; /* Each item takes up the full width */
+        box-sizing: border-box;
+    }
+    
+    .carousel-item img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    
+    /* Controls - Previous & Next buttons */
+    .carousel-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
         border: none;
-        cursor: pointer;
         padding: 10px;
-        z-index: 10; /* Ensure they are above other elements */
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 10;
     }
-
-    #prev {
-        left: 10px; /* Position on the left */
+    
+    .carousel-control.prev {
+        left: 10px;
     }
-
-    #next {
-        right: 10px; /* Position on the right */
+    
+    .carousel-control.next {
+        right: 10px;
     }
-
-    #prev:hover, #next:hover {
+    
+    .carousel-control:hover {
         background-color: goldenrod;
     }
-
 </style>
 
 
