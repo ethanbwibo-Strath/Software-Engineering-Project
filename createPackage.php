@@ -13,12 +13,12 @@ include "layouts/header.php";
 } */
 
 .main-content {
-    max-width: 600px; /* Max width for the form */
-    margin: 0 auto; /* Center the form */
-    background: #fff; /* White background for the form */
+    width: 600px; 
+    margin: 0 auto; /* Center the form *
+    background: #fff; /* White background for the form *
     padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners *
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  Subtle shadow */
 }
 
 h1 {
