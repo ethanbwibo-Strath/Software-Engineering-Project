@@ -68,6 +68,9 @@ include 'layouts/header.php';
         text-align: center;
         padding: 20px;
         background-color: #f4f4f4;
+        padding: 20px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
     }
     
     .travel-packages-section h3 {
@@ -84,7 +87,7 @@ include 'layouts/header.php';
     .carousel-wrapper {
         position: relative;
         width: 80%;
-        margin: 0 auto;
+        margin: 10px auto;
         overflow: hidden;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -113,6 +116,14 @@ include 'layouts/header.php';
         height: 400px;
         object-fit: cover;
         border-radius: 10px;
+    }
+
+    .carousel-title {
+        font-size: 1.2rem;
+        color: #333;
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold;
     }
     
     /* Controls - Previous & Next buttons */
@@ -164,37 +175,50 @@ include 'layouts/header.php';
 </div>
 
 
-<div class="travel-packages-section">
-    <h3>Travel Packages</h3>
-    <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
+    <div class="travel-packages-section">
+        <h3>Travel Packages</h3>
+        <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
 
-    <div class="carousel-wrapper">
-        <!-- Previous button -->
-        <button class="carousel-control prev" id="prevBtn">❮</button>
+        <div class="carousel-wrapper">
+            <!-- Previous button -->
+            <button class="carousel-control prev" id="prevBtn">❮</button>
 
-        <!-- Carousel Container -->
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <!-- Carousel Items -->
-                <div class="carousel-item">
-                    <img src="img/carousel1.jpeg" alt="Package 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/carousel2.jpeg" alt="Package 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/carousel3.jpeg" alt="Package 3">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/carousel4.jpeg" alt="Package 4">
+            <!-- Carousel Container -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Carousel Items -->
+                    <div class="carousel-item">
+                        <a href="package1.html">
+                            <img src="img/carousel1.jpeg" alt="Luxury Beach Escape">
+                        </a>
+                        <p class="carousel-title">Luxury Beach Escape</p>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="package2.html">
+                            <img src="img/carousel4.jpg" alt="Adventurous Mountain Trek">
+                        </a>
+                        <p class="carousel-title">Adventurous Mountain Trek</p>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="package3.html">
+                            <img src="img/carousel6.png" alt="Cultural City Tour">
+                        </a>
+                        <p class="carousel-title">Cultural City Tour</p>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="package4.html">
+                            <img src="img/carousel5.jpg" alt="Exotic Desert Safari">
+                        </a>
+                        <p class="carousel-title">Exotic Desert Safari</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Next button -->
-        <button class="carousel-control next" id="nextBtn">❯</button>
+            <!-- Next button -->
+            <button class="carousel-control next" id="nextBtn">❯</button>
+        </div>
+        <script src="carousel.js"></script>
     </div>
-</div>
 
 
 
