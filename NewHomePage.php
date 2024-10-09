@@ -189,19 +189,19 @@ include 'layouts/header.php';
                     <!-- Carousel Items -->
                     <div class="carousel-item">
                         <a href="package1.html">
-                            <img src="img/carousel1.jpeg" alt="Luxury Beach Escape">
+                            <img src="img/carousel1.webp" alt="Luxury Beach Escape">
                         </a>
                         <p class="carousel-title">Luxury Beach Escape</p>
                     </div>
                     <div class="carousel-item">
                         <a href="package2.html">
-                            <img src="img/carousel4.jpg" alt="Adventurous Mountain Trek">
+                            <img src="img/carousel4.webp" alt="Adventurous Mountain Trek">
                         </a>
                         <p class="carousel-title">Adventurous Mountain Trek</p>
                     </div>
                     <div class="carousel-item">
                         <a href="package3.html">
-                            <img src="img/carousel6.png" alt="Cultural City Tour">
+                            <img src="img/carousel6.webp" alt="Cultural City Tour">
                         </a>
                         <p class="carousel-title">Cultural City Tour</p>
                     </div>
