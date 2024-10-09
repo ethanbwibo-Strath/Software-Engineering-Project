@@ -105,76 +105,73 @@ body{
 </head>
 
 <body>
-<!----------------------Video---------------------------------------->
+<!----------------------Above the Fold + Video---------------------------------------->
 <div class="video-container">
         <video autoplay muted loop id="background-video">
             <source src="img\Rediscover The Magic.mp4" type="video/mp4">
         </video>
 </div>
 
-<!-- Below the Fold -->
-            <div class="top">
-                <h1>Discover the World's Hidden <br> Gems.</h1>
-                <div class="btns">
-                    <div class="book-btn">
-                        <button type ="button">Book Now</button>
-                    </div>
-
-                    <div class="explore-btn">
-                        <button type ="button">Explore</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="packages">
-                <h3>Travel Packages</h3>
-
-                <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
-
-                <p>Explore the globe's captivating destinations with our cerated travel packages.</p>
-
-                <!-- ***********************Tried implementing a Carousel Feature*************************************** -->
- 
-                        
-                <div class = "travel_packages_carousel">
-
-                        <div>
-                            <button class="prev" onclick="moveCarousel(1)">❮</button>
-                        </div>
-
-                        <div>
-                        <section class="carousel">
-                            <div class="carousel-container">
-                                <div class="carousel-item" onclick="window.location.href=''">
-                                    <img src="img/carousel1.jpeg" alt="Loki">
-                                </div>
-                                
-                                <div class="carousel-item" onclick="window.location.href=''">
-                                    <img src="img/carousel2.jpeg" alt="Stranger Things">
-                                </div>
-                            
-                                <div class="carousel-item" onclick="window.location.href=''">
-                                    <img src="img/carousel3.jpeg" alt="The Mandalorian">
-                                </div>
-
-                                <div class="carousel-item" onclick="window.location.href=''">
-                                    <img src="img/Img2.jpg" alt="Stranger Things">
-                                </div>
-                            
-                                <div class="carousel-item" onclick="window.location.href=''">
-                                    <img src="img/Img1.jpg" alt="The Mandalorian">
-                                </div>
-                            </div>
-                        </section>
-                        </div>
-
-                        <div>
-                            <button class="next" onclick="moveCarousel(-1)">❯</button>
-                        </div>   
-                    </div>
+<div class="top">
+    <h1>Discover the World's Hidden <br> Gems.</h1>
+    <div class="btns">
+        <div class="book-btn">
+            <button type ="button">Book Now</button>
         </div>
 
-        <script src="app.js"></script>  
+        <div class="explore-btn">
+            <button type ="button">Explore</button>
+        </div>
+    </div>
+</div>
+
+    <div class="packages">
+        <h3>Travel Packages</h3>
+
+        <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
+
+        <p>Explore the globe's captivating destinations with our cerated travel packages.</p>
+
+        <!---------------------------Packages Carousel -------------------------->
+
+                
+        <div class = "travel_packages_carousel">
+
+                <div>
+                    <button class="prev" onclick="moveCarousel(1)">❮</button>
+                </div>
+
+                <div>
+                <section class="carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/carousel1.jpeg" alt="Loki">
+                        </div>
+                        
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/carousel2.jpeg" alt="Stranger Things">
+                        </div>
+                    
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/carousel3.jpeg" alt="The Mandalorian">
+                        </div>
+
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/Img2.jpg" alt="Stranger Things">
+                        </div>
+                    
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/Img1.jpg" alt="The Mandalorian">
+                        </div>
+                    </div>
+                </section>
+                </div>
+
+                <script src="app.js"></script>    
+            </div>
+</div>
+
+         
     
 
             <div class="holiday-type">
