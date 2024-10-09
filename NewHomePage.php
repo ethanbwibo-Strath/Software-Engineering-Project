@@ -151,6 +151,56 @@ include 'layouts/header.php';
     .carousel-control:hover {
         background-color: goldenrod;
     }
+
+    .why-us-section, .contact-us-section {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ddd; /* Light border around sections */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+}
+
+h2 {
+    color: #333; /* Dark text for headings */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555; /* Slightly lighter text for paragraphs */
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+ul li {
+    margin-bottom: 10px; /* Space between items */
+    font-size: 16px;
+}
+
+strong {
+    color: #333; /* Highlight strong text */
+}
+
+.social-media {
+    display: flex; /* Use flexbox for social media links */
+    gap: 15px; /* Space between links */
+}
+
+.social-media a {
+    color: #007BFF; /* Bootstrap primary color */
+    text-decoration: none; /* Remove underline */
+}
+
+.social-media a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+    
 </style>
 
 
