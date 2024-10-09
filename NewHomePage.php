@@ -219,10 +219,37 @@ include 'layouts/header.php';
         </div>
         <script src="carousel.js"></script>
     </div>
+    </div>
+    
+    <div class="holiday-type">
+        <h3>Holiday Types</h3>
+        <p>From serene mountain getaways to vibrant culltural hubs, we'll help you craft the ultimate journey tailored to your passions</p>
+
+        <div class="img-type">
+            <div class="holiday-card">
+                <img src="img/mountainsType.jpeg" alt="Holiday 1">
+                <p>Mountains</p>
+            </div>
+
+            <div class="holiday-card">
+                <img src="img/beachType.jpeg" alt="Holiday 2">
+                <p>Beaches</p>
+            </div>
+
+            <div class="holiday-card">
+                <img src="img/type3.jpeg" alt="Holiday 3">
+                <p>Culture</p>
+            </div>
+
+            <div class="holiday-card">
+                <img src="img/wildlifeType.jpeg" alt="Holiday 4">
+                <p>Wildlife</p>
+            </div>
+        </div>
+    </div>
 
 
 
-</div>
 <?php
 include 'layouts/footer.php';
 ?>
