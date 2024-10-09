@@ -154,6 +154,24 @@ body
     height: 4vh;
     justify-content: center;
 }
+/* Hii ni CSS ya kuonesha ni which section the user is in basically inahighlight */
+/* .sidebar-link a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+.sidebar-link a:hover {
+    color: aqua;
+    transition: .2s ease-in;
+}
+
+.sidebar-link a.active {
+    background-color: #ccc;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+} */
 
 /* Content section */
 .content
@@ -315,3 +333,6 @@ body
     text-decoration: underline;
     font-weight: bold;
 }
+
+
+/* CSS For the new pages */

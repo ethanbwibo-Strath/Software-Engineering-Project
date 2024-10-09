@@ -106,11 +106,11 @@ include('layouts/header.php');
             <h1>Discover the World's Hidden <br> Gems.</h1>
             <div class="btns">
                 <div class="book-btn">
-                    <button type ="button">Book Now</button>
+                    <button type ="button">Book a Trip</button>
                 </div>
 
                 <div class="explore-btn">
-                    <button type ="button">Explore</button>
+                    <button type ="button">Explore Destinations</button>
                 </div>
             </div>
         </div>

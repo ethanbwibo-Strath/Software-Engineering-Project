@@ -11,7 +11,7 @@ include "layouts/header.php";
             <ul>
 
                 <div class="sidebar-link">
-                    <li><a href="">Packages </a></li>
+                    <li><a href="packages.php">Packages </a></li>
                     <img src="img/user.png" alt="User Icon">
                 </div>
 
