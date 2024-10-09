@@ -353,6 +353,17 @@ strong {
 </div>
 
 
+<div class="why-us">
+    <h3>Why Us?</h3>
+    
+    <div class="whyUs-box">
+        <p>Personalized Reccomentations</p>
+        <p>Victor & Bwibo say so</p>
+        <p>Customizable Travel Packages</p>
+    </div>
+</div>
+
+
 <?php
 include 'layouts/footer.php';
 ?>
