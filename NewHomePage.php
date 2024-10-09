@@ -164,46 +164,38 @@ include 'layouts/header.php';
 </div>
 
 
-<div class="Packages">
+<div class="travel-packages-section">
     <h3>Travel Packages</h3>
     <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
 
-    <div class="TravelPackagesContainer">
-        <div>
-            <button class="button2" id="prev" onclick="moveCarousel(1)">❮</button>
-        </div>
+    <div class="carousel-wrapper">
+        <!-- Previous button -->
+        <button class="carousel-control prev" id="prevBtn">❮</button>
 
-        <div>
-            <section class="carousel">
-                <div class="carousel-container">
-                    <div class="carousel-item" onclick="window.location.href=''">
-                        <img src="img/carousel1.jpeg" alt="Loki">
-                    </div>
-                    
-                    <div class="carousel-item" onclick="window.location.href=''">
-                        <img src="img/carousel2.jpeg" alt="Stranger Things">
-                    </div>
-                
-                    <div class="carousel-item" onclick="window.location.href=''">
-                        <img src="img/carousel3.jpeg" alt="The Mandalorian">
-                    </div>
-
-                    <div class="carousel-item" onclick="window.location.href=''">
-                        <img src="img/Img2.jpg" alt="Stranger Things">
-                    </div>
-                
-                    <div class="carousel-item" onclick="window.location.href=''">
-                        <img src="img/Img1.jpg" alt="The Mandalorian">
-                    </div>
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <!-- Carousel Items -->
+                <div class="carousel-item">
+                    <img src="img/carousel1.jpeg" alt="Package 1">
                 </div>
-                <script src="app.js"></script> 
-            </section>
+                <div class="carousel-item">
+                    <img src="img/carousel2.jpeg" alt="Package 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/carousel3.jpeg" alt="Package 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="img/carousel4.jpeg" alt="Package 4">
+                </div>
+            </div>
         </div>
 
-        <div>
-            <button class="button2" id="next" onclick="moveCarousel(-1)">❯</button>
-        </div>
+        <!-- Next button -->
+        <button class="carousel-control next" id="nextBtn">❯</button>
     </div>
+</div>
+
 
 
 </div>
