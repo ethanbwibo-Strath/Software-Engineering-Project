@@ -151,23 +151,32 @@ include 'layouts/header.php';
     .carousel-control:hover {
         background-color: goldenrod;
     }
+body {
+    font-family: 'Arial', sans-serif; /* Change the font to a clean, modern look */
+    line-height: 1.6; /* Improve readability with better line spacing */
+}
 
-    .why-us-section, .contact-us-section {
-    padding: 20px;
+.why-us-section, .contact-us-section {
+    padding: 30px;
     margin: 20px 0;
-    border: 1px solid #ddd; /* Light border around sections */
-    border-radius: 8px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background */
+    border-radius: 12px; /* More rounded corners for a softer look */
+    background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff); /* Light gradient background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.why-us-section:hover, .contact-us-section:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
 h2 {
-    color: #333; /* Dark text for headings */
-    font-size: 24px;
-    margin-bottom: 10px;
+    color: #007BFF; /* Change heading color for a fresh look */
+    font-size: 28px; /* Larger heading size */
+    margin-bottom: 15px;
 }
 
 p {
-    color: #555; /* Slightly lighter text for paragraphs */
+    color: #555; /* Darker text for improved readability */
     font-size: 16px;
     margin-bottom: 15px;
 }
@@ -178,7 +187,7 @@ ul {
 }
 
 ul li {
-    margin-bottom: 10px; /* Space between items */
+    margin-bottom: 12px; /* Space between items */
     font-size: 16px;
 }
 
@@ -192,12 +201,30 @@ strong {
 }
 
 .social-media a {
-    color: #007BFF; /* Bootstrap primary color */
+    color: #007BFF; /* Use primary color for links */
     text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make social media links bold */
 }
 
 .social-media a:hover {
     text-decoration: underline; /* Underline on hover */
+    color: #0056b3; /* Darker color on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .why-us-section, .contact-us-section {
+        padding: 20px;
+        margin: 15px 0;
+    }
+    
+    h2 {
+        font-size: 24px; /* Smaller heading size on mobile */
+    }
+    
+    p, ul li {
+        font-size: 14px; /* Smaller text size on mobile */
+    }
 }
 
     
