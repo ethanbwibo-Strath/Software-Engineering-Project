@@ -320,19 +320,17 @@ include 'layouts/header.php';
         </div>
     </div>
 
-<div class="why-us-section">
-    <h2>Why Choose Us?</h2>
-    <p>We offer unparalleled travel experiences tailored to your needs. Here are a few reasons to choose us:</p>
-    <ul>
-        <li><strong>Expert Guidance:</strong> Our travel agents are experienced and knowledgeable.</li>
-        <li><strong>Custom Packages:</strong> Tailor-made travel packages to suit your preferences.</li>
-        <li><strong>24/7 Support:</strong> We're always here for you, anytime you need assistance.</li>
-        <li><strong>Competitive Pricing:</strong> Great value for your money with no hidden costs.</li>
-    </ul>
+<div class="why-us">
+    <h3>Why Choose Us?</h3>
+    <div class="whyUs-box">
+        <p><strong>Expert Guidance:</strong> Our travel agents are experienced and knowledgeable.</p>
+        <p><strong>Custom Packages:</strong> Tailor-made travel packages to suit your preferences.</p>
+        <p><strong>24/7 Support:</strong> We're always here for you, anytime you need assistance.</p>
+    </div>
 </div>
 
-<div class="contact-us-section">
-    <h2>Contact Us</h2>
+<div class="contact-us">
+    <h3>Contact Us</h3>
     <p>If you have any questions or would like to book a package, reach out to us:</p>
     <ul>
         <li><strong>Email:</strong> <a href="mailto:info@yourtravelagency.com">info@yourtravelagency.com</a></li>
