@@ -7,7 +7,10 @@ include('layouts/header.php');
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="stylesheet" href="adminStyle.css"> -->
      <style>
-        /* *********Styles za kueka video************************ */
+body{
+    border: 3px solid green;
+}
+
 #background-video {
     width: 100%;
     height: 100vh;
@@ -25,21 +28,23 @@ include('layouts/header.php');
     z-index: -1;
     /* Set z-index to -1 to put it behind the content */
 }
-
-
+.packages{
+    border: 3px solid aquamarine;
+}
 .travel_packages_carousel{
     display:flex;
     align-items: center;
-    width: 90vw;
-    border: 2px solid yellow;
+    width: 100%;
+    border: 3px solid yellow;
     gap: 10px;
     padding: 10px;
 }
 
 /* Carousel Styles */
   .carousel {
-    width: 80%;
+    width: 68%;
     overflow: hidden;
+    border:1px solid red;
 }
 
 .carousel-container {
@@ -71,115 +76,103 @@ include('layouts/header.php');
 } 
 
 /* Carousel navigation */
- .prev, .next {
+ .prev{
     
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0,0,0,0.5);
     color: black;
     font-size: 2rem;
-    border: none;
+    border: 2px solid black;
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
     z-index: 1;
 }
 
-/* .prev {
-    left: 500px;
-}
+.next{
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: black;
+    font-size: 2rem;
+    border: 2px solid black;
+    cursor: pointer;
+    padding: 10px;
+    z-index: -1;
 
-.next {
-    right: 10px;
-}   */
-     </style>
+}
+</style>
 </head>
-<!-- ********************************************************** -->
- <!-- Added a video as the above the fold's background  -->
+
+<body>
+<!----------------------Above the Fold + Video---------------------------------------->
 <div class="video-container">
         <video autoplay muted loop id="background-video">
-    <source src="img\Rediscover The Magic.mp4" type="video/mp4">
-</video>
+            <source src="img\Rediscover The Magic.mp4" type="video/mp4">
+        </video>
 </div>
-<!-- ****************************************** -->
-    <div class="home" >
-        <div class="top">
-            <h1>Discover the World's Hidden <br> Gems.</h1>
-            <div class="btns">
-                <div class="book-btn">
-                    <button type ="button">Book a Trip</button>
-                </div>
 
-                <div class="explore-btn">
-                    <button type ="button">Explore Destinations</button>
-                </div>
-            </div>
+<div class="top">
+    <h1>Discover the World's Hidden <br> Gems.</h1>
+    <div class="btns">
+        <div class="book-btn">
+            <button type ="button">Book Now</button>
         </div>
-        <div class="below-the-fold">
-            <div class="packages">
-                <h3>Travel Packages</h3>
 
-                <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
+        <div class="explore-btn">
+            <button type ="button">Explore</button>
+        </div>
+    </div>
+</div>
 
-                <p>Explore the globe's captivating destinations with our cerated travel packages.</p>
-<!-- 
-                <div class="carousel">
-                   
-                    <div class="carousel-img">
-                     <div class="left">
-                        <img src="img/carousel1.jpeg" alt="Travel Package 1">
-                     </div>
-                     <div class="main">
-                        <img src="img/carousel2.jpeg" alt="Travel Package 2">
-                     </div>
-                     <div class="right">
-                        <img src="img/carousel3.jpeg" alt="Travel Package 3">
-                     </div>
+    <div class="packages">
+        <h3>Travel Packages</h3>
+
+        <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
+
+        <p>Explore the globe's captivating destinations with our cerated travel packages.</p>
+
+        <!---------------------------Packages Carousel -------------------------->
+
+                
+        <div class = "travel_packages_carousel">
+
+                <div>
+                    <button class="prev" onclick="moveCarousel(1)">❮</button>
+                </div>
+
+                <div>
+                <section class="carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/carousel1.jpeg" alt="Loki">
+                        </div>
+                        
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/carousel2.jpeg" alt="Stranger Things">
+                        </div>
+                    
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/carousel3.jpeg" alt="The Mandalorian">
+                        </div>
+
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/Img2.jpg" alt="Stranger Things">
+                        </div>
+                    
+                        <div class="carousel-item" onclick="window.location.href=''">
+                            <img src="img/Img1.jpg" alt="The Mandalorian">
+                        </div>
                     </div>
-                   
-
-                </div>  -->
-                <!-- ***********************Tried implementing a Carousel Feature*************************************** -->
- 
-                
-   <div class = "travel_packages_carousel">
-        
-
-        <div><button class="prev" onclick="moveCarousel(-1)">❮</button></div>
-
-        <div>
-        <section class="carousel" style="border:1px solid red;">
-            <div class="carousel-container">
-                <div class="carousel-item" onclick="window.location.href=''">
-                    <img src="img/carousel1.jpeg" alt="Loki">
-                </div>
-                
-                <div class="carousel-item" onclick="window.location.href=''">
-                    <img src="img/carousel2.jpeg" alt="Stranger Things">
-                </div>
-            
-                <div class="carousel-item" onclick="window.location.href=''">
-                    <img src="img/carousel3.jpeg" alt="The Mandalorian">
+                </section>
                 </div>
 
-                <div class="carousel-item" onclick="window.location.href=''">
-                    <img src="img/Img2.jpg" alt="Stranger Things">
-                </div>
-            
-                <div class="carousel-item" onclick="window.location.href=''">
-                    <img src="img/Img1.jpg" alt="The Mandalorian">
-                </div>
+                <script src="app.js"></script>    
             </div>
-        </section>
-        </div>
+</div>
 
-        <div><button class="next" onclick="moveCarousel(1)">❯</button></div>        
-   </div>
-
+         
     
-
-    <script src="app.js"></script>  
-
-            </div>
 
             <div class="holiday-type">
                 <h3>Holiday Types</h3>

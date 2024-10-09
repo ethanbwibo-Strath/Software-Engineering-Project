@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    background-color: aliceblue;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: aliceblue;
+    transition: all 0.5s ease;
+    
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: black;
+    line-height: 70px;
+    text-align: center;
+    background: aliceblue;
+    user-select: none;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: black;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s;
+}
+
+ul li:hover a {
+    padding-left: 50px;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+/* Add active class for selected item */
+.sidebar ul a.active {
+    background-color: #868e97; /* Change this to any color you like */
+    color: white;
+}
+
+.sidebar ul a.active i {
+    color: white;
+}
+
