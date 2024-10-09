@@ -2,18 +2,18 @@
 // Include the header
 $pagetitle = "Update a Travel Package";
 $stylesheet = "TravelAgentStyles.css";
-include "layouts/header.php";
+include "layouts\header.php";
 
 // Example to fetch existing packages from the database
 // $packages = fetchPackagesFromDatabase();
 ?>
 <style>
-    body {
+    /* body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Light background */
+    background-color: #f5f5f5; /* Light background 
     margin: 0;
     padding: 20px;
-}
+} */
 
 .main-content {
     max-width: 600px; /* Max width for the form */
