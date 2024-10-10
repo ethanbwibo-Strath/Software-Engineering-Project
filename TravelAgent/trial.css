@@ -1,0 +1,278 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    background-color: #f4f4f4;
+}
+
+
+/* --------------------------Header Navigation Styling -------------------------------------------*/
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 10px 15px;
+    box-shadow: 0px 0px 15px #000; 
+    
+    
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links ul{
+    display: flex;
+    list-style: none;
+}
+
+.links ul a{
+    margin-right: 3vh;
+    padding: 5px;
+    color: black;
+    font-size: 20px;
+}
+
+.links ul a:hover{
+    color: goldenrod;
+    transition: .2s ease-in;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.search input{
+    border-radius: 5px;
+    margin-left: 5px;
+    text-align: center;
+    width: 30vh;
+    height: 5vh;
+}
+
+/* Account section in nav */
+.account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0;
+}
+
+.account p{
+    font-size: 20px;
+    margin-left: 3vh;
+    color: goldenrod;
+}
+.nav h1{
+    color: goldenrod;
+
+}
+
+/* -----------------------------------  SideBar Styling    ----------------------------------------- */
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 60%;
+    margin-top: 1cm;
+    padding-top: 40px;
+    transition: all 0.5s ease;
+    box-shadow: 0px 0px 10px #ccc; 
+    border-radius: 10px;
+    border: transparent 1px solid;
+    left: -200px; /* Initially hide sidebar by shifting it to the left */
+}
+
+.sidebar:hover {
+    left: 0; /* Slide the sidebar into view on hover */
+}
+
+/* Sidebar header along the side (vertical text) */
+.sidebar header {
+    font-size: 30px;
+    color: black;
+    writing-mode: vertical-rl; /* Rotates text vertically */
+    text-align: center;
+    user-select: none;
+    transform: rotate(360deg); /* Corrects the upside-down issue */
+    position: absolute;
+    top: 40%;
+    right: -30px; /* Position header slightly outside the sidebar */
+    transform-origin: center;
+    background-color: #f4f4f4;
+    padding: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease; /* Add smooth transition for color change */
+}
+
+/* Hover effect: Change header color to goldenrod */
+.sidebar:hover header {
+    color: goldenrod;
+}
+
+/* Styling for the sidebar list */
+.sidebar ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.sidebar ul a {
+    display: block;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: black;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s;
+}
+
+ul li:hover a {
+    padding-left: 50px;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+/* Add active class for selected item */
+.sidebar ul a.active {
+    background-color: #868e97; /* Change this to any color you like */
+    color: white;
+}
+
+.sidebar ul a.active i {
+    color: white;
+}
+
+
+/* ---------------------------------- Dashboard Styling  --------------------------------------- */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.popular-packages, .upcoming-events, .notifications {
+    margin:0 0 20px 65px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+
+}
+
+.package-item {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.package-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.package-item a {
+    display: block; 
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.package-item:hover {
+    transform: scale(1.05); /* Scale up the item slightly */
+    box-shadow: 0 4px 10px goldenrod; 
+}
+
+.stars {
+    color: goldenrod;
+}
+
+.upcoming-events ul, .notifications ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.upcoming-events li, .notifications li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.popular-packages h2, 
+.upcoming-events h2, 
+.notifications h2 {
+    text-align: center; 
+    transition: color 0.3s ease;
+    padding-bottom: 10px;
+}
+
+.popular-packages:hover h2, 
+.upcoming-events:hover h2, 
+.notifications:hover h2 {
+    color: goldenrod; 
+}
+
+.upcoming-events, .notifications {
+    margin: 0 0 20px 65px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.upcoming-events {
+    margin-right: 20px; 
+}
+
+.events-notifications-container {
+    display: flex; /* Aligns items in a row */
+    justify-content: space-between; /* Space between the items */
+    margin-left: 65px; /* Align with the other sections */
+}
+
+
+
+
+/* --------------------------------------  Footer Styling -------------------------------------- */
+.footer{
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    box-shadow: 0px 0px 10px #000;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.socials img{
+    margin:0 1vw 0 1vw;
+}
+
+.copyright{
+    margin-left: 30vw;
+}
+
+.copyright span{
+    color: goldenrod;
+    text-decoration: underline;
+    font-weight: bold;
+ }
