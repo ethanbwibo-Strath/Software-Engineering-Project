@@ -25,4 +25,4 @@ prevBtn.addEventListener('click', () => {
 setInterval(() => {
     currentSlide = (currentSlide + 1) % totalSlides;
     moveToSlide(currentSlide);
-}, 3000);
+}, 5000);
