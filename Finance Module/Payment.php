@@ -1,7 +1,7 @@
 <?php
 $pagetittle = "Payment";
 
-include "layouts/header.php";
+include "../layouts/header.php";
 ?>
 
 <head>
@@ -45,5 +45,5 @@ include "layouts/header.php";
 
 <?php
 // Include the footer
-include "layouts/footer.php";
+include "../layouts/footer.php";
 ?>  
