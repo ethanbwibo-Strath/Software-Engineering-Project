@@ -5,30 +5,20 @@ $stylesheet = "adminStyle.css";
 include "../layouts/header.php";
 ?>
 
+    <head>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
     <div class="main">
         <div class="sidebar">
-            <h2>DASHBOARD</h2>
+            <header>Panel</header>
             <ul>
-                <div class="sidebar-link">
-                    <li><a href="">User Management </a></li>
-                    <img src="../img/user.png" alt="User Icon">
-                </div>
-
-                <div class="sidebar-link">
-                    <li><a href="">Travel Packages </a></li>
-                    <img src="../img/travelpackage.png" alt="Package Icon">
-                </div>
-                    
-                <div class="sidebar-link">
-                    <li><a href="">Booking Management </a></li>   
-                    <img src="../img/book.png" alt="Book Icon">
-                </div>
-
-                <div class="sidebar-link">
-                    <li><a href="">Reports & Analytics </a></li>
-                    <img src="../img/report.png" alt="Report Icon">
-                </div>   
-            </ul>
+                <li><a href="#" class="nav-item"><i class='bx bxs-user' ></i>User Management</a></li>
+                <li><a href="#" class="nav-item"><i class='bx bxs-briefcase' ></i>Bookings</a></li>
+                <li><a href="#" class="nav-item"><i class='bx bxs-package'></i>Travel Packages</a></li>
+                <li><a href="#" class="nav-item"><i class='bx bx-scatter-chart'></i>Analytics</a></li>
+                <li><a href="#" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+            </ul> 
+            <script src="sidebar.js"></script>
         </div>
         <div class="content">
             <div class="stats">
