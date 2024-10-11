@@ -1,7 +1,7 @@
 <?php
 // Include the header
 $pagetitle = "Create a Travel Package";
-$stylesheet = "../TravelAgentStyles.css";
+$stylesheet = "../Travel Agent Dashboard.css";
 include "../../layouts/header.php";
 ?>
 <style>

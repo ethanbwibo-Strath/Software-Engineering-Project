@@ -1,7 +1,7 @@
 <?php
 // Include the header
 $pagetitle = "View All Packages";
-$stylesheet = "../TravelAgentStyles.css";
+$stylesheet = "../Travel Agent Dashboard.css";
 include "../..\layouts\header.php";
 
 // Include your database connection file
