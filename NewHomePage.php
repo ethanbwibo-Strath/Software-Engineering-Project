@@ -133,14 +133,55 @@
         </div>
     </div>
 
-    <div class="why-us">
-        <h3>Why Choose Us?</h3>
-        <div class="whyUs-box">
-            <p><strong>Expert Guidance: <br> </strong> Our travel agents are experienced and knowledgeable.</p>
-            <p><strong>Custom Packages: <br> </strong> Tailor-made travel packages to suit your preferences.</p>
-            <p><strong>24/7 Support: <br> </strong> We're always here for you, anytime you need assistance.</p>
+        <div class="why-us">
+            <h3>Why Choose Us?</h3>
+            
+            <div class="why-us-section">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Expert Guidance</h2>
+                        <img src="../img/j-sharp-DMRZ1jjQVaU-unsplash.jpg" alt="Expert Guidance">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Expert Guidance</h2>
+                        <p>Our travel agents are experienced and knowledgeable, ensuring the best travel experiences.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Best Deals</h2>
+                        <img src="../img/grace-nandi-FzkGHmvvsto-unsplash.jpg" alt="Best Deals">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Best Deals</h2>
+                        <p>We offer unbeatable prices for amazing destinations and travel experiences.</p>
+                    </div>
+                </div>
+            </div> 
+
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Custom Packages</h2>
+                        <img src="../img/mustafa-omar-Zkao_QBEjk8-unsplash.jpg" alt="Custom Packages">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Custom Packages</h2>
+                        <p>Tailor-made travel packages to suit your preferences.</p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
         </div>
-    </div>
+
+
 
     <div class="contact-us">
         <h3>Contact Us</h3>

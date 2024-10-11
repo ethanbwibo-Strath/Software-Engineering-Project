@@ -139,9 +139,9 @@
 
     <div class="footer">
         <div class="socials">
-            <img src="../img/twitter.png" alt="Twitter">
-            <img src="../img/instagram.png" alt="Instagram">
-            <img src="../img/linkedin.png" alt="linkedin">
+            <a href="#"><img src="../img/instagram2.png" alt="instagram"></a>
+            <a href="#"><img src="../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../img/linkedin.png" alt="linkedin"></a>
         </div>
 
         <div class="copyright">
