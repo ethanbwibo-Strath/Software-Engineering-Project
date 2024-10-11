@@ -2,7 +2,7 @@
 // Include the header
 $pagetitle = "Admin Dashboard";
 $stylesheet = "adminStyle.css";
-include "layouts/header.php";
+include "../layouts/header.php";
 ?>
 
     <div class="main">
@@ -11,43 +11,43 @@ include "layouts/header.php";
             <ul>
                 <div class="sidebar-link">
                     <li><a href="">User Management </a></li>
-                    <img src="img/user.png" alt="User Icon">
+                    <img src="../img/user.png" alt="User Icon">
                 </div>
 
                 <div class="sidebar-link">
                     <li><a href="">Travel Packages </a></li>
-                    <img src="img/travelpackage.png" alt="Package Icon">
+                    <img src="../img/travelpackage.png" alt="Package Icon">
                 </div>
                     
                 <div class="sidebar-link">
                     <li><a href="">Booking Management </a></li>   
-                    <img src="img/book.png" alt="Book Icon">
+                    <img src="../img/book.png" alt="Book Icon">
                 </div>
 
                 <div class="sidebar-link">
                     <li><a href="">Reports & Analytics </a></li>
-                    <img src="img/report.png" alt="Report Icon">
+                    <img src="../img/report.png" alt="Report Icon">
                 </div>   
             </ul>
         </div>
         <div class="content">
             <div class="stats">
                 <div class="statCard">
-                    <img src="img/people.png" alt="">
+                    <img src="../img/people.png" alt="">
                     <div class="cardInfo">
                         <h2>Total Users</h2>
                         <p>100</p>
                     </div>
                 </div>
                 <div class="statCard">
-                    <img src="img/money.png" alt="">
+                    <img src="../img/money.png" alt="">
                     <div class="cardInfo">
                         <h2>Revenue in Kshs.</h2>
                         <p>12,890</p>
                     </div>
                 </div>
                 <div class="statCard">
-                    <img src="img/bag.png" alt="">
+                    <img src="../img/bag.png" alt="">
                     <div class="cardInfo">
                         <h2>Total Bookings</h2>
                         <p>61</p>
@@ -57,27 +57,27 @@ include "layouts/header.php";
             <div class="bottom">
                 <div class="recentActivity">
                     <div class="recentActivityHeader">
-                        <img src="img/clock.png" alt="">
+                        <img src="../img/clock.png" alt="">
                         <h2>Recent Activity</h2>
                     </div>
                     
 
                     <div class="activityCard">
-                        <img src="img/user.png" alt="">
+                        <img src="../img/user.png" alt="">
                         <h3>John Doe</h3>
                         <div class="activityInfo">
                             <p>Booked for 5 days</p>
                         </div>
                     </div>
                     <div class="activityCard">
-                        <img src="img/user.png" alt="">
+                        <img src="../img/user.png" alt="">
                         <h3>John Doe</h3>
                         <div class="activityInfo">
                             <p>Booked for 5 days</p>
                         </div>
                     </div>
                     <div class="activityCard">
-                        <img src="img/user.png" alt="">
+                        <img src="../img/user.png" alt="">
                         <h3>John Doe</h3>
                         <div class="activityInfo">
                             <p>Booked for 5 days</p>
@@ -87,7 +87,7 @@ include "layouts/header.php";
 
                 <div class="calendar">
                     <div class="calendarHeader">
-                        <img src="img/calendar.png" alt="">
+                        <img src="../img/calendar.png" alt="">
                         <h2>Event Calendar</h2>
                     </div>
                     <p>Calendar to be placed HERE!!<br> Together with more content...</p>
@@ -98,5 +98,5 @@ include "layouts/header.php";
 
 <?php
 // Include the footer
-include "layouts/footer.php";
+include "../layouts/footer.php";
 ?>
