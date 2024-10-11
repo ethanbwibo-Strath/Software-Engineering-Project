@@ -9,17 +9,10 @@ include "../layouts/header.php";
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <div class="main">
-        <div class="sidebar">
-            <header>Panel</header>
-            <ul>
-                <li><a href="#" class="nav-item"><i class='bx bxs-user' ></i>User Management</a></li>
-                <li><a href="#" class="nav-item"><i class='bx bxs-briefcase' ></i>Bookings</a></li>
-                <li><a href="#" class="nav-item"><i class='bx bxs-package'></i>Travel Packages</a></li>
-                <li><a href="#" class="nav-item"><i class='bx bx-scatter-chart'></i>Analytics</a></li>
-                <li><a href="#" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
-            </ul> 
-            <script src="sidebar.js"></script>
-        </div>
+        <?php
+            // Include the sidebar
+            include "sidebarPanel/adminSide.php";
+        ?>
         <div class="content">
             <div class="stats">
                 <div class="statCard">
