@@ -1,230 +1,43 @@
-<?php
-$pagetitle = "Home Page";
-include 'layouts/header.php';
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
 
-<style>   
-    #background-video {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
-        /* Make the video cover the entire container */
-    }
+    <title> NewHomePage</title>
+    <link rel = "icon" href="../img/logo2.png" type = "image/png">
+    <link rel="stylesheet" href= "NewHomePage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    .video-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: -1;
-        /* Set z-index to -1 to put it behind the content */
-    }
+</head>
 
-    .onTopofVideo{
-        height: 100vh;
-        width:100%;
-        position:relative; 
-        margin-bottom: auto;
-    } 
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo">
+            <h1>CheapThrills</h1>
+        </div>
 
-    .onTopofVideo h1{
-        margin: auto;
-        padding-top: 100px;
-        text-align:center;
-        font-size: 65px;
-        color: #fff;
-        font-weight: 900;
-        text-shadow: rgba(0, 0, 0, 0.592) 0px 0px 10px;
-    }
+        <div class="links">
+            <ul>
+                <a href="NewHomePage.php"><li>Home</li></a>
+                <a href=""><li>Book</li></a>
+                <a href=""><li>About Us</li></a>
+                <a href=""><li>Contact</li></a>
+                <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
+            </ul>
+        </div>
 
-    .button1 {
-        width: 100%;
-        padding: 15px;
-        margin-top: 50px;
-        background-color: #333;
-        color: #fff;
-        border: none;
-        border-radius: 20px;
-        font-size: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+        <div class="search">
+            <img src="img/search.png" alt="Search">
+            <input type="search" name="search" id="navSearch" placeholder="Search...">
+        </div>
 
-    .button1:hover {
-        background-color: goldenrod;
-    }
-
-    .btns{
-        width: 30vw;
-        margin: 10vh auto 0 auto;
-        display: flex;
-        justify-content: space-around;
-        padding: 10px;
-    }
-    
-        /* Travel Packages Section */
-    .travel-packages-section {
-        text-align: center;
-        padding: 20px;
-        background-color: #f4f4f4;
-        padding: 20px;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-    }
-    
-    .travel-packages-section h3 {
-        font-size: 2rem;
-        margin-bottom: 10px;
-    }
-    
-    .travel-packages-section p {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-    }
-    
-    /* Carousel Wrapper */
-    .carousel-wrapper {
-        position: relative;
-        width: 80%;
-        margin: 10px auto;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Carousel Container */
-    .carousel-container {
-        display: flex;
-        overflow: hidden;
-    }
-    
-    /* Carousel Track - for the sliding effect */
-    .carousel-track {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
-    
-    /* Individual Carousel Item */
-    .carousel-item {
-        min-width: 100%; /* Each item takes up the full width */
-        box-sizing: border-box;
-    }
-    
-    .carousel-item img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .carousel-title {
-        font-size: 1.2rem;
-        color: #333;
-        margin-top: 10px;
-        text-align: center;
-        font-weight: bold;
-    }
-    
-    /* Controls - Previous & Next buttons */
-    .carousel-control {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 10;
-    }
-    
-    .carousel-control.prev {
-        left: 10px;
-    }
-    
-    .carousel-control.next {
-        right: 10px;
-    }
-    
-    .carousel-control:hover {
-        background-color: goldenrod;
-    }
-    
-    .why-us {
-        padding: 40px 20px;
-        text-align: center;
-        background-color: #fff; /* White background for contrast */
-    }
-    
-    .why-us h3 {
-        font-size: 30px;
-        margin-bottom: 20px;
-        font-weight: bold; /* Make the heading bold */
-        color: #333; /* Dark color for the heading */
-    }
-    
-    .whyUs-box {
-        display: flex;
-        justify-content: space-around; /* Distribute items evenly */
-        align-items: center;
-        gap: 10px; /* Space between boxes */
-    }
-    
-    .whyUs-box p {
-        background-color: #fff; /* White background for each box */
-        border: 1px solid #ddd; /* Light gray border */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-        padding: 20px; /* Inner padding for text */
-        border-radius: 10px; /* Rounded corners */
-        width: 250px; /* Fixed width for uniformity */
-        height: 150px; /* Fixed height for uniformity */
-        font-weight: bold; /* Make text bold */
-        transition: transform 0.2s; /* Transition for hover effect */
-    }
-    
-    .whyUs-box p:hover {
-        transform: translateY(-5px); /* Lift effect on hover */
-    }
-    
-    .contact-us {
-        padding: 40px 20px; /* Add padding for the contact section */
-        text-align: center; /* Center the text */
-        background-color: #f9f9f9; /* Light background for contact section */
-        margin-top: 20px; /* Space above the contact section */
-        border-radius: 10px; /* Rounded corners */
-    }
-    
-    .contact-us h3 {
-        font-size: 30px;
-        margin-bottom: 20px;
-        font-weight: bold;
-        color: #333; /* Dark color for heading */
-    }
-    
-    .contact-us ul {
-        list-style-type: none; /* Remove bullet points */
-        padding-left: 0; /* Remove default padding */
-        margin-bottom: 20px; /* Space below the list */
-    }
-    
-    .contact-us ul li {
-        margin-bottom: 10px; /* Space between items */
-    }
-    
-    .contact-us a {
-        color: #007BFF; /* Primary color for links */
-        text-decoration: none; /* Remove underline */
-    }
-    
-    .contact-us a:hover {
-        text-decoration: underline; /* Underline on hover */
-    }
-
-    
-</style>
-
+        <div class="account">
+            <img src="img/user.png" alt="user">
+            <p>Account</p>
+        </div>
+    </div>
 
 
 <div class="video-container">
@@ -320,27 +133,78 @@ include 'layouts/header.php';
         </div>
     </div>
 
-<div class="why-us">
-    <h3>Why Choose Us?</h3>
-    <div class="whyUs-box">
-        <p><strong>Expert Guidance: <br> </strong> Our travel agents are experienced and knowledgeable.</p>
-        <p><strong>Custom Packages: <br> </strong> Tailor-made travel packages to suit your preferences.</p>
-        <p><strong>24/7 Support: <br> </strong> We're always here for you, anytime you need assistance.</p>
+        <div class="why-us">
+            <h3>Why Choose Us?</h3>
+            
+            <div class="why-us-section">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Expert Guidance</h2>
+                        <img src="../img/j-sharp-DMRZ1jjQVaU-unsplash.jpg" alt="Expert Guidance">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Expert Guidance</h2>
+                        <p>Our travel agents are experienced and knowledgeable, ensuring the best travel experiences.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Best Deals</h2>
+                        <img src="../img/grace-nandi-FzkGHmvvsto-unsplash.jpg" alt="Best Deals">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Best Deals</h2>
+                        <p>We offer unbeatable prices for amazing destinations and travel experiences.</p>
+                    </div>
+                </div>
+            </div> 
+
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Custom Packages</h2>
+                        <img src="../img/mustafa-omar-Zkao_QBEjk8-unsplash.jpg" alt="Custom Packages">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Custom Packages</h2>
+                        <p>Tailor-made travel packages to suit your preferences.</p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+
+
+    <div class="contact-us">
+        <h3>Contact Us</h3>
+        <p>If you have any questions or would like to book a package, reach out to us:</p>
+        <ul>
+            <li><strong>Phone:</strong> <a href="tel:+254 (7)14 516 129">+254 (7)14 516 129</a></li>
+            <li><strong>Email:</strong> <a href="mailto:info@cheapthrills.com">info@cheapthrills.com</a></li>
+            <li><strong>Address:</strong> First Floor opposite Afya Corner,Student Center(STC), Stathmore University, Karen Ole Sangale Rd, off Langata Road, in Madaraka Estate, Nairobi</li>
+        </ul>
+        
     </div>
-</div>
-
-<div class="contact-us">
-    <h3>Contact Us</h3>
-    <p>If you have any questions or would like to book a package, reach out to us:</p>
-    <ul>
-        <li><strong>Phone:</strong> <a href="tel:+254 (7)14 516 129">+254 (7)14 516 129</a></li>
-        <li><strong>Email:</strong> <a href="mailto:info@cheapthrills.com">info@cheapthrills.com</a></li>
-        <li><strong>Address:</strong> First Floor opposite Afya Corner,Student Center(STC), Stathmore University, Karen Ole Sangale Rd, off Langata Road, in Madaraka Estate, Nairobi</li>
-    </ul>
-    
-</div>
 
 
-<?php
-include 'layouts/footer.php';
-?>
+    <div class="footer">
+        <div class="socials">
+            <img src="img/twitter.png" alt="Twitter">
+            <img src="img/instagram.png" alt="Instagram">
+            <img src="img/linkedin.png" alt="linkedin">
+        </div>
+
+        <div class="copyright">
+            <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

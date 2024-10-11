@@ -1,8 +1,8 @@
 <div class="footer">
         <div class="socials">
-            <img src="img/twitter.png" alt="Twitter">
-            <img src="img/instagram.png" alt="Instagram">
-            <img src="img/linkedin.png" alt="linkedin">
+            <img src="../img/twitter.png" alt="Twitter">
+            <img src="../img/instagram.png" alt="Instagram">
+            <img src="../img/linkedin.png" alt="linkedin">
         </div>
 
         <div class="copyright">

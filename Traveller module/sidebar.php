@@ -1,6 +1,6 @@
 <?php
 $pagetitle = "User Dashboard";
-include 'layouts/header.php';
+include '../layouts/header.php';
 ?>
 
 <link rel="stylesheet" href="sidebar.css">
@@ -10,7 +10,7 @@ include 'layouts/header.php';
     <div class="sidebar">
         <header>Dashboard</header>
         <ul>
-            <li><a href="#" class="nav-item"><i class='bx bxs-user-account'></i>Account Details</a></li>
+            <li><a href="accountdetails.php" class="nav-item"><i class='bx bxs-user-account'></i>Account Details</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-plane-alt'></i>My Trips</a></li>
             <li><a href="#" class="nav-item"><i class='bx bx-help-circle'></i>Help</a></li>
             <li><a href="#" class="nav-item"><i class='bx bx-calendar-check'></i>Bookings</a></li>
@@ -19,8 +19,19 @@ include 'layouts/header.php';
         </ul> 
     </div>
 
-
     <script src="sidebar.js"></script>
 
+    <div class="main-content">
+        <header>
+            <h1>Welcome, User</h1>
+        </header>
+        <main>
+            <p>Here is your dashboard. You can view your account details, trips, bookings, and more.</p>
+        </main>
+    </div>
+</div>
 
 
+<?php
+include 'layouts/footer.php';
+?>
