@@ -105,7 +105,7 @@ include "layouts/header.php";
             </div>
 
             <div class="sidebar-link">
-                <li><a href="">Reports & Analytics</a></li>
+                <li><a href="graphs.php">Reports & Analytics</a></li>
                 <img src="img/report.png" alt="Report Icon">
             </div>
 
