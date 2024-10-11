@@ -2,26 +2,26 @@
 // Include the header
 $pagetitle = "Update a Travel Package";
 $stylesheet = "TravelAgentStyles.css";
-include "layouts/header.php";
+include "layouts\header.php";
 
 // Example to fetch existing packages from the database
 // $packages = fetchPackagesFromDatabase();
 ?>
 <style>
-    body {
+    /* body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Light background */
+    background-color: #f5f5f5; /* Light background 
     margin: 0;
     padding: 20px;
-}
+} */
 
 .main-content {
-    max-width: 600px; /* Max width for the form */
-    margin: 0 auto; /* Center the form */
-    background: #fff; /* White background for the form */
+    width: 800px;
+    margin: 0 auto;
+    /* background: #fff; 
     padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners *
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); Subtle shadow */
 }
 
 h1 {
@@ -92,6 +92,51 @@ select {
 }
 
 </style>
+
+<div class="main">
+    <div class="sidebar">
+        <h2>PANEL</h2>
+        <ul>
+            <div class="sidebar-link">
+                <li>
+                    <a href="#" class="link">Packages</a>
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <a href="createPackage.php" class="submenu-link">Create Package</a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="updatePackage.php" class="submenu-link">Update Package</a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="viewPackages.php" class="submenu-link">View Packages</a>
+                        </div>
+                    </div>
+                </li>
+                <img src="img/user.png" alt="User Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Booking Management</a></li>
+                <img src="img/travelpackage.png" alt="Package Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Customer Support</a></li>
+                <img src="img/book.png" alt="Book Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Reports & Analytics</a></li>
+                <img src="img/report.png" alt="Report Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Reviews and Feedback</a></li>
+                <img src="img/report.png" alt="Report Icon">
+            </div>
+        </ul>
+    </div>
+
 
 <div class="main-content">
     <h1>Update an Existing Package</h1>

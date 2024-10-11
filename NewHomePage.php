@@ -323,9 +323,9 @@ include 'layouts/header.php';
 <div class="why-us">
     <h3>Why Choose Us?</h3>
     <div class="whyUs-box">
-        <p><strong>Expert Guidance:</strong> Our travel agents are experienced and knowledgeable.</p>
-        <p><strong>Custom Packages:</strong> Tailor-made travel packages to suit your preferences.</p>
-        <p><strong>24/7 Support:</strong> We're always here for you, anytime you need assistance.</p>
+        <p><strong>Expert Guidance: <br> </strong> Our travel agents are experienced and knowledgeable.</p>
+        <p><strong>Custom Packages: <br> </strong> Tailor-made travel packages to suit your preferences.</p>
+        <p><strong>24/7 Support: <br> </strong> We're always here for you, anytime you need assistance.</p>
     </div>
 </div>
 
@@ -333,8 +333,8 @@ include 'layouts/header.php';
     <h3>Contact Us</h3>
     <p>If you have any questions or would like to book a package, reach out to us:</p>
     <ul>
-        <li><strong>Email:</strong> <a href="mailto:info@cheapthrills.com">info@cheapthrills.com</a></li>
         <li><strong>Phone:</strong> <a href="tel:+254 (7)14 516 129">+254 (7)14 516 129</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@cheapthrills.com">info@cheapthrills.com</a></li>
         <li><strong>Address:</strong> First Floor opposite Afya Corner,Student Center(STC), Stathmore University, Karen Ole Sangale Rd, off Langata Road, in Madaraka Estate, Nairobi</li>
     </ul>
     

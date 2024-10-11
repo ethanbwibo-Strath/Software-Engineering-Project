@@ -5,20 +5,20 @@ $stylesheet = "TravelAgentStyles.css";
 include "layouts/header.php";
 ?>
 <style>
-    body {
+    /* body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Light background */
+    background-color: #f5f5f5; /* Light background 
     margin: 0;
     padding: 20px;
-}
+} */
 
 .main-content {
-    max-width: 600px; /* Max width for the form */
-    margin: 0 auto; /* Center the form */
-    background: #fff; /* White background for the form */
+    width: 600px; 
+    margin: 0 auto; /* Center the form *
+    background: #fff; /* White background for the form *
     padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners *
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  Subtle shadow */
 }
 
 h1 {
@@ -78,8 +78,102 @@ textarea {
         width: 90%; /* Full width on small screens */
     }
 }
+.sidebar-link {
+        position: relative;
+        margin: 10px 0;
+    }
 
+    .sidebar-link a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+    }
+
+    .sidebar-link a:hover {
+        background: #0a3cff;
+        color: white;
+    }
+
+    .submenu {
+        display: none;
+        background-color: #e9e9e9;
+        padding: 10px;
+        border-radius: 5px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .sidebar-link:hover .submenu {
+        display: block;
+    }
+
+    .submenu-item {
+        margin: 5px 0;
+    }
+
+    .submenu-link {
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .submenu-link:hover {
+        background: #0a3cff;
+        color: white;
+    }
 </style>
+
+<div class="main">
+    <div class="sidebar">
+        <h2>PANEL</h2>
+        <ul>
+            <div class="sidebar-link">
+                <li>
+                    <a href="#" class="link">Packages</a>
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <a href="createPackage.php" class="submenu-link">Create Package</a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="updatePackage.php" class="submenu-link">Update Package</a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="viewPackages.php" class="submenu-link">View Packages</a>
+                        </div>
+                    </div>
+                </li>
+                <img src="img/user.png" alt="User Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Booking Management</a></li>
+                <img src="img/travelpackage.png" alt="Package Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Customer Support</a></li>
+                <img src="img/book.png" alt="Book Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Reports & Analytics</a></li>
+                <img src="img/report.png" alt="Report Icon">
+            </div>
+
+            <div class="sidebar-link">
+                <li><a href="">Reviews and Feedback</a></li>
+                <img src="img/report.png" alt="Report Icon">
+            </div>
+        </ul>
+    </div>
+
 <div class="main-content">
     <h1>Create a New Package</h1>
     <form action="submitPackage.php" method="POST" enctype="multipart/form-data">
