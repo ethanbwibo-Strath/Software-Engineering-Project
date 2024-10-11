@@ -36,7 +36,13 @@
         </div>
 
         <div class="account">
+            
             <img src="img/user.png" alt="user">
-            <p>Account</p>
+            <div class="links">
+                <ul>
+                    <a href="Traveller module/LoginPage.php"><li>Account</li></a>
+                </ul>
+            </div>
+            
         </div>
     </div>
