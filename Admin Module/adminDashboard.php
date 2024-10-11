@@ -5,31 +5,14 @@ $stylesheet = "adminStyle.css";
 include "../layouts/header.php";
 ?>
 
+    <head>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
     <div class="main">
-        <div class="sidebar">
-            <h2>DASHBOARD</h2>
-            <ul>
-                <div class="sidebar-link">
-                    <li><a href="">User Management </a></li>
-                    <img src="../img/user.png" alt="User Icon">
-                </div>
-
-                <div class="sidebar-link">
-                    <li><a href="">Travel Packages </a></li>
-                    <img src="../img/travelpackage.png" alt="Package Icon">
-                </div>
-                    
-                <div class="sidebar-link">
-                    <li><a href="">Booking Management </a></li>   
-                    <img src="../img/book.png" alt="Book Icon">
-                </div>
-
-                <div class="sidebar-link">
-                    <li><a href="">Reports & Analytics </a></li>
-                    <img src="../img/report.png" alt="Report Icon">
-                </div>   
-            </ul>
-        </div>
+        <?php
+            // Include the sidebar
+            include "sidebarPanel/adminSide.php";
+        ?>
         <div class="content">
             <div class="stats">
                 <div class="statCard">

@@ -1,0 +1,84 @@
+.sidebar {
+    position: fixed;
+    background-color: white;
+    width: 250px;
+    height: 60%;
+    margin-top: 1cm;
+    padding-top: 40px;
+    transition: all 0.5s ease;
+    box-shadow: 0px 0px 10px #ccc; 
+    border-radius: 10px;
+    border: transparent 1px solid;
+    left: -200px; /* Initially hide sidebar by shifting it to the left */
+}
+
+.sidebar:hover {
+    left: 0; /* Slide the sidebar into view on hover */
+}
+
+/* Sidebar header along the side (vertical text) */
+.sidebar header {
+    font-size: 30px;
+    color: black;
+    writing-mode: vertical-rl; /* Rotates text vertically */
+    text-align: center;
+    user-select: none;
+    transform: rotate(360deg); /* Corrects the upside-down issue */
+    position: absolute;
+    top: 40%;
+    right: -30px; /* Position header slightly outside the sidebar */
+    transform-origin: center;
+    background-color: #f4f4f4;
+    padding: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease; /* Add smooth transition for color change */
+}
+
+/* Hover effect: Change header color to goldenrod */
+.sidebar:hover header {
+    color: goldenrod;
+}
+
+/* Styling for the sidebar list */
+.sidebar ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.sidebar ul li
+{
+    margin-bottom: 25px;
+    left: -10px;
+}
+
+.sidebar ul a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    line-height: 65px;
+    font-size: 17px;
+    color: black;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.4s;
+}
+
+ul li:hover a {
+    padding-left: 50px;
+    color: goldenrod;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+/* Add active class for selected item */
+.sidebar ul a.active {
+    background-color: #868e97; /* Change this to any color you like */
+    color: white;
+}
+
+.sidebar ul a.active i {
+    color: white;
+}
