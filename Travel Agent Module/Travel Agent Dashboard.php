@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width = device-width, initial-scale = 1.0">
 
-    <title> Trial Travel Agent Dash</title>
+    <title>Travel Agent Dashboard</title>
     <link rel = "icon" href="../img/logo2.png" type = "image/png">
-    <link rel="stylesheet" href= "trial.css">
+    <link rel="stylesheet" href= "Travel Agent Dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
