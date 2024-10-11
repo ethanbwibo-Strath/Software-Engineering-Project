@@ -1,6 +1,6 @@
 <?php
 $pagetitle = "User Dashboard";
-include 'layouts/header.php';
+include '../layouts/header.php';
 ?>
 
 <link rel="stylesheet" href="sidebar.css">

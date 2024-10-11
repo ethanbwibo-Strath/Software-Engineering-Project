@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $pagetitle ?></title>
-    <link rel = "icon" href="img/logo2.png" type = "image/png">
+    <link rel = "icon" href="../img/logo2.png" type = "image/png">
    <!-- Dynamically load the correct stylesheet -->
    <?php if (isset($stylesheet)): ?>
         <link rel="stylesheet" href="<?php echo $stylesheet; ?>">
     <?php else: ?>
-        <link rel="stylesheet" href="style.css"> <!-- Default stylesheet if none is provided -->
+        <link rel="stylesheet" href="../style.css"> <!-- Default stylesheet if none is provided -->
     <?php endif; ?>
     
 </head>
 <body>
     <div class="nav">
         <div class="logo">
-            <img src="img/logo.png" alt="Logo">
+            <img src="../img/logo.png" alt="Logo">
             <h1>CheapThrills</h1>
         </div>
 
@@ -31,13 +31,13 @@
         </div>
 
         <div class="search">
-            <img src="img/search.png" alt="Search">
+            <img src="../img/search.png" alt="Search">
             <input type="search" name="search" id="navSearch" placeholder="Search...">
         </div>
 
         <div class="account">
             
-            <img src="img/user.png" alt="user">
+            <img src="../img/user.png" alt="user">
             <div class="links">
                 <ul>
                     <a href="Traveller module/LoginPage.php"><li>Account</li></a>

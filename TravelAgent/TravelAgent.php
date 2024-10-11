@@ -2,7 +2,7 @@
 // Include the header
 $pagetitle = "Travel Agent Dashboard";
 $stylesheet = "TravelAgentStyles.css";
-include "layouts/header.php";
+include "../layouts/header.php";
 ?>
 
 <style>
@@ -81,37 +81,37 @@ include "layouts/header.php";
                     <a href="#" class="link">Packages</a>
                     <div class="submenu">
                         <div class="submenu-item">
-                            <a href="createPackage.php" class="submenu-link">Create Package</a>
+                            <a href="AllAboutPackages\createPackage.php" class="submenu-link">Create Package</a>
                         </div>
                         <div class="submenu-item">
-                            <a href="updatePackage.php" class="submenu-link">Update Package</a>
+                            <a href="AllAboutPackages/updatePackage.php" class="submenu-link">Update Package</a>
                         </div>
                         <div class="submenu-item">
-                            <a href="viewPackages.php" class="submenu-link">View Packages</a>
+                            <a href="AllAboutPackages/viewPackages.php" class="submenu-link">View Packages</a>
                         </div>
                     </div>
                 </li>
-                <img src="img/user.png" alt="User Icon">
+                <img src="../img/user.png" alt="User Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Booking Management</a></li>
-                <img src="img/travelpackage.png" alt="Package Icon">
+                <img src="../img/travelpackage.png" alt="Package Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Customer Support</a></li>
-                <img src="img/book.png" alt="Book Icon">
+                <img src="../img/book.png" alt="Book Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="graphs.php">Reports & Analytics</a></li>
-                <img src="img/report.png" alt="Report Icon">
+                <img src="../img/report.png" alt="Report Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Reviews and Feedback</a></li>
-                <img src="img/report.png" alt="Report Icon">
+                <img src="../img/report.png" alt="Report Icon">
             </div>
         </ul>
     </div>
@@ -119,14 +119,14 @@ include "layouts/header.php";
     <div class="content">
         <div class="stats">
             <div class="statCard">
-                <img src="img/people2.png" alt="">
+                <img src="../img/people2.png" alt="">
                 <div class="cardInfo">
                     <h2>4.2</h2>
                     <p>Rating</p>
                 </div>
             </div>
             <div class="statCard">
-                <img src="img/money.png" alt="">
+                <img src="../img/money.png" alt="">
                 <div class="cardInfo">
                     <h2>67</h2>
                     <p>Total Bookings</p>
@@ -137,12 +137,12 @@ include "layouts/header.php";
         <div class="bottom">
             <div class="recentActivity">
                 <div class="recentActivityHeader">
-                    <img src="img/clock.png" alt="">
+                    <img src="../img/clock.png" alt="">
                     <h2>Recent Activity</h2>
                 </div>
 
                 <div class="activityCard">
-                    <img src="img/user.png" alt="">
+                    <img src="../img/user.png" alt="">
                     <h3>John Doe</h3>
                     <div class="activityInfo">
                         <p>Booked for 5 days</p>
@@ -150,7 +150,7 @@ include "layouts/header.php";
                 </div>
 
                 <div class="activityCard">
-                    <img src="img/user.png" alt="">
+                    <img src="../img/user.png" alt="">
                     <h3>John Doe</h3>
                     <div class="activityInfo">
                         <p>Booked for 5 days</p>
@@ -158,7 +158,7 @@ include "layouts/header.php";
                 </div>
 
                 <div class="activityCard">
-                    <img src="img/user.png" alt="">
+                    <img src="../img/user.png" alt="">
                     <h3>John Doe</h3>
                     <div class="activityInfo">
                         <p>Booked for 5 days</p>
@@ -168,7 +168,7 @@ include "layouts/header.php";
 
             <div class="calendar">
                 <div class="calendarHeader">
-                    <img src="img/calendar.png" alt="">
+                    <img src="../img/calendar.png" alt="">
                     <h2>Event Calendar</h2>
                 </div>
 
@@ -180,5 +180,5 @@ include "layouts/header.php";
 
 <?php
 // Include the footer
-include "layouts/footer.php";
+include "../layouts/footer.php";
 ?>

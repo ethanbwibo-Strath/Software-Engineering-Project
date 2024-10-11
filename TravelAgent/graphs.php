@@ -11,7 +11,7 @@
 // Include the header
 $pagetitle = "Travel Agent Dashboard";
 $stylesheet = "TravelAgentStyles.css";
-include "layouts/header.php";
+include "../layouts/header.php";
 ?>
 </head>
 <body>
@@ -24,37 +24,37 @@ include "layouts/header.php";
                         <a href="#" class="link">Packages</a>
                         <div class="submenu">
                             <div class="submenu-item">
-                                <a href="createPackage.php" class="submenu-link">Create Package</a>
+                                <a href="AllAboutPackages/createPackage.php" class="submenu-link">Create Package</a>
                             </div>
                             <div class="submenu-item">
-                                <a href="updatePackage.php" class="submenu-link">Update Package</a>
+                                <a href="AllAboutPackages/updatePackage.php" class="submenu-link">Update Package</a>
                             </div>
                             <div class="submenu-item">
-                                <a href="viewPackages.php" class="submenu-link">View Packages</a>
+                                <a href="AllAboutPackages/viewPackages.php" class="submenu-link">View Packages</a>
                             </div>
                         </div>
                     </li>
-                    <img src="img/user.png" alt="User Icon">
+                    <img src="../img/user.png" alt="User Icon">
                 </div>
     
                 <div class="sidebar-link">
                     <li><a href="">Booking Management</a></li>
-                    <img src="img/travelpackage.png" alt="Package Icon">
+                    <img src="../img/travelpackage.png" alt="Package Icon">
                 </div>
     
                 <div class="sidebar-link">
                     <li><a href="">Customer Support</a></li>
-                    <img src="img/book.png" alt="Book Icon">
+                    <img src="../img/book.png" alt="Book Icon">
                 </div>
     
                 <div class="sidebar-link">
                     <li><a href="graphs.html">Reports & Analytics</a></li>
-                    <img src="img/report.png" alt="Report Icon">
+                    <img src="../img/report.png" alt="Report Icon">
                 </div>
     
                 <div class="sidebar-link">
                     <li><a href="">Reviews and Feedback</a></li>
-                    <img src="img/report.png" alt="Report Icon">
+                    <img src="../img/report.png" alt="Report Icon">
                 </div>
             </ul>
         </div>

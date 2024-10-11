@@ -1,11 +1,8 @@
 <?php
 // Include the header
-$pagetitle = "Update a Travel Package";
-$stylesheet = "TravelAgentStyles.css";
-include "layouts\header.php";
-
-// Example to fetch existing packages from the database
-// $packages = fetchPackagesFromDatabase();
+$pagetitle = "Create a Travel Package";
+$stylesheet = "../TravelAgentStyles.css";
+include "../../layouts/header.php";
 ?>
 <style>
     /* body {
@@ -16,12 +13,12 @@ include "layouts\header.php";
 } */
 
 .main-content {
-    width: 800px;
-    margin: 0 auto;
-    /* background: #fff; 
+    width: 600px; 
+    margin: 0 auto; /* Center the form *
+    background: #fff; /* White background for the form *
     padding: 20px;
     border-radius: 8px; /* Rounded corners *
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); Subtle shadow */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  Subtle shadow */
 }
 
 h1 {
@@ -56,19 +53,19 @@ input[type="file"] {
 }
 
 input[type="submit"] {
-    margin-top: 20px; 
-    padding: 10px; 
-    border: none;
-    border-radius: 4px;
-    background-color: #007BFF; 
-    color: white; 
-    font-size: 16px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
+    margin-top: 20px; /* Space above the button */
+    padding: 10px; /* Inner padding */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #28a745; /* Bootstrap success color */
+    color: white; /* White text */
+    font-size: 16px; /* Font size for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3; 
+    background-color: #218838; /* Darker green on hover */
 }
 
 textarea {
@@ -76,21 +73,61 @@ textarea {
     height: 100px; /* Set a default height */
 }
 
-select {
-    background-color: #fff; /* White background for select */
-    appearance: none; /* Remove default styling */
-    padding-right: 20px; /* Space for the dropdown arrow */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="0,0 20,0 10,10" fill="black" /></svg>'); /* Custom arrow */
-    background-repeat: no-repeat;
-    background-position: right 10px center; /* Position of the arrow */
-}
-
 @media (max-width: 600px) {
     .main-content {
         width: 90%; /* Full width on small screens */
     }
 }
+.sidebar-link {
+        position: relative;
+        margin: 10px 0;
+    }
 
+    .sidebar-link a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+    }
+
+    .sidebar-link a:hover {
+        background: #0a3cff;
+        color: white;
+    }
+
+    .submenu {
+        display: none;
+        background-color: #e9e9e9;
+        padding: 10px;
+        border-radius: 5px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .sidebar-link:hover .submenu {
+        display: block;
+    }
+
+    .submenu-item {
+        margin: 5px 0;
+    }
+
+    .submenu-link {
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .submenu-link:hover {
+        background: #0a3cff;
+        color: white;
+    }
 </style>
 
 <div class="main">
@@ -112,65 +149,55 @@ select {
                         </div>
                     </div>
                 </li>
-                <img src="img/user.png" alt="User Icon">
+                <img src="../../img/user.png" alt="User Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Booking Management</a></li>
-                <img src="img/travelpackage.png" alt="Package Icon">
+                <img src="../../img/travelpackage.png" alt="Package Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Customer Support</a></li>
-                <img src="img/book.png" alt="Book Icon">
+                <img src="../../img/book.png" alt="Book Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Reports & Analytics</a></li>
-                <img src="img/report.png" alt="Report Icon">
+                <img src="../../img/report.png" alt="Report Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Reviews and Feedback</a></li>
-                <img src="img/report.png" alt="Report Icon">
+                <img src="../../img/report.png" alt="Report Icon">
             </div>
         </ul>
     </div>
 
-
 <div class="main-content">
-    <h1>Update an Existing Package</h1>
-    <form action="updatePackageAction.php" method="POST" enctype="multipart/form-data">
-        <label for="package-select">Select a Package to Update:</label>
-        <select id="package-select" name="package_id" required>
-            <option value="">Select Package</option>
-            <!-- Populate with existing packages -->
-            <?php foreach ($packages as $package) : ?>
-                <option value="<?= $package['id'] ?>"><?= $package['name'] ?></option>
-            <?php endforeach; ?>
-        </select>
-
+    <h1>Create a New Package</h1>
+    <form action="submitPackage.php" method="POST" enctype="multipart/form-data">
         <label for="package-name">Package Name:</label>
-        <input type="text" id="package-name" name="package_name">
+        <input type="text" id="package-name" name="package_name" required>
 
         <label for="package-description">Description:</label>
-        <textarea id="package-description" name="package_description"></textarea>
+        <textarea id="package-description" name="package_description" required></textarea>
 
         <label for="package-price">Price (USD):</label>
-        <input type="number" id="package-price" name="package_price" min="0">
+        <input type="number" id="package-price" name="package_price" min="0" required>
 
         <label for="package-duration">Duration (days):</label>
-        <input type="number" id="package-duration" name="package_duration" min="1">
+        <input type="number" id="package-duration" name="package_duration" min="1" required>
 
         <label for="package-hotel">Hotel:</label>
-        <input type="text" id="package-hotel" name="package_hotel">
+        <input type="text" id="package-hotel" name="package_hotel" required>
 
-        <label for="package-amenities">Amenities:</label>
-        <input type="text" id="package-amenities" name="package_amenities">
+        <label for="package-amenities">Amenities :</label>
+        <input type="text" id="package-amenities" name="package_amenities" required>
 
         <label for="package-image">Package Image:</label>
-        <input type="file" id="package-image" name="package_image" accept="image/*">
+        <input type="file" id="package-image" name="package_image" accept="image/*" required>
 
-        <input type="submit" value="Update Package">
+        <input type="submit" value="Create Package">
     </form>
 </div>
