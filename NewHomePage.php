@@ -35,7 +35,7 @@
 
         <div class="account">
             <img src="img/user.png" alt="user">
-            <p>Account</p>
+            <a href="Traveller module/LoginPage.php" style="text-decoration: none;"><p>Account</p></a>
         </div>
     </div>
 
@@ -195,16 +195,4 @@
     </div>
 
 
-    <div class="footer">
-        <div class="socials">
-            <img src="img/twitter.png" alt="Twitter">
-            <img src="img/instagram.png" alt="Instagram">
-            <img src="img/linkedin.png" alt="linkedin">
-        </div>
-
-        <div class="copyright">
-            <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
-        </div>
-    </div>
-</body>
-</html>
+    <?php include '../layouts/footer.php'; ?>

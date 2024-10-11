@@ -33,16 +33,7 @@
             <input type="search" name="search" id="navSearch" placeholder="Search...">
         </div>
 
-        <div class="account">
-            
-            <img src="img/user.png" alt="user">
-            <div class="links">
-                <ul>
-                    <a href="Traveller module/LoginPage.php"><li>Account</li></a>
-                </ul>
-            </div>
-            
-        </div>
+
     </div>
 
 
@@ -53,11 +44,7 @@
             <p>Kindly fill in the following details</p>
 
             <form action="">
-                <div class="input-container">
-                    <label for="email">Email :</label>
-                    <br>
-                    <input type="text" id="email" name="email" required>
-                </div>
+
 
                     <div class="input-container">
                         <label for="fname">First Name :</label>
@@ -71,16 +58,18 @@
                         <input type="text" id="lname" name="lname" required>
                     </div>
 
-                    <div class="input-container">
-                        <label for="dob">Date of birth :</label>
-                        <br>
-                        <input type="date" id="dob" name="dob" required>
-                    </div>
+
 
                     <div class="input-container">
                         <label for="username">Username :</label>
                         <br>
                         <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="input-container">
+                     <label for="email">Email :</label>
+                     <br>
+                     <input type="text" id="email" name="email" required>
                     </div>
 
                     <div class="input-container">
