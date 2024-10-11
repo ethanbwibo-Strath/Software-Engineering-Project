@@ -271,42 +271,195 @@
 
 
 /*---------------- Why Us Section -------------------------------------------------------------------------------------------------  */
-
-.why-us {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #fff; /* White background for contrast */
+.why-us-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 }
 
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px; /* Perspective to make 3D effect visible */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Keeps both sides in 3D */
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateX(180deg); /* Flips the card bottom-up */
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* For Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+/* Front of the card */
+.flip-card-front {
+    background-color: #fff;
+    color: black;
+}
+
+.flip-card-front h2 {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 24px;
+    color: gold;
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Back of the card */
+.flip-card-back {
+    background-color: #f4f4f4; /* Change this to a solid color or pattern */
+    color: black;
+    transform: rotateX(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    overflow: hidden; 
+}
+
+/* Floating effect for text */
+.flip-card-back p {
+    margin: 0;
+    color: goldenrod;
+    font-size: 18px;
+    transform: translateY(100%); /* Start below the card */
+    opacity: 0;
+    transition: transform 1s ease-in, opacity 1s ease-in;
+}
+
+.flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-back p {
+    transform: translateY(0); /* Move text into view */
+    opacity: 1;
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
 .why-us h3 {
     font-size: 30px;
     margin-bottom: 20px;
-    font-weight: bold; /* Make the heading bold */
-    color: #333; /* Dark color for the heading */
+    font-weight: bold;
+    color: #333; /* Dark color for heading */
+    text-align: center;
 }
 
-.whyUs-box {
+.why-us-section {
     display: flex;
-    justify-content: space-around; /* Distribute items evenly */
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px; /* Perspective to make 3D effect visible */
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Keeps both sides in 3D */
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateX(180deg); /* Flips the card bottom-up */
+    transition: transform 0.3s;
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* For Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    background-size: cover; /* Ensure background image covers the entire card */
+    background-position: center; /* Center the background image */
+}
+
+.flip-card-front h2 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 24px;
+    color: goldenrod;
+}
+
+/* Back of the card */
+.flip-card-back {
+    background-image: url('../img/flipcard-background.jpg'); 
+    transform: rotateX(180deg);
     align-items: center;
-    gap: 10px; /* Space between boxes */
+    justify-content: center;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    overflow: hidden; 
 }
 
-.whyUs-box p {
-    background-color: #fff; /* White background for each box */
-    border: 1px solid #ddd; /* Light gray border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    padding: 20px; /* Inner padding for text */
-    border-radius: 10px; /* Rounded corners */
-    width: 250px; /* Fixed width for uniformity */
-    height: 150px; /* Fixed height for uniformity */
-    font-weight: bold; /* Make text bold */
-    transition: transform 0.2s; /* Transition for hover effect */
+.flip-card-back h2 {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 24px;
+    color: black;
 }
 
-.whyUs-box p:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+/* Floating effect for text */
+.flip-card-back p {
+    margin: 0;
+    font-size: 18px;
+    transform: translateY(100%); /* Start below the card */
+    opacity: 0;
+    transition: transform .8s ease-in, opacity .4s ease-in;
+    color: black;
 }
+
+.flip-card:hover .flip-card-back p {
+    transform: translateY(0); /* Move text into view */
+    opacity: 1;
+}
+
 
 
 /* ----------------- Contact Us Section ----------------------------------------------------------------------------------------------- */
