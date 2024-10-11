@@ -1,13 +1,50 @@
-<?php
-// Include the header
-$pagetitle = "Sign Up Page";
-include "layouts/header.php";
-?>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="LoginPage.css">
-    <link rel="stylesheet" href="adminStyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+
+    <title> Sign Up Page </title>
+    <link rel = "icon" href="../img/logo2.png" type = "image/png">
+    <link rel="stylesheet" href= "LoginPage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
+
+<body>
+    <div class="nav">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo">
+            <h1>CheapThrills</h1>
+        </div>
+
+        <div class="links">
+            <ul>
+                <a href="../NewHomePage.php"><li>Home</li></a>
+                <a href=""><li>Book</li></a>
+                <a href=""><li>About Us</li></a>
+                <a href=""><li>Contact</li></a>
+                
+            </ul>
+        </div>
+
+        <div class="search">
+            <img src="../img/search.png" alt="Search">
+            <input type="search" name="search" id="navSearch" placeholder="Search...">
+        </div>
+
+        <div class="account">
+            
+            <img src="img/user.png" alt="user">
+            <div class="links">
+                <ul>
+                    <a href="Traveller module/LoginPage.php"><li>Account</li></a>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
 
 
         <div class="login-container">
@@ -76,7 +113,18 @@ include "layouts/header.php";
             </form>
         </div>
 
-<?php
-include "layouts/footer.php";
-?>
+
+        <div class="footer">
+        <div class="socials">
+            <img src="../img/twitter.png" alt="Twitter">
+            <img src="../img/instagram.png" alt="Instagram">
+            <img src="../img/linkedin.png" alt="linkedin">
+        </div>
+
+        <div class="copyright">
+            <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
 
