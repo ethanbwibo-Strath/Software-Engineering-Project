@@ -1,0 +1,373 @@
+/* --------------------------Header Navigation Styling -------------------------------------------*/
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 10px 15px;  
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links ul{
+    display: flex;
+    list-style: none;
+}
+
+.links ul a{
+    margin-right: 3vh;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    color: black;
+    font-size: 20px;
+}
+
+.links ul a:hover{
+    color: goldenrod;
+    transition: .2s ease-in;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.search input{
+    border-radius: 5px;
+    margin-left: 5px;
+    text-align: center;
+    width: 30vh;
+    height: 5vh;
+}
+
+.account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0;
+}
+
+.account p{
+    font-size: 20px;
+    margin-left: 3vh;
+    color: goldenrod;
+    font-weight: bold;
+}
+
+.nav h1{
+    color: goldenrod;
+} 
+
+#background-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    /* Make the video cover the entire container */
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    /* Set z-index to -1 to put it behind the content */
+}
+
+.onTopofVideo{
+    height: 100vh;
+    width:100%;
+    position:relative; 
+    margin-bottom: auto;
+} 
+
+.onTopofVideo h1{
+    margin: auto;
+    padding-top: 100px;
+    text-align:center;
+    font-size: 65px;
+    color: #fff;
+    font-weight: 900;
+    text-shadow: rgba(0, 0, 0, 0.592) 0px 0px 10px;
+}
+
+.button1 {
+    width: 100%;
+    padding: 15px;
+    margin-top: 50px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button1:hover {
+    background-color: goldenrod;
+}
+
+.btns{
+    width: 30vw;
+    margin: 10vh auto 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+    /* Travel Packages Section */
+.travel-packages-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.travel-packages-section h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.travel-packages-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Carousel Wrapper */
+.carousel-wrapper {
+    position: relative;
+    width: 80%;
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Carousel Container */
+.carousel-container {
+    display: flex;
+    overflow: hidden;
+}
+
+/* Carousel Track - for the sliding effect */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual Carousel Item */
+.carousel-item {
+    min-width: 100%; /* Each item takes up the full width */
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-title {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Controls - Previous & Next buttons */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-control:hover {
+    background-color: goldenrod;
+}
+
+/* ----------------  Holiday Types  -------------------------------------------------------------------------------- */
+
+.holiday-type{
+    
+    padding: 50px 0;
+    text-align:center;
+}
+.holiday-type h3{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.holiday-type p{
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    
+}
+.img-type{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    padding: 0 5%;
+}
+.holiday-card{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 0 1px rgba(255, 255, 255);
+    transition: transform 0.3s ease-in-out;
+    max-width:300px;
+    text-align:center;
+}
+.holiday-card img{
+    width: 130px;
+    height: 200px;
+    padding: 5px 2px 0 2px;
+    object-fit: cover;
+    border-bottom: 5px solid goldenrod;
+    border-radius: 50px;
+}
+.holiday-card p{
+    font-size: 1.2em;
+    padding:15px;
+    color:#333;
+    font-weight: bold;
+}
+
+.holiday-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
+/*---------------- Why Us Section -------------------------------------------------------------------------------------------------  */
+
+.why-us {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #fff; /* White background for contrast */
+}
+
+.why-us h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: bold; /* Make the heading bold */
+    color: #333; /* Dark color for the heading */
+}
+
+.whyUs-box {
+    display: flex;
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center;
+    gap: 10px; /* Space between boxes */
+}
+
+.whyUs-box p {
+    background-color: #fff; /* White background for each box */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Inner padding for text */
+    border-radius: 10px; /* Rounded corners */
+    width: 250px; /* Fixed width for uniformity */
+    height: 150px; /* Fixed height for uniformity */
+    font-weight: bold; /* Make text bold */
+    transition: transform 0.2s; /* Transition for hover effect */
+}
+
+.whyUs-box p:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+
+/* ----------------- Contact Us Section ----------------------------------------------------------------------------------------------- */
+.contact-us {
+    padding: 40px 20px; /* Add padding for the contact section */
+    text-align: center; /* Center the text */
+    background-color: #f9f9f9; /* Light background for contact section */
+    margin-top: 20px; /* Space above the contact section */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.contact-us h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333; /* Dark color for heading */
+}
+
+.contact-us ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
+    margin-bottom: 20px; /* Space below the list */
+}
+
+.contact-us ul li {
+    margin-bottom: 10px; /* Space between items */
+}
+
+.contact-us a {
+    color: #007BFF; /* Primary color for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.contact-us a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+    
+/*------------------------------ Footer Styling ---------------------------------------------------------------*/
+.footer
+{
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    box-shadow: 0px 0px 10px #000;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.footer .socials img
+{
+    margin:0 1vw 0 1vw;
+}
+
+.footer .copyright
+{
+    margin-left: 30vw;
+}
+
+.footer .copyright span
+{
+    color: goldenrod;
+    text-decoration: underline;
+    font-weight: bold;
+}
