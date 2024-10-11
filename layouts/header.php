@@ -22,7 +22,7 @@
 
         <div class="links">
             <ul>
-                <a href=""><li>Home</li></a>
+                <a href="../NewHomePage.php"><li>Home</li></a>
                 <a href=""><li>Book</li></a>
                 <a href=""><li>About Us</li></a>
                 <a href=""><li>Contact</li></a>
