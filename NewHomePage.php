@@ -27,7 +27,8 @@
                 <a href=""><li>Book</li></a>
                 <a href=""><li>About Us</li></a>
                 <a href=""><li>Contact</li></a>
-                <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
+                <a href=""><li>Places to Visit</li></a>
+                <a href=""><li>Things to do</li></a>
             </ul>
         </div>
 
@@ -148,7 +149,7 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h2>Expert Guidance</h2>
-                        <img src="../img/j-sharp-DMRZ1jjQVaU-unsplash.jpg" alt="Expert Guidance">
+                        <img src="img/j-sharp-DMRZ1jjQVaU-unsplash.jpg" alt="Expert Guidance">
                     </div>
                     <div class="flip-card-back">
                         <h2>Expert Guidance</h2>
@@ -162,7 +163,7 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h2>Best Deals</h2>
-                        <img src="../img/grace-nandi-FzkGHmvvsto-unsplash.jpg" alt="Best Deals">
+                        <img src="img/grace-nandi-FzkGHmvvsto-unsplash.jpg" alt="Best Deals">
                     </div>
                     <div class="flip-card-back">
                         <h2>Best Deals</h2>
@@ -176,7 +177,7 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <h2>Custom Packages</h2>
-                        <img src="../img/mustafa-omar-Zkao_QBEjk8-unsplash.jpg" alt="Custom Packages">
+                        <img src="img/mustafa-omar-Zkao_QBEjk8-unsplash.jpg" alt="Custom Packages">
                     </div>
                     <div class="flip-card-back">
                         <h2>Custom Packages</h2>
