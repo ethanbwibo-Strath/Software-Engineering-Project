@@ -5,6 +5,7 @@ include('layouts/header.php');
 ?> 
 <head>
     <link rel="stylesheet" href="style.css">
+    
     <!-- <link rel="stylesheet" href="adminStyle.css"> -->
      <style>
 body{
