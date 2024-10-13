@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+}
+
+header .logo img {
+    width: 160px;
+    height: auto;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.nav form {
+    display: flex;
+    align-items: center;
+}
+
+.nav input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.nav input[type="submit"] {
+    padding: 5px 10px;
+}
+
+/* Main content layout */
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar section button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1f33081e;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.sidebar section button:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Responsive Chart Sizes */
+#rentalChart, #maintenanceChart {
+    width: 100%;  /* Full width to fill container */
+    max-width: 400px;  /* Limit the max width */
+    height: auto; /* Responsive height */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+}
+
+footer .social-media a img {
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .nav {
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .nav a {
+        margin-bottom: 10px; /* Space between links */
+        margin-right: 0; /* Remove margin-right on smaller screens */
+    }
+
+    #rentalChart, #maintenanceChart {
+        max-width: 100%;  /* Full width on smaller screens */
+    }
+}

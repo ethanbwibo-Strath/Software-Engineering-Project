@@ -1,8 +1,8 @@
 <?php
 // Include the header
 $pagetitle = "Update a Travel Package";
-$stylesheet = "TravelAgentStyles.css";
-include "layouts\header.php";
+$stylesheet = "../Travel Agent Dashboard.css";
+include "../../layouts\header.php";
 
 // Example to fetch existing packages from the database
 // $packages = fetchPackagesFromDatabase();

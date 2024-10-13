@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width = device-width, initial-scale = 1.0">
 
-    <title> Trial Travel Agent Dash</title>
+    <title>Travel Agent Dashboard</title>
     <link rel = "icon" href="../img/logo2.png" type = "image/png">
-    <link rel="stylesheet" href= "trial.css">
+    <link rel="stylesheet" href= "Travel Agent Dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
@@ -139,9 +139,9 @@
 
     <div class="footer">
         <div class="socials">
-            <img src="../img/twitter.png" alt="Twitter">
-            <img src="../img/instagram.png" alt="Instagram">
-            <img src="../img/linkedin.png" alt="linkedin">
+            <a href="#"><img src="../img/instagram2.png" alt="instagram"></a>
+            <a href="#"><img src="../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../img/linkedin.png" alt="linkedin"></a>
         </div>
 
         <div class="copyright">

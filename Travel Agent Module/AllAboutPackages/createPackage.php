@@ -1,8 +1,8 @@
 <?php
 // Include the header
 $pagetitle = "Create a Travel Package";
-$stylesheet = "TravelAgentStyles.css";
-include "layouts/header.php";
+$stylesheet = "../Travel Agent Dashboard.css";
+include "../../layouts/header.php";
 ?>
 <style>
     /* body {
@@ -149,27 +149,27 @@ textarea {
                         </div>
                     </div>
                 </li>
-                <img src="img/user.png" alt="User Icon">
+                <img src="../../img/user.png" alt="User Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Booking Management</a></li>
-                <img src="img/travelpackage.png" alt="Package Icon">
+                <img src="../../img/travelpackage.png" alt="Package Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Customer Support</a></li>
-                <img src="img/book.png" alt="Book Icon">
+                <img src="../../img/book.png" alt="Book Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Reports & Analytics</a></li>
-                <img src="img/report.png" alt="Report Icon">
+                <img src="../../img/report.png" alt="Report Icon">
             </div>
 
             <div class="sidebar-link">
                 <li><a href="">Reviews and Feedback</a></li>
-                <img src="img/report.png" alt="Report Icon">
+                <img src="../../img/report.png" alt="Report Icon">
             </div>
         </ul>
     </div>

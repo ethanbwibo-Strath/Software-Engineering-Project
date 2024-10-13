@@ -1,8 +1,8 @@
 <?php
 // Include the header
 $pagetitle = "Travel Agent Dashboard";
-$stylesheet = "TravelAgentStyles.css";
-include "layouts/header.php";
+$stylesheet = "../Travel Agent Dashboard.css";
+include "../../layouts/header.php";
 ?>
 
     <div class="main">

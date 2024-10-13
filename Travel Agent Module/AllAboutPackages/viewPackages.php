@@ -1,11 +1,11 @@
 <?php
 // Include the header
 $pagetitle = "View All Packages";
-$stylesheet = "TravelAgentStyles.css";
-include "layouts/header.php";
+$stylesheet = "../Travel Agent Dashboard.css";
+include "../..\layouts\header.php";
 
 // Include your database connection file
-include "dbConnection.php"; // Include the file that contains your dbConnection class
+include "../../dbConnection.php"; // Include the file that contains your dbConnection class
 
 // Create an instance of dbConnection
 $db = new dbConnection(); // Create an object of the dbConnection class
