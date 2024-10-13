@@ -25,8 +25,8 @@
             <ul>
                 <a href="NewHomePage.php"><li>Home</li></a>
                 <a href=""><li>Book</li></a>
-                <a href=""><li>About Us</li></a>
-                <a href=""><li>Contact</li></a>
+                <a href="#why-us-section"><li>About Us</li></a>
+                <a href="#contact-us-section"><li>Contact</li></a>
                 <!-- <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a> -->
             </ul>
         </div>
@@ -141,6 +141,7 @@
     </div>
 
         <div class="why-us">
+            <div id="why-us-section"></div>
             <h3>Why Choose Us?</h3>
             
             <div class="why-us-section">
@@ -191,6 +192,7 @@
 
 
     <div class="contact-us">
+        <div id="contact-us-section"></div>
         <h3>Contact Us</h3>
         <p>If you have any questions or would like to book a package, reach out to us:</p>
         <ul>
