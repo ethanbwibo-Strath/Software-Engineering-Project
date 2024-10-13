@@ -27,8 +27,7 @@
                 <a href=""><li>Book</li></a>
                 <a href=""><li>About Us</li></a>
                 <a href=""><li>Contact</li></a>
-                <a href=""><li>Places to Visit</li></a>
-                <a href=""><li>Things to do</li></a>
+                <!-- <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a> -->
             </ul>
         </div>
 
@@ -64,7 +63,7 @@
     </div>
 </div>
 <!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
-<iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;" frameborder="0"></iframe>
+<!-- <iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;" frameborder="0"></iframe> -->
 
 
 
