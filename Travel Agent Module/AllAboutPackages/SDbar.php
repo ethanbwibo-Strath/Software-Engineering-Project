@@ -31,7 +31,7 @@
     }
 
     .submenu-item a:hover {
-        color: #0a3cff;
+        color: goldenrod;
     }
 
     .link svg {

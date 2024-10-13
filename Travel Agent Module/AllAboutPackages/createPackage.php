@@ -1,8 +1,6 @@
 <?php
-// Include the header
 $pagetitle = "Create a Travel Package";
 $stylesheet = "../Travel Agent Dashboard.css";
-// include "../../layouts/header.php";
 include "SDbar.php";
 
 ?>
@@ -60,16 +58,18 @@ input[type="submit"] {
     margin-top: 20px; /* Space above the button */
     padding: 10px; /* Inner padding */
     border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    background-color: #28a745; /* Bootstrap success color */
+    border-radius: 10px; /* Rounded corners */
+    background-color: black; /* Bootstrap success color */
     color: white; /* White text */
     font-size: 16px; /* Font size for button */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.5s; /* Smooth transition */
 }
 
 input[type="submit"]:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: goldenrod; /* Darker green on hover */
+    color: black; /* Black text on hover */
+    border-radius: 20px;
 }
 
 textarea {
