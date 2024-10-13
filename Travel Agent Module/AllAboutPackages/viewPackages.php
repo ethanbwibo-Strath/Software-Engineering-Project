@@ -2,7 +2,8 @@
 // Include the header
 $pagetitle = "View All Packages";
 $stylesheet = "../Travel Agent Dashboard.css";
-include "../..\layouts\header.php";
+// include "../..\layouts\header.php";
+include "SDbar.php";
 
 // Include your database connection file
 include "../../dbConnection.php"; // Include the file that contains your dbConnection class
@@ -27,6 +28,8 @@ if ($result) {
 
 $conn = null; // Close the database connection
 ?>
+<br>
+<br>
 <style>
     .main-content {
     padding: 20px;
@@ -79,7 +82,8 @@ $conn = null; // Close the database connection
 }
 
 </style>
-
+<br>
+<br>
 <div class="main-content">
     <h1>Available Travel Packages</h1>
     <div class="card-container">
@@ -101,3 +105,15 @@ $conn = null; // Close the database connection
         <?php endif; ?>
     </div>
 </div>
+<br>
+<br>
+<div class="footer">
+        <div class="socials">
+            <a href="#"><img src="../../img/instagram2.png" alt="instagram"></a>
+            <a href="#"><img src="../../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../../img/linkedin.png" alt="linkedin"></a>
+        </div>
+
+        <div class="copyright">
+            <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
+        </div>

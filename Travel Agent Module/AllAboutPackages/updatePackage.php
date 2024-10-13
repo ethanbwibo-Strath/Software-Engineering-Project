@@ -2,11 +2,14 @@
 // Include the header
 $pagetitle = "Update a Travel Package";
 $stylesheet = "../Travel Agent Dashboard.css";
-include "../../layouts\header.php";
+// include "../../layouts\header.php";
+include "SDbar.php";
 
 // Example to fetch existing packages from the database
 // $packages = fetchPackagesFromDatabase();
 ?>
+<br>
+<br>
 <style>
     /* body {
     font-family: Arial, sans-serif;
@@ -93,51 +96,6 @@ select {
 
 </style>
 
-<div class="main">
-    <div class="sidebar">
-        <h2>PANEL</h2>
-        <ul>
-            <div class="sidebar-link">
-                <li>
-                    <a href="#" class="link">Packages</a>
-                    <div class="submenu">
-                        <div class="submenu-item">
-                            <a href="createPackage.php" class="submenu-link">Create Package</a>
-                        </div>
-                        <div class="submenu-item">
-                            <a href="updatePackage.php" class="submenu-link">Update Package</a>
-                        </div>
-                        <div class="submenu-item">
-                            <a href="viewPackages.php" class="submenu-link">View Packages</a>
-                        </div>
-                    </div>
-                </li>
-                <img src="img/user.png" alt="User Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Booking Management</a></li>
-                <img src="img/travelpackage.png" alt="Package Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Customer Support</a></li>
-                <img src="img/book.png" alt="Book Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Reports & Analytics</a></li>
-                <img src="img/report.png" alt="Report Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Reviews and Feedback</a></li>
-                <img src="img/report.png" alt="Report Icon">
-            </div>
-        </ul>
-    </div>
-
-
 <div class="main-content">
     <h1>Update an Existing Package</h1>
     <form action="updatePackageAction.php" method="POST" enctype="multipart/form-data">
@@ -174,3 +132,15 @@ select {
         <input type="submit" value="Update Package">
     </form>
 </div>
+<br>
+<br>
+<div class="footer">
+        <div class="socials">
+            <a href="#"><img src="../../img/instagram2.png" alt="instagram"></a>
+            <a href="#"><img src="../../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../../img/linkedin.png" alt="linkedin"></a>
+        </div>
+
+        <div class="copyright">
+            <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
+        </div>
