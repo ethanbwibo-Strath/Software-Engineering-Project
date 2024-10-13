@@ -88,30 +88,18 @@
                 </div>
 
                 <div class="input-container">
-                    <label for="cpassword">Confirm Password :</label>
-                    <br>
-                    <input type="password" id="cpassword" name="cpassword" required>
-                </div>
-                
-                <div class="input-container">
-                    <label for="bio">Bio :</label>
-                    <br>
-                    <textarea name="bio" id="bio" cols="30" rows="10" required></textarea>
-                </div>
-            </div>
-            <div class="right">
-                <div class="input-container">
                     <label for="fname">First Name :</label>
                     <br>
                     <input type="text" id="fname" name="fname" required>
                 </div>
-
+            </div>
+            <div class="right">
                 <div class="input-container">
                     <label for="lname">Last Name :</label>
                     <br>
                     <input type="text" id="lname" name="lname" required>
                 </div>
-
+                
                 <div class="input-container">
                     <label for="dob">Date of birth :</label>
                     <br>
