@@ -64,10 +64,7 @@
     </div>
 </div>
 <!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
-<iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;" frameborder="0"></iframe>
-
-
-
+<!-- <iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;" frameborder="0"></iframe> -->
     <div class="travel-packages-section">
         <h3>Travel Packages</h3>
         <p>Embark on Extraordinary Adventures with Our Travel Packages.</p>
