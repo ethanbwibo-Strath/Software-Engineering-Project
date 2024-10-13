@@ -58,7 +58,11 @@
                         <input type="text" id="lname" name="lname" required>
                     </div>
 
-
+                    <div class="input-container">
+                        <label for="dob">Date of birth :</label>
+                        <br>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
 
                     <div class="input-container">
                         <label for="username">Username :</label>
