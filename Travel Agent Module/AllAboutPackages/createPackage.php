@@ -1,9 +1,11 @@
 <?php
-// Include the header
 $pagetitle = "Create a Travel Package";
 $stylesheet = "../Travel Agent Dashboard.css";
-include "../../layouts/header.php";
+include "SDbar.php";
+
 ?>
+<br>
+<br>
 <style>
     /* body {
     font-family: Arial, sans-serif;
@@ -56,16 +58,18 @@ input[type="submit"] {
     margin-top: 20px; /* Space above the button */
     padding: 10px; /* Inner padding */
     border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    background-color: #28a745; /* Bootstrap success color */
+    border-radius: 10px; /* Rounded corners */
+    background-color: black; /* Bootstrap success color */
     color: white; /* White text */
     font-size: 16px; /* Font size for button */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.5s; /* Smooth transition */
 }
 
 input[type="submit"]:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: goldenrod; /* Darker green on hover */
+    color: black; /* Black text on hover */
+    border-radius: 20px;
 }
 
 textarea {
@@ -130,49 +134,6 @@ textarea {
     }
 </style>
 
-<div class="main">
-    <div class="sidebar">
-        <h2>PANEL</h2>
-        <ul>
-            <div class="sidebar-link">
-                <li>
-                    <a href="#" class="link">Packages</a>
-                    <div class="submenu">
-                        <div class="submenu-item">
-                            <a href="createPackage.php" class="submenu-link">Create Package</a>
-                        </div>
-                        <div class="submenu-item">
-                            <a href="updatePackage.php" class="submenu-link">Update Package</a>
-                        </div>
-                        <div class="submenu-item">
-                            <a href="viewPackages.php" class="submenu-link">View Packages</a>
-                        </div>
-                    </div>
-                </li>
-                <img src="../../img/user.png" alt="User Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Booking Management</a></li>
-                <img src="../../img/travelpackage.png" alt="Package Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Customer Support</a></li>
-                <img src="../../img/book.png" alt="Book Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Reports & Analytics</a></li>
-                <img src="../../img/report.png" alt="Report Icon">
-            </div>
-
-            <div class="sidebar-link">
-                <li><a href="">Reviews and Feedback</a></li>
-                <img src="../../img/report.png" alt="Report Icon">
-            </div>
-        </ul>
-    </div>
 
 <div class="main-content">
     <h1>Create a New Package</h1>
@@ -201,3 +162,15 @@ textarea {
         <input type="submit" value="Create Package">
     </form>
 </div>
+<br>
+<br>
+<div class="footer">
+        <div class="socials">
+            <a href="#"><img src="../../img/instagram2.png" alt="instagram"></a>
+            <a href="#"><img src="../../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../../img/linkedin.png" alt="linkedin"></a>
+        </div>
+
+        <div class="copyright">
+            <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
+        </div>

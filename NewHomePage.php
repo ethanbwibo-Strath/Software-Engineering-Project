@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width = device-width, initial-scale = 1.0">
 
-    <title> NewHomePage</title>
+    <title> HomePage </title>
     <link rel = "icon" href="../img/logo2.png" type = "image/png">
     <link rel="stylesheet" href= "NewHomePage.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -25,10 +25,9 @@
             <ul>
                 <a href="NewHomePage.php"><li>Home</li></a>
                 <a href=""><li>Book</li></a>
-                <a href=""><li>About Us</li></a>
-                <a href=""><li>Contact</li></a>
-                <a href=""><li>Places to Visit</li></a>
-                <a href=""><li>Things to do</li></a>
+                <a href="#why-us-section"><li>About Us</li></a>
+                <a href="#contact-us-section"><li>Contact</li></a>
+                <!-- <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a> -->
             </ul>
         </div>
 
@@ -64,7 +63,7 @@
     </div>
 </div>
 <!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
-<iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;" frameborder="0"></iframe>
+<!-- <iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;" frameborder="0"></iframe> -->
 
 
 
@@ -142,6 +141,7 @@
     </div>
 
         <div class="why-us">
+            <div id="why-us-section"></div>
             <h3>Why Choose Us?</h3>
             
             <div class="why-us-section">
@@ -192,6 +192,7 @@
 
 
     <div class="contact-us">
+        <div id="contact-us-section"></div>
         <h3>Contact Us</h3>
         <p>If you have any questions or would like to book a package, reach out to us:</p>
         <ul>

@@ -25,7 +25,7 @@ include "../layouts/header.php";
         <table id="userTable">
             <!-- Table Head -->
             <thead>
-                <th>ID</th>
+                <th>User ID</th>
                 <th>Email</th>
                 <th>First Name</th>
                 <th>Last Name</th>
