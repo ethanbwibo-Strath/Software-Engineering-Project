@@ -33,6 +33,7 @@ $conn = null; // Close the database connection
 <style>
     .main-content {
     padding: 20px;
+    margin-left: 100px;
 }
 
 .card-container {
@@ -47,7 +48,7 @@ $conn = null; // Close the database connection
     border-radius: 8px;
     margin: 10px;
     padding: 15px;
-    width: calc(30% - 20px); /* Adjust width according to your preference */
+    width: calc(25% - 20px); /* Adjust width according to your preference */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 }
@@ -57,8 +58,8 @@ $conn = null; // Close the database connection
 }
 
 .package-image {
-    width: 100%;
-    height: auto;
+    width: 325px;
+    height: 325px;
     border-radius: 8px;
 }
 

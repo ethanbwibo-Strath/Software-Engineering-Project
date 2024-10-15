@@ -26,7 +26,7 @@ body{
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: -1;
+    z-index: -3;
     /* Set z-index to -1 to put it behind the content */
 }
 .packages{
