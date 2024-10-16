@@ -9,7 +9,7 @@ $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
 // ENCRIPT  DATA TO GET PASSWORD
 $Password = base64_encode($BusinessShortCode . $passkey . $Timestamp);
 //THIS IS THE UNIQUE ID THAT WAS GENERATED WHEN STK REQUEST INITIATED SUCCESSFULLY
-$CheckoutRequestID = 'ws_CO_15102024125537251790494915';
+$CheckoutRequestID = 'ws_CO_16102024220634867790819897';
 $queryheader = ['Content-Type:application/json', 'Authorization:Bearer ' . $access_token];
 # initiating the transaction
 $curl = curl_init();
