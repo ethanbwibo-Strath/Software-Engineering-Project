@@ -63,47 +63,21 @@
 
             <div class="date">
                 <p>Account was created on:</p>
-                <p>date</p>
+                <p>18/02/2024</p>
             </div>
         </div>
         <div class="bottom">
             <div class="left">
-                
-            <div class="input-container">
-                    <label for="phone">Phone Number :</label>
-                    <br>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-
-                <div class="input-container">
-                    <label for="address">Address :</label>
-                    <br>
-                    <input type="text" id="address" name="address" required>
-                </div>
-
-                <div class="input-container">
-                    <label for="password">Password :</label>
-                    <br>
-                    <input type="password" id="password" name="password" required>
-                </div>
-
                 <div class="input-container">
                     <label for="fname">First Name :</label>
                     <br>
                     <input type="text" id="fname" name="fname" required>
                 </div>
-            </div>
-            <div class="right">
+                
                 <div class="input-container">
                     <label for="lname">Last Name :</label>
                     <br>
                     <input type="text" id="lname" name="lname" required>
-                </div>
-                
-                <div class="input-container">
-                    <label for="dob">Date of birth :</label>
-                    <br>
-                    <input type="date" id="dob" name="dob" required>
                 </div>
 
                 <div class="input-container">
@@ -117,6 +91,33 @@
                     <br>
                     <input type="email" id="email" name="email" required>
                 </div>
+
+            </div>
+            <div class="right">
+                
+                <div class="input-container">
+                    <label for="phone">Phone Number :</label>
+                    <br>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="input-container">
+                    <label for="dob">Date of birth :</label>
+                    <br>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="address">Address :</label>
+                    <br>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+                <div class="input-container">
+                    <label for="password">Password :</label>
+                    <br>
+                    <input type="password" id="password" name="password" required>
+                </div>  
 
             </div>
         </div>
