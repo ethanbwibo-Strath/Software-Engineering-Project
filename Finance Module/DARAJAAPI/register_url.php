@@ -3,7 +3,7 @@
 include 'accessToken.php';
 $registerurl = 'https://sandbox.safaricom.co.ke/mpesa/c2b/v1/registerurl';
 $BusinessShortCode = '';
-$confirmationUrl = 'https://cheapthrillsse.vercel.app/confirmation_url.php';
+$confirmationUrl = 'https://https://cheapthrillsse.vercel.app/confirmation_url.php';
 $validationUrl = 'https://cheapthrillsse.vercel.app/validation_url.php';
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $registerurl);
