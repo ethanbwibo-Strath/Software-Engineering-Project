@@ -1,20 +1,14 @@
--- Create the User-type table first because it's referenced by Users
-CREATE TABLE `User-type` (
-    `User-typeID` INT AUTO_INCREMENT PRIMARY KEY,
-    `User-type` VARCHAR(50) NOT NULL
-);
+CREATE DATABASE CheapThrills;
+USE CheapThrills;
 
--- Create the Users table
 CREATE TABLE `Users` (
     `UserID` INT AUTO_INCREMENT PRIMARY KEY,
-    `Username` VARCHAR(50) NOT NULL UNIQUE,
-    `Fname` VARCHAR(50) NOT NULL,
-    `Lname` VARCHAR(50) NOT NULL,
-    `Gmail` VARCHAR(100) NOT NULL UNIQUE,
-    `Phone-number` VARCHAR(15) NOT NULL,
-    `Password` VARCHAR(255) NOT NULL,
-    `User-typeID` INT,  -- Foreign key to User-type table
-    `Date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (`User-typeID`) REFERENCES `User-type`(`User-typeID`)
-    ON DELETE SET NULL  -- Ensures that deleting a user type won't delete the user
+    `username` VARCHAR(50) NOT NULL UNIQUE,
+    `fname` VARCHAR(50) NOT NULL,
+    `lname` VARCHAR(50) NOT NULL,
+    `email` VARCHAR(100) NOT NULL UNIQUE,  
+    `phone` VARCHAR(15) NOT NULL,          
+    `password` VARCHAR(255) NOT NULL,
+    `account_type` VARCHAR(50) NOT NULL    
 );
+
