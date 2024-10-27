@@ -94,12 +94,7 @@
                     <br>
                     <input type="date" id="dob" name="dob" required>
                 </div>
-
-                <div class="input-container">
-                    <label for="address">Address :</label>
-                    <br>
-                    <input type="text" id="address" name="address" required>
-                </div>
+]
 
                 <div class="input-container">
                     <label for="password">Password :</label>
