@@ -12,7 +12,7 @@
     /* Dropdown Menu Styles */
     .menu .submenu {
         display: none;
-        padding-left: 20px;
+        padding-left: 1px;
     }
 
     .menu .item:hover .submenu {
@@ -20,14 +20,7 @@
     }
 
     .submenu-item {
-        margin: 10px 0;
-    }
-
-    .submenu-item a {
-        text-decoration: none;
-        color: #bdc3c7;
-        font-size: 14px;
-        transition: color 0.3s ease;
+        margin: -15px 0 0 0;
     }
 
     .submenu-item a:hover {
@@ -76,6 +69,7 @@
         <header>PANEL</header>
         <ul>
             <!-- Packages Dropdown -->
+            <li><a href="../Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
             <li class="menu">
                 <div class="item">
                     <a href="#" class="link">
