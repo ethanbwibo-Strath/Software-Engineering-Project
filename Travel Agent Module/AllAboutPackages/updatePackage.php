@@ -11,20 +11,11 @@ include "SDbar.php";
 <br>
 <br>
 <style>
-    /* body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Light background 
-    margin: 0;
-    padding: 20px;
-} */
+
 
 .main-content {
     width: 800px;
     margin: 0 auto;
-    /* background: #fff; 
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners *
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); Subtle shadow */
 }
 
 h1 {
@@ -59,24 +50,26 @@ input[type="file"] {
 }
 
 input[type="submit"] {
-    margin-top: 20px; 
-    padding: 10px; 
-    border: none;
-    border-radius: 4px;
-    background-color: #007BFF; 
-    color: white; 
-    font-size: 16px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
+    margin-top: 20px; /* Space above the button */
+    padding: 10px; /* Inner padding */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: black; /* Bootstrap success color */
+    color: white; /* White text */
+    font-size: 16px; /* Font size for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.5s; /* Smooth transition */
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3; 
+    background-color: goldenrod; /* Darker green on hover */
+    color: black; /* Black text on hover */
+    border-radius: 20px;
 }
 
 textarea {
     resize: vertical; /* Allow vertical resizing */
-    height: 100px; /* Set a default height */
+    height: 80px; /* Set a default height */
 }
 
 select {
@@ -124,7 +117,7 @@ select {
         <input type="text" id="package-hotel" name="package_hotel">
 
         <label for="package-amenities">Amenities:</label>
-        <input type="text" id="package-amenities" name="package_amenities">
+        <textarea id="package-amenities" name="package_amenities" required></textarea>
 
         <label for="package-image">Package Image:</label>
         <input type="file" id="package-image" name="package_image" accept="image/*">

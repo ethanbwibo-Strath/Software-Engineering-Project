@@ -9,11 +9,10 @@
     <link rel="stylesheet" href= "Travel Agent Dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <style>
-    /* Dropdown Menu Styles */
+<style>
     .menu .submenu {
         display: none;
-        padding-left: 20px;
+        padding-left: 1px;
     }
 
     .menu .item:hover .submenu {
@@ -21,18 +20,11 @@
     }
 
     .submenu-item {
-        margin: 10px 0;
-    }
-
-    .submenu-item a {
-        text-decoration: none;
-        color: #bdc3c7;
-        font-size: 14px;
-        transition: color 0.3s ease;
+        margin: -15px 0 0 0;
     }
 
     .submenu-item a:hover {
-        color: #0a3cff;
+        color: goldenrod;
     }
 
     .link svg {
