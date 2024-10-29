@@ -24,7 +24,7 @@
                 <a href=""><li>Book</li></a>
                 <a href=""><li>About Us</li></a>
                 <a href=""><li>Contact</li></a>
-                <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
+                <!-- <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a> -->
             </ul>
         </div>
 

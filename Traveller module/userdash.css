@@ -1,85 +1,80 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    background-color: white; 
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f8fa;
+    color: #333;
+}
 
-/* --------------------------Header Navigation Styling -------------------------------------------*/
-.nav{
+/* Header Navigation */
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
-    padding: 10px 15px;
-    box-shadow: 0px 0px 15px #000; 
-    
-    
+    padding: 10px 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.logo img {
+    height: 40px;
+    margin-right: 10px;
 }
 
-.links ul{
-    display: flex;
-    list-style: none;
-}
-
-.links ul a{
-    margin-right: 3vh;
-    padding: 5px;
-    color: black;
-    font-size: 20px;
-}
-
-.links ul a:hover{
+.logo h1 {
     color: goldenrod;
-    transition: .2s ease-in;
+    font-size: 24px;
 }
 
-.search{
+.links ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5vw;
 }
 
-.search input{
-    border-radius: 5px;
-    margin-left: 5px;
-    text-align: center;
-    width: 30vh;
-    height: 5vh;
+.links ul a {
+    margin-right: 2rem;
+    color: #333;
+    font-size: 18px;
+    padding: 5px 10px;
 }
 
-/* Account section in nav */
-.account{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:0;
-}
-
-.account p{
-    font-size: 20px;
-    margin-left: 3vh;
+.links ul a:hover {
     color: goldenrod;
+    transition: color 0.2s ease-in;
 }
-.nav h1{
+
+.search input {
+    border-radius: 20px;
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+}
+
+/* Account Section */
+.account img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.account p {
     color: goldenrod;
-
+    font-size: 18px;
 }
 
-/* -----------------------------------  SideBar Styling    ----------------------------------------- */
+/* Sidebar */
 .sidebar {
     position: fixed;
+    background-color: white;
     width: 250px;
-    height: 60%;
+    height: 70%;
     margin-top: 1cm;
     padding-top: 40px;
     transition: all 0.5s ease;
@@ -123,20 +118,27 @@
     list-style: none;
 }
 
+.sidebar ul li
+{
+    margin-bottom: 15px;
+    left: -10px;
+}
+
 .sidebar ul a {
+    text-decoration: none;
     display: block;
     width: 100%;
     line-height: 65px;
-    font-size: 20px;
+    font-size: 17px;
     color: black;
     padding-left: 40px;
     box-sizing: border-box;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.4s;
 }
 
 ul li:hover a {
     padding-left: 50px;
+    color: goldenrod;
 }
 
 .sidebar ul a i {
@@ -153,115 +155,98 @@ ul li:hover a {
     color: white;
 }
 
-/* ----------------------------------  Main Content Styling  ------------------------------------ */
-/* Updated Main Content Styling */
+/* Main Content */
 .main-content {
     margin-left: 100px;
-    margin-top: 10px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    padding: 20px;
+    background-color: #f7f8fa;
+    height: 100vh;
 }
 
-/* Top Section for User Information */
-.top {
+/* .top {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+} */
+
+.user img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid goldenrod;
+    margin-right: 15px;
 }
 
-.user {
-    font-size: 24px;
+.user p {
+    font-size: 22px;
     font-weight: bold;
-    text-align: left;
+    color: #333;
 }
 
-.date {
-    font-size: 18px;
-    text-align: right;
-}
-
-/* Bottom Section for Input Fields */
 .bottom {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 20px;
-}
-
-/* Left Side Inputs */
-.bottom .left {
-    display: flex;
-    flex-direction: column;
     gap: 20px;
-    width: 45%;
-}
-
-.input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .input-container label {
-    font-size: 16px;
+    color: #333;
     font-weight: bold;
-    color: black;
 }
 
 .input-container input,
 .input-container textarea {
     padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
     width: 100%;
-    box-sizing: border-box;
+    background-color: #f9f9f9;
 }
 
-/* Right Side Inputs */
-.bottom .right {
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: goldenrod;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: darkgoldenrod;
+    transition: 0.3s;
+}
+
+/* Footer */
+.footer {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 45%;
-}
-
-/* Styling for Bio Textarea */
-.input-container textarea {
-    height: 150px;
-    resize: none;
-}
-
-
-/* --------------------------------------  Footer Styling -------------------------------------- */
-.footer{
-    display: flex;
+    justify-content: center;
     align-items: center;
-    min-height: 10vh;
-    box-shadow: 0px 0px 10px #000;
-    background-color: rgba(255,255,255,0.7);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
 }
 
-.socials img{
-    margin:0 1vw 0 1vw;
+.socials img {
+    margin: 0 10px;
 }
 
-.copyright{
-    margin-left: 30vw;
+.copyright {
+    color: #333;
+    font-size: 14px;
+    text-align: center;
 }
 
-.copyright span{
-    color: goldenrod;
-    text-decoration: underline;
-    font-weight: bold;
- }
-
-
- /* table styling */
- .tableContainer {
+/* table styling */
+.tableContainer {
     width: calc(100% - 100px); /* Accounts for the left margin */
     height: calc(100% - 100px);
     overflow-x: auto; /* Enable horizontal scrolling */
@@ -290,4 +275,3 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
-
