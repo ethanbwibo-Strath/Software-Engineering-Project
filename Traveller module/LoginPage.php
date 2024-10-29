@@ -29,9 +29,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful
             $_SESSION['user_id'] = $user['UserID'];
             $_SESSION['username'] = $user['username'];
-            
-            // Redirect to dashboard or homepage
-            header("Location: accountdetails.php");
+            $_SESSION['role'] = $user['account_type'];
+
+            // Redirect based on role
+            switch ($user['account_type']) {
+                case 'admin':
+                    header("Location: Admin Module/admindashboard.php");
+                    break;
+                case 'agent':
+                    header("Location: Travel Agent Module/Travel Agent Dashboard.php");
+                    break;
+                case 'traveler':
+                    header("Location: accountdetails.php");
+                    break;
+                default:
+                    $error = "Unknown account type.";
+                    break;
+            }
             exit();
         } else {
             // Invalid credentials
@@ -42,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <body>
     <div class="nav">

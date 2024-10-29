@@ -1,17 +1,46 @@
+<?php
+// user_dashboard.php
+
+include 'dbConnection.php';
+session_start();
+
+$user = null; // Initialize $user to handle cases where the query fails
+
+// Fetch user data
+try {
+    $userID = $_SESSION['user_id']; // assuming user ID is stored in session
+    $db = new dbConnection();
+    $stmt = $db->conn->prepare("SELECT fname, lname, username, email, phone FROM users WHERE UserID = :userID");
+    $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$user) {
+        echo "No user data found.";
+    }
+} catch (PDOException $e) {
+    echo "Error fetching data: " . $e->getMessage();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
-
-    <title> Account Details </title>
-    <link rel = "icon" href="../img/logo2.png" type = "image/png">
-    <link rel="stylesheet" href= "userdash.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <link rel="icon" href="../img/logo2.png" type="image/png">
+    <link rel="stylesheet" href="userdash.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <script>
+        function toggleEdit() {
+            const inputs = document.querySelectorAll('.input-container input');
+            inputs.forEach(input => input.disabled = !input.disabled);
+        }
+    </script>
 </head>
-
 <body>
+
     <div class="nav">
         <div class="logo">
             <img src="../img/logo.png" alt="Logo">
@@ -24,7 +53,7 @@
                 <a href=""><li>Book</li></a>
                 <a href=""><li>About Us</li></a>
                 <a href=""><li>Contact</li></a>
-                <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
+                <!-- <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a> -->
             </ul>
         </div>
 
@@ -45,67 +74,48 @@
     <div class="main-content">
         <div class="top">
             <div class="user">
-            <img src="../img/Hotels.jpeg" alt="user" style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
-            <p>Daniel Morara</p>
+                <img src="../img/Hotels.jpeg" alt="user" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
+                <p><?= $user ? htmlspecialchars($user['fname'] . ' ' . $user['lname']) : 'User' ?></p>
             </div>
-
-            <div class="date">
-                <p>Account was created on:</p>
+            <!-- <div class="date">
+                <p>Account created on:</p>
                 <p>18/02/2024</p>
-            </div>
+            </div> -->
         </div>
         <div class="bottom">
-            <div class="left">
-                <div class="input-container">
-                    <label for="fname">First Name :</label>
-                    <br>
-                    <input type="text" id="fname" name="fname" required>
-                </div>
-                
-                <div class="input-container">
-                    <label for="lname">Last Name :</label>
-                    <br>
-                    <input type="text" id="lname" name="lname" required>
+            <form action="updateuser.php" method="POST">
+
+                <div class="left">
+                    <div class="input-container">
+                        <label for="fname">First Name :</label><br>
+                        <input type="text" id="fname" name="fname" value="<?= $user ? htmlspecialchars($user['fname']) : '' ?>" disabled>
+                    </div>
+                    <div class="input-container">
+                        <label for="lname">Last Name :</label><br>
+                        <input type="text" id="lname" name="lname" value="<?= $user ? htmlspecialchars($user['lname']) : '' ?>" disabled>
+                    </div>
+                    <div class="input-container">
+                        <label for="username">Username :</label><br>
+                        <input type="text" id="username" name="username" value="<?= $user ? htmlspecialchars($user['username']) : '' ?>" disabled>
+                    </div>
+                    <div class="input-container">
+                        <label for="email">Email :</label><br>
+                        <input type="email" id="email" name="email" value="<?= $user ? htmlspecialchars($user['email']) : '' ?>" disabled>
+                    </div>
                 </div>
 
-                <div class="input-container">
-                    <label for="username">Username :</label>
-                    <br>
-                    <input type="text" id="username" name="username" required>
+                <div class="right">
+                    <div class="input-container">
+                        <label for="phone">Phone Number :</label><br>
+                        <input type="tel" id="phone" name="phone" value="<?= $user ? htmlspecialchars($user['phone']) : '' ?>" disabled>
+                    </div>
                 </div>
-
-                <div class="input-container">
-                    <label for="email">Email :</label>
-                    <br>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-            </div>
-            <div class="right">
-                
-                <div class="input-container">
-                    <label for="phone">Phone Number :</label>
-                    <br>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <div class="input-container">
-                    <label for="dob">Date of birth :</label>
-                    <br>
-                    <input type="date" id="dob" name="dob" required>
-                </div>
-]
-
-                <div class="input-container">
-                    <label for="password">Password :</label>
-                    <br>
-                    <input type="password" id="password" name="password" required>
-                </div>  
-
-            </div>
+                <button type="button" onclick="toggleEdit()">Edit</button>
+                <button type="submit">Save Changes</button>
+            </form>
         </div>
     </div>
-
+    
     <div class="footer">
         <div class="socials">
             <img src="../img/twitter.png" alt="Twitter">
