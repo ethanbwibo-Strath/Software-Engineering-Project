@@ -16,6 +16,8 @@ include '../../dbConnection.php';
     width: 800px;
     margin: 0 auto;
 }
+</style>
+<?php
 // Create a new instance of dbConnection
 $db = new dbConnection();
 $conn = $db->conn;
@@ -75,49 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_package'])) {
     }
     $stmt->bindParam(':package_id', $package_id);
 
-<<<<<<< HEAD
-input[type="submit"] {
-    margin-top: 20px; /* Space above the button */
-    padding: 10px; /* Inner padding */
-    border: none; /* No border */
-    border-radius: 10px; /* Rounded corners */
-    background-color: black; /* Bootstrap success color */
-    color: white; /* White text */
-    font-size: 16px; /* Font size for button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.5s; /* Smooth transition */
-}
-
-input[type="submit"]:hover {
-    background-color: goldenrod; /* Darker green on hover */
-    color: black; /* Black text on hover */
-    border-radius: 20px;
-}
-
-textarea {
-    resize: vertical; /* Allow vertical resizing */
-    height: 80px; /* Set a default height */
-}
-
-select {
-    background-color: #fff; /* White background for select */
-    appearance: none; /* Remove default styling */
-    padding-right: 20px; /* Space for the dropdown arrow */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="0,0 20,0 10,10" fill="black" /></svg>'); /* Custom arrow */
-    background-repeat: no-repeat;
-    background-position: right 10px center; /* Position of the arrow */
-}
-
-@media (max-width: 600px) {
-    .main-content {
-        width: 90%; /* Full width on small screens */
-=======
     // Execute the statement
     if ($stmt->execute()) {
         echo "Package updated successfully!";
     } else {
         echo "Error updating package.";
->>>>>>> 43b29ffefab3cbedc2be68710741eb07c19c30ba
     }
 }
 
@@ -171,18 +135,14 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
-<<<<<<< HEAD
-        <label for="package-amenities">Amenities:</label>
-        <textarea id="package-amenities" name="package_amenities" required></textarea>
-=======
     </style>
 </head>
 <body>
->>>>>>> 43b29ffefab3cbedc2be68710741eb07c19c30ba
 
 <div class="container mt-5">
     <h2>Update Packages</h2>
     <div class="row">
+
         <?php foreach ($packages as $package): ?>
             <div class="col-md-4">
                 <div class="card mb-4">
