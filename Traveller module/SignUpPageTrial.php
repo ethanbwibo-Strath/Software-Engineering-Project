@@ -9,76 +9,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<?php
-include 'dbConnection.php';
-
-session_start();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
-        $fname = trim($_POST['fname']);
-        $lname = trim($_POST['lname']);
-        $username = trim($_POST['username']);
-        $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);  // changed `gmail` for consistency
-        $phone = preg_match('/^\d{10,15}$/', trim($_POST['phone'])) ? trim($_POST['phone']) : null;
-        $password = trim($_POST['password']);
-        $confirmPassword = trim($_POST['confirm-password']);
-        $accountType = trim($_POST['account']);
-
-        if ($password !== $confirmPassword) {
-            $error = "Passwords do not match.";
-        } elseif (!$email || !$phone) {
-            $error = "Invalid email or phone number format.";
-        } else {
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            try {
-                $db = new dbConnection();
-                $stmt = $db->conn->prepare("INSERT INTO users (fname, lname, username, email, phone, password, account_type) VALUES (:fname, :lname, :username, :email, :phone, :password, :account_type)");
-
-                $stmt->bindParam(':fname', $fname);
-                $stmt->bindParam(':lname', $lname);
-                $stmt->bindParam(':username', $username);
-                $stmt->bindParam(':email', $email); // use :email placeholder consistently
-                $stmt->bindParam(':phone', $phone);
-                $stmt->bindParam(':password', $hashedPassword);
-                $stmt->bindParam(':account_type', $accountType);
-
-                $stmt->execute();
-
-                echo 
-'
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sign Up Page </title>
-    <link rel="icon" href="../img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="Submission.css">
-    <link href= "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel= "stylesheet">
-</head>
-
-  <body>
-    <div class="message_success">
-        <h1>Account Created Successfully</h1>
-        <a href="../NewHomePage.php"><p><b>Go back to Home</b></p></a>
-    </div>
-  </body>
-  </html>';
-
-            } catch (PDOException $e) {
-                $error = "Sign-up failed: " . $e->getMessage();
-            }
-        }
-    } else {
-        $error = "Invalid CSRF token. Please try again.";
-    }
-}
-
-$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-?>
-
-
 <body>
     <div class="nav">
         <div class="logo">
@@ -110,7 +40,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
         <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
 
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <form action="SignUp_Action_Page.php" method="POST">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
             <div class="input-container">
