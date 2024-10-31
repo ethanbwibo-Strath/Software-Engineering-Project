@@ -13,7 +13,7 @@
     <?php endif; ?>
     
 </head>
-<style>
+<!-- <style>
         body {
             font-family: Arial, sans-serif;
             background-image: url('your-background-image.jpg'); /* replace with your background image */
@@ -52,7 +52,7 @@
         }
         .search-bar button:hover {
             background-color: #ff5722; /* Adjust hover color */
-        }
+        } -->
     </style>
 <body>
     <div class="nav">
@@ -71,16 +71,26 @@
             </ul>
         </div>
 
-    
-    
+        <div class="search">
+            <img src="img/search.png" alt="Search">
+            <input type="search" name="search" id="navSearch" placeholder="Search...">
+        </div>
 
+        <div class="account">
+            <img src="img/user.png" alt="user">
+            <a href="Traveller module/LoginPage.php" style="text-decoration: none;"><p>Account</p></a>
+        </div>
+    </div>
+
+    
+<!-- 
     <div class="search-bar">
         <select name="destination" id="destination">
             <option value="" disabled selected>Where Destination</option>
             <option value="africa">Africa</option>
             <option value="europe">Europe</option>
             <option value="asia">Asia</option>
-            <!-- Add more options as needed -->
+            <!-- Add more options as needed --
         </select>
 
         <select name="activity" id="activity">
@@ -92,12 +102,12 @@
             <option value="day-trips">Day Trips</option>
             <option value="easter">Easter Holidays</option>
             <option value="extreme-tours">Extreme Tours</option>
-            <!-- Add more options as needed -->
+            <!-- Add more options as needed --
         </select>
 
         <button type="button">Search</button>
     </div>
-
+ -->
 
 
         <div class="account">
