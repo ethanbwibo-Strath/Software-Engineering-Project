@@ -34,10 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirect based on role
             switch ($user['account_type']) {
                 case 'admin':
-                    header("Location: Admin Module/admindashboard.php");
+                    header("Location: ../Admin Module/admindashboard.php");
                     break;
                 case 'agent':
-                    header("Location: Travel Agent Module/Travel Agent Dashboard.php");
+                    header("Location: ../Travel Agent Module/Travel Agent Dashboard.php");
                     break;
                 case 'traveler':
                     header("Location: accountdetails.php");
