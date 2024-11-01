@@ -46,25 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->execute();
 
                 echo 
-'
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sign Up Page </title>
-    <link rel="icon" href="../img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="Submission.css">
-    <link href= "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel= "stylesheet">
-</head>
-
-  <body>
-    <div class="message_success">
-        <h1>Account Created Successfully</h1>
-        <a href="../NewHomePage.php"><p><b>Go back to Home</b></p></a>
-    </div>
-  </body>
-  </html>';
+                
+            "<script>
+                if (confirm('Account created successfully! Click OK to login.')) {
+                    window.location.href = 'LoginPage.php';
+                }
+            </script>";
 
             } catch (PDOException $e) {
                 $error = "Sign-up failed: " . $e->getMessage();
