@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosy Travels</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        header img {
+            width: 40px;
+            margin-right: 10px;
+        }
+        header h1 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin: 0;
+        }
+        .search-bar {
+            display: flex;
+            margin: 20px 0;
+        }
+        .search-bar input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-bar button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .filters {
+            display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax values as needed */
+    gap: 20px;
+        }
+        .filter-category {
+            font-size: 16px;
+            color: #333;
+        }
+        .filter-category h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .filter-options button {
+            margin: 5px;
+            padding: 8px 12px;
+            border: 1px solid #4CAF50;
+            border-radius: 20px;
+            background-color: #f9f9f9;
+            color: #4CAF50;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .filter-options button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no-results {
+            font-size: 20px;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="search-bar">
+        <select name="destination" id="destination">
+            <option value="" disabled selected>Where Destination</option>
+            <option value="africa">Africa</option>
+            <option value="europe">Europe</option>
+            <option value="asia">Asia</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <select name="activity" id="activity">
+            <option value="" disabled selected>Type Activity</option>
+            <option value="beach">Beach</option>
+            <option value="big-5-gems">Big 5 Gems</option>
+            <option value="birthdays">Birthdays</option>
+            <option value="christmas">Christmas Holidays</option>
+            <option value="day-trips">Day Trips</option>
+            <option value="easter">Easter Holidays</option>
+            <option value="extreme-tours">Extreme Tours</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <button type="button">Search</button>
+    </div>
+</div>
+
+        
+        <div class="filters">
+            <div class="filter-category">
+                <h3>Destination Type</h3>
+                <div class="filter-options">
+                    <button>Beach</button>
+                    <button>Mountain</button>
+                    <button>City</button>
+                    <button>Desert</button>
+                    <button>Countryside</button>
+                </div>
+            </div>
+            
+            <div class="filter-category">
+                <h3>Budget</h3>
+                <div class="filter-options">
+                    <button>Under $500</button>
+                    <button>$500 - $1000</button>
+                    <button>$1000 - $2000</button>
+                    <button>$2000 and above</button>
+                </div>
+            </div>
+            
+            <div class="filter-category">
+                <h3>Activities</h3>
+                <div class="filter-options">
+                    <button>Hiking</button>
+                    <button>Snorkeling</button>
+                    <button>Sightseeing</button>
+                    <button>Safari</button>
+                    <button>Shopping</button>
+                </div>
+            </div>
+            
+            <div class="filter-category">
+                <h3>Accommodation Type</h3>
+                <div class="filter-options">
+                    <button>Hotel</button>
+                    <button>Resort</button>
+                    <button>Hostel</button>
+                    <button>Camping</button>
+                    <button>BnB</button>
+                </div>
+            </div>
+            
+            <div class="filter-category">
+                <h3>Travel Duration</h3>
+                <div class="filter-options">
+                    <button>Weekend</button>
+                    <button>1 Week</button>
+                    <button>2 Weeks</button>
+                    <button>1 Month</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="no-results">
+            No travel packages found
+        </div>
+    </div>
+</body>
+</html>

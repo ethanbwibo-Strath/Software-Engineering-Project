@@ -82,56 +82,7 @@ textarea {
         width: 90%; /* Full width on small screens */
     }
 }
-.sidebar-link {
-        position: relative;
-        margin: 10px 0;
-    }
 
-    .sidebar-link a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #333;
-        padding: 10px 15px;
-        border-radius: 5px;
-        transition: background 0.3s ease;
-    }
-
-    .sidebar-link a:hover {
-        background: #0a3cff;
-        color: white;
-    }
-
-    .submenu {
-        display: none;
-        background-color: #e9e9e9;
-        padding: 10px;
-        border-radius: 5px;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        z-index: 10;
-    }
-
-    .sidebar-link:hover .submenu {
-        display: block;
-    }
-
-    .submenu-item {
-        margin: 5px 0;
-    }
-
-    .submenu-link {
-        padding: 8px 12px;
-        text-decoration: none;
-        color: #333;
-    }
-
-    .submenu-link:hover {
-        background: #0a3cff;
-        color: white;
-    }
 </style>
 
 
@@ -154,7 +105,7 @@ textarea {
         <input type="text" id="package-hotel" name="package_hotel" required>
 
         <label for="package-amenities">Amenities :</label>
-        <input type="text" id="package-amenities" name="package_amenities" required>
+        <textarea id="package-amenities" name="package_amenities" required></textarea>
 
         <label for="package-image">Package Image:</label>
         <input type="file" id="package-image" name="package_image" accept="image/*" required>
