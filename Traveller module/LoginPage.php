@@ -9,6 +9,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
+
+
+
+<!----------------------------------------------  SESSIONING --------------------------------------------------------->
 <?php
 include 'dbConnection.php';
 session_start();
@@ -29,24 +33,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Login successful
             $_SESSION['user_id'] = $user['UserID'];
             $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['account_type'];
+            $_SESSION['account_type'] = $user['account_type'];
+            $_SESSION['is_logged_in'] = true;
 
             // Redirect based on role
             switch ($user['account_type']) {
                 case 'admin':
                     header("Location: ../Admin Module/admindashboard.php");
                     break;
+
                 case 'agent':
                     header("Location: ../Travel Agent Module/Travel Agent Dashboard.php");
                     break;
+
                 case 'traveler':
                     header("Location: accountdetails.php");
                     break;
+
                 default:
                     $error = "Unknown account type.";
                     break;
             }
             exit();
+
         } else {
             // Invalid credentials
             $error = "Invalid username or password.";
@@ -87,13 +96,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="input-container">
                 <label for="username">Username:</label>
                 <br>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" placeholder=" Username " required>
             </div>
 
             <div class="input-container">
                 <label for="password">Password:</label>
                 <br>
-                <input type="password" id="password" name="password" placeholder="********" required>
+                <input type="password" id="password" name="password" placeholder=" ******** " required>
             </div>
 
             <div class="preferences">
@@ -101,6 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="checkbox" id="remember">
                     <label for="remember">Remember me?</label>
                 </div>
+                
                 <div class="password">
                     <a href="#">Forgot Password?</a>
                 </div>
