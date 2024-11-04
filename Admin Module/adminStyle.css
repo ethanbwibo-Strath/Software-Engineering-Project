@@ -76,6 +76,37 @@ body
     width: 30vh;
     height: 5vh;
 }
+/* Search Bar in Nav */
+
+.search-bar {
+    display: flex;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+.search-bar select, .search-bar button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.search-bar select {
+    width: 200px;
+}
+.search-bar button {
+    background-color: gold; /* Adjust this color for the search button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.search-bar button:hover {
+    transition: .2s ease;
+    background-color: goldenrod; /* Adjust hover color */
+}
 
 /* Account section in nav */
 .nav .account
@@ -154,6 +185,15 @@ body
 .statCard h2
 {
     margin-bottom: auto;
+}
+
+.cardInfo p
+{
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    color: goldenrod;
 }
 
 /* Content Bottom Section */

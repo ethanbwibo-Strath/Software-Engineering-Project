@@ -105,7 +105,7 @@
             <img src="../img/user.png" alt="user">
             <div class="links">
                 <ul>
-                    <a href="Traveller module/LoginPage.php"><li>Account</li></a>
+                    <a href="../Traveller module/LoginPage.php"><li>Account</li></a>
                 </ul>
             </div>
             
