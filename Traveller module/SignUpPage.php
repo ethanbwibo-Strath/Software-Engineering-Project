@@ -38,18 +38,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->bindParam(':fname', $fname);
                 $stmt->bindParam(':lname', $lname);
                 $stmt->bindParam(':username', $username);
-                $stmt->bindParam(':email', $email); // use :email placeholder consistently
+                $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':phone', $phone);
                 $stmt->bindParam(':password', $hashedPassword);
                 $stmt->bindParam(':account_type', $accountType);
 
                 $stmt->execute();
 
-                echo "<script>
-                    if (confirm('Account created successfully! Click OK to login.')) {
-                        window.location.href = 'LoginPage.php';
-                    }
-                  </script>";
+                echo 
+                
+            "<script>
+                if (confirm('Account created successfully! Click OK to login.')) {
+                    window.location.href = 'LoginPage.php';
+                }
+            </script>";
+
             } catch (PDOException $e) {
                 $error = "Sign-up failed: " . $e->getMessage();
             }
@@ -61,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 ?>
-
 
 
 <body>
