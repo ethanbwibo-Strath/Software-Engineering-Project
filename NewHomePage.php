@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +38,36 @@
         </div>
 
         <div class="account">
-            <img src="img/user.png" alt="user">
-            <a href="Traveller module/LoginPage.php" style="text-decoration: none;"><p>Account</p></a>
+            
+            
+            <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+                <img src="img/user.png" alt="user">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
+                    <div class="dropdown-content">
+                        <a href="accountDetails.php">Account Details</a>
+
+                        <?php if ($_SESSION['account_type'] == 'admin') : ?>
+                            <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
+                            <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                            <a href="travelerDashboard.php">My Bookings</a>
+                        <?php endif; ?>
+
+                        <a href="Traveller Module/logout.php">Logout</a>
+                    </div>
+                </li>
+
+            <?php else : ?>
+                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+            <?php endif; ?>
         </div>
+
+        
+
     </div>
 
 
