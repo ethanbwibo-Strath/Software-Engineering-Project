@@ -47,6 +47,12 @@
     text-align: center;
     width: 30vh;
     height: 5vh;
+    background-color: transparent;
+}
+.search input:hover
+{
+    background-color: #fff;
+    transition: .2s ease-in;
 }
 
 .account{
