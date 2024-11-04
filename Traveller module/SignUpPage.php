@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->bindParam(':fname', $fname);
                 $stmt->bindParam(':lname', $lname);
                 $stmt->bindParam(':username', $username);
-                $stmt->bindParam(':email', $email); // use :email placeholder consistently
+                $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':phone', $phone);
                 $stmt->bindParam(':password', $hashedPassword);
                 $stmt->bindParam(':account_type', $accountType);
