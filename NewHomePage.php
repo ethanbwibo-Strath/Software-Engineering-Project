@@ -38,8 +38,7 @@ session_start();
         </div>
 
         <div class="account">
-            
-            
+
             <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
                 <img src="img/user.png" alt="user">
                 <li class="dropdown">
@@ -51,7 +50,7 @@ session_start();
                             <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
-                            <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
+                            <a href="Travel Agent Module/Travel Agent Dashboard.php">Agent Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
                             <a href="travelerDashboard.php">My Bookings</a>

@@ -99,8 +99,7 @@ session_start();
             <ul>
                 <a href="../NewHomePage.php"><li>Home</li></a>
                 <a href=""><li>Book</li></a>
-                <a href=""><li>About Us</li></a>
-                <a href=""><li>Contact</li></a>
+                <a href="../NewHomePage.php#why-us-section"><li>About Us</li></a>
                 <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
             </ul>
         </div>
@@ -110,9 +109,33 @@ session_start();
             <input type="search" name="search" id="navSearch" placeholder="Search...">
         </div>
 
+        
         <div class="account">
-            <img src="../img/user.png" alt="user">
-            <p>Account</p>
+                        
+            <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+                <img src="../img/user.png" alt="user">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
+                    <div class="dropdown-content">
+                        <a href="accountDetails.php">Account Details</a>
+
+                        <?php if ($_SESSION['account_type'] == 'admin') : ?>
+                            <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
+                            <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                            <a href="travelerDashboard.php">My Bookings</a>
+                        <?php endif; ?>
+
+                        <a href="../Traveller Module/logout.php">Logout</a>
+                    </div>
+                </li>
+
+            <?php else : ?>
+                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+            <?php endif; ?>
         </div>
     </div>
 

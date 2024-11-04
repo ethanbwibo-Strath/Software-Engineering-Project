@@ -62,13 +62,6 @@
     gap:0;
 }
 
-.account p{
-    font-size: 20px;
-    margin-left: 3vh;
-    color: goldenrod;
-    font-weight: bold;
-}
-
 .nav h1{
     color: goldenrod;
 } 
@@ -137,14 +130,6 @@
 .login-link:hover {
     background-color: goldenrod;  /* Background color on hover */
     color: white;
-}
-
-
-.account p{
-    font-size: 20px;
-    margin-left: 3vh;
-    color: goldenrod;
-    font-weight: bold;
 }
 
 #background-video {
