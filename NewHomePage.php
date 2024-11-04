@@ -10,9 +10,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
-<?php //include "travelagentAI.html"; ?>
-
-<!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
 
 <body>
     <div class="nav">
@@ -48,7 +45,6 @@
             <source src="img\Rediscover The Magic.mp4" type="video/mp4">
         </video>
 </div>
-<!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
 
 <div class="onTopofVideo">
     <h1>Discover the World's Hidden <br> Gems.</h1>
@@ -62,10 +58,8 @@
         </div>
     </div>
 </div>
-<!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
+
  <iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;" frameborder="0"></iframe> 
-
-
 
     <div class="travel-packages-section">
         <h3>Travel Packages</h3>
