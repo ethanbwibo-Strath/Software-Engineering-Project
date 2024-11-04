@@ -2,7 +2,7 @@
     position: fixed;
     background-color: white;
     width: 250px;
-    height: 60%;
+    height: auto;
     margin-top: 1cm;
     padding-top: 40px;
     transition: all 0.5s ease;
