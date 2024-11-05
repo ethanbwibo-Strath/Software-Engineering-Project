@@ -1,6 +1,6 @@
 <?php
 class dbConnection {
-    private $host = 'localhost:3307';
+    private $host = 'localhost';
     private $dbname = 'cheapthrills';
     private $username = 'root';
     private $password = '';
