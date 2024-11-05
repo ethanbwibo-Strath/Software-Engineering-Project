@@ -163,7 +163,10 @@ if ($package_id) {
 
                     <!-- Additional fields as necessary -->
 
-                    <button type="submit" class="submit-button">Proceed to Payment</button>
+                    <button type="button" class="submit-button" onclick="window.location.href='/software-engineering-project/Finance Module/DARAJAAPI/payment_form.html'">Proceed to Payment</button>
+
+
+
                 </form>
 
             <?php else: ?>

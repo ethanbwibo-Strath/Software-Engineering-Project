@@ -208,7 +208,7 @@ $conn = null;
 
             <!-- Back and Book Now Buttons -->
             <a href="bookings.php" class="back-button">Back to Packages</a>
-            <a href="bookingform.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
+            <a href="bookingform.php?package_id=<?= htmlspecialchars($package_id) ?>" class="book-button">Book Now</a>
 
             <?php else: ?>
                 <p>Package details not available.</p>
