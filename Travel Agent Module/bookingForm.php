@@ -99,7 +99,7 @@ if ($package_id) {
             <p><strong>Total Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
         </div>
 
-        <form action="payment.php" method="post">
+        <form action="../Finance Module/DARAJAAPI/payment_form.html" method="post">
             <input type="hidden" name="package_id" value="<?= htmlspecialchars($package_id) ?>">
 
             <div class="form-group">
