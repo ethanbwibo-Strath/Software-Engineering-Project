@@ -44,13 +44,13 @@ session_start();
                 <li class="dropdown">
                     <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
                     <div class="dropdown-content">
-                        <a href="../Traveller Module/accountDetails.php">Account Details</a>
+                        <a href="../Traveller Module/accountdetails.php">Account Details</a>
 
                         <?php if ($_SESSION['account_type'] == 'admin') : ?>
                             <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
-                            <a href="Travel Agent Module/Travel Agent Dashboard.php">Agent Dashboard</a>
+                            <a href="../Travel Agent Module/Travel Agent Dashboard.php">Agent Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
                             <a href="../Traveller Module/bookingTrial.php">My Bookings</a>

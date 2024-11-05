@@ -135,11 +135,11 @@ $conn = null;
                     <div class="package-card">
                         <img src="<?= htmlspecialchars($package['package_image']) ?>" alt="<?= htmlspecialchars($package['package_name']) ?>" class="package-image">
                         <h2><?= htmlspecialchars($package['package_name']) ?></h2>
-                        <p class="package-description"><?= htmlspecialchars($package['package_description']) ?></p>
+                        <!-- <p class="package-description"><?= htmlspecialchars($package['package_description']) ?></p> -->
                         <p><strong>Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
                         <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
                         <p><strong>Hotel:</strong> <?= htmlspecialchars($package['package_hotel']) ?></p>
-                        <p><strong>Amenities:</strong> <?= htmlspecialchars($package['package_amenities']) ?></p>
+                        <!-- <p><strong>Amenities:</strong> <?= htmlspecialchars($package['package_amenities']) ?></p> -->
                         <a href="fullpackage.php?id=<?= htmlspecialchars($package['package_id']) ?>" class="details-button">View Details</a>
                     </div>
                 <?php endforeach; ?>

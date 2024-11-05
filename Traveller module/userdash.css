@@ -145,6 +145,7 @@
     border-radius: 10px;
     border: transparent 1px solid;
     left: -200px; /* Initially hide sidebar by shifting it to the left */
+    z-index: 1000;
 }
 
 .sidebar:hover {
