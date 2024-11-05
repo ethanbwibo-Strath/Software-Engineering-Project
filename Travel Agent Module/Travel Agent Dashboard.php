@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +38,52 @@
         fill: white;
         transition: 0.3s;
     }
+        
+    .button {
+        cursor: pointer;
+        position: relative;
+        padding: 5px 20px;
+        font-size: 20px;
+        color: goldenrod;
+        border: 2px solid goldenrod;
+        border-radius: 34px;
+        background-color: transparent;
+        font-weight: 600;
+        transition: all 0.9s cubic-bezier(0.23, 1, 0.320, 1);
+        overflow: hidden;
+    }
+    
+    
+
+    .button::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        border-radius: inherit;
+        scale: 0;
+        z-index: -1;
+        background-color: #212121;
+        border: 2px solid #846434;
+        transition: all 0.9s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    
+    .button:hover::before {
+        scale: 3;
+    }
+    
+    .button:hover {
+        color: #f9f6f6;
+        scale: 1.1;
+        box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+    }
+    
+    .button:active {
+        scale: 1;
+    }
+
 </style>
 
 </head>
@@ -49,8 +99,7 @@
             <ul>
                 <a href="../NewHomePage.php"><li>Home</li></a>
                 <a href=""><li>Book</li></a>
-                <a href=""><li>About Us</li></a>
-                <a href=""><li>Contact</li></a>
+                <a href="../NewHomePage.php#why-us-section"><li>About Us</li></a>
                 <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
             </ul>
         </div>
@@ -60,9 +109,33 @@
             <input type="search" name="search" id="navSearch" placeholder="Search...">
         </div>
 
+        
         <div class="account">
-            <img src="../img/user.png" alt="user">
-            <p>Account</p>
+                        
+            <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+                <img src="../img/user.png" alt="user">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
+                    <div class="dropdown-content">
+                        <a href="../Traveller Module/accountdetails.php">Account Details</a>
+
+                        <?php if ($_SESSION['account_type'] == 'admin') : ?>
+                            <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
+                            <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                            <a href="travelerDashboard.php">My Bookings</a>
+                        <?php endif; ?>
+
+                        <a href="../Traveller Module/logout.php">Logout</a>
+                    </div>
+                </li>
+
+            <?php else : ?>
+                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -92,7 +165,7 @@
             <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
-            <li><a href="#" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+            <li><a href="../Traveller Module/logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
         </ul> 
     </div>
         <script src="sidebar.js"></script>

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +14,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
-<?php //include "travelagentAI.html"; ?>
-
-<!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
 
 <body>
     <div class="nav">
@@ -37,9 +38,36 @@
         </div>
 
         <div class="account">
-            <img src="img/user.png" alt="user">
-            <a href="Traveller module/LoginPage.php" style="text-decoration: none;"><p>Account</p></a>
+
+            <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+                <img src="img/user.png" alt="user">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
+                    <div class="dropdown-content">
+                        <a href="../Traveller Module/accountdetails.php">Account Details</a>
+
+                        <?php if ($_SESSION['account_type'] == 'admin') : ?>
+                            <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
+                            <a href="../Travel Agent Module/Travel Agent Dashboard.php">Agent Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                            <a href="../Traveller Module/bookingTrial.php">My Bookings</a>
+                            <a href="../Traveller Module/accountDetails.php">Settings</a>
+                        <?php endif; ?>
+
+                        <a href="Traveller Module/logout.php">Logout</a>
+                    </div>
+                </li>
+
+            <?php else : ?>
+                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+            <?php endif; ?>
         </div>
+
+        
+
     </div>
 
 
@@ -48,7 +76,6 @@
             <source src="img\Rediscover The Magic.mp4" type="video/mp4">
         </video>
 </div>
-<!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
 
 <div class="onTopofVideo">
     <h1>Discover the World's Hidden <br> Gems.</h1>
@@ -62,10 +89,8 @@
         </div>
     </div>
 </div>
-<!-- <iframe src="travelagentAI.html" width="100%" height="500px" frameborder="0"></iframe> -->
+
  <iframe src="travelagentAI.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;" frameborder="0"></iframe> 
-
-
 
     <div class="travel-packages-section">
         <h3>Travel Packages</h3>
