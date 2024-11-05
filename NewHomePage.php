@@ -38,23 +38,23 @@ session_start();
         </div>
 
         <div class="account">
-            
-            
+
             <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
                 <img src="img/user.png" alt="user">
                 <li class="dropdown">
                     <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
                     <div class="dropdown-content">
-                        <a href="accountDetails.php">Account Details</a>
+                        <a href="../Traveller Module/accountdetails.php">Account Details</a>
 
                         <?php if ($_SESSION['account_type'] == 'admin') : ?>
                             <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
-                            <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
+                            <a href="../Travel Agent Module/Travel Agent Dashboard.php">Agent Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
-                            <a href="travelerDashboard.php">My Bookings</a>
+                            <a href="../Traveller Module/bookingTrial.php">My Bookings</a>
+                            <a href="../Traveller Module/accountDetails.php">Settings</a>
                         <?php endif; ?>
 
                         <a href="Traveller Module/logout.php">Logout</a>

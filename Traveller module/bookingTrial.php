@@ -89,7 +89,7 @@ $conn = null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Details</title>
     <link rel="icon" href="../img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="../userdash.css">
+    <link rel="stylesheet" href="userdash.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
 </head>
@@ -117,13 +117,37 @@ $conn = null;
         </div>
 
         <div class="account">
-            <img src="../../img/user.png" alt="user">
-            <p>Account</p>
+                        
+            <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+                <img src="../img/user.png" alt="user">
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
+                    <div class="dropdown-content">
+                        <a href="accountDetails.php">Account Details</a>
+
+                        <?php if ($_SESSION['account_type'] == 'admin') : ?>
+                            <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
+                            <a href="../Travel Agent Module/Travel Agent Dashboard.php">Agent Dashboard</a>
+
+                        <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                            <a href="../Traveller Module/bookingTrial.php">My Bookings</a>
+                            <a href="../Traveller Module/accountDetails.php">Settings</a>
+                        <?php endif; ?>
+
+                        <a href="../Traveller Module/logout.php">Logout</a>
+                    </div>
+                </li>
+
+            <?php else : ?>
+                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+            <?php endif; ?>
         </div>
     </div>
 
 
-    <?php include "../sidebar.php" ?>
+    <?php include "sidebar.php" ?>
 
     <div class="main-content">
 
@@ -135,11 +159,11 @@ $conn = null;
                     <div class="package-card">
                         <img src="<?= htmlspecialchars($package['package_image']) ?>" alt="<?= htmlspecialchars($package['package_name']) ?>" class="package-image">
                         <h2><?= htmlspecialchars($package['package_name']) ?></h2>
-                        <!-- <p class="package-description"><?= htmlspecialchars($package['package_description']) ?></p> -->
+                        <p class="package-description"><?= htmlspecialchars($package['package_description']) ?></p>
                         <p><strong>Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
                         <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
                         <p><strong>Hotel:</strong> <?= htmlspecialchars($package['package_hotel']) ?></p>
-                        <!-- <p><strong>Amenities:</strong> <?= htmlspecialchars($package['package_amenities']) ?></p> -->
+                        <p><strong>Amenities:</strong> <?= htmlspecialchars($package['package_amenities']) ?></p>
                         <a href="fullpackage.php?id=<?= htmlspecialchars($package['package_id']) ?>" class="details-button">View Details</a>
                     </div>
                 <?php endforeach; ?>
