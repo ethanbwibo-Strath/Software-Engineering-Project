@@ -1,13 +1,9 @@
 <?php
 class dbConnection {
-    private $host = 'localhost';
+    private $host = 'localhost:3307';
     private $dbname = 'cheapthrills';
     private $username = 'root';
-<<<<<<< HEAD
     private $password = 'mySQLpass_11!';
-=======
-    private $password = 'rehanais2cool';
->>>>>>> 8979cb9e80ef13a9555a1ad5bb8dd3389a118ffb
     public $conn;
 
     public function __construct() {

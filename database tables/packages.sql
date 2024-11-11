@@ -1,6 +1,6 @@
 
 CREATE TABLE `packages` (
-  `package_id` int NOT NULL,
+  `package_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `package_name` varchar(255) NOT NULL,
   `package_description` text NOT NULL,
   `package_price` decimal(10,2) NOT NULL,
