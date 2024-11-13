@@ -162,7 +162,7 @@ session_start();
                 </div>
             </li>
             
-            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="AllAboutPackages\viewPackages.php" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
             <li><a href="../Traveller Module/logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
