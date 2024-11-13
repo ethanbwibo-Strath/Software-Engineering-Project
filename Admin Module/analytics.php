@@ -1,10 +1,10 @@
 <?php
 $pagetitle = "Analytics";
 $stylesheet = "adminStyle.css";
-require "dbconnection.php";
+//require "dbconnection.php";
 include "../layouts/header.php";
 
-$db = new dbConnection();
+//$db = new dbConnection();
 ?>
 
 <head>
