@@ -72,6 +72,7 @@ try {
     // Execute the statement
     $stmt->execute();
 
+    sleep(20);
     // Output success message or receipt display
     if ($responseCode == "0") {
         // Transaction successful, show receipt

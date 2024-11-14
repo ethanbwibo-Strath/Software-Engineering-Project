@@ -95,7 +95,7 @@ textarea {
         <label for="package-description">Description:</label>
         <textarea id="package-description" name="package_description" required></textarea>
 
-        <label for="package-price">Price (USD):</label>
+        <label for="package-price">Price (KSH):</label>
         <input type="number" id="package-price" name="package_price" min="0" required>
 
         <label for="package-duration">Duration (days):</label>
