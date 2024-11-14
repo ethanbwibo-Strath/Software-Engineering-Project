@@ -150,19 +150,19 @@ session_start();
                         <span> Packages </span>
                     <div class="submenu">
                         <div class="submenu-item">
-                            <a href="AllAboutPackages\createPackage.php" class="submenu-link"> Create Package </a>
+                            <a href="createPackage.php" class="submenu-link"> Create Package </a>
                         </div>
                         <div class="submenu-item">
-                            <a href="AllAboutPackages\updatePackage.php" class="submenu-link"> Update Package </a>
+                            <a href="updatePackage.php" class="submenu-link"> Update Package </a>
                         </div>
                         <div class="submenu-item">
-                            <a href="AllAboutPackages\viewPackages.php" class="submenu-link"> View Package </a>
+                            <a href="viewPackages.php" class="submenu-link"> View Package </a>
                         </div>
                     </div>
                 </div>
             </li>
             
-            <li><a href="AllAboutPackages\viewPackages.php" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
             <li><a href="../Traveller Module/logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
