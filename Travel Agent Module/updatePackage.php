@@ -1,21 +1,9 @@
 <?php
-
+$stylesheet = "Travel Agent Dashboard.css";
+$pagetitle = "Update Packages";
 include "SDbar.php";
 include '../dbConnection.php';
 
-?>
-<br>
-<br>
-<style>
-
-
-.main-content {
-    width: 800px;
-    margin: 0 auto;
-}
-
-</style>
-<?php
 $db = new dbConnection();
 $conn = $db->conn;
 
@@ -53,14 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_package'])) {
 
     // Prepare the SQL statement to update the package data
     $stmt = $conn->prepare("UPDATE packages SET 
-                            package_name = :package_name,
-                            package_description = :package_description,
-                            package_price = :package_price,
-                            package_duration = :package_duration,
-                            package_hotel = :package_hotel,
-                            package_amenities = :package_amenities" .
-                            ($target_file ? ", package_image = :package_image" : "") . 
-                            " WHERE id = :package_id");
+        package_name = :package_name,
+        package_description = :package_description,
+        package_price = :package_price,
+        package_duration = :package_duration,
+        package_hotel = :package_hotel,
+        package_amenities = :package_amenities" .
+        ($target_file ? ", package_image = :package_image" : "") . 
+        " WHERE package_id = :package_id");
 
     // Bind parameters
     $stmt->bindParam(':package_name', $package_name);
@@ -88,14 +76,7 @@ $stmt->execute();
 $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Update Packages</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
-    <style>
+<style>
 .container1 {   
     padding: 20px;
     margin: 100px auto;
@@ -113,17 +94,18 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 .card1 {
     display: flex;
     padding: 10px;
-    height: 200px;
+    margin: 10px;
+    height: 290px;
     width: 100%;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(218, 165, 32, 0.5);
-    
-
 }
 
-.card1-image {
-    width: 30%;
+.card1-image img {
+    width: 100%;
     height: 100%;
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+    border-radius: 8px;
 }
 
 .card1-body {
@@ -132,11 +114,8 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     padding: 0 10px;
     overflow-x: auto;
 }
+</style>
 
-
-    </style>
-</head>
-<body>
 
 <div class="container1">
     <h2>Update Packages</h2>
@@ -144,13 +123,16 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php foreach ($packages as $package): ?>
             <div class="card1">
-                <div class="card1-image">
+                <div class="card1-image" style="width: 30%; height: 100%;">
                     <img src="<?= $package['package_image'] ?>" class="card-img-top" alt="<?= $package['package_name'] ?>">
                 </div>
 
                 <div class="card1-body">
-                        <form action="update_packages.php" method="post" enctype="multipart/form-data">
-                            <!-- <input type="hidden" name="package_id" value="<?= $package['id'] ?>"> -->
+                    <!-- Scoped Bootstrap CSS (only form components) -->
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+                        <form action="updatePackage.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="package_id" value="<?= $package['package_id'] ?>">
                             <div class="form-group">
                                 <label for="package_name">Package Name:</label>
                                 <input type="text" class="form-control" name="package_name" value="<?= htmlspecialchars($package['package_name']) ?>" required>
@@ -182,8 +164,6 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <button type="submit" name="update_package" class="btn btn-warning">Update Package</button>
                         </form>
                 </div>
-
-
             </div>
                 
         <?php endforeach; ?>
@@ -194,5 +174,4 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+

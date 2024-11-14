@@ -172,8 +172,8 @@ $conn = null;
 
 
         <!-- Back and Book Now Buttons -->
-<a href="viewAllPackages.php" class="back-button">Back to Packages</a>
-<a href="../bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
+<a href="viewPackages.php" class="back-button">Back to Packages</a>
+<a href="../Traveller Module/booking/bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
 
     <?php else: ?>
         <p>Package details not available.</p>

@@ -1,5 +1,5 @@
 <?php
-$pagetitle = "Create a Travel Package";
+$pagetitle = "Create Package";
 $stylesheet = "Travel Agent Dashboard.css";
 include "SDbar.php";
 
