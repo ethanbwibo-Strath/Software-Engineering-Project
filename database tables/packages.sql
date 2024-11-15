@@ -17,14 +17,14 @@ CREATE TABLE packages (
 -- Step 4: Insert sample data into the 'packages' table
 INSERT INTO packages (package_name, package_description, package_price, package_duration, package_hotel, package_amenities, package_image) 
 VALUES 
-('Adventure Package', 'A thrilling package for adventure lovers', 1500.00, 5, 'Mountain Resort', 'Hiking, Rafting, Ziplining', 'uploads/mtKenya.webp'),
-('Relaxation Package', 'A relaxing experience for everyone', 1200.00, 7, 'Beachside Hotel', 'Spa, Pool, Gourmet Meals', 'uploads/Diani.jpeg'),
+('Adventure Package', 'A thrilling package for adventure lovers', 1500.00, 5, 'Mountain Resort', 'Hiking, Rafting, Ziplining', '../uploads/mtKenya.webp'),
+('Relaxation Package', 'A relaxing experience for everyone', 1200.00, 7, 'Beachside Hotel', 'Spa, Pool, Gourmet Meals', '../uploads/Diani.jpeg'),
 ('Family Package', 'Perfect for families', 1800.00, 10, 'Family Resort', 'Kids Club, Pool, Sightseeing', 'uploads/Beach.jpg'),
-('Luxury Escape', 'Experience ultimate luxury in a 5-star resort', 5000.00, 7, 'Oceanview Suites', 'Private beach, Personal butler, All-inclusive meals', 'uploads/hemingways.jpg'),
-('Cultural Tour', 'Explore the rich cultural heritage of historical sites', 2200.00, 10, 'Heritage Inn', 'Guided tours, Traditional meals, Museum visits', 'uploads/lamu.jpg'),
-('Wildlife Safari', 'Witness exotic wildlife in their natural habitat', 3000.00, 6, 'Savannah Lodge', 'Game drives, Nature walks, Bird watching', 'uploads/amboseli.jpg'),
-('City Explorer', 'Discover the top sights and attractions of the city', 1500.00, 4, 'Downtown Hotel', 'City tours, Local cuisine, Shopping experiences', 'uploads/A Greeny Night _✧･ﾟ__.jpg'),
-('Romantic Getaway', 'Perfect for couples looking for a romantic retreat', 3500.00, 5, 'Secluded Villa', 'Private dinners, Spa sessions, Sunset cruise', 'uploads/Victor.jpg');
+('Luxury Escape', 'Experience ultimate luxury in a 5-star resort', 5000.00, 7, 'Oceanview Suites', 'Private beach, Personal butler, All-inclusive meals', '../uploads/hemingways.jpg'),
+('Cultural Tour', 'Explore the rich cultural heritage of historical sites', 2200.00, 10, 'Heritage Inn', 'Guided tours, Traditional meals, Museum visits', '../uploads/lamu.jpg'),
+('Wildlife Safari', 'Witness exotic wildlife in their natural habitat', 3000.00, 6, 'Savannah Lodge', 'Game drives, Nature walks, Bird watching', '../uploads/amboseli.jpg'),
+('City Explorer', 'Discover the top sights and attractions of the city', 1500.00, 4, 'Downtown Hotel', 'City tours, Local cuisine, Shopping experiences', '../uploads/A Greeny Night _✧･ﾟ__.jpg'),
+('Romantic Getaway', 'Perfect for couples looking for a romantic retreat', 3500.00, 5, 'Secluded Villa', 'Private dinners, Spa sessions, Sunset cruise', '../uploads/Victor.jpg');
 
 -- Old SQL Query
 
