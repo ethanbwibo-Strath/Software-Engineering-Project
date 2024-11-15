@@ -29,8 +29,8 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Details</title>
-    <link rel="icon" href="../img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="userdash.css">
+    <link rel="icon" href="img/logo2.png" type="image/png">
+    <link rel="stylesheet" href="Traveller module/userdash.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script>
         function toggleEdit() {
@@ -43,13 +43,13 @@ try {
 
     <div class="nav">
         <div class="logo">
-            <img src="../img/logo.png" alt="Logo">
+            <img src="img/logo.png" alt="Logo">
             <h1>CheapThrills</h1>
         </div>
 
         <div class="links">
             <ul>
-                <a href="../NewHomePage.php"><li>Home</li></a>
+                <a href="NewHomePage.php"><li>Home</li></a>
                 <a href=""><li>Book</li></a>
                 <a href=""><li>About Us</li></a>
                 <a href=""><li>Contact</li></a>
@@ -142,9 +142,9 @@ try {
     
     <div class="footer">
         <div class="socials">
-            <img src="../img/twitter.png" alt="Twitter">
-            <img src="../img/instagram.png" alt="Instagram">
-            <img src="../img/linkedin.png" alt="linkedin">
+            <img src="img/twitter.png" alt="Twitter">
+            <img src="img/instagram.png" alt="Instagram">
+            <img src="img/linkedin.png" alt="linkedin">
         </div>
 
         <div class="copyright">

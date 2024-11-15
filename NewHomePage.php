@@ -62,7 +62,7 @@ session_start();
                 </li>
 
             <?php else : ?>
-                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+                <a href="LoginPage.php" class="login-link"><li>Login</li></a>
             <?php endif; ?>
         </div>
 
