@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="icon" href="../img/logo2.png" type="image/png">
+    <link rel="icon" href="img/logo2.png" type="image/png">
     <link rel="stylesheet" href="LoginPage.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -39,11 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirect based on role
             switch ($user['account_type']) {
                 case 'admin':
-                    header("Location: ../Admin Module/admindashboard.php");
+                    header("Location: Admin Module/admindashboard.php");
                     break;
 
                 case 'agent':
-                    header("Location: ../Travel Agent Module/Travel Agent Dashboard.php");
+                    header("Location: Travel Agent Module/Travel Agent Dashboard.php");
                     break;
 
                 case 'traveler':
