@@ -81,7 +81,11 @@ if ($package_id) {
     }
 </style>
 
-<?php include 'header.php'; ?>
+
+<?php 
+$title = 'Book Package';
+include 'header.php';
+ ?>
 
     <div class="main-content">
 
