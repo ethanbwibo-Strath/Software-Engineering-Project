@@ -143,7 +143,7 @@ if ($package_id) {
             <h3>Package Details</h3>
             <p><strong>Package Name:</strong> <?= htmlspecialchars($package['package_name']) ?></p>
             <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
-            <p><strong>Total Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
+            <p><strong>Total Price:</strong> <?= htmlspecialchars($package['package_price']) ?></p>
         </div>
 
         <form action="../Finance Module/DARAJAAPI/stkpush.php" method="post" id="bookingPaymentForm">
