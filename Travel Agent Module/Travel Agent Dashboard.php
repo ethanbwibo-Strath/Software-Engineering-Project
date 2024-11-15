@@ -134,7 +134,7 @@ session_start();
                 </li>
 
             <?php else : ?>
-                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+                <a href="Traveller Module/LoginPage.php" class="login-link">Login</a>
             <?php endif; ?>
         </div>
     </div>
@@ -150,13 +150,13 @@ session_start();
                         <span> Packages </span>
                     <div class="submenu">
                         <div class="submenu-item">
-                            <a href="AllAboutPackages\createPackage.php" class="submenu-link"> Create Package </a>
+                            <a href="createPackage.php" class="submenu-link"> Create Package </a>
                         </div>
                         <div class="submenu-item">
-                            <a href="AllAboutPackages\updatePackage.php" class="submenu-link"> Update Package </a>
+                            <a href="updatePackage.php" class="submenu-link"> Update Package </a>
                         </div>
                         <div class="submenu-item">
-                            <a href="AllAboutPackages\viewPackages.php" class="submenu-link"> View Package </a>
+                            <a href="viewPackages.php" class="submenu-link"> View Package </a>
                         </div>
                     </div>
                 </div>

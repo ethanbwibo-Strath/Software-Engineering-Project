@@ -4,14 +4,16 @@ include 'db.php';
 include 'accessToken.php';
 date_default_timezone_set('Africa/Nairobi');
 
-// Get phone number and amount from form input
+// Get phone number, amount, and user name from form input
 $phone = $_POST['phone'];
 $money = $_POST['amount'];
+$userName = $_POST['name']; // Assuming name is submitted earlier in the booking form
+$packageName = $_POST['package_name']; // Assuming package name is passed as part of form data
 
 $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-$callbackurl = 'https://cheapthrillsse.vercel.app';
-$passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
-$BusinessShortCode = '174379';
+$callbackurl = 'https://cheapthrillsse.vercel.app'; 
+$passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"; 
+$BusinessShortCode = '174379'; 
 $Timestamp = date('YmdHis');
 
 // Encrypt data to get password
@@ -69,13 +71,106 @@ try {
 
     // Execute the statement
     $stmt->execute();
-    
-    // Output success message
+
+    sleep(20);
+    // Output success message or receipt display
     if ($responseCode == "0") {
-        echo "Payment successful! The CheckoutRequestID is: " . $checkoutRequestID;
+        // Transaction successful, show receipt
+        echo "
+        <html>
+        <head>
+            <title>Payment Receipt</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f7f7f7;
+                    color: #333;
+                    padding: 20px;
+                    margin: 0;
+                }
+                .receipt-container {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: white;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    border-radius: 8px;
+                }
+                h2 {
+                    text-align: center;
+                    color: #28a745;
+                }
+                .receipt-table {
+                    width: 100%;
+                    margin-top: 20px;
+                    border-collapse: collapse;
+                }
+                .receipt-table th, .receipt-table td {
+                    padding: 10px;
+                    text-align: left;
+                    border: 1px solid #ddd;
+                }
+                .receipt-table th {
+                    background-color: #f2f2f2;
+                }
+                .total-amount {
+                    text-align: right;
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class='receipt-container'>
+                <h2>Payment Successful</h2>
+                <table class='receipt-table'>
+                    <tr>
+                        <th>Name</th>
+                        <td>$userName</td>
+                    </tr>
+                    <tr>
+                        <th>Package</th>
+                        <td>$packageName</td>
+                    </tr>
+                    <tr>
+                        <th>Phone Number</th>
+                        <td>$phone</td>
+                    </tr>
+                    <tr>
+                        <th>Amount</th>
+                        <td>Ksh " . number_format($money, 2) . "</td>
+                    </tr>
+                    <tr>
+                        <th>Checkout Request ID</th>
+                        <td>$checkoutRequestID</td>
+                    </tr>
+                    <tr>
+                        <th>Transaction Status</th>
+                        <td>$status</td>
+                    </tr>
+                    <tr>
+                        <th>Response Code</th>
+                        <td>$responseCode</td>
+                    </tr>
+                    <tr>
+                        <th>Response Description</th>
+                        <td>$responseDescription</td>
+                    </tr>
+                </table>
+                <div class='total-amount'>
+                    <p>Total Paid: Ksh " . number_format($money, 2) . "</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        ";
     } else {
-        echo "Payment failed: " . $responseDescription;
+        // Transaction failed, show error message
+        echo "<h2>Payment Failed</h2>";
+        echo "<p>Error: " . $responseDescription . "</p>";
     }
+
 } catch (PDOException $e) {
     echo "Error saving transaction: " . $e->getMessage();
 }

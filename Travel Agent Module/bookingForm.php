@@ -30,7 +30,7 @@ if ($package_id) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Booking Form</title>
+    <title>Booking and Payment Form</title>
     <style>
         /* Style for booking form */
         .booking-form {
@@ -84,24 +84,72 @@ if ($package_id) {
         .submit-button:hover {
             background-color: #0056b3;
         }
+
+        /* Loader styling */
+        .loader-container {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            text-align: center; /* Centering text below the loader */
+        }
+
+        .loader {
+            width: 7rem;
+            height: 7rem;
+            border: 8px solid #d1d5db; /* Gray border */
+            border-top: 8px solid #34B233; /* M-Pesa green */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px; /* Adds space between spinner and text */
+        }
+
+        /* Spinner animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* M-Pesa logo styling */
+        .logo {
+            width: 2.5rem; /* Adjust size as needed */
+            height: 2.5rem;
+        }
+
+        /* Styling for the text under the loader */
+        .loader-text {
+            font-size: 1.2rem;
+            color: #34B233; /* M-Pesa green color */
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-<div class="booking-form">
-    <h2>Book Your Package</h2>
+<div class="booking-form" id="paymentContainer">
+    <h2>Book and Pay for Your Package</h2>
 
     <?php if ($package): ?>
         <div class="package-details">
             <h3>Package Details</h3>
             <p><strong>Package Name:</strong> <?= htmlspecialchars($package['package_name']) ?></p>
             <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
-            <p><strong>Total Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
+            <p><strong>Total Price:</strong> <?= htmlspecialchars($package['package_price']) ?></p>
         </div>
 
-        <form action="../Finance Module\DARAJAAPI\payment_form.html" method="post">
+        <form action="../Finance Module/DARAJAAPI/stkpush.php" method="post" id="bookingPaymentForm">
             <input type="hidden" name="package_id" value="<?= htmlspecialchars($package_id) ?>">
-
+            
+            <!-- Booking Fields -->
             <div class="form-group">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -114,7 +162,11 @@ if ($package_id) {
 
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" required>
+                <input type="text" id="phone" name="phone" placeholder="2547XXXXXXXX" required>
+            </div>
+            <div class="form-group">
+                <label for="amount" >Amount</label>
+                <input type="number"  id="amount" name="amount" min="1" required>
             </div>
 
             <div class="form-group">
@@ -122,15 +174,35 @@ if ($package_id) {
                 <input type="text" id="address" name="address">
             </div>
 
-            <!-- Additional fields as necessary -->
-
-            <button type="submit" class="submit-button">Proceed to Payment</button>
+            <button type="submit" class="submit-button">Book and Pay Now</button>
+            
         </form>
-
     <?php else: ?>
         <p>Package details not available.</p>
     <?php endif; ?>
 </div>
+
+<!-- Loader with M-Pesa logo inside and payment processing text -->
+<div id="loaderContainer" class="loader-container">
+    <div class="loader">
+        <img src="../img/Mpesalogo.png" alt="M-Pesa Logo" class="logo">
+    </div>
+    <div class="loader-text">Payment Processing...</div> <!-- Text below the loader -->
+</div>
+
+<script>
+    // JavaScript to show the loader and hide the form when submitted
+    document.getElementById("bookingPaymentForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent actual form submission
+        document.getElementById("paymentContainer").style.display = "none"; // Hide the form
+        document.getElementById("loaderContainer").style.display = "flex"; // Show the loader
+
+        // Simulate form submission after showing the loader
+        setTimeout(() => {
+            event.target.submit(); // Submit the form after loader animation
+        }, 1000); // Adjust delay as needed
+    });
+</script>
 
 </body>
 </html>

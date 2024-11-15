@@ -6,7 +6,6 @@ $stylesheet = "adminStyle.css";
 include "../layouts/header.php";
 ?>
 <head>
-    <!-- CSS for Booking Management - Use same css as User Management? -->
     <link rel="stylesheet" href="css/bookingManagement.css">
     <!-- Box icons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

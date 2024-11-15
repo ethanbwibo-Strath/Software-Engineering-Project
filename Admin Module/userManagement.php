@@ -2,6 +2,21 @@
 // Set page variables
 $pagetitle = "User Management";
 $stylesheet = "adminStyle.css";
+
+function deleteUser()
+{
+    // Get the user ID to delete
+    $userID = $_POST['userID'];
+
+    // Connect to the database
+    $db = new dbConnection();
+    $conn = $db->conn;
+
+    // Delete the user from the database
+    $stmt = $conn->prepare("DELETE FROM users WHERE userID = :userID");
+    $stmt->bindParam(':userID', $userID);
+    $stmt->execute();
+}
 // Include the header
 include "../layouts/header.php";
 
@@ -20,49 +35,52 @@ include "../layouts/header.php";
     <div class="tableContainer">
         <h2>User Management</h2>
         <!-- Search Input -->
-        <input type="text" id="search" placeholder="Search for a user..." class="searchBar">
+        <!-- <input type="text" id="search" placeholder="Search for a user..." class="searchBar"> -->
         <!-- User Table -->
         <table id="userTable">
             <!-- Table Head -->
             <thead>
                 <th>User ID</th>
-                <th>Email</th>
+                <th>Username</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Username</th>
-                <th>Password</th>
+                <th>Email</th>
+                <th>Phone Number</th>
                 <th>Role</th>
                 <th>Actions</th>
             </thead>
             <!-- Table Body -->
             <tbody>
                 <?php
-                    // Dummy data
-                    $users = 
-                    [
-                        ["id" => 1, "email" => "pQwK8@example.com", "fname" => "John", "lname" => "Doe", "username" => "johndoe", "password" => "password123", "role" => "admin"],
-                        ["id" => 2, "email" => "pQwK8@example.com", "fname" => "Jane", "lname" => "Doe", "username" => "janedoe", "password" => "password123", "role" => "traveller"],
-                        ["id" => 3, "email" => "pQwK8@example.com", "fname" => "Bob", "lname" => "Smith", "username" => "bobsmith", "password" => "password123", "role" => "traveller"],
-                    ];
-                    // Loop through and display users
-                    foreach ($users as $user)
-                    {
+                    // Connect to the database
+                    include "../Traveller module/dbconnection.php";
+                    $db = new dbConnection();
+                    $conn = $db->conn;
+
+                    // Fetch users from the database
+                    $sql = "SELECT * FROM users";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    // Loop through users and display them in the table
+                    foreach ($users as $user) {
                         echo "<tr>";
-                        echo "<td>" . $user["id"] . "</td>";
-                        echo "<td>" . $user["email"] . "</td>";
-                        echo "<td>" . $user["fname"] . "</td>";
-                        echo "<td>" . $user["lname"] . "</td>";
-                        echo "<td>" . $user["username"] . "</td>";
-                        echo "<td>" . $user["password"] . "</td>";
-                        echo "<td>" . $user["role"] . "</td>";
-                        // Buttons to edit and delete
-                        echo 
-                        "<td class='buttons'>
+                        echo "<td>" . $user['UserID'] . "</td>";
+                        // Current UserID
+                        $currentUserID = $user['UserID'];
+                        echo "<td>" . $user['username'] . "</td>";
+                        echo "<td>" . $user['fname'] . "</td>";
+                        echo "<td>" . $user['lname'] . "</td>";
+                        echo "<td>" . $user['email'] . "</td>";
+                        echo "<td>" . $user['phone'] . "</td>";
+                        echo "<td>" . $user['account_type'] . "</td>";
+                        echo "<td class='buttons'>
                             <button class='btnEdit'>Edit</button>
-                            <button class='btnDelete'>Delete</button>
+                            <button class='btnDelete' onclick='deleteUser();'>Delete</button>
                         </td>";
-                        echo "</tr>";
                     }
+
                 ?>
             </tbody>
         </table>

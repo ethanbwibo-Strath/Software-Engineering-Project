@@ -72,12 +72,12 @@
         </div>
 
         <div class="search">
-            <img src="img/search.png" alt="Search">
+            <img src="../img/search.png" alt="Search">
             <input type="search" name="search" id="navSearch" placeholder="Search...">
         </div>
 
         <div class="account">
-            <img src="img/user.png" alt="user">
+            <img src="../img/user.png" alt="user">
             <a href="Traveller module/LoginPage.php" style="text-decoration: none;"><p>Account</p></a>
         </div>
     </div>
@@ -109,15 +109,4 @@
     </div>
  -->
 
-
-        <div class="account">
-            
-            <img src="../img/user.png" alt="user">
-            <div class="links">
-                <ul>
-                    <a href="../Traveller module/LoginPage.php"><li>Account</li></a>
-                </ul>
-            </div>
-            
-        </div>
     </div>
