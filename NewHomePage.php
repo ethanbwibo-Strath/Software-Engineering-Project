@@ -57,7 +57,7 @@ session_start();
                             <a href="accountDetails.php">Settings</a>
                         <?php endif; ?>
 
-                        <a href="Traveller Module/logout.php">Logout</a>
+                        <a href="logout.php">Logout</a>
                     </div>
                 </li>
 

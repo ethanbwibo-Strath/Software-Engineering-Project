@@ -117,7 +117,7 @@ session_start();
                 <li class="dropdown">
                     <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
                     <div class="dropdown-content">
-                        <a href="../Traveller Module/accountdetails.php">Account Details</a>
+                        <a href="../accountdetails.php">Account Details</a>
 
                         <?php if ($_SESSION['account_type'] == 'admin') : ?>
                             <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
@@ -129,7 +129,7 @@ session_start();
                             <a href="travelerDashboard.php">My Bookings</a>
                         <?php endif; ?>
 
-                        <a href="../Traveller Module/logout.php">Logout</a>
+                        <a href="../logout.php">Logout</a>
                     </div>
                 </li>
 
