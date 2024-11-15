@@ -1,42 +1,33 @@
 <?php
-$pagetitle = "Create a Travel Package";
-$stylesheet = "../Travel Agent Dashboard.css";
+$pagetitle = "Create Package";
+$stylesheet = "Travel Agent Dashboard.css";
 include "SDbar.php";
 
 ?>
 <br>
 <br>
 <style>
-    /* body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Light background 
-    margin: 0;
-    padding: 20px;
-} */
+    
 
 .main-content {
     width: 600px; 
-    margin: 0 auto; /* Center the form *
-    background: #fff; /* White background for the form *
-    padding: 20px;
-    border-radius: 8px; /* Rounded corners *
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  Subtle shadow */
+    margin: 0 auto; 
 }
 
 h1 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Darker text color */
+    text-align: center; 
+    color: #333; 
 }
 
 form {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
 }
 
 label {
-    margin-top: 10px; /* Space above each label */
-    font-weight: bold; /* Bold labels */
-    color: #555; /* Gray color for labels */
+    margin-top: 10px;
+    font-weight: bold; 
+    color: #555;
 }
 
 input[type="text"],
@@ -95,7 +86,7 @@ textarea {
         <label for="package-description">Description:</label>
         <textarea id="package-description" name="package_description" required></textarea>
 
-        <label for="package-price">Price (USD):</label>
+        <label for="package-price">Price (KSH):</label>
         <input type="number" id="package-price" name="package_price" min="0" required>
 
         <label for="package-duration">Duration (days):</label>
@@ -117,9 +108,9 @@ textarea {
 <br>
 <div class="footer">
         <div class="socials">
-            <a href="#"><img src="../../img/instagram2.png" alt="instagram"></a>
-            <a href="#"><img src="../../img/twitter.png" alt="twitter"></a>
-            <a href="#"><img src="../../img/linkedin.png" alt="linkedin"></a>
+            <a href="#"><img src="../img/instagram2.png" alt="instagram"></a>
+            <a href="#"><img src="../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../img/linkedin.png" alt="linkedin"></a>
         </div>
 
         <div class="copyright">

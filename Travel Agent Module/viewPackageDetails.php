@@ -1,12 +1,12 @@
 <?php
 // Include the header
 $pagetitle = "Package Details";
-$stylesheet = "../Travel Agent Dashboard.css";
+$stylesheet = "Travel Agent Dashboard.css";
 // include "../..\layouts\header.php";
 include "SDbar.php";
 
 // Include your database connection file
-include "../../dbConnection.php";
+include "../dbConnection.php";
 
 // Check if the package ID is set in the URL
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -34,7 +34,8 @@ $conn = null;
 <br>
 <br>
 <style>
-    .book-button {
+
+.book-button {
     display: inline-block;
     margin-top: 40px;
     padding: 12px 20px;
@@ -50,93 +51,96 @@ $conn = null;
     background-color: #218838;
 }
 
-    .main-content {
-        padding: 40px;
-        max-width: 1200px;
-        margin: auto;
-        font-family: Arial, sans-serif;
-    }
+.main-content {
+    padding: 40px;
+    width: 75%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
 
-    .package-banner {
-        position: relative;
-        width: 100%;
-        height: 400px;
-        background-color: #f3f3f3;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
+.package-banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 
-    .package-banner img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.package-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    .package-info {
-        margin-top: 30px;
-    }
+.package-info {
+    margin-top: 30px;
+    padding: 20px;
+}
 
-    .package-info h1 {
-        color: #333;
-        font-size: 32px;
-        font-weight: bold;
-    }
+.package-info h1 {
+    color: goldenrod;
+    font-size: 32px;
+    font-weight: bold;
+}
 
-    .package-info .price-duration {
-        font-size: 18px;
-        color: #777;
-        margin-top: 10px;
-    }
+.package-info .price-duration {
+    font-size: 18px;
+    color: #777;
+    margin-top: 10px;
+}
 
-    .package-info p {
-        color: #555;
-        font-size: 16px;
-        line-height: 1.6;
-    }
+.package-info p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
 
-    .package-details-section {
-        margin-top: 40px;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+.package-details-section {
+    margin-top: 40px;
+    padding: 20px;
 
-    .package-details-section h2 {
-        color: #333;
-        font-size: 22px;
-        font-weight: 600;
-        margin-bottom: 15px;
-    }
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-    .package-details-section ul {
-        list-style: none;
-        padding: 0;
-    }
+.package-details-section h2 {
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
 
-    .package-details-section li {
-        margin-bottom: 10px;
-        color: #555;
-    }
+.package-details-section ul {
+    list-style: none;
+    padding: 0;
+}
 
-    .back-button {
-        display: inline-block;
-        margin-top: 40px;
-        padding: 12px 20px;
-        background-color: #007bff;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 6px;
-        font-size: 16px;
-    }
+.package-details-section li {
+    margin-bottom: 10px;
+    color: #555;
+}
 
-    .back-button:hover {
-        background-color: #0056b3;
-    }
+.back-button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
 </style>
-<br>
-<br>
+
+
 <div class="main-content">
     <?php if ($package): // Check if the package exists ?>
         <!-- Package Banner Image -->
@@ -168,8 +172,8 @@ $conn = null;
 
 
         <!-- Back and Book Now Buttons -->
-<a href="viewAllPackages.php" class="back-button">Back to Packages</a>
-<a href="../bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
+<a href="viewPackages.php" class="back-button">Back to Packages</a>
+<a href="../Traveller Module/booking/bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
 
     <?php else: ?>
         <p>Package details not available.</p>

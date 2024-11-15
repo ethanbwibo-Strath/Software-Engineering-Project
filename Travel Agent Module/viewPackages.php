@@ -1,12 +1,12 @@
 <?php
 // Include the header
 $pagetitle = "View All Packages";
-$stylesheet = "../Travel Agent Dashboard.css";
+$stylesheet = "Travel Agent Dashboard.css";
 // include "../..\layouts\header.php";
 include "SDbar.php";
 
 // Include your database connection file
-include "../../dbConnection.php"; // Include the file that contains your dbConnection class
+include "../dbConnection.php"; // Include the file that contains your dbConnection class
 
 // Create an instance of dbConnection
 $db = new dbConnection(); // Create an object of the dbConnection class
@@ -28,10 +28,10 @@ if ($result) {
 
 $conn = null; // Close the database connection
 ?>
-<br>
-<br>
+
+
 <style>
-    .main-content {
+.main-content {
     padding: 20px;
     margin-left: 100px;
 }
@@ -43,43 +43,56 @@ $conn = null; // Close the database connection
 }
 
 .package-card {
-    background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin: 10px;
     padding: 15px;
-    width: calc(25% - 20px); /* Adjust width according to your preference */
+    width: calc(30% - 20px); /* Adjust width according to your preference */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+
 }
 
 .package-card:hover {
-    transform: scale(1.02); /* Scale effect on hover */
+    transform: scale(1.06); /* Scale effect on hover */
+}
+
+.package-card:hover h2 {
+    color: goldenrod;
+}
+
+.package-card p {
+    color: #555;
+}
+.package-card strong {
+    color:black;
 }
 
 .package-image {
-    width: 325px;
-    height: 325px;
+    width: 100%;
+    height: 40%;
     border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .package-description {
     font-size: 14px;
     color: #555;
+    margin-bottom: 10px;
 }
 
 .details-button {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: goldenrod;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 5px;    
 }
 
 .details-button:hover {
-    background-color: #0056b3;
+    background-color: black;
 }
 
 </style>
@@ -110,9 +123,9 @@ $conn = null; // Close the database connection
 <br>
 <div class="footer">
         <div class="socials">
-            <a href="#"><img src="../../img/instagram2.png" alt="instagram"></a>
-            <a href="#"><img src="../../img/twitter.png" alt="twitter"></a>
-            <a href="#"><img src="../../img/linkedin.png" alt="linkedin"></a>
+            <a href="#"><img src="../img/instagram2.png" alt="instagram"></a>
+            <a href="#"><img src="../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../img/linkedin.png" alt="linkedin"></a>
         </div>
 
         <div class="copyright">

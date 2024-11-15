@@ -1,6 +1,6 @@
 <?php
 // Include the database connection
-include '../../dbConnection.php';
+include '../dbConnection.php';
 
 // Create a new instance of dbConnection
 $db = new dbConnection();
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Handle file upload for the package image
     if (isset($_FILES['package_image']) && $_FILES['package_image']['error'] == 0) {
-        $target_dir = "../../uploads/";
+        $target_dir = "../uploads/";
         $target_file = $target_dir . basename($_FILES["package_image"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 

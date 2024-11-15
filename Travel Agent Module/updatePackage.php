@@ -1,24 +1,9 @@
 <?php
-// Include the database connection
-// $stylesheet = "../Travel Agent Dashboard.css";
+$stylesheet = "Travel Agent Dashboard.css";
+$pagetitle = "Update Packages";
 include "SDbar.php";
-include '../../dbConnection.php';
+include '../dbConnection.php';
 
-// Example to fetch existing packages from the database
-// $packages = fetchPackagesFromDatabase();
-?>
-<br>
-<br>
-<style>
-
-
-.main-content {
-    width: 800px;
-    margin: 0 auto;
-}
-</style>
-<?php
-// Create a new instance of dbConnection
 $db = new dbConnection();
 $conn = $db->conn;
 
@@ -36,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_package'])) {
     // Handle file upload for the package image if provided
     $target_file = null;
     if (isset($_FILES['package_image']) && $_FILES['package_image']['error'] == 0) {
-        $target_dir = "../../uploads/";
+        $target_dir = "../uploads/";
         $target_file = $target_dir . basename($_FILES["package_image"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -56,14 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_package'])) {
 
     // Prepare the SQL statement to update the package data
     $stmt = $conn->prepare("UPDATE packages SET 
-                            package_name = :package_name,
-                            package_description = :package_description,
-                            package_price = :package_price,
-                            package_duration = :package_duration,
-                            package_hotel = :package_hotel,
-                            package_amenities = :package_amenities" .
-                            ($target_file ? ", package_image = :package_image" : "") . 
-                            " WHERE id = :package_id");
+        package_name = :package_name,
+        package_description = :package_description,
+        package_price = :package_price,
+        package_duration = :package_duration,
+        package_hotel = :package_hotel,
+        package_amenities = :package_amenities" .
+        ($target_file ? ", package_image = :package_image" : "") . 
+        " WHERE package_id = :package_id");
 
     // Bind parameters
     $stmt->bindParam(':package_name', $package_name);
@@ -91,66 +76,63 @@ $stmt->execute();
 $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Update Packages</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .card {
-    width: 350px; /* Increase the width of the card */
-    height: 450px; /* Increase the height of the card */
-    overflow: hidden; /* Hide overflow */
-    margin: 20px; /* Add some space around the card */
-    position: relative; /* Position relative for absolute elements inside */
-    /* border: 1px solid #ccc; Add border for card */
-    border-radius: 8px; /* Rounded corners */
+<style>
+.container1 {   
+    padding: 20px;
+    margin: 100px auto;
+    width: 85%;
+    height: min-content;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.card img {
-    width: 100%; /* Image takes full width */
-    height: 200px; /* Increase fixed height for the image */
-    object-fit: cover; /* Ensure the image covers the area */
-    border-top-left-radius: 8px; /* Round the top corners */
-    border-top-right-radius: 8px; /* Round the top corners */
+.container1 h2 {
+    color: goldenrod;
+    text-align: center;
 }
 
-.card-body {
-    padding: 15px; /* Add padding inside the card */
-    height: calc(100% - 200px); /* Adjust height to accommodate the new image height */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
+.card1 {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    height: 290px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(218, 165, 32, 0.5);
 }
 
-.card-body textarea, 
-.card-body input[type="text"], 
-.card-body input[type="number"] {
-    width: 100%; /* Full width for input fields */
-    resize: vertical; /* Allow vertical resizing */
-    max-height: 80px; /* Increase the max height for input fields */
+.card1-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container without distortion */
+    border-radius: 8px;
 }
 
-.card-body input[type="file"] {
-    margin-top: 10px; /* Space above the file input */
+.card1-body {
+    width: 70%;
+    height: 100%;
+    padding: 0 10px;
+    overflow-x: auto;
 }
+</style>
 
 
-    </style>
-</head>
-<body>
-
-<div class="container mt-5">
+<div class="container1">
     <h2>Update Packages</h2>
     <div class="row">
 
         <?php foreach ($packages as $package): ?>
-            <div class="col-md-4">
-                <div class="card mb-4">
+            <div class="card1">
+                <div class="card1-image" style="width: 30%; height: 100%;">
                     <img src="<?= $package['package_image'] ?>" class="card-img-top" alt="<?= $package['package_name'] ?>">
-                    <div class="card-body">
-                      
-                        <form action="update_packages.php" method="post" enctype="multipart/form-data">
-                            <!-- <input type="hidden" name="package_id" value="<?= $package['id'] ?>"> -->
+                </div>
+
+                <div class="card1-body">
+                    <!-- Scoped Bootstrap CSS (only form components) -->
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+                        <form action="updatePackage.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="package_id" value="<?= $package['package_id'] ?>">
                             <div class="form-group">
                                 <label for="package_name">Package Name:</label>
                                 <input type="text" class="form-control" name="package_name" value="<?= htmlspecialchars($package['package_name']) ?>" required>
@@ -179,17 +161,17 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <label for="package_image">Package Image:</label>
                                 <input type="file" class="form-control" name="package_image">
                             </div>
-                            <button type="submit" name="update_package" class="btn btn-primary">Update Package</button>
+                            <button type="submit" name="update_package" class="btn btn-warning">Update Package</button>
                         </form>
-                    </div>
                 </div>
             </div>
+                
         <?php endforeach; ?>
     </div>
 </div>
 
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+

@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-$mysqli = new mysqli("localhost:3307", "root", "mySQLpass_11!", "cheapthrills");
+$mysqli = new mysqli("localhost:3307", "root", "", "cheapthrills");
 
 $query = "SELECT DATE(created_at) AS signup_date, COUNT(userID) AS new_users FROM users GROUP BY signup_date ORDER BY signup_date";
 $result = $mysqli->query($query);
