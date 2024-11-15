@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Form</title>
+    <title><?php echo $pagetitle ?></title>
     <link rel="icon" href="../img/logo2.png" type="image/png">
     <link rel="stylesheet" href="userdash.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
