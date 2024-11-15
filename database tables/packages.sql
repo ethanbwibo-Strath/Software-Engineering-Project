@@ -10,7 +10,7 @@ CREATE TABLE packages (
     package_duration INT NOT NULL,
     package_hotel VARCHAR(255),
     package_amenities TEXT,
-    package_image VARCHAR(255) -- stores the file path to the image
+    package_image VARCHAR(255), -- stores the file path to the image
     package_created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
