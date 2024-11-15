@@ -107,7 +107,7 @@ $conn = null; // Close the database connection
                     <img src="<?= htmlspecialchars($package['package_image']) ?>" alt="<?= htmlspecialchars($package['package_name']) ?>" class="package-image">
                     <h2><?= htmlspecialchars($package['package_name']) ?></h2>
                     <p class="package-description"><?= htmlspecialchars($package['package_description']) ?></p>
-                    <p><strong>Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
+                    <p><strong>Price:</strong> <?= htmlspecialchars($package['package_price']) ?></p>
                     <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
                     <p><strong>Hotel:</strong> <?= htmlspecialchars($package['package_hotel']) ?></p>
                     <p><strong>Amenities:</strong> <?= htmlspecialchars($package['package_amenities']) ?></p>
