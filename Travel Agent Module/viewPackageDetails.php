@@ -152,7 +152,7 @@ $conn = null;
         <div class="package-info">
             <h1><?= htmlspecialchars($package['package_name']) ?></h1>
             <div class="price-duration">
-                <strong>Price:</strong> $<?= htmlspecialchars($package['package_price']) ?> | 
+                <strong>Price:</strong> <?= htmlspecialchars($package['package_price']) ?> | 
                 <strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days
             </div>
             <p><strong>Description:</strong> <?= htmlspecialchars($package['package_description']) ?></p>
@@ -173,7 +173,7 @@ $conn = null;
 
         <!-- Back and Book Now Buttons -->
 <a href="viewPackages.php" class="back-button">Back to Packages</a>
-<a href="../Traveller Module/booking/bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
+<a href="../Travel Agent Module/bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
 
     <?php else: ?>
         <p>Package details not available.</p>
