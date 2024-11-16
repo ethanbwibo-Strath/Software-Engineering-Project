@@ -133,106 +133,22 @@
     color: white;
 }
 
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    background-color: white;
-    width: 250px;
-    height: auto;
-    margin-top: 1cm;
-    padding-top: 40px;
-    transition: all 0.5s ease;
-    box-shadow: 0px 0px 10px #ccc; 
-    border-radius: 10px;
-    border: transparent 1px solid;
-    left: -200px; /* Initially hide sidebar by shifting it to the left */
-    z-index: 1000;
-}
-
-.sidebar:hover {
-    left: 0; /* Slide the sidebar into view on hover */
-}
-
-/* Sidebar header along the side (vertical text) */
-.sidebar header {
-    font-size: 30px;
-    color: black;
-    writing-mode: vertical-rl; /* Rotates text vertically */
-    text-align: center;
-    user-select: none;
-    transform: rotate(360deg); /* Corrects the upside-down issue */
-    position: absolute;
-    top: 40%;
-    right: -30px; /* Position header slightly outside the sidebar */
-    transform-origin: center;
-    background-color: #f4f4f4;
-    padding: 10px 5px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    transition: color 0.3s ease; /* Add smooth transition for color change */
-}
-
-/* Hover effect: Change header color to goldenrod */
-.sidebar:hover header {
-    color: goldenrod;
-}
-
-/* Styling for the sidebar list */
-.sidebar ul {
-    padding-left: 0;
-    list-style: none;
-}
-
-.sidebar ul li
-{
-    margin-bottom: 15px;
-    left: -10px;
-}
-
-.sidebar ul a {
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    line-height: 65px;
-    font-size: 17px;
-    color: black;
-    padding-left: 40px;
-    box-sizing: border-box;
-    transition: 0.4s;
-}
-
-ul li:hover a {
-    padding-left: 50px;
-    color: goldenrod;
-}
-
-.sidebar ul a i {
-    margin-right: 16px;
-}
-
-/* Add active class for selected item */
-.sidebar ul a.active {
-    background-color: #868e97; /* Change this to any color you like */
-    color: white;
-}
-
-.sidebar ul a.active i {
-    color: white;
-}
 
 /* Main Content */
 .main-content {
     margin-left: 100px;
     padding: 20px;
-    background-color: #f7f8fa;
-    
+    display: flex;   
 }
 
-/* .top {
+ .top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-} */
+    padding: 30px 20px 20px 20px;
+    width: 15%;
+    height: 55vh;
+}
 
 .user img {
     border-radius: 50%;
@@ -251,13 +167,30 @@ ul li:hover a {
 
 .bottom {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+    padding: 60px 0;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid goldenrod;
+    box-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
     border-radius: 10px;
+    margin: 20px 0 20px 5%;
 }
+
+.bottom-separation{
+    display: flex;
+    gap: 1.5cm;
+}
+
+.bottom-buttons {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    gap: 10px; /* Add space between buttons */
+    margin-top: 20px; /* Optional spacing above the buttons */
+}
+
+
 
 .input-container label {
     color: #333;
@@ -272,6 +205,7 @@ ul li:hover a {
     border: 1px solid #ddd;
     width: 100%;
     background-color: #f9f9f9;
+    margin:5px 0 5px;
 }
 
 button {
@@ -290,8 +224,9 @@ button:hover {
     transition: 0.3s;
 }
 
-/* --------------------------------------  Footer Styling -------------------------------------- */
-.footer{
+/*------------------------------ Footer Styling ---------------------------------------------------------------*/
+.footer
+{
     display: flex;
     align-items: center;
     min-height: 10vh;

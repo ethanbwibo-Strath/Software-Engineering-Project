@@ -202,7 +202,7 @@ try {
                             <img src="<?php echo htmlspecialchars($package['package_image']); ?>" alt="Package Image">
                             <h3><?php echo htmlspecialchars($package['package_name']); ?></h3>
                             <p>Accomodation: <?php echo htmlspecialchars($package['package_hotel']); ?></p>
-                            <p>Price: $<?php echo number_format($package['package_price'], 2); ?></p>
+                            <p>Price: <?php echo number_format($package['package_price'], 2); ?></p>
                             <p>Rating: <span class="stars">★★★★☆</span></p>
                         </a>
                     </div>

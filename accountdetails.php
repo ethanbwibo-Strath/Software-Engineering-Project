@@ -109,6 +109,67 @@ try {
         <script src="sidebar.js"></script>
     </div>
 
+<!-------------------------------------- Sidebar Sessioning  ------------------------------------------------------------>
+<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+
+<?php if ($_SESSION['account_type'] == 'admin') : ?>
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="../Admin Module/adminDashboard.php" class="nav-item"><i class='bx bxs-dashboard' ></i>Dashboard</a></li>
+            <li><a href="../Admin Module/userManagement.php" class="nav-item"><i class='bx bxs-group' ></i>Users </a></li>
+            <li><a href="../Admin Module/bookingManagement.php" class="nav-item"><i class='bx bxs-briefcase' ></i>Bookings</a></li>
+            <li><a href="../Admin Module/analytics.php" class="nav-item"><i class='bx bx-scatter-chart'></i>Analytics</a></li>
+            <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
+
+
+
+<?php elseif ($_SESSION['account_type'] == 'agent') : ?>              
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
+            <li class="menu">
+                <div class="item">
+                    <a href="#" class="link">
+                        <i class='bx bxs-package'></i>
+                        <span> Packages </span>
+
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <a href="createPackage.php" class="submenu-link"> Create Package </a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="updatePackage.php" class="submenu-link"> Update Package </a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="viewPackages.php" class="submenu-link"> View Package </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
+            <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
+    
+
+                    <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                        <br>
+                    <?php endif; ?>            
+
+        <?php else : ?>
+            <br>
+        <?php endif; ?>
+
+
 
 
     <div class="main-content" >
@@ -125,33 +186,43 @@ try {
         <div class="bottom">
             <form action="updateuser.php" method="POST">
 
-                <div class="left">
-                    <div class="input-container">
-                        <label for="fname">First Name :</label><br>
-                        <input type="text" id="fname" name="fname" value="<?= $user ? htmlspecialchars($user['fname']) : '' ?>" disabled>
-                    </div>
-                    <div class="input-container">
-                        <label for="lname">Last Name :</label><br>
-                        <input type="text" id="lname" name="lname" value="<?= $user ? htmlspecialchars($user['lname']) : '' ?>" disabled>
-                    </div>
+            <div class="bottom-separation">
+            <div class="left">
                     <div class="input-container">
                         <label for="username">Username :</label><br>
                         <input type="text" id="username" name="username" value="<?= $user ? htmlspecialchars($user['username']) : '' ?>" disabled>
                     </div>
+                </div>
+
+                <div class="middle">
                     <div class="input-container">
-                        <label for="email">Email :</label><br>
-                        <input type="email" id="email" name="email" value="<?= $user ? htmlspecialchars($user['email']) : '' ?>" disabled>
+                        <label for="fname">First Name :</label><br>
+                        <input type="text" id="fname" name="fname" value="<?= $user ? htmlspecialchars($user['fname']) : '' ?>" disabled>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="lname">Last Name :</label><br>
+                        <input type="text" id="lname" name="lname" value="<?= $user ? htmlspecialchars($user['lname']) : '' ?>" disabled>
                     </div>
                 </div>
 
                 <div class="right">
                     <div class="input-container">
+                        <label for="email">Email :</label><br>
+                        <input type="email" id="email" name="email" value="<?= $user ? htmlspecialchars($user['email']) : '' ?>" disabled>
+                    </div>
+
+                    <div class="input-container">
                         <label for="phone">Phone Number :</label><br>
                         <input type="tel" id="phone" name="phone" value="<?= $user ? htmlspecialchars($user['phone']) : '' ?>" disabled>
                     </div>
                 </div>
+            </div>
+
+            <div class="bottom-buttons">
                 <button type="button" onclick="toggleEdit()">Edit</button>
                 <button type="submit">Save Changes</button>
+            </div>
             </form>
         </div>
     </div>
