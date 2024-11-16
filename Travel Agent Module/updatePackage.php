@@ -79,24 +79,26 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <style>
 .container1 {   
     padding: 20px;
-    margin: 100px auto;
+    margin: 20px auto;
     width: 85%;
     height: min-content;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .container1 h2 {
     color: goldenrod;
     text-align: center;
+    text-shadow: 1px 1px 2px rgba(218, 165, 32,0.3);
+    font-size: 32px;
 }
 
 .card1 {
     display: flex;
-    padding: 10px;
+    padding: 15px;
+    gap: 10px;
     margin: 10px;
-    height: 290px;
-    width: 100%;
+    height: 280px;
+    width: 95%;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(218, 165, 32, 0.5);
 }
@@ -113,7 +115,7 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     height: 100%;
     padding: 0 10px;
     overflow-x: auto;
-}
+} */
 </style>
 
 
@@ -123,7 +125,7 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php foreach ($packages as $package): ?>
             <div class="card1">
-                <div class="card1-image" style="width: 30%; height: 100%;">
+                <div class="card1-image">
                     <img src="<?= $package['package_image'] ?>" class="card-img-top" alt="<?= $package['package_name'] ?>">
                 </div>
 

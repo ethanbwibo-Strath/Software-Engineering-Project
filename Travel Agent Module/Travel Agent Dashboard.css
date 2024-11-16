@@ -350,11 +350,17 @@ ul li:hover a {
 
  /* --------------------------------------Update Packages Styling -------------------------------------- */
  /* Style the container for the form */
+.card1-image {
+    width: 30%; 
+    height: 100%;
+}
+
 .card1-body {
     width: 50%;
-    background: red;
-    /* border-radius: 8px; */
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding-left: 1cm;
 }
 
 /* Style for labels */
@@ -371,11 +377,11 @@ ul li:hover a {
 .card1-body input[type="number"],
 .card1-body input[type="file"],
 .card1-body textarea {
-    width:90%;
+    width:85%;
     padding: 10px;
     font-size: 1rem;
     color: #333;
-    background: #fff;
+    background: transparent;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 15px;
@@ -393,7 +399,7 @@ ul li:hover a {
 /* Style for the textarea */
 .card1-body textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 60px;
 }
 
 /* Button styling */
