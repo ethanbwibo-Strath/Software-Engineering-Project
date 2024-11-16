@@ -1,3 +1,7 @@
+<?php
+session_start();  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,38 +69,38 @@
 
         
         <div class="account">
-                        
-            <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
-                <img src="../img/user.png" alt="user">
-                <li class="dropdown">
-                    <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
-                    <div class="dropdown-content">
-                        <a href="../Traveller Module/accountdetails.php">Account Details</a>
 
-                        <?php if ($_SESSION['account_type'] == 'admin') : ?>
-                            <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
+        <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+            <img src="../img/user.png" alt="user">
+            <li class="dropdown">
+                <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="../accountdetails.php">Account Details</a>
 
-                        <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
-                            <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
+                    <?php if ($_SESSION['account_type'] == 'admin') : ?>
+                        <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
 
-                        <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
-                            <a href="travelerDashboard.php">My Bookings</a>
-                        <?php endif; ?>
+                    <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
+                        <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
 
-                        <a href="../Traveller Module/logout.php">Logout</a>
-                    </div>
-                </li>
+                    <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                        <a href="Traveller Module/bookingTrial.php">My Bookings</a>
+                        <a href="accountDetails.php">Settings</a>
+                    <?php endif; ?>
 
-            <?php else : ?>
-                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
-            <?php endif; ?>
-        </div>
+                    <a href="../logout.php">Logout</a>
+                </div>
+            </li>
+
+        <?php else : ?>
+            <a href="../LoginPage.php" class="login-link"><li>Login</li></a>
+        <?php endif; ?>
+    </div>
     </div>
 
     <div class="sidebar">
         <header>PANEL</header>
         <ul>
-            <!-- Packages Dropdown -->
             <li><a href="Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
             <li class="menu">
                 <div class="item">
