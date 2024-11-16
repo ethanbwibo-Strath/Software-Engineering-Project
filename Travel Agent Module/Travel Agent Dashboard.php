@@ -1,5 +1,25 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
+
+require_once '../dbConnection.php';
+
+try {
+    $db = new dbConnection();
+    $conn = $db->conn;
+
+    $stmt = $conn->prepare("SELECT * FROM packages");
+    $stmt->execute();
+    $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo "<pre>";
+    // print_r($packages); // Debugging output
+    echo "</pre>";
+} catch (PDOException $e) {
+    echo "Error fetching packages: " . $e->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -89,60 +109,61 @@ session_start();
 </head>
 
 <body>
-    <div class="nav">
-        <div class="logo">
-            <img src="../img/logo.png" alt="Logo">
-            <h1>CheapThrills</h1>
-        </div>
 
-        <div class="links">
-            <ul>
-                <a href="../NewHomePage.php"><li>Home</li></a>
-                <a href=""><li>Book</li></a>
-                <a href="../NewHomePage.php#why-us-section"><li>About Us</li></a>
-                <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
-            </ul>
-        </div>
-
-        <div class="search">
-            <img src="../img/search.png" alt="Search">
-            <input type="search" name="search" id="navSearch" placeholder="Search...">
-        </div>
-
-        
-        <div class="account">
-                        
-            <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
-                <img src="../img/user.png" alt="user">
-                <li class="dropdown">
-                    <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
-                    <div class="dropdown-content">
-                        <a href="../Traveller Module/accountdetails.php">Account Details</a>
-
-                        <?php if ($_SESSION['account_type'] == 'admin') : ?>
-                            <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
-
-                        <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
-                            <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
-
-                        <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
-                            <a href="travelerDashboard.php">My Bookings</a>
-                        <?php endif; ?>
-
-                        <a href="../Traveller Module/logout.php">Logout</a>
-                    </div>
-                </li>
-
-            <?php else : ?>
-                <a href="Traveller Module/LoginPage.php" class="login-link">Login</a>
-            <?php endif; ?>
-        </div>
+<div class="nav">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo">
+        <h1>CheapThrills</h1>
     </div>
+
+    <div class="links">
+        <ul>
+            <a href="../NewHomePage.php"><li>Home</li></a>
+            <a href=""><li>Book</li></a>
+            <a href="../NewHomePage.php#why-us-section"><li>About Us</li></a>
+            <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a>
+        </ul>
+    </div>
+
+    <div class="search">
+        <img src="../img/search.png" alt="Search">
+        <input type="search" name="search" id="navSearch" placeholder="Search...">
+    </div>
+
+    <div class="account">
+
+        <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+            <img src="../img/user.png" alt="user">
+            <li class="dropdown">
+                <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="../accountdetails.php">Account Details</a>
+
+                    <?php if ($_SESSION['account_type'] == 'admin') : ?>
+                        <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
+
+                    <?php elseif ($_SESSION['account_type'] == 'agent') : ?>
+                        <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
+
+                    <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                        <a href="Traveller Module/bookingTrial.php">My Bookings</a>
+                        <a href="accountDetails.php">Settings</a>
+                    <?php endif; ?>
+
+                    <a href="../logout.php">Logout</a>
+                </div>
+            </li>
+
+        <?php else : ?>
+            <a href="../LoginPage.php" class="login-link"><li>Login</li></a>
+        <?php endif; ?>
+    </div>
+</div>
 
     <div class="sidebar">
         <header>PANEL</header>
         <ul>
-            <!-- Packages Dropdown -->
+        <li><a href="Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
             <li class="menu">
                 <div class="item">
                     <a href="#" class="link">
@@ -163,9 +184,9 @@ session_start();
             </li>
             
             <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
-            <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
+            <li><a href="customercare.php" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
-            <li><a href="../Traveller Module/logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+            <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
         </ul> 
     </div>
         <script src="sidebar.js"></script>
@@ -175,55 +196,23 @@ session_start();
         <div class="popular-packages">
             <h2>Most Popular Packages & Locations</h2>
             <div class="packages-grid">
-                <!-- Package Item -->
-                <div class="package-item">
-                    <a href="#"> <!-- Link to the detailed package page -->
-                        <img src="../img/cytonn-photography-mTEYXRr5Pv4-unsplash.jpg" alt="Package 1">
-                        <h3>Package Name 1</h3>
-                        <p>Location: XYZ</p>
-                        <p>Price: $XXX</p>
-                        <p>Rating: <span class="stars">★★★★☆</span></p>
-                    </a>
-                </div>
-                <!-- Repeat for more packages -->
-                <div class="package-item">
-                    <a href="#"> <!-- Link to the detailed package page -->
-                        <img src="../img/mathias-reding-I6ROsnP4ZkI-unsplash.jpg" alt="Package 2">
-                        <h3>Package Name 2</h3>
-                        <p>Location: ABC</p>
-                        <p>Price: $XXX</p>
-                        <p>Rating: <span class="stars">★★★★★</span></p>
-                    </a>
-                </div>
-                <!-- More packages... -->
-                <div class="package-item">
-                    <a href="#"> <!-- Link to the detailed package page -->
-                        <img src="../img/slava-auchynnikau-QTrSmMrmeAs-unsplash.jpg" alt="Package 3">
-                        <h3>Package Name 3</h3>
-                        <p>Location: ABC</p>
-                        <p>Price: $XXX</p>
-                        <p>Rating: <span class="stars">★★★☆☆</span></p>
-                    </a>
-                </div>
+                <?php foreach ($packages as $package): ?>
+                    <div class="package-item">
+                        <a href="#"> <!-- Link to the detailed package page -->
+                            <img src="<?php echo htmlspecialchars($package['package_image']); ?>" alt="Package Image">
+                            <h3><?php echo htmlspecialchars($package['package_name']); ?></h3>
+                            <p>Accomodation: <?php echo htmlspecialchars($package['package_hotel']); ?></p>
+                            <p>Price: $<?php echo number_format($package['package_price'], 2); ?></p>
+                            <p>Rating: <span class="stars">★★★★☆</span></p>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
 
-                <div class="package-item">
-                    <a href="#"> <!-- Link to the detailed package page -->
-                        <img src="../img/type1.jpeg" alt="Package 4">
-                        <h3>Package Name 4</h3>
-                        <p>Location: ABC</p>
-                        <p>Price: $XXX</p>
-                        <p>Rating: <span class="stars">★★★★★</span></p>
-                    </a>
-                </div>
-
-                <div class="package-item">
-                    <a href="#"> <!-- Link to the detailed package page -->
-                        <img src="../img/jerry-finta-XE6W62pEfXs-unsplash.jpg" alt="Package 5">
-                        <h3>Package Name 5</h3>
-                        <p>Location: ABC</p>
-                        <p>Price: $XXX</p>
-                        <p>Rating: <span class="stars">★★★★★</span></p>
-                    </a>
+              
+                
                 </div>
             </div>
 

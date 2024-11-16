@@ -1,6 +1,6 @@
 <?php
 // Include the database connection
-include '../../dbConnection.php';
+include 'dbConnection.php';
 
 // Create a new instance of dbConnection
 $db = new dbConnection();

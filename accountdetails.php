@@ -30,7 +30,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Details</title>
     <link rel="icon" href="img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="Traveller module/userdash.css">
+    <link rel="stylesheet" href="Traveller Module/userdash.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script>
         function toggleEdit() {
@@ -62,6 +62,9 @@ try {
             <input type="search" name="search" id="navSearch" placeholder="Search...">
         </div>
 
+
+
+<!------------------------------------ Account Sessioning ------------------------------------------------>
         <div class="account">
                         
             <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
@@ -69,7 +72,7 @@ try {
                 <li class="dropdown">
                     <a href="#" class="dropbtn"><?php echo htmlspecialchars($_SESSION['username']); ?> <i class='bx bx-chevron-down'></i></a>
                     <div class="dropdown-content">
-                        <a href="accountDetails.php">Account Details</a>
+                        <a href="accountDetails.php">Account</a>
 
                         <?php if ($_SESSION['account_type'] == 'admin') : ?>
                             <a href="Admin Module/adminDashboard.php">Admin Dashboard</a>
@@ -78,22 +81,23 @@ try {
                             <a href="Travel Agent Module/Travel Agent Dashboard.php">Agent Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
-                            <a href="Traveller Module/bookingTrial.php">My Bookings</a>
-                            <a href="Traveller Module/accountDetails.php">Settings</a>
+                            <a href="#">My Bookings</a>
+                            <a href="#">Settings</a>
                         <?php endif; ?>
 
-                        <a href="Traveller Module/logout.php">Logout</a>
+                        <a href="logout.php">Logout</a>
                     </div>
                 </li>
 
             <?php else : ?>
-                <a href="Traveller Module/LoginPage.php" class="login-link"><li>Login</li></a>
+                <a href="LoginPage.php" class="login-link"><li>Login</li></a>
             <?php endif; ?>
         </div>
     </div>
 
 
-    <?php include "Traveller Module/sidebar.php" ?>
+
+
 
     <div class="main-content">
         <div class="top">

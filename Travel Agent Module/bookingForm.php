@@ -151,6 +151,11 @@ if ($package_id) {
             
             <!-- Booking Fields -->
             <div class="form-group">
+                <label for="package_name">Package Name:</label>
+                <input type="text" id="package_name" name="package_name" value="<?= htmlspecialchars($package['package_name']) ?>" readonly>
+            </div>
+
+            <div class="form-group">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
@@ -164,9 +169,11 @@ if ($package_id) {
                 <label for="phone">Phone Number:</label>
                 <input type="text" id="phone" name="phone" placeholder="2547XXXXXXXX" required>
             </div>
+
+            <!-- Display amount from database as readonly -->
             <div class="form-group">
-                <label for="amount" >Amount</label>
-                <input type="number"  id="amount" name="amount" min="1" required>
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" value="<?= htmlspecialchars($package['package_price']) ?>" readonly>
             </div>
 
             <div class="form-group">

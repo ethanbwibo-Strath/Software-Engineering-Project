@@ -2,7 +2,7 @@
     position: fixed;
     background-color: white;
     width: 250px;
-    height: auto;
+    height: 65%;
     margin-top: 1cm;
     padding-top: 40px;
     transition: all 0.5s ease;
@@ -10,7 +10,7 @@
     border-radius: 10px;
     border: transparent 1px solid;
     left: -200px; /* Initially hide sidebar by shifting it to the left */
-    z-index: 1; /* Place sidebar above content */
+    z-index: 1000; /* Place sidebar above content */
 }
 
 .sidebar:hover {
@@ -34,6 +34,7 @@
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     transition: color 0.3s ease; /* Add smooth transition for color change */
+    font-family: "Times New Roman", Times, serif;
 }
 
 /* Hover effect: Change header color to goldenrod */
@@ -47,27 +48,22 @@
     list-style: none;
 }
 
-.sidebar ul li
-{
-    margin-bottom: 25px;
-    left: -10px;
-}
-
 .sidebar ul a {
     text-decoration: none;
     display: block;
     width: 100%;
     line-height: 65px;
-    font-size: 17px;
+    font-size: 20px;
     color: black;
     padding-left: 40px;
     box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.4s;
+    font-family: "Times New Roman", Times, serif;
 }
 
 ul li:hover a {
     padding-left: 50px;
-    color: goldenrod;
 }
 
 .sidebar ul a i {
