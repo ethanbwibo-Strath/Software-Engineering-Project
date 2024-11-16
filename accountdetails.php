@@ -10,7 +10,7 @@ $user = null; // Initialize $user to handle cases where the query fails
 try {
     $userID = $_SESSION['user_id']; // assuming user ID is stored in session
     $db = new dbConnection();
-    $stmt = $db->conn->prepare("SELECT fname, lname, username, email, phone FROM users WHERE UserID = :userID");
+    $stmt = $db->conn->prepare("SELECT fname, lname, username, email, phone, created_at FROM users WHERE UserID = :userID");
     $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -96,19 +96,31 @@ try {
     </div>
 
 
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="accountdetails.php" class="nav-item"><i class='bx bxs-user-account'></i>Account Details</a></li>
+            <li><a href="Traveller Module/myTrips.php" class="nav-item"><i class='bx bxs-plane-alt'></i>My Trips</a></li>
+            <li><a href="Traveller Module/help.php" class="nav-item"><i class='bx bx-help-circle'></i>Help</a></li>
+            <li><a href="Traveller Module/bookings.php" class="nav-item"><i class='bx bx-calendar-check'></i>Bookings</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-user-x'></i>Delete Account</a></li>
+            <li><a href="logout.php" class="nav-item"><i class='bx bx-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
 
 
 
-    <div class="main-content">
-        <div class="top">
+    <div class="main-content" >
+        <div class="top" style="display: flex; justify-content: space-between; width: 80vw">
             <div class="user">
                 <img src="img/Hotels.jpeg" alt="user" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
                 <p><?= $user ? htmlspecialchars($user['fname'] . ' ' . $user['lname']) : 'User' ?></p>
             </div>
-            <!-- <div class="date">
+            <div class="date" style="font-size: 20px; font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-top: 25px;">
                 <p>Account created on:</p>
-                <p>18/02/2024</p>
-            </div> -->
+                <p><?= $user ? htmlspecialchars($user['created_at']) : 'N/A' ?></p>
+            </div>
         </div>
         <div class="bottom">
             <form action="updateuser.php" method="POST">

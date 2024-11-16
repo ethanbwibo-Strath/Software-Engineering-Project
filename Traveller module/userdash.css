@@ -138,7 +138,7 @@
     position: fixed;
     background-color: white;
     width: 250px;
-    height: 60%;
+    height: auto;
     margin-top: 1cm;
     padding-top: 40px;
     transition: all 0.5s ease;
@@ -289,33 +289,29 @@ button:hover {
     background-color: darkgoldenrod;
     transition: 0.3s;
 }
-/*------------------------------ Footer Styling ---------------------------------------------------------------*/
-.footer
-{
+
+/* --------------------------------------  Footer Styling -------------------------------------- */
+.footer{
     display: flex;
     align-items: center;
     min-height: 10vh;
-    box-shadow: 0px 0px 10px #000;
+
     background-color: rgba(255,255,255,0.7);
 }
 
-.footer .socials img
-{
+.socials img{
     margin:0 1vw 0 1vw;
 }
 
-.footer .copyright
-{
+.copyright{
     margin-left: 30vw;
 }
 
-.footer .copyright span
-{
+.copyright span{
     color: goldenrod;
     text-decoration: underline;
     font-weight: bold;
-}
-
+ }
 
 /* table styling */
 .tableContainer {
