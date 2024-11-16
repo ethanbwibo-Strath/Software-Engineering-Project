@@ -69,8 +69,7 @@
 
 }
 
-
-/* Dropdown container */
+/* ------------------------------------------ Session styling ---------------------------------------- */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -231,7 +230,7 @@ ul li:hover a {
 .popular-packages, .upcoming-events, .notifications {
     margin:0 0 20px 65px;
     padding: 15px;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
@@ -255,8 +254,10 @@ ul li:hover a {
 
 .package-item img {
     width: 100%;
-    height: auto;
+    height: 50%;
     border-radius: 5px;
+    object-fit: 'cover';
+
 }
 
 .package-item a {
@@ -342,3 +343,87 @@ ul li:hover a {
     text-decoration: underline;
     font-weight: bold;
  }
+
+
+
+
+
+ /* --------------------------------------Update Packages Styling -------------------------------------- */
+ /* Style the container for the form */
+.card1-body {
+    max-width: 65%;
+    margin: 0 auto;
+    background: transparent;
+    padding: 30px;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Style for labels */
+.card1-body label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style for input fields */
+.card1-body input[type="text"],
+.card1-body input[type="number"],
+.card1-body input[type="file"],
+.card1-body textarea {
+    width:90%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect for inputs */
+.card1-body input:focus,
+.card1-body textarea:focus {
+    border: 1px solid goldenrod;
+    box-shadow: 0 0 5px rgba(218, 165, 32,0.7);
+    outline: none;
+}
+
+/* Style for the textarea */
+.card1-body textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Button styling */
+.card1-body button {
+    width: 90%;
+    background: #ffc107;
+    color: #333;
+    font-size: 1rem;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect for button */
+.card1-body button:hover {
+    background: #e0a800;
+    transform: scale(1.03);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card1-body {
+        padding: 15px;
+    }
+
+    .card1-body button {
+        font-size: 0.9rem;
+    }
+}
