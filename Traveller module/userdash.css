@@ -134,14 +134,119 @@
 }
 
 
+
+/* -----------------------------------  SideBar Styling    ----------------------------------------- */
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 65%;
+    margin-top: 20px;
+    padding-top: 5px;
+    transition: all 0.5s ease;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #ccc; 
+    border-radius: 10px;
+    border: transparent 1px solid;
+    left: -200px; /* Initially hide sidebar by shifting it to the left */
+    z-index: 10000;
+}
+
+.sidebar:hover {
+    left: 0; /* Slide the sidebar into view on hover */
+}
+
+/* Sidebar header along the side (vertical text) */
+.sidebar header {
+    font-size: 30px;
+    color: black;
+    writing-mode: vertical-rl; /* Rotates text vertically */
+    text-align: center;
+    user-select: none;
+    transform: rotate(360deg); /* Corrects the upside-down issue */
+    position: absolute;
+    top: 40%;
+    right: -30px; /* Position header slightly outside the sidebar */
+    transform-origin: center;
+    background-color: #f4f4f4;
+    padding: 10px 5px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease; /* Add smooth transition for color change */
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Hover effect: Change header color to goldenrod */
+.sidebar:hover header {
+    color: goldenrod;
+}
+
+/* Styling for the sidebar list */
+.sidebar ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.sidebar ul a {
+    display: block;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: black;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.4s;
+    text-decoration: none;
+    
+}
+
+ul li:hover a {
+    padding-left: 50px;
+    text-decoration: none;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+}
+
+/* Add active class for selected item */
+.sidebar ul a.active {
+    background-color: #868e97; /* Change this to any color you like */
+    color: white;
+}
+
+.sidebar ul a.active i {
+    color: white;
+}
+
+.menu .submenu {
+    display: none;
+    padding-left: 1px;
+}
+
+.menu .item:hover .submenu {
+    display: block;
+}
+
+.submenu-item {
+    margin: -15px 0 0 0;
+}
+
+.submenu-item a:hover {
+    color: goldenrod;
+}
+
+
+
+
 /* Main Content */
 .main-content {
     margin-left: 100px;
     padding: 20px;
-    display: flex;   
+    display: flex; 
 }
 
- .top {
+.top {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,7 +261,6 @@
     height: 80px;
     object-fit: cover;
     border: 2px solid goldenrod;
-    margin-right: 15px;
 }
 
 .user p {
@@ -224,13 +328,13 @@ button:hover {
     transition: 0.3s;
 }
 
-/*------------------------------ Footer Styling ---------------------------------------------------------------*/
+/*------------------------------ Footer Styling ---------------------------------------------------------------
 .footer
 {
     display: flex;
     align-items: center;
     min-height: 10vh;
-
+    
     background-color: rgba(255,255,255,0.7);
 }
 
@@ -246,7 +350,37 @@ button:hover {
     color: goldenrod;
     text-decoration: underline;
     font-weight: bold;
+} */
+
+
+
+/* --------------------------------------  Footer Styling -------------------------------------- */
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    box-shadow: 0px 0px 10px #000;
+}
+
+.socials img{
+    margin:0 1vw 0 1vw;
+}
+
+.copyright{
+    margin-left: 25vw;
+}
+
+.copyright span{
+    color: goldenrod;
+    text-decoration: underline;
+    font-weight: bold;
  }
+
+
 
 /* table styling */
 .tableContainer {

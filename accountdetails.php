@@ -96,6 +96,60 @@ try {
     </div>
 
 
+    
+<!-------------------------------------- Sidebar Sessioning  ------------------------------------------------------------>
+<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+
+<?php if ($_SESSION['account_type'] == 'admin') : ?>
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="Admin Module/adminDashboard.php" class="nav-item"><i class='bx bxs-dashboard' ></i>Dashboard</a></li>
+            <li><a href="Admin Module/userManagement.php" class="nav-item"><i class='bx bxs-group' ></i>Users </a></li>
+            <li><a href="Admin Module/bookingManagement.php" class="nav-item"><i class='bx bxs-briefcase' ></i>Bookings</a></li>
+            <li><a href="Admin Module/analytics.php" class="nav-item"><i class='bx bx-scatter-chart'></i>Analytics</a></li>
+            <li><a href="logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
+
+
+
+<?php elseif ($_SESSION['account_type'] == 'agent') : ?>              
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="Travel Agent Module/Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
+            <li class="menu">
+                <div class="item">
+                    <a href="#" class="link">
+                        <i class='bx bxs-package'></i>
+                        <span> Packages </span>
+
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <a href="Travel Agent Module/createPackage.php" class="submenu-link"> Create Package </a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="Travel Agent Module/updatePackage.php" class="submenu-link"> Update Package </a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="Travel Agent Module/viewPackages.php" class="submenu-link"> View Package </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
+            <li><a href="logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
+    
+
+<?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
     <div class="sidebar">
         <header>PANEL</header>
         <ul>
@@ -109,61 +163,7 @@ try {
         <script src="sidebar.js"></script>
     </div>
 
-<!-------------------------------------- Sidebar Sessioning  ------------------------------------------------------------>
-<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
-
-<?php if ($_SESSION['account_type'] == 'admin') : ?>
-    <div class="sidebar">
-        <header>PANEL</header>
-        <ul>
-            <li><a href="../Admin Module/adminDashboard.php" class="nav-item"><i class='bx bxs-dashboard' ></i>Dashboard</a></li>
-            <li><a href="../Admin Module/userManagement.php" class="nav-item"><i class='bx bxs-group' ></i>Users </a></li>
-            <li><a href="../Admin Module/bookingManagement.php" class="nav-item"><i class='bx bxs-briefcase' ></i>Bookings</a></li>
-            <li><a href="../Admin Module/analytics.php" class="nav-item"><i class='bx bx-scatter-chart'></i>Analytics</a></li>
-            <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
-        </ul> 
-        <script src="sidebar.js"></script>
-    </div>
-
-
-
-<?php elseif ($_SESSION['account_type'] == 'agent') : ?>              
-    <div class="sidebar">
-        <header>PANEL</header>
-        <ul>
-            <li><a href="Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
-            <li class="menu">
-                <div class="item">
-                    <a href="#" class="link">
-                        <i class='bx bxs-package'></i>
-                        <span> Packages </span>
-
-                    <div class="submenu">
-                        <div class="submenu-item">
-                            <a href="createPackage.php" class="submenu-link"> Create Package </a>
-                        </div>
-                        <div class="submenu-item">
-                            <a href="updatePackage.php" class="submenu-link"> Update Package </a>
-                        </div>
-                        <div class="submenu-item">
-                            <a href="viewPackages.php" class="submenu-link"> View Package </a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            
-            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
-            <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
-            <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
-            <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
-        </ul> 
-        <script src="sidebar.js"></script>
-    </div>
-    
-
-                    <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
-                        <br>
-                    <?php endif; ?>            
+<?php endif; ?>            
 
         <?php else : ?>
             <br>
@@ -173,15 +173,17 @@ try {
 
 
     <div class="main-content" >
-        <div class="top" style="display: flex; justify-content: space-between; width: 80vw">
+        <div class="top">
             <div class="user">
                 <img src="img/Hotels.jpeg" alt="user" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
                 <p><?= $user ? htmlspecialchars($user['fname'] . ' ' . $user['lname']) : 'User' ?></p>
             </div>
-            <div class="date" style="font-size: 20px; font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-top: 25px;">
+
+            <!-- <div class="date" style="font-size: 20px; font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-top: 25px;">
                 <p>Account created on:</p>
-                <p><?= $user ? htmlspecialchars($user['created_at']) : 'N/A' ?></p>
-            </div>
+                <p><= $user ? htmlspecialchars($user['created_at']) : 'N/A' ?></p>
+            </div> -->
+
         </div>
         <div class="bottom">
             <form action="updateuser.php" method="POST">

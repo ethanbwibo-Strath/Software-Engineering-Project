@@ -351,10 +351,8 @@ ul li:hover a {
  /* --------------------------------------Update Packages Styling -------------------------------------- */
  /* Style the container for the form */
 .card1-body {
-    max-width: 65%;
-    margin: 0 auto;
-    background: transparent;
-    padding: 30px;
+    width: 50%;
+    background: red;
     /* border-radius: 8px; */
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
