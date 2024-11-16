@@ -1,5 +1,7 @@
 <?php 
+
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -25,17 +27,17 @@ session_start();
         <div class="links">
             <ul>
                 <a href="NewHomePage.php"><li>Home</li></a>
-                <a href=""><li>Book</li></a>
+                <a href="<?php echo isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] ? 'Travel Agent Module/viewPackages.php' : 'LoginPage.php'; ?>"><li>Book</li></a>
                 <a href="#why-us-section"><li>About Us</li></a>
                 <a href="#contact-us-section"><li>Contact</li></a>
                 <!-- <a href="https://layla.ai/chat?ask=create-a-new-trip"><li>Plan your Trip</li></a> -->
             </ul>
         </div>
 
-        <div class="search">
+        <!-- <div class="search">
             <img src="img/search.png" alt="Search">
             <input type="search" name="search" id="navSearch" placeholder="Search...">
-        </div>
+        </div> -->
 
         <div class="account">
 
@@ -81,7 +83,7 @@ session_start();
     <h1>Discover the World's Hidden <br> Gems.</h1>
     <div class="btns">
         <div class="book-btn">
-            <button type ="button" class="button1">Book Now</button>
+        <a href="<?php echo isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] ? 'Travel Agent Module/viewPackages.php' : 'LoginPage.php'; ?>"><button type ="button" class="button1">Book Now</button></a>
         </div>
 
         <div class="explore-btn">
@@ -105,25 +107,25 @@ session_start();
                 <div class="carousel-track">
                     <!-- Carousel Items -->
                     <div class="carousel-item">
-                        <a href="package1.html">
+                        <a href="Travel Agent Module/viewPackageDetails.php ?id=4">
                             <img src="img/BeachEscape.png" alt="Luxury Beach Escape">
                         </a>
                         <p class="carousel-title">Luxury Beach Escape</p>
                     </div>
                     <div class="carousel-item">
-                        <a href="package2.html">
+                        <a href="Travel Agent Module/viewPackageDetails.php ?id=1">
                             <img src="img/MountainTrek.png" alt="Adventurous Mountain Trek">
                         </a>
                         <p class="carousel-title">Adventurous Mountain Trek</p>
                     </div>
                     <div class="carousel-item">
-                        <a href="package3.html">
+                        <a href="Travel Agent Module/viewPackageDetails.php ?id=7">
                             <img src="img/CityTour.png" alt="Cultural City Tour">
                         </a>
                         <p class="carousel-title">Cultural City Tour</p>
                     </div>
                     <div class="carousel-item">
-                        <a href="package4.html">
+                        <a href="Travel Agent Module/viewPackageDetails.php ?id=8">
                             <img src="img/DesertSafari.jpg" alt="Exotic Desert Safari">
                         </a>
                         <p class="carousel-title">Exotic Desert Safari</p>
