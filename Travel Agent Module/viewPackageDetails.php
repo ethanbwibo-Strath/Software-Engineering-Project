@@ -14,7 +14,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     // Create a new instance of dbConnection and get the connection
     $db = new dbConnection();
-    $conn = $db->getConn(); // Use getConn() method here
+    $conn = $db->conn; // Use getConn() method here
 
     // Prepare and execute the SQL query to fetch the package details
     $query = "SELECT * FROM packages WHERE package_id = :package_id";

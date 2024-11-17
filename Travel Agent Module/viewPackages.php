@@ -6,7 +6,7 @@ include "../dbConnection.php";
 
 // Create an instance of dbConnection
 $db = new dbConnection(); // Create an object of the dbConnection class
-$conn = $db->getConn(); // Access the conn property using the getter method
+$conn = $db->conn; // Access the conn property using the getter method
 
 // Fetch packages from the database
 $query = "SELECT * FROM packages"; // Adjusted table name to 'packages'
