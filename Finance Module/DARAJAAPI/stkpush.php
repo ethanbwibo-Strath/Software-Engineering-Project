@@ -1,5 +1,5 @@
 <?php
-include '3dddddddb.php';
+include 'db.php';
 include 'accessToken.php';
 
 date_default_timezone_set('Africa/Nairobi');
@@ -78,18 +78,20 @@ if (isset($data['ResponseCode']) && $data['ResponseCode'] == "0") {
     $responseDescription = $data['ResponseDescription'];
 
     // Insert transaction into the database
-    try {
-        $stmt = $pdo->prepare("INSERT INTO transactions (phone_number, amount, checkout_request_id, transaction_status, response_code, response_description) 
-            VALUES (:phone_number, :amount, :checkout_request_id, :transaction_status, :response_code, :response_description)");
-
-        $stmt->execute([
-            ':phone_number' => $phone,
-            ':amount' => $total_price,
-            ':checkout_request_id' => $checkoutRequestID,
-            ':transaction_status' => 'Completed',
-            ':response_code' => $responseCode,
-            ':response_description' => $responseDescription
-        ]);
+    try {$stmt = $pdo->prepare("INSERT INTO transactions (phone_number, total_price, checkout_request_id, transaction_status, response_code, response_description) 
+        VALUES (:phone_number, :total_price, :checkout_request_id, :transaction_status, :response_code, :response_description)");
+    
+    $stmt->execute([
+        ':phone_number' => $phone,
+        ':total_price' => $total_price,  // Ensure $total_price is defined
+        ':checkout_request_id' => $checkoutRequestID,
+        ':transaction_status' => 'Completed',
+        ':response_code' => $responseCode,
+        ':response_description' => $responseDescription
+    ]);
+    
+    
+        
     } catch (PDOException $e) {
         die("Error: " . $e->getMessage());
     }
