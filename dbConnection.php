@@ -4,6 +4,7 @@ class dbConnection {
     private $dbname = 'cheapthrills';
     private $username = 'root';
     private $password = '';
+
     public $conn;
 
     public function __construct() {
