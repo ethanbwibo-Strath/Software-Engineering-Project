@@ -53,7 +53,7 @@ include "../layouts/header.php";
             <tbody>
                 <?php
                     // Connect to the database
-                    include "../Traveller module/dbconnection.php";
+                    include "../dbConnection.php";
                     $db = new dbConnection();
                     $conn = $db->conn;
 
