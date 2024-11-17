@@ -72,7 +72,7 @@ include "../dbConnection.php";
                     <!-- Get Recent Activity from database -->
                     <?php
                     $db = new dbConnection();
-                    $sql = "SELECT * FROM users ORDER BY created_at DESC LIMIT 5";
+                    $sql = "SELECT * FROM users ORDER BY created_at DESC LIMIT 3";
                     $stmt = $db->conn->prepare($sql);
                     $stmt->execute();
                     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
