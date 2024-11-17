@@ -8,7 +8,7 @@ $package_id = isset($_GET['package_id']) ? intval($_GET['package_id']) : null;
 if ($package_id) {
     // Create a new instance of dbConnection
     $db = new dbConnection();
-    $conn = $db->getConn(); // Use the getter method for the connection
+    $conn = $db->conn; // Use the getter method for the connection
 
     // Prepare and execute the SQL query to fetch the package details
     $query = "SELECT * FROM packages WHERE package_id = :package_id";
@@ -138,7 +138,7 @@ if ($package_id) {
         <div class="package-details">
            <p><strong>Package Name:</strong> <?= htmlspecialchars($package['package_name']) ?></p>
             <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
-            <p><strong>Base Price:</strong> <?= htmlspecialchars($package['package_price']) ?> per adult</p>
+            <p><strong>Base Price:</strong> <?= htmlspecialchars($package['package_price']) ?> per person & per day;</p>
         </div>
 
         <form action="../Finance Module/DARAJAAPI/stkpush.php" method="post" id="bookingPaymentForm">
