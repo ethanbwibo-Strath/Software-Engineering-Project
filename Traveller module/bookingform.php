@@ -186,7 +186,7 @@ include "header.php"
             <p><strong>Total Price:</strong> <?= htmlspecialchars($package['package_price']) ?></p>
         </div>
 
-        <form id="bookingForm" method="POST" action="bookingform.php">
+        <form action="../Finance Module/DARAJAAPI/stkpush.php" method="post" id="bookingPaymentForm">
             <input type="hidden" name="package_id" value="<?= htmlspecialchars($package_id) ?>">
             
             <!-- Booking Fields -->
@@ -268,12 +268,6 @@ include "header.php"
         setTimeout(() => {
             event.target.submit(); // Submit the form after loader animation
         }, 1000); // Adjust delay as needed
-    });
-</script>
-
-<script>
-    document.getElementById('bookingForm').addEventListener('submit', function(event) {
-        event.target.querySelector('button[type="submit"]').disabled = true;
     });
 </script>
 
