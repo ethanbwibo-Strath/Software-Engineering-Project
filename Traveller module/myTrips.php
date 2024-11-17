@@ -13,29 +13,19 @@ $userID = $_SESSION['user_id']; // Assuming user ID is stored in session
 try {
     $db = new dbConnection();
     
-    // Fetch the booked package IDs for the user
-    $stmt = $db->conn->prepare("SELECT package_id FROM booked_packages WHERE UserId = :userID");
+    // Fetch the booked package details for the user
+    $stmt = $db->conn->prepare("
+        SELECT p.*, bp.booking_date 
+        FROM booked_packages bp
+        JOIN packages p ON bp.package_id = p.package_id
+        WHERE bp.UserId = :userID
+    ");
     $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
     $stmt->execute();
-    $bookedPackageIDs = $stmt->fetchAll(PDO::FETCH_COLUMN); // Fetch only package IDs
+    $packages = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all package details along with booking date
 
-    if (empty($bookedPackageIDs)) {
+    if (empty($packages)) {
         echo "No trips found.";
-    } else {
-        // Fetch package details based on booked package IDs
-        $packageIDs = implode(',', array_map('intval', $bookedPackageIDs)); // Sanitize and prepare IDs for query
-        $query = "SELECT * FROM packages WHERE id IN ($packageIDs)";
-        $result = $db->conn->query($query);
-        
-        $packages = []; // Initialize packages array
-
-        if ($result) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $packages[] = $row; // Populate the packages array with each package
-            }
-        } else {
-            echo "Error fetching package details: " . $db->conn->errorInfo()[2]; // Display error message if query fails
-        }
     }
 } catch (PDOException $e) {
     echo "Error fetching data: " . $e->getMessage();
@@ -152,7 +142,7 @@ $db = null;
                     <p><strong>Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
                     <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
                     <p><strong>Hotel:</strong> <?= htmlspecialchars($package['package_hotel']) ?></p>
-                    <a href="fullpackage.php?id=<?= htmlspecialchars($package['id']) ?>" class="details-button">View Details</a>
+                    <p><strong>Booked On:</strong> <?= htmlspecialchars($package['booking_date']) ?></p>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
