@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 include '../../dbConnection.php';
+=======
+include '3dddddddb.php';
+>>>>>>> bd36a9191054ba914053409aca99a01c5474675e
 include 'accessToken.php';
 
 date_default_timezone_set('Africa/Nairobi');
@@ -93,6 +97,27 @@ if (isset($data['ResponseCode']) && $data['ResponseCode'] == "0") {
     } catch (PDOException $e) {
         die("Error: " . $e->getMessage());
     }
+
+    // Insert booking details into booked_packages table after payment success
+    try {
+        $stmt = $pdo->prepare("INSERT INTO booked_packages (user_id, full_name, email, phone, checkin_date, checkout_date, num_people, total_price, checkout_request_id) 
+            VALUES (:user_id, :full_name, :email, :phone, :checkin_date, :checkout_date, :num_people, :total_price, :checkout_request_id)");
+
+        $stmt->execute([
+            ':user_id' => $userID,
+            ':full_name' => $full_name,
+            ':email' => $email,
+            ':phone' => $phone,
+            ':checkin_date' => $checkin_date,
+            ':checkout_date' => $checkout_date,
+            ':num_people' => $num_people,
+            ':total_price' => $total_price,
+            ':checkout_request_id' => $checkoutRequestID
+        ]);
+    } catch (PDOException $e) {
+        die("Error inserting booking: " . $e->getMessage());
+    }
+
 } else {
     echo "Payment failed: " . $data['ResponseDescription'];
 }

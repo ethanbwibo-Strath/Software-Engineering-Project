@@ -166,9 +166,7 @@ try {
         <li><a href="Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
             <li class="menu">
                 <div class="item">
-                    <a href="#" class="link">
-                        <i class='bx bxs-package'></i>
-                        <span> Packages </span>
+                    <a href="#" class="link"><i class='bx bxs-package'></i><span> Packages </span>
                     <div class="submenu">
                         <div class="submenu-item">
                             <a href="createPackage.php" class="submenu-link"> Create Package </a>
@@ -183,7 +181,7 @@ try {
                 </div>
             </li>
             
-            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="viewPackages.php" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
             <li><a href="customercare.php" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
             <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
@@ -192,31 +190,29 @@ try {
         <script src="sidebar.js"></script>
     </div>
 
+
     <div class="dashboard">
-        <div class="popular-packages">
-            <h2>Most Popular Packages & Locations</h2>
-            <div class="packages-grid">
-                <?php foreach ($packages as $package): ?>
-                    <div class="package-item">
-                        <a href="#"> <!-- Link to the detailed package page -->
-                            <img src="<?php echo htmlspecialchars($package['package_image']); ?>" alt="Package Image">
-                            <h3><?php echo htmlspecialchars($package['package_name']); ?></h3>
-                            <p>Accomodation: <?php echo htmlspecialchars($package['package_hotel']); ?></p>
-                            <p>Price: <?php echo number_format($package['package_price'], 2); ?></p>
-                            <p>Rating: <span class="stars">★★★★☆</span></p>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+    <div class="popular-packages">
+        <h2>Most Popular Packages & Locations</h2>
+        <div class="packages-grid">
+            <?php foreach (array_slice($packages, 0, 5) as $package): ?>
+                <div class="package-item">
+                    <!-- Link with package_id to a details page -->
+                    <a href="viewPackageDetails.php?id=<?php echo urlencode($package['package_id']); ?>">
+                        <img src="<?php echo htmlspecialchars($package['package_image']); ?>" alt="Package Image">
+                        <h3><?php echo htmlspecialchars($package['package_name']); ?></h3>
+                        <p>Hotel: <?php echo htmlspecialchars($package['package_hotel']); ?></p>
+                        <p>Price: <?php echo number_format($package['package_price'], 2); ?></p>
+                        <p>Rating: <span class="stars">★★★★☆</span></p>
+                    </a>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
+</div>
+
 
               
-                
-                </div>
-            </div>
-
-        </div>
             
         <div class="events-notifications-container">
             <div class="upcoming-events">
