@@ -3,7 +3,7 @@ class dbConnection {
     private $host = 'localhost:3307';
     private $dbname = 'cheapthrills';
     private $username = 'root';
-    private $password = 'araram54@ff';
+    private $password = 'rehanais2cool';
     public $conn;
 
     public function __construct() {
@@ -11,7 +11,7 @@ class dbConnection {
         $host = 'localhost';  // Adjust these values as needed
         $dbname = 'cheapthrills'; // Replace with your actual database name
         $username = 'root'; // Replace with your actual database username
-        $password = ''; // Replace with your actual database password
+        $password = 'rehanais2cool'; // Replace with your actual database password
 
         try {
             // Create a new PDO instance

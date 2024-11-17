@@ -3,7 +3,7 @@
 $host = 'localhost';
 $dbname = 'cheapthrills'; // Replace with your database name
 $username = 'root'; // Replace with your database username
-$password = ''; // Replace with your database password
+$password = 'rehanais2cool'; // Replace with your database password
 
 try {
     // Create a new PDO instance
