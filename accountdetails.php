@@ -194,6 +194,10 @@ try {
                         <label for="username">Username :</label><br>
                         <input type="text" id="username" name="username" value="<?= $user ? htmlspecialchars($user['username']) : '' ?>" disabled>
                     </div>
+                    <div class="input-container">
+                        <label for="phone">Phone Number :</label><br>
+                        <input type="tel" id="phone" name="phone" value="<?= $user ? htmlspecialchars($user['phone']) : '' ?>" disabled>
+                    </div>
                 </div>
 
                 <div class="middle">
@@ -214,10 +218,6 @@ try {
                         <input type="email" id="email" name="email" value="<?= $user ? htmlspecialchars($user['email']) : '' ?>" disabled>
                     </div>
 
-                    <div class="input-container">
-                        <label for="phone">Phone Number :</label><br>
-                        <input type="tel" id="phone" name="phone" value="<?= $user ? htmlspecialchars($user['phone']) : '' ?>" disabled>
-                    </div>
                 </div>
             </div>
 

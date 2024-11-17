@@ -113,7 +113,8 @@
 
         <br>
 
-        <h3>You can also:</h3>
+        <h3>Other Options:</h3>
+        <p>We value your feedback. Feel free to submit a complaint, suggestion, or request:</p>
 
         <!-- Buttons for Complaints, Suggestions, and Requests -->
         <div class="help-options">
@@ -121,6 +122,8 @@
             <a href="Travelerforms\suggestion_form.php" class="btn">Submit a Suggestion</a>
             <a href="Travelerforms\request_form.php" class="btn">Make a Request</a>
         </div>
+
+        
 
     </div>
     <br>

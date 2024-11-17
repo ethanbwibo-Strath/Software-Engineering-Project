@@ -15,14 +15,14 @@ try {
     
     // Fetch the booked package details for the user
     $stmt = $db->conn->prepare("
-        SELECT p.*, bp.booking_date 
+        SELECT p.*, bp.booking_date, bp.checkin_date, bp.checkout_date 
         FROM booked_packages bp
         JOIN packages p ON bp.package_id = p.package_id
         WHERE bp.UserId = :userID
     ");
     $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
     $stmt->execute();
-    $packages = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all package details along with booking date
+    $packages = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all package details along with booking date, checkin_date, and checkout_date
 
     if (empty($packages)) {
         echo "No trips found.";
@@ -104,6 +104,8 @@ include 'header.php';
                     <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
                     <p><strong>Hotel:</strong> <?= htmlspecialchars($package['package_hotel']) ?></p>
                     <p><strong>Booked On:</strong> <?= htmlspecialchars($package['booking_date']) ?></p>
+                    <p><strong>Travel Date:</strong> <?= htmlspecialchars($package['checkin_date']) ?></p>
+                    <p><strong>Return Date:</strong> <?= htmlspecialchars($package['checkout_date']) ?></p>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

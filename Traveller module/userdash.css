@@ -329,29 +329,6 @@ button:hover {
     transition: 0.3s;
 }
 
-/*------------------------------ Footer Styling ---------------------------------------------------------------
-.footer
-{
-    display: flex;
-    align-items: center;
-    min-height: 10vh;
-    
-    background-color: rgba(255,255,255,0.7);
-}
-
-.socials img{
-    margin:0 1vw 0 1vw;
-}
-
-.copyright{
-    margin-left: 30vw;
-}
-
-.copyright span{
-    color: goldenrod;
-    text-decoration: underline;
-    font-weight: bold;
-} */
 
 
 

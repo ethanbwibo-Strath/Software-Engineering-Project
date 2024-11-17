@@ -26,6 +26,43 @@ if ($package_id) {
     exit;
 }
 
+// Check if form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Assuming you have the UserId from session or other source
+    if (isset($_SESSION['user_id'])) {
+        $UserId = $_SESSION['user_id']; // Example: getting UserId from session
+    } else {
+        echo "User not logged in.";
+        exit;
+    }
+
+    // Retrieve form data
+    $checkin_date = $_POST['checkin_date'];
+    $checkout_date = $_POST['checkout_date'];
+    $adults = intval($_POST['adults']);
+    $children = intval($_POST['children']);
+
+    // Insert query to book the package
+    $sql = "INSERT INTO booked_packages (UserId, package_id, checkin_date, checkout_date, adults, children) 
+            VALUES (:UserId, :package_id, :checkin_date, :checkout_date, :adults, :children)";
+
+    try {
+        $db = new dbConnection();
+        $conn = $db->conn;
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':UserId', $UserId, PDO::PARAM_INT);
+        $stmt->bindParam(':package_id', $package_id, PDO::PARAM_INT);
+        $stmt->bindParam(':checkin_date', $checkin_date, PDO::PARAM_STR);
+        $stmt->bindParam(':checkout_date', $checkout_date, PDO::PARAM_STR);
+        $stmt->bindParam(':adults', $adults, PDO::PARAM_INT);
+        $stmt->bindParam(':children', $children, PDO::PARAM_INT);
+        $stmt->execute();
+        echo "Package booked successfully!";
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+    $conn = null; // Close the connection
+}
 
 ?>
 
@@ -149,7 +186,7 @@ include "header.php"
             <p><strong>Total Price:</strong> <?= htmlspecialchars($package['package_price']) ?></p>
         </div>
 
-        <form action="../Finance Module/DARAJAAPI/stkpush.php" method="post" id="bookingPaymentForm">
+        <form id="bookingForm" method="POST" action="bookingform.php">
             <input type="hidden" name="package_id" value="<?= htmlspecialchars($package_id) ?>">
             
             <!-- Booking Fields -->
@@ -169,6 +206,26 @@ include "header.php"
             </div>
 
             <div class="form-group">
+                <label for="checkin_date">Check-in Date:</label>
+                <input type="date" id="checkin_date" name="checkin_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="checkout_date">Check-out Date:</label>
+                <input type="date" id="checkout_date" name="checkout_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adults">Adults:</label>
+                <input type="number" id="adults" name="adults" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="children">Children:</label>
+                <input type="number" id="children" name="children" min="0">
+            </div>
+
+            <div class="form-group">
                 <label for="phone">Phone Number:</label>
                 <input type="text" id="phone" name="phone" placeholder="2547XXXXXXXX" required>
             </div>
@@ -184,7 +241,7 @@ include "header.php"
                 <input type="text" id="address" name="address">
             </div>
 
-            <button type="submit" class="submit-button">Book and Pay Now</button>
+            <button type="submit" class="submit-button">Book Now</button>
             
         </form>
     <?php else: ?>
@@ -214,34 +271,11 @@ include "header.php"
     });
 </script>
 
-
-
-<?php 
-// Assuming you have the UserId from session or other source
-if (isset($_SESSION['user_id'])) {
-    $UserId = $_SESSION['user_id']; // Example: getting UserId from session
-} else {
-    echo "User not logged in.";
-    exit;
-}
-
-// Insert query to book the package
-$sql = "INSERT INTO booked_packages (UserId, package_id) VALUES (:UserId, :package_id)";
-
-try {
-    $db = new dbConnection();
-    $conn = $db->conn;
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':UserId', $UserId, PDO::PARAM_INT);
-    $stmt->bindParam(':package_id', $package_id, PDO::PARAM_INT);
-    $stmt->execute();
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-$conn = null; // Close the connection
-?>
-
-
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.target.querySelector('button[type="submit"]').disabled = true;
+    });
+</script>
 
 </div>
     
