@@ -1,5 +1,5 @@
 <?php
-include '../dbConnection.php';
+include '../../dbConnection.php';
 include 'accessToken.php';
 
 date_default_timezone_set('Africa/Nairobi');

@@ -3,7 +3,7 @@
 }
 
 .analyticsSection {
-    height: 60vh;
+    height: 70vh;
     width: 70%;
     margin: 50px auto;
     border-radius: 20px;
@@ -26,5 +26,6 @@ h2 {
 
 canvas {
     max-width: 80%;
-    height: 400px;
+    height: 300px;
+    padding: 50px;
 }
