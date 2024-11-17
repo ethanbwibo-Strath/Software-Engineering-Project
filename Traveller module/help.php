@@ -87,9 +87,9 @@
 
         <!-- Buttons for Complaints, Suggestions, and Requests -->
         <div class="help-options">
-            <a href="complaint_form.php" class="btn">File a Complaint</a>
-            <a href="suggestion_form.php" class="btn">Submit a Suggestion</a>
-            <a href="request_form.php" class="btn">Make a Request</a>
+            <a href="Travelerforms\complaint_form.php" class="btn">File a Complaint</a>
+            <a href="Travelerforms\suggestion_form.php" class="btn">Submit a Suggestion</a>
+            <a href="Travelerforms\request_form.php" class="btn">Make a Request</a>
         </div>
 
         <h4>Contact Your Assigned Agent</h4>
