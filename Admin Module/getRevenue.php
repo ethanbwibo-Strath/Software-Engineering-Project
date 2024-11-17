@@ -3,7 +3,7 @@
 $host = 'localhost:3307';
 $dbname = 'cheapthrills';
 $username = 'root';
-$password = 'mySQLpass_11!';
+$password = '';
 
 try {
     // Establish a PDO connection
