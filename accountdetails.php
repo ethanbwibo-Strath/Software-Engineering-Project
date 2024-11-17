@@ -10,7 +10,7 @@ $user = null; // Initialize $user to handle cases where the query fails
 try {
     $userID = $_SESSION['user_id']; // assuming user ID is stored in session
     $db = new dbConnection();
-    $stmt = $db->conn->prepare("SELECT fname, lname, username, email, phone FROM users WHERE UserID = :userID");
+    $stmt = $db->conn->prepare("SELECT fname, lname, username, email, phone, created_at FROM users WHERE UserID = :userID");
     $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -96,50 +96,135 @@ try {
     </div>
 
 
+    
+<!-------------------------------------- Sidebar Sessioning  ------------------------------------------------------------>
+<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+
+<?php if ($_SESSION['account_type'] == 'admin') : ?>
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="Admin Module/adminDashboard.php" class="nav-item"><i class='bx bxs-dashboard' ></i>Dashboard</a></li>
+            <li><a href="Admin Module/userManagement.php" class="nav-item"><i class='bx bxs-group' ></i>Users </a></li>
+            <li><a href="Admin Module/bookingManagement.php" class="nav-item"><i class='bx bxs-briefcase' ></i>Bookings</a></li>
+            <li><a href="Admin Module/analytics.php" class="nav-item"><i class='bx bx-scatter-chart'></i>Analytics</a></li>
+            <li><a href="logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
 
 
 
-    <div class="main-content">
+<?php elseif ($_SESSION['account_type'] == 'agent') : ?>              
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="Travel Agent Module/Travel Agent Dashboard.php" class="nav-item"><i class='bx bxs-home'></i>Dashboard</a></li>
+            <li class="menu">
+                <div class="item">
+                    <a href="#" class="link">
+                        <i class='bx bxs-package'></i>
+                        <span> Packages </span>
+
+                    <div class="submenu">
+                        <div class="submenu-item">
+                            <a href="Travel Agent Module/createPackage.php" class="submenu-link"> Create Package </a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="Travel Agent Module/updatePackage.php" class="submenu-link"> Update Package </a>
+                        </div>
+                        <div class="submenu-item">
+                            <a href="Travel Agent Module/viewPackages.php" class="submenu-link"> View Package </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            
+            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
+            <li><a href="logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
+    
+
+<?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="accountdetails.php" class="nav-item"><i class='bx bxs-user-account'></i>Account Details</a></li>
+            <li><a href="Traveller Module/myTrips.php" class="nav-item"><i class='bx bxs-plane-alt'></i>My Trips</a></li>
+            <li><a href="Traveller Module/help.php" class="nav-item"><i class='bx bx-help-circle'></i>Help</a></li>
+            <li><a href="Traveller Module/bookings.php" class="nav-item"><i class='bx bx-calendar-check'></i>Bookings</a></li>
+            <li><a href="#" class="nav-item"><i class='bx bxs-user-x'></i>Delete Account</a></li>
+            <li><a href="logout.php" class="nav-item"><i class='bx bx-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
+
+<?php endif; ?>            
+
+        <?php else : ?>
+            <br>
+        <?php endif; ?>
+
+
+
+
+    <div class="main-content"  style="display: flex; ">
         <div class="top">
             <div class="user">
                 <img src="img/Hotels.jpeg" alt="user" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
                 <p><?= $user ? htmlspecialchars($user['fname'] . ' ' . $user['lname']) : 'User' ?></p>
             </div>
-            <!-- <div class="date">
+
+            <!-- <div class="date" style="font-size: 20px; font-weight: bold; font-family: 'Times New Roman', Times, serif; margin-top: 25px;">
                 <p>Account created on:</p>
-                <p>18/02/2024</p>
+                <p><= $user ? htmlspecialchars($user['created_at']) : 'N/A' ?></p>
             </div> -->
+
         </div>
         <div class="bottom">
             <form action="updateuser.php" method="POST">
 
-                <div class="left">
-                    <div class="input-container">
-                        <label for="fname">First Name :</label><br>
-                        <input type="text" id="fname" name="fname" value="<?= $user ? htmlspecialchars($user['fname']) : '' ?>" disabled>
-                    </div>
-                    <div class="input-container">
-                        <label for="lname">Last Name :</label><br>
-                        <input type="text" id="lname" name="lname" value="<?= $user ? htmlspecialchars($user['lname']) : '' ?>" disabled>
-                    </div>
+            <div class="bottom-separation">
+            <div class="left">
                     <div class="input-container">
                         <label for="username">Username :</label><br>
                         <input type="text" id="username" name="username" value="<?= $user ? htmlspecialchars($user['username']) : '' ?>" disabled>
                     </div>
+                </div>
+
+                <div class="middle">
                     <div class="input-container">
-                        <label for="email">Email :</label><br>
-                        <input type="email" id="email" name="email" value="<?= $user ? htmlspecialchars($user['email']) : '' ?>" disabled>
+                        <label for="fname">First Name :</label><br>
+                        <input type="text" id="fname" name="fname" value="<?= $user ? htmlspecialchars($user['fname']) : '' ?>" disabled>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="lname">Last Name :</label><br>
+                        <input type="text" id="lname" name="lname" value="<?= $user ? htmlspecialchars($user['lname']) : '' ?>" disabled>
                     </div>
                 </div>
 
                 <div class="right">
                     <div class="input-container">
+                        <label for="email">Email :</label><br>
+                        <input type="email" id="email" name="email" value="<?= $user ? htmlspecialchars($user['email']) : '' ?>" disabled>
+                    </div>
+
+                    <div class="input-container">
                         <label for="phone">Phone Number :</label><br>
                         <input type="tel" id="phone" name="phone" value="<?= $user ? htmlspecialchars($user['phone']) : '' ?>" disabled>
                     </div>
                 </div>
+            </div>
+
+            <div class="bottom-buttons">
                 <button type="button" onclick="toggleEdit()">Edit</button>
                 <button type="submit">Save Changes</button>
+            </div>
             </form>
         </div>
     </div>

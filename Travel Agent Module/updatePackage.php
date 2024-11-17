@@ -79,24 +79,26 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <style>
 .container1 {   
     padding: 20px;
-    margin: 100px auto;
+    margin: 20px auto;
     width: 85%;
     height: min-content;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .container1 h2 {
     color: goldenrod;
     text-align: center;
+    text-shadow: 1px 1px 2px rgba(218, 165, 32,0.3);
+    font-size: 32px;
 }
 
 .card1 {
     display: flex;
-    padding: 10px;
+    padding: 15px;
+    gap: 10px;
     margin: 10px;
-    height: 290px;
-    width: 100%;
+    height: 280px;
+    width: 95%;
     border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(218, 165, 32, 0.5);
 }
@@ -113,7 +115,7 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
     height: 100%;
     padding: 0 10px;
     overflow-x: auto;
-}
+} */
 </style>
 
 
@@ -123,47 +125,54 @@ $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <?php foreach ($packages as $package): ?>
             <div class="card1">
-                <div class="card1-image" style="width: 30%; height: 100%;">
+                <div class="card1-image">
                     <img src="<?= $package['package_image'] ?>" class="card-img-top" alt="<?= $package['package_name'] ?>">
                 </div>
 
+                
                 <div class="card1-body">
-                    <!-- Scoped Bootstrap CSS (only form components) -->
-                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+                    <form action="updatePackage.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="package_id" value="<?= $package['package_id'] ?>">
 
-                        <form action="updatePackage.php" method="post" enctype="multipart/form-data">
-                            <input type="hidden" name="package_id" value="<?= $package['package_id'] ?>">
-                            <div class="form-group">
-                                <label for="package_name">Package Name:</label>
-                                <input type="text" class="form-control" name="package_name" value="<?= htmlspecialchars($package['package_name']) ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="package_description">Description:</label>
-                                <textarea class="form-control" name="package_description" required><?= htmlspecialchars($package['package_description']) ?></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="package_price">Price:</label>
-                                <input type="number" class="form-control" name="package_price" value="<?= htmlspecialchars($package['package_price']) ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="package_duration">Duration (days):</label>
-                                <input type="number" class="form-control" name="package_duration" value="<?= htmlspecialchars($package['package_duration']) ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="package_hotel">Hotel:</label>
-                                <input type="text" class="form-control" name="package_hotel" value="<?= htmlspecialchars($package['package_hotel']) ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="package_amenities">Amenities:</label>
-                                <input type="text" class="form-control" name="package_amenities" value="<?= htmlspecialchars($package['package_amenities']) ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="package_image">Package Image:</label>
-                                <input type="file" class="form-control" name="package_image">
-                            </div>
-                            <button type="submit" name="update_package" class="btn btn-warning">Update Package</button>
-                        </form>
+                        <div>
+                            <label for="package_name">Package Name:</label>
+                            <input type="text" name="package_name" value="<?= htmlspecialchars($package['package_name']) ?>" required>
+                        </div>
+
+                        <div>
+                            <label for="package_description">Description:</label>
+                            <textarea name="package_description" required><?= htmlspecialchars($package['package_description']) ?></textarea>
+                        </div>
+
+                        <div>
+                            <label for="package_price">Price:</label>
+                            <input type="number" name="package_price" value="<?= htmlspecialchars($package['package_price']) ?>" required>
+                        </div>
+
+                        <div>
+                            <label for="package_duration">Duration (days):</label>
+                            <input type="number" name="package_duration" value="<?= htmlspecialchars($package['package_duration']) ?>" required>
+                        </div>
+
+                        <div>
+                            <label for="package_hotel">Hotel:</label>
+                            <input type="text" name="package_hotel" value="<?= htmlspecialchars($package['package_hotel']) ?>" required>
+                        </div>
+
+                        <div>
+                            <label for="package_amenities">Amenities:</label>
+                            <input type="text" name="package_amenities" value="<?= htmlspecialchars($package['package_amenities']) ?>" required>
+                        </div>
+
+                        <div>
+                            <label for="package_image">Package Image:</label>
+                            <input type="file" name="package_image">
+                        </div>
+
+                        <button type="submit" name="update_package">Update Package</button>
+                    </form>
                 </div>
+
             </div>
                 
         <?php endforeach; ?>

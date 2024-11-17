@@ -1,5 +1,5 @@
 <?php
-include 'dbConnection.php';
+include '../dbConnection.php';
 session_start();
 
 // Check if the user is logged in
@@ -113,13 +113,13 @@ $db = null;
 
 <div class="nav">
         <div class="logo">
-            <img src="../../img/logo.png" alt="Logo">
+            <img src="../img/logo.png" alt="Logo">
             <h1>CheapThrills</h1>
         </div>
 
         <div class="links">
             <ul>
-                <a href="../../NewHomePage.php"><li>Home</li></a>
+                <a href="../NewHomePage.php"><li>Home</li></a>
                 <a href=""><li>Book</li></a>
                 <a href=""><li>About Us</li></a>
                 <a href=""><li>Contact</li></a>
@@ -128,12 +128,12 @@ $db = null;
         </div>
 
         <div class="search">
-            <img src="../../img/search.png" alt="Search">
+            <img src="../img/search.png" alt="Search">
             <input type="search" name="search" id="navSearch" placeholder="Search...">
         </div>
 
         <div class="account">
-            <img src="../../img/user.png" alt="user">
+            <img src="../img/user.png" alt="user">
             <p>Account</p>
         </div>
     </div>
@@ -162,9 +162,9 @@ $db = null;
 </div>
 <div class="footer">
         <div class="socials">
-            <img src="../../img/twitter.png" alt="Twitter">
-            <img src="../../img/instagram.png" alt="Instagram">
-            <img src="../../img/linkedin.png" alt="linkedin">
+            <img src="../img/twitter.png" alt="Twitter">
+            <img src="../img/instagram.png" alt="Instagram">
+            <img src="../img/linkedin.png" alt="linkedin">
         </div>
 
         <div class="copyright">

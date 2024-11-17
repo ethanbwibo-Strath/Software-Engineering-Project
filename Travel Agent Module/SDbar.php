@@ -68,8 +68,8 @@ session_start();
         </div>
 
         
+    <!----------------------=================== Account Sessioning ===================--------------->
         <div class="account">
-
         <?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
             <img src="../img/user.png" alt="user">
             <li class="dropdown">
@@ -98,6 +98,26 @@ session_start();
     </div>
     </div>
 
+
+<!-------------------------------------- Sidebar Sessioning  ------------------------------------------------------------>
+<?php if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) : ?>
+
+<?php if ($_SESSION['account_type'] == 'admin') : ?>
+    <div class="sidebar">
+        <header>PANEL</header>
+        <ul>
+            <li><a href="../Admin Module/adminDashboard.php" class="nav-item"><i class='bx bxs-dashboard' ></i>Dashboard</a></li>
+            <li><a href="../Admin Module/userManagement.php" class="nav-item"><i class='bx bxs-group' ></i>Users </a></li>
+            <li><a href="../Admin Module/bookingManagement.php" class="nav-item"><i class='bx bxs-briefcase' ></i>Bookings</a></li>
+            <li><a href="../Admin Module/analytics.php" class="nav-item"><i class='bx bx-scatter-chart'></i>Analytics</a></li>
+            <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+        </ul> 
+        <script src="sidebar.js"></script>
+    </div>
+
+
+
+<?php elseif ($_SESSION['account_type'] == 'agent') : ?>              
     <div class="sidebar">
         <header>PANEL</header>
         <ul>
@@ -125,8 +145,18 @@ session_start();
             <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
-            <li><a href="../Traveller Module/logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
+            <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
         </ul> 
-    </div>
         <script src="sidebar.js"></script>
     </div>
+    
+
+                    <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
+                        <br>
+                    <?php endif; ?>            
+
+        <?php else : ?>
+            <br>
+        <?php endif; ?>
+
+

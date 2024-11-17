@@ -133,20 +133,22 @@
     color: white;
 }
 
-/* Sidebar */
+
+
+/* -----------------------------------  SideBar Styling    ----------------------------------------- */
 .sidebar {
     position: fixed;
-    background-color: white;
     width: 250px;
-    height: 60%;
-    margin-top: 1cm;
-    padding-top: 40px;
+    height: 65%;
+    margin-top: 20px;
+    padding-top: 5px;
     transition: all 0.5s ease;
+    background-color: #fff;
     box-shadow: 0px 0px 10px #ccc; 
     border-radius: 10px;
     border: transparent 1px solid;
     left: -200px; /* Initially hide sidebar by shifting it to the left */
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .sidebar:hover {
@@ -170,6 +172,7 @@
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     transition: color 0.3s ease; /* Add smooth transition for color change */
+    font-family: "Times New Roman", Times, serif;
 }
 
 /* Hover effect: Change header color to goldenrod */
@@ -183,27 +186,23 @@
     list-style: none;
 }
 
-.sidebar ul li
-{
-    margin-bottom: 15px;
-    left: -10px;
-}
-
 .sidebar ul a {
-    text-decoration: none;
     display: block;
     width: 100%;
     line-height: 65px;
-    font-size: 17px;
+    font-size: 20px;
     color: black;
     padding-left: 40px;
     box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     transition: 0.4s;
+    text-decoration: none;
+    
 }
 
 ul li:hover a {
     padding-left: 50px;
-    color: goldenrod;
+    text-decoration: none;
 }
 
 .sidebar ul a i {
@@ -220,19 +219,42 @@ ul li:hover a {
     color: white;
 }
 
+.menu .submenu {
+    display: none;
+    padding-left: 1px;
+}
+
+.menu .item:hover .submenu {
+    display: block;
+}
+
+.submenu-item {
+    margin: -15px 0 0 0;
+}
+
+.submenu-item a:hover {
+    color: goldenrod;
+}
+
+
+
+
 /* Main Content */
 .main-content {
     margin-left: 100px;
     padding: 20px;
-    background-color: #f7f8fa;
-    
+    min-height: 80vh;
+    /* display: flex;  */
 }
 
-/* .top {
+.top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-} */
+    padding: 30px 20px 20px 20px;
+    width: 15%;
+    height: 55vh;
+}
 
 .user img {
     border-radius: 50%;
@@ -240,7 +262,6 @@ ul li:hover a {
     height: 80px;
     object-fit: cover;
     border: 2px solid goldenrod;
-    margin-right: 15px;
 }
 
 .user p {
@@ -251,13 +272,30 @@ ul li:hover a {
 
 .bottom {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
+    justify-content: center;
+    align-content: center;
+    width: 80%;
+    padding: 60px 0;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid goldenrod;
+    box-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
     border-radius: 10px;
+    margin: 40px 0 20px 5%;
 }
+
+.bottom-separation{
+    display: flex;
+    gap: 1.5cm;
+}
+
+.bottom-buttons {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    gap: 10px; /* Add space between buttons */
+    margin-top: 20px; /* Optional spacing above the buttons */
+}
+
+
 
 .input-container label {
     color: #333;
@@ -272,6 +310,7 @@ ul li:hover a {
     border: 1px solid #ddd;
     width: 100%;
     background-color: #f9f9f9;
+    margin:5px 0 5px;
 }
 
 button {
@@ -289,32 +328,59 @@ button:hover {
     background-color: darkgoldenrod;
     transition: 0.3s;
 }
-/*------------------------------ Footer Styling ---------------------------------------------------------------*/
+
+/*------------------------------ Footer Styling ---------------------------------------------------------------
 .footer
 {
     display: flex;
     align-items: center;
     min-height: 10vh;
-    box-shadow: 0px 0px 10px #000;
+    
     background-color: rgba(255,255,255,0.7);
 }
 
-.footer .socials img
-{
+.socials img{
     margin:0 1vw 0 1vw;
 }
 
-.footer .copyright
-{
+.copyright{
     margin-left: 30vw;
 }
 
-.footer .copyright span
-{
+.copyright span{
     color: goldenrod;
     text-decoration: underline;
     font-weight: bold;
+} */
+
+
+
+/* --------------------------------------  Footer Styling -------------------------------------- */
+.footer{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    box-shadow:10px #000;
+    background-color: rgba(255,255,255,0.7);
 }
+
+.socials img{
+    margin:0 1vw 0 1vw;
+}
+
+.copyright{
+    margin-left: 25vw;
+}
+
+.copyright span{
+    color: goldenrod;
+    text-decoration: underline;
+    font-weight: bold;
+ }
+
 
 
 /* table styling */

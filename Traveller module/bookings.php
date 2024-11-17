@@ -81,7 +81,12 @@ $conn = null;
 
 </style>
 
-    <?php include "header.php" ?>
+    <?php 
+
+        $pagetitle = "Bookings";
+        include "header.php";
+    
+     ?>
 
     <div class="main-content">
 
