@@ -10,24 +10,12 @@ try {
     $db = new dbConnection();
     $conn = $db->conn;
 
-    $stmt = $conn->prepare("SELECT * FROM feedback");
-    $stmt->execute();
-    $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // Retrieve form data
+    $type = $_POST['type'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-    echo "<pre>";
-    // print_r($packages); // Debugging output
-    echo "</pre>";
-} catch (PDOException $e) {
-    echo "Error fetching packages: " . $e->getMessage();
-}
-
-// Retrieve form data
-$type = $_POST['type'];
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-
-try {
     // Prepare SQL query with placeholders
     $sql = "INSERT INTO feedback (type, name, email, message) VALUES (:type, :name, :email, :message)";
     $stmt = $conn->prepare($sql);
@@ -40,9 +28,15 @@ try {
 
     // Execute the query
     if ($stmt->execute()) {
-        echo "Your feedback has been submitted successfully!";
+        // Display success message and redirect after 2 seconds
+        echo "<div class='alert alert-success'>Your feedback has been submitted successfully!</div>";
+        echo "<script>
+                setTimeout(function() {
+                    window.location.href = '../help.php';
+                }, 2000); // Redirect after 2 seconds
+              </script>";
     } else {
-        echo "Error: Unable to submit feedback.";
+        echo "<div class='alert alert-danger'>Error: Unable to submit feedback.</div>";
     }
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
@@ -51,3 +45,12 @@ try {
 // Close the database connection (PDO handles this automatically, but it's good practice)
 $conn = null;
 ?>
+
+<!-- Loader CSS (to be displayed while submitting) -->
+
+<!-- JavaScript to handle loader visibility -->
+
+<!-- Your Form HTML -->
+
+
+<!-- Loader Div -->

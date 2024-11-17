@@ -75,7 +75,7 @@ td:nth-child(8) {
 .buttons {
     width: 100px;
     display: flex;
-    justify-content: space-between; /* Use space-between for better distribution */
+    justify-content: center; /* Use space-between for better distribution */
     padding: 10px; /* Remove default padding */
     align-items: center; /* Vertically center buttons */
 }

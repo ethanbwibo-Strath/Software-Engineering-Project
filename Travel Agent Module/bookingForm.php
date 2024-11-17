@@ -1,6 +1,4 @@
 <?php
-// bookingForm.php
-
 // Include your database connection file
 include "../dbConnection.php";
 
@@ -10,7 +8,7 @@ $package_id = isset($_GET['package_id']) ? intval($_GET['package_id']) : null;
 if ($package_id) {
     // Create a new instance of dbConnection
     $db = new dbConnection();
-    $conn = $db->conn;
+    $conn = $db->getConn(); // Use the getter method for the connection
 
     // Prepare and execute the SQL query to fetch the package details
     $query = "SELECT * FROM packages WHERE package_id = :package_id";
@@ -30,9 +28,16 @@ if ($package_id) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking and Payment Form</title>
     <style>
-        /* Style for booking form */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
         .booking-form {
             max-width: 600px;
             margin: 40px auto;
@@ -42,15 +47,9 @@ if ($package_id) {
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .booking-form h2, .booking-form h3 {
+        .booking-form h2 {
             text-align: center;
             color: #333;
-        }
-
-        .package-details {
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #555;
         }
 
         .form-group {
@@ -61,6 +60,7 @@ if ($package_id) {
             display: block;
             font-size: 14px;
             color: #555;
+            margin-bottom: 5px;
         }
 
         .form-group input {
@@ -79,15 +79,21 @@ if ($package_id) {
             border: none;
             font-size: 16px;
             border-radius: 4px;
+            cursor: pointer;
         }
 
         .submit-button:hover {
             background-color: #0056b3;
         }
 
-        /* Loader styling */
+        .package-details {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
         .loader-container {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -96,73 +102,56 @@ if ($package_id) {
             background-color: rgba(255, 255, 255, 0.8);
             align-items: center;
             justify-content: center;
-            z-index: 10;
-            text-align: center; /* Centering text below the loader */
+            z-index: 1000;
         }
 
         .loader {
-            width: 7rem;
-            height: 7rem;
-            border: 8px solid #d1d5db; /* Gray border */
-            border-top: 8px solid #34B233; /* M-Pesa green */
+            width: 4rem;
+            height: 4rem;
+            border: 5px solid #ddd;
+            border-top: 5px solid #007bff;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             animation: spin 1s linear infinite;
-            margin-bottom: 20px; /* Adds space between spinner and text */
         }
 
-        /* Spinner animation */
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
-        /* M-Pesa logo styling */
-        .logo {
-            width: 2.5rem; /* Adjust size as needed */
-            height: 2.5rem;
-        }
-
-        /* Styling for the text under the loader */
         .loader-text {
+            margin-top: 10px;
             font-size: 1.2rem;
-            color: #34B233; /* M-Pesa green color */
-            font-weight: bold;
+            color: #007bff;
         }
     </style>
 </head>
 <body>
 
 <div class="booking-form" id="paymentContainer">
-    <h2>Book and Pay for Your Package</h2>
-
+    <h2>Book Your Package</h2>
     <?php if ($package): ?>
         <div class="package-details">
-            <h3>Package Details</h3>
-            <p><strong>Package Name:</strong> <?= htmlspecialchars($package['package_name']) ?></p>
+           <p><strong>Package Name:</strong> <?= htmlspecialchars($package['package_name']) ?></p>
             <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
-            <p><strong>Total Price:</strong> <?= htmlspecialchars($package['package_price']) ?></p>
+            <p><strong>Base Price:</strong> <?= htmlspecialchars($package['package_price']) ?> per adult</p>
         </div>
 
         <form action="../Finance Module/DARAJAAPI/stkpush.php" method="post" id="bookingPaymentForm">
             <input type="hidden" name="package_id" value="<?= htmlspecialchars($package_id) ?>">
             
-            <!-- Booking Fields -->
-            <div class="form-group">
-                <label for="package_name">Package Name:</label>
-                <input type="text" id="package_name" name="package_name" value="<?= htmlspecialchars($package['package_name']) ?>" readonly>
-            </div>
-
             <div class="form-group">
                 <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
 
             <div class="form-group">
@@ -170,44 +159,79 @@ if ($package_id) {
                 <input type="text" id="phone" name="phone" placeholder="2547XXXXXXXX" required>
             </div>
 
-            <!-- Display amount from database as readonly -->
             <div class="form-group">
-                <label for="amount">Amount</label>
+                <label for="checkin_date">Check-in Date:</label>
+                <input type="date" id="checkin_date" name="checkin_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="checkout_date">Check-out Date:</label>
+                <input type="date" id="checkout_date" name="checkout_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="adults">Number of People:</label>
+                <input type="number" id="adults" name="adults" min="1" value="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Total Price:</label>
                 <input type="number" id="amount" name="amount" value="<?= htmlspecialchars($package['package_price']) ?>" readonly>
             </div>
 
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address">
-            </div>
-
-            <button type="submit" class="submit-button">Book and Pay Now</button>
-            
+            <button type="submit" class="submit-button">Book Now</button>
         </form>
     <?php else: ?>
-        <p>Package details not available.</p>
+        <p>Invalid package selected. Please try again.</p>
     <?php endif; ?>
 </div>
 
-<!-- Loader with M-Pesa logo inside and payment processing text -->
-<div id="loaderContainer" class="loader-container">
-    <div class="loader">
-        <img src="../img/Mpesalogo.png" alt="M-Pesa Logo" class="logo">
-    </div>
-    <div class="loader-text">Payment Processing...</div> <!-- Text below the loader -->
+<!-- Loader -->
+<div class="loader-container" id="loaderContainer">
+    <div class="loader"></div>
+    <div class="loader-text">Processing Payment...</div>
 </div>
 
 <script>
-    // JavaScript to show the loader and hide the form when submitted
-    document.getElementById("bookingPaymentForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent actual form submission
-        document.getElementById("paymentContainer").style.display = "none"; // Hide the form
-        document.getElementById("loaderContainer").style.display = "flex"; // Show the loader
+    const packagePrice = <?= htmlspecialchars($package['package_price']) ?>;
+    const adultsInput = document.getElementById('adults');
+    const amountInput = document.getElementById('amount');
+    const checkinDateInput = document.getElementById('checkin_date');
+    const checkoutDateInput = document.getElementById('checkout_date');
 
-        // Simulate form submission after showing the loader
-        setTimeout(() => {
-            event.target.submit(); // Submit the form after loader animation
-        }, 1000); // Adjust delay as needed
+    // Function to calculate total price based on number of people and number of nights
+    function calculateTotalPrice() {
+        const adults = parseInt(adultsInput.value) || 1;  // Default to 1 adult if input is empty
+        const checkinDate = new Date(checkinDateInput.value);
+        const checkoutDate = new Date(checkoutDateInput.value);
+
+        if (checkinDate && checkoutDate && checkoutDate > checkinDate) {
+            // Calculate number of nights
+            const timeDiff = checkoutDate - checkinDate;
+            const nights = timeDiff / (1000 * 3600 * 24);
+
+            // Calculate total price (base price per adult * number of nights * number of people)
+            const total = adults * packagePrice * nights;
+            amountInput.value = total.toFixed(2);
+        } else {
+            amountInput.value = 0;
+        }
+    }
+
+    // Event listeners for input changes
+    adultsInput.addEventListener('input', calculateTotalPrice);
+    checkinDateInput.addEventListener('change', calculateTotalPrice);
+    checkoutDateInput.addEventListener('change', calculateTotalPrice);
+
+    const form = document.getElementById('bookingPaymentForm');
+    const loader = document.getElementById('loaderContainer');
+    const paymentContainer = document.getElementById('paymentContainer');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        paymentContainer.style.display = 'none';
+        loader.style.display = 'flex';
+        setTimeout(() => form.submit(), 2000); // Simulate a delay
     });
 </script>
 
