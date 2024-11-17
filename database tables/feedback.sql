@@ -8,6 +8,7 @@ CREATE TABLE feedback (
     message TEXT NOT NULL,                                     -- Feedback content
     submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP           -- Submission date/time
 );
+
 CREATE TABLE resolved_feedback (
     id INT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(255) NOT NULL,

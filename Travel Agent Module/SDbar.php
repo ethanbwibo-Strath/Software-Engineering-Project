@@ -144,7 +144,7 @@ session_start();
             
             <li><a href="viewPackages.php" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
             <li><a href="customercare.php" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
-            <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
+            <li><a href="events.php" class="nav-item"><i class='bx bxs-calendar-event'></i>Events</a></li>
             <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
         </ul> 
         <script src="sidebar.js"></script>
