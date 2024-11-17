@@ -1,9 +1,13 @@
 <?php
 // Database configuration
-$host = 'localhost:3307';
+$host = 'localhost';
 $dbname = 'cheapthrills'; // Replace with your database name
 $username = 'root'; // Replace with your database username
+<<<<<<< HEAD
 $password = 'mySQLpass_11!'; // Replace with your database password
+=======
+$password = ''; // Replace with your database password
+>>>>>>> 3e519a2a852e5120ff9efa192c37c75317f62cd4
 
 try 
 {
