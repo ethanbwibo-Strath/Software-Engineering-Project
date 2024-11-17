@@ -40,9 +40,12 @@ try {
     <link rel="stylesheet" href="Travel Agent Dashboard.css"> <!-- Use the same stylesheet -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
-        /* Add custom styles for the feedback table if needed */
+        .dashboard {
+            margin-left: 60px;
+            padding: 20px;
+        }
         table {
-            width: 100%;
+            width: 90%;
             border-collapse: collapse;
             margin: 20px 0;
             margin-left: 50px;
@@ -58,14 +61,15 @@ try {
         }
         .resolve-btn {
             padding: 5px 10px;
-            background-color: #4CAF50;
+            background-color: #DAA520;
             color: white;
             text-decoration: none;
             border: none;
             border-radius: 5px;
         }
         .resolve-btn:hover {
-            background-color: #45a049;
+            background-color: #fff;
+            color: goldenrod;
         }
         .dashboard h2{
             margin-right: 50px ;
@@ -150,7 +154,7 @@ try {
                 </div>
             </li>
             
-            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="viewPackages.php" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
             <li><a href="customercare.php" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
             <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
             <li><a href="../logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>

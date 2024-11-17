@@ -219,6 +219,25 @@ ul li:hover a {
 }
 
 
+.menu .submenu {
+    display: none;
+    padding-left: 1px;
+}
+
+.menu .item:hover .submenu {
+    display: block;
+}
+
+.submenu-item {
+    margin: -15px 0 0 0;
+}
+
+.submenu-item a:hover {
+    color: goldenrod;
+}
+
+
+
 /* ---------------------------------- Dashboard Styling  --------------------------------------- */
 .dashboard {
     display: flex;
@@ -266,6 +285,10 @@ ul li:hover a {
     color: inherit; 
 }
 
+.package-item h3 {
+    margin: 5px 0; 
+}
+
 .package-item:hover {
     transform: scale(1.05); /* Scale up the item slightly */
     box-shadow: 0 4px 10px goldenrod; 
@@ -301,7 +324,7 @@ ul li:hover a {
 }
 
 .upcoming-events, .notifications {
-    margin: 0 0 20px 65px;
+    margin: 0 0 20px 10px;
     padding: 15px;
     background-color: #fff;
     border-radius: 10px;
@@ -309,7 +332,7 @@ ul li:hover a {
     flex: 1;
 }
 
-.upcoming-events {
+.upcoming-events, .notifications {
     margin-right: 20px; 
 }
 
@@ -328,6 +351,10 @@ ul li:hover a {
     align-items: center;
     min-height: 10vh;
     box-shadow: 0px 0px 10px #000;
+    /* position: fixed;
+    bottom: 0;
+    margin-top: 10px;
+    width: 100%; */
 }
 
 .socials img{
