@@ -42,10 +42,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Execute the statement
                 if ($stmt->execute()) {
-                    echo "Package created successfully!";
-                } else {
-                    echo "Error creating package.";
-                }
+                            // Display success message and redirect after 2 seconds
+        echo "<div class='alert alert-success'>Package created successfully!</div>";
+        echo "<script>
+                setTimeout(function() {
+                    window.location.href = 'Travel Agent Dashboard.php';
+                }, 2000); // Redirect after 2 seconds
+              </script>";
+    } else {
+        echo "<div class='alert alert-danger'>Error: Unable to create package.</div>";
+        echo "<script>
+                setTimeout(function() {
+                    window.location.href = 'createPackage.php';
+                }, 2000); // Redirect after 2 seconds
+              </script>";
+    }
             } else {
                 echo "Error uploading file.";
             }
