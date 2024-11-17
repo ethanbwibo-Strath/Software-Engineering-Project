@@ -2,6 +2,16 @@
 // bookingForm.php
 // Start the session
 session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login if not logged in
+    header("Location: ../LoginPage.php");
+    exit();
+}
+
+// If logged in, continue with booking
+$userID = $_SESSION['user_id'];  // Get the user ID from the session
+
 // Include your database connection file
 include "../dbConnection.php";
 

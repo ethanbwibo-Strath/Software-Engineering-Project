@@ -4,12 +4,28 @@ include 'db.php';
 include 'accessToken.php';
 date_default_timezone_set('Africa/Nairobi');
 
+// Start the session to access session variables
+session_start();
+
 // Get phone number, amount, and user name from form input
 $phone = $_POST['phone'];
 $money = $_POST['amount'];
 $userName = $_POST['name']; // Assuming name is submitted earlier in the booking form
 $packageName = $_POST['package_name']; // Assuming package name is passed as part of form data
+$checkinDate = $_POST['checkin_date']; // Check-in date from the form
+$checkoutDate = $_POST['checkout_date']; // Check-out date from the form
+$adults = $_POST['adults']; // Number of adults
+$children = $_POST['children']; // Number of children
 
+// Check if the user is logged in (check if 'user_id' exists in the session)
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if the user is not logged in
+    header("Location: login.php");
+    exit();
+}
+
+// If the user is logged in, get the user_id from the session
+$userID = $_SESSION['user_id']; // User ID stored in the session
 $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 $callbackurl = 'https://cheapthrillsse.vercel.app'; 
 $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"; 
@@ -54,7 +70,7 @@ $data = json_decode($curl_response);
 
 // Insert transaction into the database
 try {
-    // Prepare SQL statement
+    // Prepare SQL statement to insert the transaction into the database
     $stmt = $pdo->prepare("INSERT INTO transactions (phone_number, amount, checkout_request_id, transaction_status, response_code, response_description) VALUES (:phone_number, :amount, :checkout_request_id, :transaction_status, :response_code, :response_description)");
 
     // Bind parameters
@@ -72,10 +88,26 @@ try {
     // Execute the statement
     $stmt->execute();
 
-    sleep(20);
-    // Output success message or receipt display
+    sleep(20);  // Wait for 20 seconds for callback
     if ($responseCode == "0") {
-        // Transaction successful, show receipt
+        // Transaction successful, now insert booking information
+        $packageID = $_POST['package_id']; // Assuming Package ID is passed in the form
+
+        // Prepare SQL to insert booking details
+        $stmt_booking = $pdo->prepare("INSERT INTO booked_packages (UserID, package_id, checkin_date, checkout_date, adults, children) VALUES (:userID, :packageID, :checkinDate, :checkoutDate, :adults, :children)");
+        
+        // Bind parameters for the booking table
+        $stmt_booking->bindParam(':userID', $userID);
+        $stmt_booking->bindParam(':packageID', $packageID);
+        $stmt_booking->bindParam(':checkinDate', $checkinDate);
+        $stmt_booking->bindParam(':checkoutDate', $checkoutDate);
+        $stmt_booking->bindParam(':adults', $adults);
+        $stmt_booking->bindParam(':children', $children);
+
+        // Execute the booking insertion
+        $stmt_booking->execute();
+
+        // Output success message or receipt display
         echo "
         <html>
         <head>
