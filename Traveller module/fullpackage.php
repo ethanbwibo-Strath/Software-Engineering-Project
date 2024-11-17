@@ -132,7 +132,10 @@ $conn = null;
     }
 </style>
 
-<?php include 'header.php'; ?>
+<?php 
+$pagetitle = "Package Details";
+include 'header.php'; 
+?>
 
     <div class="main-content">
 

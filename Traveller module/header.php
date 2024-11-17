@@ -49,10 +49,10 @@
                             <a href="Travel Agent Dashboard.php">Agent Dashboard</a>
 
                         <?php elseif ($_SESSION['account_type'] == 'traveler') : ?>
-                            <a href="travelerDashboard.php">My Bookings</a>
+                            <a href="myTrips.php">My Bookings</a>
                         <?php endif; ?>
 
-                        <a href="../Traveller Module/logout.php">Logout</a>
+                        <a href="../logout.php">Logout</a>
                     </div>
                 </li>
 

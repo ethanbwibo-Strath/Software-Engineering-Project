@@ -1,6 +1,7 @@
 <?php
 // bookingForm.php
-
+// Start the session
+session_start();
 // Include your database connection file
 include "../dbConnection.php";
 
@@ -24,8 +25,9 @@ if ($package_id) {
     echo "Invalid package ID.";
     exit;
 }
-?>
 
+
+?>
 
 <style>
         /* Style for booking form */
@@ -129,7 +131,10 @@ if ($package_id) {
         }
     </style>
 
-<?php include "header.php" ?>
+<?php 
+$pagetitle = "Book and Pay for Your Package";
+include "header.php" 
+?>
 
 <div class="main-content">
 
@@ -208,6 +213,33 @@ if ($package_id) {
         }, 1000); // Adjust delay as needed
     });
 </script>
+
+
+
+<?php 
+// Assuming you have the UserId from session or other source
+if (isset($_SESSION['user_id'])) {
+    $UserId = $_SESSION['user_id']; // Example: getting UserId from session
+} else {
+    echo "User not logged in.";
+    exit;
+}
+
+// Insert query to book the package
+$sql = "INSERT INTO booked_packages (UserId, package_id) VALUES (:UserId, :package_id)";
+
+try {
+    $db = new dbConnection();
+    $conn = $db->conn;
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':UserId', $UserId, PDO::PARAM_INT);
+    $stmt->bindParam(':package_id', $package_id, PDO::PARAM_INT);
+    $stmt->execute();
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null; // Close the connection
+?>
 
 
 
