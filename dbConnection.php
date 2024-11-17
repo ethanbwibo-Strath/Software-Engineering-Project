@@ -1,6 +1,10 @@
 <?php
 class dbConnection {
-    private $conn; // Keep $conn private
+    private $host = 'localhost:3307';
+    private $dbname = 'cheapthrills';
+    private $username = 'root';
+    private $password = 'araram54@ff';
+    public $conn;
 
     public function __construct() {
         // Database connection setup
