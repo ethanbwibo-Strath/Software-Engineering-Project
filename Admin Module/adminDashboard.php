@@ -3,6 +3,7 @@
 $pagetitle = "Admin Dashboard";
 $stylesheet = "adminStyle.css";
 include "../layouts/header.php";
+include "../dbConnection.php";
 ?>
 
     <head>
@@ -19,21 +20,45 @@ include "../layouts/header.php";
                     <img src="../img/people.png" alt="">
                     <div class="cardInfo">
                         <h2>Total Users</h2>
-                        <p>100</p>
+                        <?php
+                        // Count users from database
+                        $db = new dbConnection();
+                        $sql = "SELECT * FROM users";
+                        $stmt = $db->conn->prepare($sql);
+                        $stmt->execute();
+                        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        echo "<p>" . count($users) . "</p>";
+                        ?>
                     </div>
                 </div>
                 <div class="statCard">
                     <img src="../img/money.png" alt="">
                     <div class="cardInfo">
                         <h2>Revenue in Kshs.</h2>
-                        <p>12,890</p>
+                        <?php
+                        // Count revenue from database
+                        $db = new dbConnection();
+                        $sql = "SELECT SUM(amount) AS total_revenue FROM transactions";
+                        $stmt = $db->conn->prepare($sql);
+                        $stmt->execute();
+                        $revenue = $stmt->fetch(PDO::FETCH_ASSOC);
+                        echo "<p>" . $revenue['total_revenue'] . "</p>";
+                        ?>
                     </div>
                 </div>
                 <div class="statCard">
                     <img src="../img/bag.png" alt="">
                     <div class="cardInfo">
                         <h2>Total Bookings</h2>
-                        <p>61</p>
+                        <?php
+                        // Count bookings from database
+                        $db = new dbConnection();
+                        $sql = "SELECT * FROM booked_packages";
+                        $stmt = $db->conn->prepare($sql);
+                        $stmt->execute();
+                        $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        echo "<p>" . count($bookings) . "</p>";
+                        ?>
                     </div>
                 </div>
             </div>
@@ -41,40 +66,39 @@ include "../layouts/header.php";
                 <div class="recentActivity">
                     <div class="recentActivityHeader">
                         <img src="../img/clock.png" alt="">
-                        <h2>Recent Activity</h2>
+                        <h2>User Log</h2>
                     </div>
                     
-
-                    <div class="activityCard">
-                        <img src="../img/user.png" alt="">
-                        <h3>John Doe</h3>
-                        <div class="activityInfo">
-                            <p>Booked for 5 days</p>
-                        </div>
-                    </div>
-                    <div class="activityCard">
-                        <img src="../img/user.png" alt="">
-                        <h3>John Doe</h3>
-                        <div class="activityInfo">
-                            <p>Booked for 5 days</p>
-                        </div>
-                    </div>
-                    <div class="activityCard">
-                        <img src="../img/user.png" alt="">
-                        <h3>John Doe</h3>
-                        <div class="activityInfo">
-                            <p>Booked for 5 days</p>
-                        </div>
-                    </div>
+                    <!-- Get Recent Activity from database -->
+                    <?php
+                    $db = new dbConnection();
+                    $sql = "SELECT * FROM users";
+                    $stmt = $db->conn->prepare($sql);
+                    $stmt->execute();
+                    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($users as $user) {
+                        echo "<div class='activityCard'>";
+                        echo "<img src='../img/user.png' alt=''>";
+                        echo "<h3>" . $user['username'] . "</h3>";
+                        echo "<div class='activityInfo'>";
+                        echo "<p>Registered on: " . $user['created_at'] . "</p>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                    ?>
                 </div>
 
-                <div class="calendar">
+                <!-- <div class="calendar">
                     <div class="calendarHeader">
                         <img src="../img/calendar.png" alt="">
                         <h2>Event Calendar</h2>
                     </div>
-                    <p>Calendar to be placed HERE!!<br> Together with more content...</p>
-                </div>
+                    <div class="calendarTemplate">
+                        <p>Event 1: Description (Date)</p>
+                        <p>Event 2: Description (Date)</p>
+                        <p>Event 3: Description (Date)</p>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
