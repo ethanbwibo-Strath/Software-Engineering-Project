@@ -1,34 +1,54 @@
 <?php
-// Enable error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Start session
+// Database connection
+include '../dbConnection.php'; // Include your connection file
+$db = new dbConnection();
+$conn = $db->conn;
 session_start();
 
-// Redirect if not logged in
-if (!isset($_SESSION['is_logged_in']) || !$_SESSION['is_logged_in']) {
-    header("Location: ../LoginPage.php");
-    exit;
-}
+// Handle Add Event
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_event'])) {
+    $event_date = $_POST['event_date'];
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $color = $_POST['color'];
 
-// Include database connection
-require_once '../dbConnection.php';
-
-try {
-    // Create a PDO connection object
-    $db = new dbConnection();
-    $conn = $db->conn;
-
-    // Fetch feedback
-    $stmt = $conn->prepare("SELECT * FROM feedback");
+    $stmt = $conn->prepare("INSERT INTO events (event_date, title, description, color) VALUES (:event_date, :title, :description, :color)");
+    $stmt->bindParam(':event_date', $event_date);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':color', $color);
     $stmt->execute();
-    $feedback = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-} catch (PDOException $e) {
-    echo "Error fetching feedback: " . $e->getMessage();
 }
+
+// Handle Update Event
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_event'])) {
+    $id = $_POST['id'];
+    $event_date = $_POST['event_date'];
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $color = $_POST['color'];
+
+    $stmt = $conn->prepare("UPDATE events SET event_date = :event_date, title = :title, description = :description, color = :color WHERE id = :id");
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':event_date', $event_date);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':color', $color);
+    $stmt->execute();
+}
+
+// Handle Delete Event
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_event'])) {
+    $id = $_POST['id'];
+    $stmt = $conn->prepare("DELETE FROM events WHERE id = :id");
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
+// Fetch All Events
+$stmt = $conn->prepare("SELECT * FROM events ORDER BY event_date ASC");
+$stmt->execute();
+$events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +56,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Care</title>
+    <title>Event Management</title>
     <link rel="stylesheet" href="Travel Agent Dashboard.css"> <!-- Use the same stylesheet -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
@@ -46,37 +66,36 @@ try {
         }
         table {
             width: 90%;
-            border-collapse: collapse;
             margin: 20px 0;
-            margin-left: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
         }
         th, td {
-            padding: 10px;
-            text-align: left;
             border: 1px solid #ddd;
+            padding: 8px;
         }
         th {
             background-color: goldenrod;
             color: white;
         }
-        .resolve-btn {
+        .del-btn {
             padding: 5px 10px;
             background-color: #DAA520;
             color: white;
             text-decoration: none;
             border: none;
             border-radius: 5px;
+            margin-left: 10px;
         }
-        .resolve-btn:hover {
+        .del-btn:hover {
             background-color: #fff;
             color: goldenrod;
-        }
-        .dashboard h2{
-            margin-right: 50px ;
         }
     </style>
 </head>
 <body>
+
     <!-- Navbar -->
     <div class="nav">
     <div class="logo">
@@ -166,28 +185,39 @@ try {
 
     <!-- Main Content -->
     <div class="dashboard">
-        <h1>Customer Care</h1>
+        <h1>Event Management</h1>
+
         <table>
-            <tr>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>Submitted At</th>
-                <th>Action</th>
-            </tr>
-            <?php foreach ($feedback as $row): ?>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($row['type']) ?></td>
-                    <td><?= htmlspecialchars($row['name']) ?></td>
-                    <td><?= htmlspecialchars($row['email']) ?></td>
-                    <td><?= htmlspecialchars($row['message']) ?></td>
-                    <td><?= htmlspecialchars($row['submitted_at']) ?></td>
-                    <td>
-                        <a href="contact_form.php?email=<?= urlencode($row['email']) ?>&name=<?= urlencode($row['name']) ?>&type=<?= urlencode($row['type']) ?>" class="resolve-btn">Resolve</a>
-                    </td>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Color</th>
+                    <th>Actions</th>
                 </tr>
-            <?php endforeach; ?>
+            </thead>
+            <tbody>
+                <?php foreach ($events as $event): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($event['event_date']); ?></td>
+                        <td><?= htmlspecialchars($event['title']); ?></td>
+                        <td><?= htmlspecialchars($event['description']); ?></td>
+                        <td>
+                            <span style="color: <?= htmlspecialchars($event['color']); ?>;">
+                                <?= htmlspecialchars($event['color']); ?>
+                            </span>
+                        </td>
+                        <td>
+                            <a href="updateEventForm.php?id=<?= $event['id']; ?>">Update</a>
+                            <form method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<?= $event['id']; ?>">
+                                <button class="del-btn"  type="submit" name="delete_event">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 

@@ -50,20 +50,7 @@ th:nth-child(5), td:nth-child(5) { /* Username */
 }
 
 th:nth-child(6), td:nth-child(6) { /* Password */
-    width: 100%;
-}
-
-th:nth-child(7), td:nth-child(7) { /* Role */
-    width: 10%;
-}
-
-th:nth-child(8), td:nth-child(8) { /* Actions */
-    width: 15%; /* Adjusted width for better spacing */
-}
-
-/* Increase the Actions column width */
-td:nth-child(8) {
-    width: 100%; /* Further increase the width of the Actions column */
+    width: 15%;
 }
 
 .searchBar {

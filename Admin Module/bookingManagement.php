@@ -25,37 +25,46 @@ include "../layouts/header.php";
             <thead>
                 <th>Booking ID</th>
                 <th>User Name</th>
-                <th>Destination</th>
-                <th>Date of Booking</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>Package</th>
+                <th>Check-in Date</th>
+                <th>Check-Out Date</th>
+                <th>Price</th>
             </thead>
             <!-- Table Body -->
             <tbody>
-                <!-- Dummy Data -->
                 <?php
-                    $bookings = 
-                    [
-                        ["id" => 1, "username" => "johndoe", "destination" => "Malaysia", "date" => "2022-01-01", "status" => "Pending"],
-                        ["id" => 2, "username" => "janedoe", "destination" => "Japan", "date" => "2022-01-02", "status" => "Approved"],
-                        ["id" => 3, "username" => "bobsmith", "destination" => "France", "date" => "2022-01-03", "status" => "Pending"],
-                    ];
-                    // Loop through and display bookings
+                    // Get the bookings from the database
+                    include "../dbConnection.php";
+                    $db = new dbConnection();
+                    $conn = $db->conn;
+                    $sql = "SELECT 
+                                    booked_packages.id, 
+                                    users.username, 
+                                    packages.package_name, 
+                                    booked_packages.checkin_date, 
+                                    booked_packages.checkout_date, 
+                                    packages.package_price
+                                FROM 
+                                    booked_packages
+                                JOIN 
+                                    users ON booked_packages.UserID = users.UserID
+                                JOIN 
+                                    packages ON booked_packages.package_id = packages.package_id;
+                                ";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($bookings as $booking) {
                         echo "<tr>";
-                        echo "<td>" . $booking["id"] . "</td>";
-                        echo "<td>" . $booking["username"] . "</td>";
-                        echo "<td>" . $booking["destination"] . "</td>";
-                        echo "<td>" . $booking["date"] . "</td>";
-                        echo "<td>" . $booking["status"] . "</td>";
-                        echo 
-                        "<td class='buttons'>
-                            <a class='btnView'>View</a>
-                            <a class='btnApprove'>Approve</a>
-                            <a class='btnCancel'>Cancel</a>
-                        </td>";
+                        echo "<td>" . $booking['id'] . "</td>";
+                        echo "<td>" . $booking['username'] . "</td>";
+                        echo "<td>" . $booking['package_name'] . "</td>";
+                        echo "<td>" . $booking['checkin_date'] . "</td>";
+                        echo "<td>" . $booking['checkout_date'] . "</td>";
+                        echo "<td>" . $booking['package_price'] . "</td>";
                         echo "</tr>";
                     }
+                    
                 ?>
             </tbody>
         </table>
