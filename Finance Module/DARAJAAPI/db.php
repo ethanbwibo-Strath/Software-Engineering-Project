@@ -3,6 +3,7 @@
 $host = 'localhost:3307';
 $dbname = 'cheapthrills'; // Replace with your database name
 $username = 'root'; // Replace with your database username
+$password = 'rehanais2cool'; // Replace with your database password
 $password = 'mySQLpass_11!'; // Replace with your database password
 
 try 
