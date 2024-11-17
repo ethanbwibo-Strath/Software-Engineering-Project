@@ -69,16 +69,16 @@ include "../layouts/header.php";
                         echo "<td>" . $user['UserID'] . "</td>";
                         // Current UserID
                         $currentUserID = $user['UserID'];
-                        echo "<td>" . $user['username'] . "</td>";
-                        echo "<td>" . $user['fname'] . "</td>";
-                        echo "<td>" . $user['lname'] . "</td>";
-                        echo "<td>" . $user['email'] . "</td>";
-                        echo "<td>" . $user['phone'] . "</td>";
-                        echo "<td>" . $user['account_type'] . "</td>";
-                        echo "<td class='buttons'>
-                            <button class='btnEdit'>Edit</button>
-                            <button class='btnDelete' onclick='deleteUser();'>Delete</button>
-                        </td>";
+                        echo "<td>" . $user['username'] . "</td>"
+                            . "<td>" . $user['fname'] . "</td>"
+                            . "<td>" . $user['lname'] . "</td>"
+                            . "<td>" . $user['email'] . "</td>"
+                            . "<td>" . $user['phone'] . "</td>"
+                            . "<td>" . $user['account_type'] . "</td>"
+                            . "<td class='buttons'>"
+                            . "<button class='btnDelete' data-id='{$user['UserID']}'>Delete</button>"
+                            . "<button class='btnEdit' data-id='{$user['UserID']}' data-role='{$user['account_type']}'>Change Role</button>"
+                            . "</td>";
                     }
 
                 ?>
@@ -87,7 +87,36 @@ include "../layouts/header.php";
     </div>
 </div>
 
+<script>
+    // Select all delete buttons
+document.querySelectorAll('.btnDelete').forEach(button => {
+    button.addEventListener('click', function () {
+        const userId = this.getAttribute('data-id');
 
+        // Show confirmation pop-up
+        if (confirm('Are you sure you want to delete this user?')) {
+            // Redirect to a PHP
+            window.location.href = `deleteUser.php?id=${userId}`;
+        }
+    });
+});
+
+document.querySelectorAll('.btnEdit').forEach(button => {
+    button.addEventListener('click', function () {
+        const userId = this.getAttribute('data-id');
+        const currentRole = this.getAttribute('data-role');
+        const newRole = prompt(`Current role: ${currentRole}. Enter new role:`);
+
+        if (newRole && newRole !== currentRole) {
+            // Redirect to PHP script to update the role
+            window.location.href = `changeRole.php?id=${userId}&role=${newRole}`;
+        } else if (newRole === currentRole) {
+            alert("The new role is the same as the current role. No changes made.");
+        }
+    });
+});
+
+</script>
 <?php
 // Include the footer
 include "../layouts/footer.php";

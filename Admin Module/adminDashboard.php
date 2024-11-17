@@ -66,7 +66,7 @@ include "../dbConnection.php";
                 <div class="recentActivity">
                     <div class="recentActivityHeader">
                         <img src="../img/clock.png" alt="">
-                        <h2>User Log</h2>
+                        <h2>New Users:</h2>
                     </div>
                     
                     <!-- Get Recent Activity from database -->
