@@ -14,7 +14,7 @@ body
     height: 100vh;
     background-image: url("../img/testbg.jpg");
     background-size: cover;
-    background-position: fixed;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;

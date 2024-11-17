@@ -26,6 +26,13 @@ include "sidebarPanel/adminSide.php";
 
         </canvas>
     </section>
+    <!-- 2. Revenue over time Analytics -->
+    <section id="revenue" class="analyticsSection">
+        <h2>Revenue Over Time</h2>
+        <canvas id="revenueChart">
+
+        </canvas>
+    </section>
 </div>
 <script src="analytics.js"></script>
 <?php
