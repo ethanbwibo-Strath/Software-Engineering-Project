@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$host = 'localhost';
+$host = 'localhost:3307';
 $dbname = 'cheapthrills'; // Replace with your database name
 $username = 'root'; // Replace with your database username
-$password = ''; // Replace with your database password
+$password = 'araram54@ff'; // Replace with your database password
 
 try {
     // Create a new PDO instance

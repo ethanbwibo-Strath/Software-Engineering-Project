@@ -83,14 +83,6 @@
 
     <div class="main-content">
         <h2>Help Center</h2>
-        <p>Let us know how we can assist you. Select one of the options below:</p>
-
-        <!-- Buttons for Complaints, Suggestions, and Requests -->
-        <div class="help-options">
-            <a href="complaint_form.php" class="btn">File a Complaint</a>
-            <a href="suggestion_form.php" class="btn">Submit a Suggestion</a>
-            <a href="request_form.php" class="btn">Make a Request</a>
-        </div>
 
         <h4>Contact Your Assigned Agent</h4>
         <table>
@@ -105,16 +97,31 @@
             <tbody>
                 <tr>
                     <td>Travelocity</td>
-                    <td>08012345678</td>
-                    <td>W9N3a@example.com</td>
-                    <td><a href="https://wa.me/08012345678" target="_blank">08012345678</a></td>
+                    <td><strong>Phone:</strong> <a href="tel:+254 (7)14 516 129">+254 (7)14 516 129</a></td>
+                    <td><strong>Email:</strong> <a href="mailto:info@cheapthrills.com">info@cheapthrills.com</a></td>
+                    <td><strong>WhatsApp:</strong> <a href="https://wa.me/254714516129">Chat Now</a></td>
                 </tr>
             </tbody>
         </table>
 
+        <br>
+
         <h4>Commonly Asked Questions</h4>
         <p>How do I change my travel dates?</p>
         <p>How do I cancel my booking?</p>
+        <p>How do I get a refund?</p>
+
+        <br>
+
+        <h3>You can also:</h3>
+
+        <!-- Buttons for Complaints, Suggestions, and Requests -->
+        <div class="help-options">
+            <a href="complaint_form.php" class="btn">File a Complaint</a>
+            <a href="suggestion_form.php" class="btn">Submit a Suggestion</a>
+            <a href="request_form.php" class="btn">Make a Request</a>
+        </div>
+
     </div>
     <br>
     <br>

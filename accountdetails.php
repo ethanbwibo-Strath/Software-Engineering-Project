@@ -172,7 +172,7 @@ try {
 
 
 
-    <div class="main-content" >
+    <div class="main-content"  style="display: flex; ">
         <div class="top">
             <div class="user">
                 <img src="img/Hotels.jpeg" alt="user" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
