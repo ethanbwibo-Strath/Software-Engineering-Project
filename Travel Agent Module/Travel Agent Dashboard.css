@@ -470,7 +470,7 @@ ul li:hover a {
     align-items: center;
     padding: 30px 20px 20px 20px;
     width: 15%;
-    margin: 40px 0 20px 80px;
+    margin: 60px 0 104px 80px;
 }
 
 .user img {
@@ -497,7 +497,7 @@ ul li:hover a {
     border: 2px solid goldenrod;
     box-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
     border-radius: 10px;
-    margin: 40px 0 20px 5%;
+    margin: 60px 0 104px 5%;
 }
 
 .bottom-separation{
