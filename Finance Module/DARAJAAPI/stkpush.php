@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-include '../../dbConnection.php';
-=======
 include 'db.php';
->>>>>>> bd36a9191054ba914053409aca99a01c5474675e
 include 'accessToken.php';
 
 date_default_timezone_set('Africa/Nairobi');

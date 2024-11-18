@@ -28,7 +28,8 @@ $conn = null;
 ?>
 
 <style>
-    .main-content {
+
+.main-content {
     padding: 20px;
     margin-left: 100px;
 }
@@ -40,45 +41,56 @@ $conn = null;
 }
 
 .package-card {
-    background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin: 10px;
     padding: 15px;
-    width: calc(25% - 20px); /* Adjust width according to your preference */
+    width: calc(30% - 20px); /* Adjust width according to your preference */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 }
 
 .package-card:hover {
-    transform: scale(1.02); /* Scale effect on hover */
+    transform: scale(1.06); /* Scale effect on hover */
+}
+
+.package-card:hover h2 {
+    color: goldenrod;
+}
+
+.package-card p {
+    color: #555;
+}
+.package-card strong {
+    color:black;
 }
 
 .package-image {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 40%;
     border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .package-description {
     font-size: 14px;
     color: #555;
+    margin-bottom: 10px;
 }
 
 .details-button {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: goldenrod;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 5px;    
 }
 
 .details-button:hover {
-    background-color: #0056b3;
+    background-color: black;
 }
-
 </style>
 
     <?php 
@@ -99,9 +111,9 @@ $conn = null;
                         <img src="<?= htmlspecialchars($package['package_image']) ?>" alt="<?= htmlspecialchars($package['package_name']) ?>" class="package-image">
                         <h2><?= htmlspecialchars($package['package_name']) ?></h2>
                         <!-- <p class="package-description"><?= htmlspecialchars($package['package_description']) ?></p> -->
-                        <p><strong>Price:</strong> $<?= htmlspecialchars($package['package_price']) ?></p>
                         <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
                         <p><strong>Hotel:</strong> <?= htmlspecialchars($package['package_hotel']) ?></p>
+                        <p><strong>Price:</strong> <?= htmlspecialchars($package['package_price']) ?> per day & per person</p>
                         <!-- <p><strong>Amenities:</strong> <?= htmlspecialchars($package['package_amenities']) ?></p> -->
                         <a href="fullpackage.php?id=<?= htmlspecialchars($package['package_id']) ?>" class="details-button">View Details</a>
                     </div>
