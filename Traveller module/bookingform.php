@@ -78,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book and Pay for Your Package</title>
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -111,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .form-group input {
-            width: 100%;
+            width: 95%;
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -119,9 +120,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .submit-button {
-            width: 100%;
+            width: 98%;
             padding: 12px;
-            background-color: #007bff;
+            background-color: #daa520;
             color: #fff;
             border: none;
             font-size: 16px;
@@ -130,7 +131,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .submit-button:hover {
-            background-color: #0056b3;
+            background-color: #fff;
+            color: #daa520;
+            border: 1px solid #daa520;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .package-details {
@@ -138,8 +142,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: #555;
             margin-bottom: 20px;
         }
+
         .loader-container {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -148,36 +153,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: rgba(255, 255, 255, 0.8);
             align-items: center;
             justify-content: center;
-            z-index: 10;
-            text-align: center; /* Centering text below the loader */
-        }
-        .loader {
-            width: 7rem;
-            height: 7rem;
-            border: 8px solid #d1d5db; /* Gray border */
-            border-top: 8px solid #34B233; /* M-Pesa green */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px; /* Adds space between spinner and text */
-        }
-        /* Spinner animation */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            z-index: 1000;
         }
 
-        /* M-Pesa logo styling */
-        .logo {
-            width: 2.5rem; /* Adjust size as needed */
-            height: 2.5rem;
+        .loader {
+            width: 4rem;
+            height: 4rem;
+            border: 5px solid #ddd;
+            border-top: 5px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         .loader-text {
+            margin-top: 10px;
             font-size: 1.2rem;
-            color: #34B233; /* M-Pesa green color */
-            font-weight: bold;
+            color: red;
         }
     </style>
     

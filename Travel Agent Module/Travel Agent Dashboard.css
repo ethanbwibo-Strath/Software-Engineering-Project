@@ -458,3 +458,91 @@ ul li:hover a {
         font-size: 0.9rem;
     }
 }
+
+
+/* --------------------------------------Account Details Styling -------------------------------------- */
+
+
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px 20px 20px;
+    width: 15%;
+    margin: 40px 0 20px 80px;
+}
+
+.user img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid goldenrod;
+}
+
+.user p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 65%;
+    padding: 50px 0;
+    background-color: transparent;
+    border: 2px solid goldenrod;
+    box-shadow: 0 0 10px rgba(218, 165, 32, 0.6);
+    border-radius: 10px;
+    margin: 40px 0 20px 5%;
+}
+
+.bottom-separation{
+    display: flex;
+    gap: 1.5cm;
+}
+
+.bottom-buttons {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    gap: 10px; /* Add space between buttons */
+    margin-top: 20px; /* Optional spacing above the buttons */
+}
+
+
+
+.input-container label {
+    color: #333;
+    font-weight: bold;
+}
+
+.input-container input,
+.input-container textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    background-color: #f9f9f9;
+    margin:5px 0 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: goldenrod;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: darkgoldenrod;
+    transition: 0.3s;
+}
+
