@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-include '../../dbConnection.php';
-=======
 include 'db.php';
->>>>>>> bd36a9191054ba914053409aca99a01c5474675e
 include 'accessToken.php';
 
 date_default_timezone_set('Africa/Nairobi');
@@ -81,32 +77,19 @@ if (isset($data['ResponseCode']) && $data['ResponseCode'] == "0") {
     $responseCode = $data['ResponseCode'];
     $responseDescription = $data['ResponseDescription'];
 
-    // Insert transaction into the database
-    try {$stmt = $pdo->prepare("INSERT INTO transactions (phone_number, total_price, checkout_request_id, transaction_status, response_code, response_description) 
-        VALUES (:phone_number, :total_price, :checkout_request_id, :transaction_status, :response_code, :response_description)");
-    
-    $stmt->execute([
-        ':phone_number' => $phone,
-        ':total_price' => $total_price,  // Ensure $total_price is defined
-        ':checkout_request_id' => $checkoutRequestID,
-        ':transaction_status' => 'Completed',
-        ':response_code' => $responseCode,
-        ':response_description' => $responseDescription
-    ]);
-    
-    
-        
-    } catch (PDOException $e) {
-        die("Error: " . $e->getMessage());
-    }
+    $package_id = isset($_POST['package_id']) ? intval($_POST['package_id']) : null;
 
-    // Insert booking details into booked_packages table after payment success
+    if (!$package_id) {
+        echo "Package ID is missing.";
+        exit;
+    }
     try {
-        $stmt = $pdo->prepare("INSERT INTO booked_packages (user_id, full_name, email, phone, checkin_date, checkout_date, num_people, total_price, checkout_request_id) 
-            VALUES (:user_id, :full_name, :email, :phone, :checkin_date, :checkout_date, :num_people, :total_price, :checkout_request_id)");
+        $stmt = $pdo->prepare("INSERT INTO booked_packages (package_id,userID, full_name, email, phone, checkin_date, checkout_date, num_people, total_price, checkout_request_id) 
+            VALUES (:package_id, :userID, :full_name, :email, :phone, :checkin_date, :checkout_date, :num_people, :total_price, :checkout_request_id)");
 
         $stmt->execute([
-            ':user_id' => $userID,
+            ':package_id' => $package_id,
+            ':userID' => $userID,
             ':full_name' => $full_name,
             ':email' => $email,
             ':phone' => $phone,
@@ -116,11 +99,57 @@ if (isset($data['ResponseCode']) && $data['ResponseCode'] == "0") {
             ':total_price' => $total_price,
             ':checkout_request_id' => $checkoutRequestID
         ]);
+        $stmt = $pdo->prepare("INSERT INTO transactions (phone_number, total_price, checkout_request_id, transaction_status, response_code, response_description) 
+            VALUES (:phone_number, :total_price, :checkout_request_id, :transaction_status, :response_code, :response_description)");
+        
+        $stmt->execute([
+            ':phone_number' => $phone,
+            ':total_price' => $total_price,
+            ':checkout_request_id' => $checkoutRequestID,
+            ':transaction_status' => 'Completed',
+            ':response_code' => $responseCode,
+            ':response_description' => $responseDescription
+        ]);
+        
+        echo "
+        <html>
+        <head>
+            <meta http-equiv='refresh' content='2;url=../../Traveller module\myTrips.php'>
+            <title>Payment Successful</title>
+            <style>
+                body { font-family: Arial, sans-serif; text-align: center; margin-top: 20%; }
+                h1 { color: #28a745; }
+                p { font-size: 1.2em; }
+            </style>
+        </head>
+        <body>
+            <h1>Payment Successful!</h1>
+            <p>Your booking has been confirmed. Redirecting to My Trips...</p>
+        </body>
+        </html>
+        ";
+
     } catch (PDOException $e) {
         die("Error inserting booking: " . $e->getMessage());
     }
 
 } else {
-    echo "Payment failed: " . $data['ResponseDescription'];
+    echo "
+    <html>
+    <head>
+        <meta http-equiv='refresh' content='2;url=../../Traveller module\myTrips.php'>
+        <title>Payment Failed</title>
+        <style>
+            body { font-family: Arial, sans-serif; text-align: center; margin-top: 20%; }
+            h1 { color: #d9534f; }
+            p { font-size: 1.2em; }
+        </style>
+    </head>
+    <body>
+        <h1>Payment Failed</h1>
+        <p>{$data['ResponseDescription']} Redirecting to My Trips...</p>
+    </body>
+    </html>
+    ";
 }
 ?>
