@@ -20,10 +20,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lname = trim($_POST['lname']);
         $username = trim($_POST['username']);
         $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);  // changed `gmail` for consistency
+        // $profilePicture = trim($_POST['ProfilePic']);
         $phone = preg_match('/^\d{10,15}$/', trim($_POST['phone'])) ? trim($_POST['phone']) : null;
         $password = trim($_POST['password']);
         $confirmPassword = trim($_POST['confirm-password']);
         $accountType = trim($_POST['account']);
+
+        if(isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == 0) {
+            // $profilePicture = $_FILES['profile_picture']['name'];
+            // $profilePictureType = $_FILES['profile_picture']['type'];
+
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            $profilePictureType = $_FILES['profile_picture']['type'];
+
+            if(in_array($profilePictureType, $allowedTypes)) {
+                $targetDir = 'uploads/profile_pictures/';
+                $filename=uniqid('profile_',true) . '.' . pathinfo($_FILES['profile_picture']['name'], PATHINFO_EXTENSION);
+                $targetFile = $targetDir . $filename;
+
+                if(move_uploaded_file($_FILES['profile_picture']['tmp_name'], $targetFile)) {
+                    $profilePicturePath = $targetFile;
+                    echo $profilePicturePath;
+                }else{
+                    $error = "Error uploading profile picture.";
+                }
+            }else{
+                $error = "Invalid file extension.";
+            }
+
+        }else{
+            $profilePicturePath = null;
+        }
 
         if ($password !== $confirmPassword) {
             $error = "Passwords do not match.";
@@ -33,12 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             try {
                 $db = new dbConnection();
-                $stmt = $db->conn->prepare("INSERT INTO users (fname, lname, username, email, phone, password, account_type) VALUES (:fname, :lname, :username, :email, :phone, :password, :account_type)");
+                $stmt = $db->conn->prepare("INSERT INTO users (fname, lname, username, email,profile_picture, phone, password, account_type) VALUES (:fname, :lname, :username, :email,:profile_picture, :phone, :password, :account_type)");
 
                 $stmt->bindParam(':fname', $fname);
                 $stmt->bindParam(':lname', $lname);
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':profile_picture', $profilePicturePath);
                 $stmt->bindParam(':phone', $phone);
                 $stmt->bindParam(':password', $hashedPassword);
                 $stmt->bindParam(':account_type', $accountType);
@@ -97,7 +125,7 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
         <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
 
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
             <div class="input-container">
@@ -118,6 +146,11 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             <div class="input-container">
                 <label for="email">Email :</label><br>
                 <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-container">
+                <label for="image">Profile Picture :</label><br>
+                <input type="file" id="profile_picture" name="profile_picture">
             </div>
 
             <div class="input-container">

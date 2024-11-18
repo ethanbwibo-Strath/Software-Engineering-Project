@@ -1,78 +1,64 @@
 <?php
-// Enable error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Start session
 session_start();
+include '../dbConnection.php';
+$db = new dbConnection();
+$conn = $db->conn;
 
-// Redirect if not logged in
-if (!isset($_SESSION['is_logged_in']) || !$_SESSION['is_logged_in']) {
-    header("Location: ../LoginPage.php");
-    exit;
-}
-
-// Include database connection
-require_once '../dbConnection.php';
-
-try {
-    // Create a PDO connection object
-    $db = new dbConnection();
-    $conn = $db->conn;
-
-    // Fetch feedback
-    $stmt = $conn->prepare("SELECT * FROM feedback");
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $stmt = $conn->prepare("SELECT * FROM events WHERE id = :id");
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
-    $feedback = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-} catch (PDOException $e) {
-    echo "Error fetching feedback: " . $e->getMessage();
+    $event = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-?>
 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Care</title>
-    <link rel="stylesheet" href="Travel Agent Dashboard.css"> <!-- Use the same stylesheet -->
+    <title>Update Event</title>
+    <link rel="stylesheet" href="Travel Agent Dashboard.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <style>
-        .dashboard {
-            margin-left: 60px;
+        .form-container {
+            margin: 60px auto;
             padding: 20px;
-        }
-        table {
-            width: 90%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            margin-left: 50px;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
+            width: 80%;
+            background-color: transparent;
             border: 1px solid #ddd;
-        }
-        th {
-            background-color: goldenrod;
-            color: white;
-        }
-        .resolve-btn {
-            padding: 5px 10px;
-            background-color: #DAA520;
-            color: white;
-            text-decoration: none;
-            border: none;
             border-radius: 5px;
         }
-        .resolve-btn:hover {
-            background-color: #fff;
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
             color: goldenrod;
         }
-        .dashboard h2{
-            margin-right: 50px ;
+        .form-container input, .form-container textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #fff;
+            color: goldenrod;
         }
     </style>
 </head>
@@ -165,31 +151,22 @@ try {
     </div>
 
     <!-- Main Content -->
-    <div class="dashboard">
-        <h1>Customer Care</h1>
-        <table>
-            <tr>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>Submitted At</th>
-                <th>Action</th>
-            </tr>
-            <?php foreach ($feedback as $row): ?>
-                <tr>
-                    <td><?= htmlspecialchars($row['type']) ?></td>
-                    <td><?= htmlspecialchars($row['name']) ?></td>
-                    <td><?= htmlspecialchars($row['email']) ?></td>
-                    <td><?= htmlspecialchars($row['message']) ?></td>
-                    <td><?= htmlspecialchars($row['submitted_at']) ?></td>
-                    <td>
-                        <a href="contact_form.php?email=<?= urlencode($row['email']) ?>&name=<?= urlencode($row['name']) ?>&type=<?= urlencode($row['type']) ?>" class="resolve-btn">Resolve</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+    <div class="form-container">
+        <h1>Update Event</h1>
+        <form method="post" action="events.php">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($event['id']); ?>">
+            <label for="event_date">Date:</label>
+            <input type="date" id="event_date" name="event_date" value="<?= htmlspecialchars($event['event_date']); ?>" required>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<?= htmlspecialchars($event['title']); ?>" required>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required><?= htmlspecialchars($event['description']); ?></textarea>
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" value="<?= htmlspecialchars($event['color']); ?>" required>
+            <button type="submit" name="update_event">Update Event</button>
+        </form>
     </div>
+
 
     <!-- Footer -->
     <div class="footer">

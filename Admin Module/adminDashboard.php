@@ -66,13 +66,13 @@ include "../dbConnection.php";
                 <div class="recentActivity">
                     <div class="recentActivityHeader">
                         <img src="../img/clock.png" alt="">
-                        <h2>User Log</h2>
+                        <h2>New Users:</h2>
                     </div>
                     
                     <!-- Get Recent Activity from database -->
                     <?php
                     $db = new dbConnection();
-                    $sql = "SELECT * FROM users";
+                    $sql = "SELECT * FROM users ORDER BY created_at DESC LIMIT 3";
                     $stmt = $db->conn->prepare($sql);
                     $stmt->execute();
                     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);

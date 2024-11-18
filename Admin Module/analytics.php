@@ -33,6 +33,22 @@ include "sidebarPanel/adminSide.php";
 
         </canvas>
     </section>
+
+    <!-- 3. Popular packages -->
+    <section id="popularPackages" class="analyticsSection">
+        <h2>Popular Packages</h2>
+        <canvas id="popularPackagesChart">
+
+        </canvas>
+    </section>
+
+    <!-- 4. Most Active Travellers -->
+    <section id="activeTravellers" class="analyticsSection">
+        <h2>Most Active Travellers</h2>
+        <canvas id="activeTravellersChart">
+
+        </canvas>
+    </section>
 </div>
 <script src="analytics.js"></script>
 <?php

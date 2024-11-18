@@ -1,56 +1,60 @@
 <?php
 // bookingForm.php
+// Start the session
 session_start();
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
-
 if (!isset($_SESSION['user_id'])) {
+    // Redirect to login if not logged in
     header("Location: ../LoginPage.php");
     exit();
 }
 
+// If logged in, continue with booking
 $userID = $_SESSION['user_id'];  // Get the user ID from the session
 
+// Include your database connection file
 include "../dbConnection.php";
 
 // Retrieve package details from the package ID in the URL
 $package_id = isset($_GET['package_id']) ? intval($_GET['package_id']) : null;
 
 if ($package_id) {
+    // Create a new instance of dbConnection
     $db = new dbConnection();
     $conn = $db->conn;
 
+    // Prepare and execute the SQL query to fetch the package details
     $query = "SELECT * FROM packages WHERE package_id = :package_id";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':package_id', $package_id, PDO::PARAM_INT);
     $stmt->execute();
 
-    $package = $stmt->fetch(PDO::FETCH_ASSOC);
-    $conn = null;
+    $package = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch package details as an associative array
+    $conn = null; // Close the connection
 } else {
     echo "Invalid package ID.";
     exit;
 }
 
-// Process form submission
+// Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Assuming you have the UserId from session or other source
     if (isset($_SESSION['user_id'])) {
-        $UserId = $_SESSION['user_id'];
+        $UserId = $_SESSION['user_id']; // Example: getting UserId from session
     } else {
         echo "User not logged in.";
         exit;
     }
 
+    // Retrieve form data
     $checkin_date = $_POST['checkin_date'];
     $checkout_date = $_POST['checkout_date'];
-    $num_people = intval($_POST['num_people']);
-    // $children = intval($_POST['children']);
+    $adults = intval($_POST['adults']);
+    $children = intval($_POST['children']);
 
-    $sql = "INSERT INTO booked_packages (UserId, package_id, checkin_date, checkout_date, num_people) 
-            VALUES (:UserId, :package_id, :checkin_date, :checkout_date, :num_people)";
+    // Insert query to book the package
+    $sql = "INSERT INTO booked_packages (UserId, package_id, checkin_date, checkout_date, adults, children) 
+            VALUES (:UserId, :package_id, :checkin_date, :checkout_date, :adults, :children)";
 
     try {
         $db = new dbConnection();
@@ -60,31 +64,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindParam(':package_id', $package_id, PDO::PARAM_INT);
         $stmt->bindParam(':checkin_date', $checkin_date, PDO::PARAM_STR);
         $stmt->bindParam(':checkout_date', $checkout_date, PDO::PARAM_STR);
-        $stmt->bindParam(':num_people', $num_people, PDO::PARAM_INT);
-        // $stmt->bindParam(':children', $children, PDO::PARAM_INT);
+        $stmt->bindParam(':adults', $adults, PDO::PARAM_INT);
+        $stmt->bindParam(':children', $children, PDO::PARAM_INT);
         $stmt->execute();
         echo "Package booked successfully!";
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
-    $conn = null;
+    $conn = null; // Close the connection
 }
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book and Pay for Your Package</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
+<style>
+        /* Style for booking form */
         .booking-form {
             max-width: 600px;
             margin: 40px auto;
@@ -94,9 +87,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .booking-form h2 {
+        .booking-form h2, .booking-form h3 {
             text-align: center;
             color: #333;
+        }
+
+        .package-details {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
         }
 
         .form-group {
@@ -107,7 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: block;
             font-size: 14px;
             color: #555;
-            margin-bottom: 5px;
         }
 
         .form-group input {
@@ -126,18 +124,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: none;
             font-size: 16px;
             border-radius: 4px;
-            cursor: pointer;
         }
 
         .submit-button:hover {
             background-color: #0056b3;
         }
 
-        .package-details {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
-        }
+        /* Loader styling */
         .loader-container {
             display: none; /* Initially hidden */
             position: fixed;
@@ -151,6 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             z-index: 10;
             text-align: center; /* Centering text below the loader */
         }
+
         .loader {
             width: 7rem;
             height: 7rem;
@@ -163,6 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             animation: spin 1s linear infinite;
             margin-bottom: 20px; /* Adds space between spinner and text */
         }
+
         /* Spinner animation */
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -174,20 +169,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: 2.5rem; /* Adjust size as needed */
             height: 2.5rem;
         }
+
+        /* Styling for the text under the loader */
         .loader-text {
             font-size: 1.2rem;
             color: #34B233; /* M-Pesa green color */
             font-weight: bold;
         }
     </style>
-    
+
 <?php 
 $pagetitle = "Book and Pay for Your Package";
 include "header.php" 
 ?>
-</head>
-<body>
-    
+
 <div class="main-content">
 
 <div class="booking-form" id="paymentContainer">
@@ -195,15 +190,16 @@ include "header.php"
 
     <?php if ($package): ?>
         <div class="package-details">
-        <h3>Package Details</h3>
+            <h3>Package Details</h3>
             <p><strong>Package Name:</strong> <?= htmlspecialchars($package['package_name']) ?></p>
             <p><strong>Duration:</strong> <?= htmlspecialchars($package['package_duration']) ?> days</p>
-            <p><strong>Base Price:</strong> <?= htmlspecialchars($package['package_price']) ?> per person per day</p>
+            <p><strong>Total Price:</strong> <?= htmlspecialchars($package['package_price']) ?></p>
         </div>
 
         <form action="../Finance Module/DARAJAAPI/stkpush.php" method="post" id="bookingPaymentForm">
             <input type="hidden" name="package_id" value="<?= htmlspecialchars($package_id) ?>">
-
+            
+            <!-- Booking Fields -->
             <div class="form-group">
                 <label for="package_name">Package Name:</label>
                 <input type="text" id="package_name" name="package_name" value="<?= htmlspecialchars($package['package_name']) ?>" readonly>
@@ -211,7 +207,7 @@ include "header.php"
 
             <div class="form-group">
                 <label for="name">Full Name:</label>
-                <input type="text" id="name" name="full_name" required>
+                <input type="text" id="name" name="name" required>
             </div>
 
             <div class="form-group">
@@ -230,18 +226,24 @@ include "header.php"
             </div>
 
             <div class="form-group">
-                <label for="num_people">Number of People:</label>
-                <input type="number" id="num_people" name="num_people" min="1" value="1" required>
+                <label for="adults">Adults:</label>
+                <input type="number" id="adults" name="adults" min="1" required>
             </div>
 
             <div class="form-group">
-                <label for="amount">Total Price:</label>
-                <input type="number" id="total_price" name="total_price" value="<?= htmlspecialchars($package['package_price']) ?>" readonly>
+                <label for="children">Children:</label>
+                <input type="number" id="children" name="children" min="0">
             </div>
 
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
                 <input type="text" id="phone" name="phone" placeholder="2547XXXXXXXX" required>
+            </div>
+
+            <!-- Display amount from database as readonly -->
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" value="<?= htmlspecialchars($package['package_price']) ?>" readonly>
             </div>
 
             <div class="form-group">
@@ -250,40 +252,12 @@ include "header.php"
             </div>
 
             <button type="submit" class="submit-button">Book Now</button>
+            
         </form>
     <?php else: ?>
-        <p>Invalid package selected. Please try again.</p>
+        <p>Package details not available.</p>
     <?php endif; ?>
 </div>
-
-
-
-<script>
-    const packagePrice = <?= htmlspecialchars($package['package_price']) ?>;
-    const num_peopleInput = document.getElementById('num_people');
-    const amountInput = document.getElementById('total_price');
-    const checkinDateInput = document.getElementById('checkin_date');
-    const checkoutDateInput = document.getElementById('checkout_date');
-
-    function calculateTotalPrice() {
-        const num_people = parseInt(num_peopleInput.value) || 1;
-        const checkinDate = new Date(checkinDateInput.value);
-        const checkoutDate = new Date(checkoutDateInput.value);
-
-        if (checkinDate && checkoutDate && checkoutDate > checkinDate) {
-            const nights = (checkoutDate - checkinDate) / (1000 * 3600 * 24);
-            const total = num_people * packagePrice * nights;
-            amountInput.value = total.toFixed(0);
-        } else {
-            amountInput.value = 0;
-        }
-    }
-
-    num_peopleInput.addEventListener('input', calculateTotalPrice);
-    checkinDateInput.addEventListener('change', calculateTotalPrice);
-    checkoutDateInput.addEventListener('change', calculateTotalPrice);
-</script>
-
 
 <!-- Loader with M-Pesa logo inside and payment processing text -->
 <div id="loaderContainer" class="loader-container">
@@ -308,8 +282,8 @@ include "header.php"
 </script>
 
 </div>
-
-<div class="footer">
+    
+    <div class="footer">
         <div class="socials">
             <img src="../img/twitter.png" alt="Twitter">
             <img src="../img/instagram.png" alt="Instagram">
@@ -320,6 +294,5 @@ include "header.php"
             <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
         </div>
     </div>
-
 </body>
 </html>

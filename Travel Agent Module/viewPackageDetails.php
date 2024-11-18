@@ -12,9 +12,9 @@ include "../dbConnection.php";
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $package_id = intval($_GET['id']); // Get the package ID and ensure it's an integer
 
-    // Create a new instance of dbConnection
+    // Create a new instance of dbConnection and get the connection
     $db = new dbConnection();
-    $conn = $db->conn;
+    $conn = $db->conn; // Use getConn() method here
 
     // Prepare and execute the SQL query to fetch the package details
     $query = "SELECT * FROM packages WHERE package_id = :package_id";
@@ -34,7 +34,7 @@ $conn = null;
 <br>
 <br>
 <style>
-
+/* CSS for the page */
 .book-button {
     display: inline-block;
     margin-top: 40px;
@@ -140,7 +140,6 @@ $conn = null;
 }
 </style>
 
-
 <div class="main-content">
     <?php if ($package): // Check if the package exists ?>
         <!-- Package Banner Image -->
@@ -164,16 +163,12 @@ $conn = null;
             <ul>
                 <li><strong>Hotel:</strong> <?= htmlspecialchars($package['package_hotel']) ?></li>
                 <li><strong>Amenities:</strong> <?= htmlspecialchars($package['package_amenities']) ?></li>
-                <!-- Add additional details here, such as "Place" and "Rating" -->
-                <!-- <li><strong>Place:</strong> <?= htmlspecialchars($package['place']) ?></li> -->
-                <!-- <li><strong>Rating:</strong> <?= htmlspecialchars($package['rating']) ?> / 5</li> -->
             </ul>
         </div>
 
-
         <!-- Back and Book Now Buttons -->
-<a href="viewPackages.php" class="back-button">Back to Packages</a>
-<a href="../Travel Agent Module/bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
+        <a href="viewPackages.php" class="back-button">Back to Packages</a>
+        <a href="../Travel Agent Module/bookingForm.php?package_id=<?= $package_id ?>" class="book-button">Book Now</a>
 
     <?php else: ?>
         <p>Package details not available.</p>

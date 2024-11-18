@@ -6,7 +6,7 @@ include "../dbConnection.php";
 
 // Create an instance of dbConnection
 $db = new dbConnection(); // Create an object of the dbConnection class
-$conn = $db->conn; // Access the conn property
+$conn = $db->conn; // Access the conn property using the getter method
 
 // Fetch packages from the database
 $query = "SELECT * FROM packages"; // Adjusted table name to 'packages'
@@ -24,7 +24,6 @@ if ($result) {
 
 $conn = null; // Close the database connection
 ?>
-
 
 <style>
 .main-content {
@@ -46,7 +45,6 @@ $conn = null; // Close the database connection
     width: calc(30% - 20px); /* Adjust width according to your preference */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-
 }
 
 .package-card:hover {
@@ -90,8 +88,8 @@ $conn = null; // Close the database connection
 .details-button:hover {
     background-color: black;
 }
-
 </style>
+
 <br>
 <br>
 <div class="main-content">
@@ -118,12 +116,13 @@ $conn = null; // Close the database connection
 <br>
 <br>
 <div class="footer">
-        <div class="socials">
-            <a href="#"><img src="../img/instagram2.png" alt="instagram"></a>
-            <a href="#"><img src="../img/twitter.png" alt="twitter"></a>
-            <a href="#"><img src="../img/linkedin.png" alt="linkedin"></a>
-        </div>
+    <div class="socials">
+        <a href="#"><img src="../img/instagram2.png" alt="instagram"></a>
+        <a href="#"><img src="../img/twitter.png" alt="twitter"></a>
+        <a href="#"><img src="../img/linkedin.png" alt="linkedin"></a>
+    </div>
 
-        <div class="copyright">
-            <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
-        </div>
+    <div class="copyright">
+        <p>Copyright &copy; 2024 <span>CheapThrills.</span> All rights reserved.</p>
+    </div>
+</div>

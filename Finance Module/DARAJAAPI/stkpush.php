@@ -1,209 +1,126 @@
 <?php
-// Include the database connection file
+<<<<<<< HEAD
+include '../../dbConnection.php';
+=======
 include 'db.php';
+>>>>>>> bd36a9191054ba914053409aca99a01c5474675e
 include 'accessToken.php';
+
 date_default_timezone_set('Africa/Nairobi');
 
-// Start the session to access session variables
+// Start session
 session_start();
 
-// Get phone number, amount, and user name from form input
-$phone = $_POST['phone'];
-$money = $_POST['amount'];
-$userName = $_POST['name']; // Assuming name is submitted earlier in the booking form
-$packageName = $_POST['package_name']; // Assuming package name is passed as part of form data
-$checkinDate = $_POST['checkin_date']; // Check-in date from the form
-$checkoutDate = $_POST['checkout_date']; // Check-out date from the form
-$adults = $_POST['adults']; // Number of adults
-$children = $_POST['children']; // Number of children
+// Validate input
+if (!isset($_POST['full_name'], $_POST['email'], $_POST['phone'], $_POST['checkin_date'], $_POST['checkout_date'], $_POST['num_people'], $_POST['total_price'])) {
+    die("Error: Missing form data.");
+}
 
-// Check if the user is logged in (check if 'user_id' exists in the session)
+$full_name = $_POST['full_name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$checkin_date = $_POST['checkin_date'];
+$checkout_date = $_POST['checkout_date'];
+$num_people = $_POST['num_people'];
+$total_price = $_POST['total_price'];
+
+// Verify user login
 if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page if the user is not logged in
     header("Location: login.php");
     exit();
 }
+$userID = $_SESSION['user_id'];
 
-// If the user is logged in, get the user_id from the session
-$userID = $_SESSION['user_id']; // User ID stored in the session
+// Safaricom STK push credentials
 $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-$callbackurl = 'https://cheapthrillsse.vercel.app'; 
-$passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"; 
-$BusinessShortCode = '174379'; 
+$callbackurl = 'https://yourdomain.com/callback.php'; // Replace with actual callback URL
+$passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+$BusinessShortCode = '174379';
 $Timestamp = date('YmdHis');
-
-// Encrypt data to get password
 $Password = base64_encode($BusinessShortCode . $passkey . $Timestamp);
-$PartyA = $phone;
-$PartyB = $BusinessShortCode;
-$AccountReference = 'CHEAP THRILLS';
-$TransactionDesc = 'STK Push Test';
-$Amount = $money;
-$stkpushheader = ['Content-Type:application/json', 'Authorization:Bearer ' . $access_token];
 
-// Initiate CURL
-$curl = curl_init();
-curl_setopt($curl, CURLOPT_URL, $processrequestUrl);
-curl_setopt($curl, CURLOPT_HTTPHEADER, $stkpushheader); // Setting custom header
-$curl_post_data = array(
+$stkpushheader = [
+    'Content-Type:application/json',
+    'Authorization:Bearer ' . $access_token
+];
+
+$curl_post_data = [
     'BusinessShortCode' => $BusinessShortCode,
     'Password' => $Password,
     'Timestamp' => $Timestamp,
     'TransactionType' => 'CustomerPayBillOnline',
-    'Amount' => $Amount,
-    'PartyA' => $PartyA,
+    'Amount' => $total_price,
+    'PartyA' => $phone,
     'PartyB' => $BusinessShortCode,
-    'PhoneNumber' => $PartyA,
+    'PhoneNumber' => $phone,
     'CallBackURL' => $callbackurl,
-    'AccountReference' => $AccountReference,
-    'TransactionDesc' => $TransactionDesc
-);
+    'AccountReference' => 'CHEAP THRILLS',
+    'TransactionDesc' => 'Payment for booking'
+];
 
-$data_string = json_encode($curl_post_data);
+// Initialize CURL
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $processrequestUrl);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $stkpushheader);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_POST, true);
-curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($curl_post_data));
 
-// Execute curl
 $curl_response = curl_exec($curl);
-$data = json_decode($curl_response);
+$data = json_decode($curl_response, true);
 
-// Insert transaction into the database
-try {
-    // Prepare SQL statement to insert the transaction into the database
-    $stmt = $pdo->prepare("INSERT INTO transactions (phone_number, amount, checkout_request_id, transaction_status, response_code, response_description) VALUES (:phone_number, :amount, :checkout_request_id, :transaction_status, :response_code, :response_description)");
+if (curl_errno($curl)) {
+    die("CURL Error: " . curl_error($curl));
+}
 
-    // Bind parameters
-    $stmt->bindParam(':phone_number', $phone);
-    $stmt->bindParam(':amount', $money);
-    $checkoutRequestID = isset($data->CheckoutRequestID) ? $data->CheckoutRequestID : null;
-    $stmt->bindParam(':checkout_request_id', $checkoutRequestID);
-    $status = isset($data->ResponseCode) && $data->ResponseCode == "0" ? 'Completed' : 'Failed';
-    $stmt->bindParam(':transaction_status', $status);
-    $responseCode = isset($data->ResponseCode) ? $data->ResponseCode : null;
-    $stmt->bindParam(':response_code', $responseCode);
-    $responseDescription = isset($data->errorMessage) ? $data->errorMessage : 'STK Push successful';
-    $stmt->bindParam(':response_description', $responseDescription);
+curl_close($curl);
 
-    // Execute the statement
-    $stmt->execute();
+// Handle response
+if (isset($data['ResponseCode']) && $data['ResponseCode'] == "0") {
+    $checkoutRequestID = $data['CheckoutRequestID'] ?? null;
+    $responseCode = $data['ResponseCode'];
+    $responseDescription = $data['ResponseDescription'];
 
-    sleep(20);  // Wait for 20 seconds for callback
-    if ($responseCode == "0") {
-        // Transaction successful, now insert booking information
-        $packageID = $_POST['package_id']; // Assuming Package ID is passed in the form
-
-        // Prepare SQL to insert booking details
-        $stmt_booking = $pdo->prepare("INSERT INTO booked_packages (UserID, package_id, checkin_date, checkout_date, adults, children) VALUES (:userID, :packageID, :checkinDate, :checkoutDate, :adults, :children)");
+    // Insert transaction into the database
+    try {$stmt = $pdo->prepare("INSERT INTO transactions (phone_number, total_price, checkout_request_id, transaction_status, response_code, response_description) 
+        VALUES (:phone_number, :total_price, :checkout_request_id, :transaction_status, :response_code, :response_description)");
+    
+    $stmt->execute([
+        ':phone_number' => $phone,
+        ':total_price' => $total_price,  // Ensure $total_price is defined
+        ':checkout_request_id' => $checkoutRequestID,
+        ':transaction_status' => 'Completed',
+        ':response_code' => $responseCode,
+        ':response_description' => $responseDescription
+    ]);
+    
+    
         
-        // Bind parameters for the booking table
-        $stmt_booking->bindParam(':userID', $userID);
-        $stmt_booking->bindParam(':packageID', $packageID);
-        $stmt_booking->bindParam(':checkinDate', $checkinDate);
-        $stmt_booking->bindParam(':checkoutDate', $checkoutDate);
-        $stmt_booking->bindParam(':adults', $adults);
-        $stmt_booking->bindParam(':children', $children);
-
-        // Execute the booking insertion
-        $stmt_booking->execute();
-
-        // Output success message or receipt display
-        echo "
-        <html>
-        <head>
-            <title>Payment Receipt</title>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    background-color: #f7f7f7;
-                    color: #333;
-                    padding: 20px;
-                    margin: 0;
-                }
-                .receipt-container {
-                    max-width: 600px;
-                    margin: 0 auto;
-                    padding: 20px;
-                    background-color: white;
-                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                    border-radius: 8px;
-                }
-                h2 {
-                    text-align: center;
-                    color: #28a745;
-                }
-                .receipt-table {
-                    width: 100%;
-                    margin-top: 20px;
-                    border-collapse: collapse;
-                }
-                .receipt-table th, .receipt-table td {
-                    padding: 10px;
-                    text-align: left;
-                    border: 1px solid #ddd;
-                }
-                .receipt-table th {
-                    background-color: #f2f2f2;
-                }
-                .total-amount {
-                    text-align: right;
-                    font-size: 18px;
-                    font-weight: bold;
-                    margin-top: 20px;
-                }
-            </style>
-        </head>
-        <body>
-            <div class='receipt-container'>
-                <h2>Payment Successful</h2>
-                <table class='receipt-table'>
-                    <tr>
-                        <th>Name</th>
-                        <td>$userName</td>
-                    </tr>
-                    <tr>
-                        <th>Package</th>
-                        <td>$packageName</td>
-                    </tr>
-                    <tr>
-                        <th>Phone Number</th>
-                        <td>$phone</td>
-                    </tr>
-                    <tr>
-                        <th>Amount</th>
-                        <td>Ksh " . number_format($money, 2) . "</td>
-                    </tr>
-                    <tr>
-                        <th>Checkout Request ID</th>
-                        <td>$checkoutRequestID</td>
-                    </tr>
-                    <tr>
-                        <th>Transaction Status</th>
-                        <td>$status</td>
-                    </tr>
-                    <tr>
-                        <th>Response Code</th>
-                        <td>$responseCode</td>
-                    </tr>
-                    <tr>
-                        <th>Response Description</th>
-                        <td>$responseDescription</td>
-                    </tr>
-                </table>
-                <div class='total-amount'>
-                    <p>Total Paid: Ksh " . number_format($money, 2) . "</p>
-                </div>
-            </div>
-        </body>
-        </html>
-        ";
-    } else {
-        // Transaction failed, show error message
-        echo "<h2>Payment Failed</h2>";
-        echo "<p>Error: " . $responseDescription . "</p>";
+    } catch (PDOException $e) {
+        die("Error: " . $e->getMessage());
     }
 
-} catch (PDOException $e) {
-    echo "Error saving transaction: " . $e->getMessage();
+    // Insert booking details into booked_packages table after payment success
+    try {
+        $stmt = $pdo->prepare("INSERT INTO booked_packages (user_id, full_name, email, phone, checkin_date, checkout_date, num_people, total_price, checkout_request_id) 
+            VALUES (:user_id, :full_name, :email, :phone, :checkin_date, :checkout_date, :num_people, :total_price, :checkout_request_id)");
+
+        $stmt->execute([
+            ':user_id' => $userID,
+            ':full_name' => $full_name,
+            ':email' => $email,
+            ':phone' => $phone,
+            ':checkin_date' => $checkin_date,
+            ':checkout_date' => $checkout_date,
+            ':num_people' => $num_people,
+            ':total_price' => $total_price,
+            ':checkout_request_id' => $checkoutRequestID
+        ]);
+    } catch (PDOException $e) {
+        die("Error inserting booking: " . $e->getMessage());
+    }
+
+} else {
+    echo "Payment failed: " . $data['ResponseDescription'];
 }
 ?>

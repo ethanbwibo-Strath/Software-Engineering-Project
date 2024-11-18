@@ -10,7 +10,7 @@ $user = null; // Initialize $user to handle cases where the query fails
 try {
     $userID = $_SESSION['user_id']; // assuming user ID is stored in session
     $db = new dbConnection();
-    $stmt = $db->conn->prepare("SELECT fname, lname, username, email, phone, created_at FROM users WHERE UserID = :userID");
+    $stmt = $db->conn->prepare("SELECT fname, lname, username, email, phone, created_at, profile_picture FROM users WHERE UserID = :userID");
     $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -140,9 +140,9 @@ try {
                 </div>
             </li>
             
-            <li><a href="#" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
-            <li><a href="#" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
-            <li><a href="#" class="nav-item"><i class='bx bxs-chat'></i>Reviews</a></li>
+            <li><a href="Travel Agent Module/viewPackages.php" class="nav-item"><i class='bx bxs-briefcase'></i>Booking</a></li>
+            <li><a href="Travel Agent Module/customercare.php" class="nav-item"><i class='bx bxs-help-circle'></i>Customer Care</a></li>
+            <li><a href="Travel Agent Module/events.php" class="nav-item"><i class='bx bxs-calendar-event'></i>Events</a></li>
             <li><a href="logout.php" class="nav-item"><i class='bx bxs-log-out'></i>Logout</a></li>
         </ul> 
         <script src="sidebar.js"></script>
@@ -175,7 +175,7 @@ try {
     <div class="main-content"  style="display: flex; ">
         <div class="top">
             <div class="user">
-                <img src="img/Hotels.jpeg" alt="user" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
+                <img src="<?= $user && !empty($user['profile_picture']) ? htmlspecialchars($user['profile_picture']) : 'img/user.png' ?>" alt="user" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; border: 0.5px solid black; padding: 2px;">
                 <p><?= $user ? htmlspecialchars($user['fname'] . ' ' . $user['lname']) : 'User' ?></p>
             </div>
 
