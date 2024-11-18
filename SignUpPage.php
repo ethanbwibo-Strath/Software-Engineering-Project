@@ -138,8 +138,6 @@ $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
             <div class="input-container">
                 <label for="account">Account Type :</label><br>
                 <select name="account" id="account">
-                    <option value="admin">Admin</option>
-                    <option value="agent">Agent</option>
                     <option value="traveler">Traveler</option>
                 </select>
             </div>
