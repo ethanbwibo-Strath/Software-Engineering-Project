@@ -30,7 +30,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Details</title>
     <link rel="icon" href="img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="Traveller Module/userdash.css">
+    <link rel="stylesheet" href=" Travel Agent Module/Travel Agent Dashboard.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script>
         function toggleEdit() {
